@@ -217,3 +217,8 @@ printf "           3) unselect keep original file format\n"
 printf "You only need to do this once in PoEdit.\n\n"
 printf "Please read the translators wiki page:\n"
 printf "\nhttps://wiki.openpli.org/Information_for_Translators\n"
+<<<<<<< HEAD
+=======
+rm -rf *.mo
+chmod 644 *.po
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf

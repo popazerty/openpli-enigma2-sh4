@@ -66,12 +66,13 @@
 		<font filename="andale.ttf" name="Fixed" scale="100"/>
 		<font filename="tuxtxt.ttf" name="Console" scale="100"/>
 		<font name="DejaVuSans" filename="DejaVuSans.ttf" scale="100" />
+<<<<<<< HEAD:data/skin_default/skin.xml
 		<alias name="VirtualKeyBoard" font="DejaVuSans" size="28" height="45" />
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf:data/skin_default/skin.xml
 		<!-- Arabic and Thai char set replacement -->
 		<font filename="ae_AlMateen.ttf" name="Replacement" scale="100" replacement="1"/>
 		<!-- Aliases that should be present -->
-		<alias name="Body" font="Regular" size="20" height="25"/>
-		<alias name="ChoiceList" font="Regular" size="20" height="25"/>
 		<alias name="TextNormal" font="Regular" size="20" height="24"/>
 		<alias name="ChoiceBoxDescription" font="Regular" size="18" height="18"/>
 	</fonts>
@@ -343,12 +344,6 @@ self.autoResize()
 	<screen name="Console" position="center,center" size="560,430" title="Command execution...">
 		<widget name="text" position="10,10" size="540,420" font="Console;14"/>
 	</screen>
-	<!-- Clock display -->
-	<screen name="clockDisplay" position="300,100" size="300,300">
-		<widget name="okbutton" position="10,10" size="280,40"/>
-		<widget name="title" position="10,120" size="280,50"/>
-		<widget name="theClock" position="10,60" size="280,50"/>
-	</screen>
 	<!-- Config OSD -->
 	<screen name="configOSD" position="center,center" size="460,350" title="OSD settings">
 		<widget name="okbutton" position="20,270" size="205,40"/>
@@ -358,10 +353,6 @@ self.autoResize()
 		<widget name="sld_brightness" position="150,20" size="290,20"/>
 		<widget name="txt_gamma" position="20,100" size="120,20"/>
 		<widget name="sld_gamma" position="150,100" size="290,20"/>
-	</screen>
-	<!-- Config test -->
-	<screen name="configTest" position="300,100" size="300,300" title="config menu">
-		<widget name="config" position="10,30" size="420,220"/>
 	</screen>
 	<!-- Default wizard -->
 	<screen name="DefaultWizard" position="fill" title="Welcome..." flags="wfNoBorder">
@@ -1031,8 +1022,8 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2, orgpos.y() + (or
 				{"template": [
 						MultiContentEntryText(pos = (85, 6), size = (440, 28), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 1), # index 1 is the interfacename
 						MultiContentEntryText(pos = (85, 43), size = (440, 20), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_BOTTOM, text = 2), # index 2 is the description
-						MultiContentEntryPixmapAlphaTest(pos = (2, 8), size = (54, 54), png = 3), # index 3 is the interface pixmap
-						MultiContentEntryPixmapAlphaTest(pos = (63, 46), size = (15, 16), png = 4), # index 4 is the default pixmap
+						MultiContentEntryPixmapAlphaBlend(pos = (2, 8), size = (54, 54), png = 3), # index 3 is the interface pixmap
+						MultiContentEntryPixmapAlphaBlend(pos = (63, 46), size = (15, 16), png = 4), # index 4 is the default pixmap
 					],
 				"fonts": [gFont("Regular", 28),gFont("Regular", 20)],
 				"itemHeight": 70

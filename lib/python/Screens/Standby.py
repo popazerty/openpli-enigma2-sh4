@@ -1,4 +1,8 @@
 import os
+<<<<<<< HEAD
+=======
+import struct
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 import RecordTimer
 import Components.ParentalControl
 from Screens.Screen import Screen
@@ -31,6 +35,10 @@ QUIT_MAINT = 16
 QUIT_UPGRADE_PROGRAM = 42
 QUIT_IMAGE_RESTORE = 43
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 def isInfoBarInstance():
 	global infoBarInstance
 	if infoBarInstance is None:
@@ -39,6 +47,10 @@ def isInfoBarInstance():
 			infoBarInstance = InfoBar.instance
 	return infoBarInstance
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 def checkTimeshiftRunning():
 	infobar_instance = isInfoBarInstance()
 	return config.usage.check_timeshift.value and infobar_instance and infobar_instance.timeshiftEnabled() and infobar_instance.timeshift_was_activated
@@ -55,7 +67,7 @@ class StandbyScreen(Screen):
 		if os.path.exists("/usr/script/standby_enter.sh"):
 			Console().ePopen("/usr/script/standby_enter.sh")
 
-		self["actions"] = ActionMap( [ "StandbyActions" ],
+		self["actions"] = ActionMap(["StandbyActions"],
 		{
 			"power": self.Power,
 			"discrete_on": self.Power
@@ -88,7 +100,7 @@ class StandbyScreen(Screen):
 				self.paused_action = hasattr(self.paused_service, "seekstate") and hasattr(self.paused_service, "SEEK_STATE_PLAY") and self.paused_service.seekstate == self.paused_service.SEEK_STATE_PLAY
 				self.paused_action and self.paused_service.pauseService()
 		if not self.paused_service:
-			self.timeHandler =  eDVBLocalTimeHandler.getInstance()
+			self.timeHandler = eDVBLocalTimeHandler.getInstance()
 			if self.timeHandler.ready():
 				if self.session.nav.getCurrentlyPlayingServiceOrGroup():
 					self.stopService()
@@ -183,10 +195,10 @@ class StandbyScreen(Screen):
 				begintime = tuple(config.usage.standby_to_shutdown_timer_blocktime_begin.value)
 				endtime = tuple(config.usage.standby_to_shutdown_timer_blocktime_end.value)
 				if begintime <= endtime and (curtime >= begintime and curtime < endtime) or begintime > endtime and (curtime >= begintime or curtime < endtime):
-					duration = (endtime[0]*3600 + endtime[1]*60) - (curtime[0]*3600 + curtime[1]*60 + curtime[2])
+					duration = (endtime[0] * 3600 + endtime[1] * 60) - (curtime[0] * 3600 + curtime[1] * 60 + curtime[2])
 					if duration:
 						if duration < 0:
-							duration += 24*3600
+							duration += 24 * 3600
 						self.standbyTimeoutTimer.startLongTimer(duration)
 						return
 		if self.session.screen["TunerInfo"].tuner_use_mask or mediafilesInUse(self.session):
@@ -200,6 +212,10 @@ class StandbyScreen(Screen):
 	def createSummary(self):
 		return StandbySummary
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 class Standby(StandbyScreen):
 	def __init__(self, session, StandbyCounterIncrease=True):
 		if checkTimeshiftRunning():
@@ -222,6 +238,10 @@ class Standby(StandbyScreen):
 	def goStandby(self):
 		Notifications.AddNotification(StandbyScreen, self.StandbyCounterIncrease)
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 class StandbySummary(Screen):
 	skin = """
 	<screen position="0,0" size="132,64">
@@ -234,6 +254,10 @@ class StandbySummary(Screen):
 		</widget>
 	</screen>"""
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 class QuitMainloopScreen(Screen):
 	def __init__(self, session, retvalue=QUIT_SHUTDOWN):
 		self.skin = """<screen name="QuitMainloopScreen" position="fill" flags="wfNoBorder">
@@ -247,15 +271,23 @@ class QuitMainloopScreen(Screen):
 			QUIT_REBOOT: _("Your receiver is rebooting"),
 			QUIT_RESTART: _("The user interface of your receiver is restarting"),
 			QUIT_UPGRADE_FP: _("Your frontprocessor will be updated\nPlease wait until your receiver reboots\nThis may take a few minutes"),
+<<<<<<< HEAD
 			QUIT_ERROR_RESTART: _("The user interface of your receiver is restarting\ndue to an error in mytest.py"),
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 			QUIT_DEBUG_RESTART: _("The user interface of your receiver is restarting in debug mode"),
 			QUIT_UPGRADE_PROGRAM: _("Unattended update in progress\nPlease wait until your receiver reboots\nThis may take a few minutes"),
 			QUIT_MANUFACTURER_RESET: _("Manufacturer reset in progress\nPlease wait until enigma2 restarts")
 		}.get(retvalue)
 		self["text"] = Label(text)
 
+
 inTryQuitMainloop = False
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 def getReasons(session, retvalue=QUIT_SHUTDOWN):
 	recordings = session.nav.getRecordings()
 	jobs = len(job_manager.getPendingJobs())
@@ -268,7 +300,11 @@ def getReasons(session, retvalue=QUIT_SHUTDOWN):
 	if jobs:
 		if jobs == 1:
 			job = job_manager.getPendingJobs()[0]
+<<<<<<< HEAD
 			reasons.append("%s: %s (%d%%)" % (job.getStatustext(), job.name, int(100*job.progress/float(job.end))))
+=======
+			reasons.append("%s: %s (%d%%)" % (job.getStatustext(), job.name, int(100 * job.progress / float(job.end))))
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 		else:
 			reasons.append((ngettext("%d job is running in the background!", "%d jobs are running in the background!", jobs) % jobs))
 	if checkTimeshiftRunning():
@@ -279,6 +315,10 @@ def getReasons(session, retvalue=QUIT_SHUTDOWN):
 		reasons.append(_("A file from media is in use!"))
 	return "\n".join(reasons)
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 class TryQuitMainloop(MessageBox):
 	def __init__(self, session, retvalue=QUIT_SHUTDOWN, timeout=-1, default_yes=False, check_reasons=True):
 		self.retval = retvalue
@@ -357,3 +397,27 @@ class TryQuitMainloop(MessageBox):
 	def __onHide(self):
 		global inTryQuitMainloop
 		inTryQuitMainloop = False
+
+class SwitchToAndroid(Screen):
+	def __init__(self, session):
+		self.session = session
+		Screen.__init__(self, session)
+		self["myActionMap"] = ActionMap(["SetupActions", "ColorActions"],
+		{
+			"ok": self.goAndroid,
+			"cancel": self.close,
+		}, -1)
+		self.onShown.append(self.switchAndroid)
+
+	def goAndroid(self, answer):
+		from Screens.Standby import TryQuitMainloop
+		if answer is True:
+			with open('/dev/block/by-name/flag', 'wb') as f:
+				f.write(struct.pack("B", 0))
+			self.session.open(TryQuitMainloop, 2)
+		else:
+			self.close()
+
+	def switchAndroid(self):
+		self.onShown.remove(self.switchAndroid)
+		self.session.openWithCallback(self.goAndroid, MessageBox, _("\n Do you want to switch to Android ?"))

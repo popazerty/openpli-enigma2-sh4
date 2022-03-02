@@ -12,6 +12,7 @@ from Poll import Poll
 from skin import parameters
 
 caid_data = (
+<<<<<<< HEAD
 	("0x0100", "0x01ff", "Seca",       "S",  True),
 	("0x0500", "0x05ff", "Via",        "V",  True),
 	("0x0600", "0x06ff", "Irdeto",     "I",  True),
@@ -27,6 +28,23 @@ caid_data = (
 	("0x4ae0", "0x4ae1", "Dre",        "D",  False),
 	("0x4aee", "0x4aee", "BulCrypt",   "B1", False),
 	("0x5581", "0x5581", "BulCrypt",   "B2", False),
+=======
+	("0x0100", "0x01ff", "Seca", "S", True),
+	("0x0500", "0x05ff", "Via", "V", True),
+	("0x0600", "0x06ff", "Irdeto", "I", True),
+	("0x0900", "0x09ff", "NDS", "Nd", True),
+	("0x0b00", "0x0bff", "Conax", "Co", True),
+	("0x0d00", "0x0dff", "CryptoW", "Cw", True),
+	("0x0e00", "0x0eff", "PowerVU", "P", False),
+	("0x1000", "0x10FF", "Tandberg", "TB", False),
+	("0x1700", "0x17ff", "Beta", "B", True),
+	("0x1800", "0x18ff", "Nagra", "N", True),
+	("0x2600", "0x2600", "Biss", "Bi", False),
+	("0x2700", "0x2710", "Dre3", "D3", False),
+	("0x4ae0", "0x4ae1", "Dre", "D", False),
+	("0x4aee", "0x4aee", "BulCrypt", "B1", False),
+	("0x5581", "0x5581", "BulCrypt", "B2", False),
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 	("0x5601", "0x5604", "Verimatrix", "Vm", False)
 )
 
@@ -55,13 +73,19 @@ codec_data = {
 	19: "N/A 19",
 	20: "N/A 20",
 	21: "SPARK",
+	40: "AVS2",
 }
+
 
 def addspace(text):
 	if text:
 		text += " "
 	return text
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 class PliExtraInfo(Poll, Converter):
 	def __init__(self, type):
 		Converter.__init__(self, type)
@@ -70,6 +94,7 @@ class PliExtraInfo(Poll, Converter):
 		self.poll_interval = 1000
 		self.poll_enabled = True
 		self.ca_table = (
+<<<<<<< HEAD
 			("CryptoCaidSecaAvailable",       "S",  False),
 			("CryptoCaidViaAvailable",        "V",  False),
 			("CryptoCaidIrdetoAvailable",     "I",  False),
@@ -102,6 +127,40 @@ class PliExtraInfo(Poll, Converter):
 			("CryptoCaidBulCrypt2Selected",   "B2", True),
 			("CryptoCaidVerimatrixSelected",  "Vm", True),
 			("CryptoCaidTandbergSelected",    "TB", True),
+=======
+			("CryptoCaidSecaAvailable", "S", False),
+			("CryptoCaidViaAvailable", "V", False),
+			("CryptoCaidIrdetoAvailable", "I", False),
+			("CryptoCaidNDSAvailable", "Nd", False),
+			("CryptoCaidConaxAvailable", "Co", False),
+			("CryptoCaidCryptoWAvailable", "Cw", False),
+			("CryptoCaidPowerVUAvailable", "P", False),
+			("CryptoCaidBetaAvailable", "B", False),
+			("CryptoCaidNagraAvailable", "N", False),
+			("CryptoCaidBissAvailable", "Bi", False),
+			("CryptoCaidDre3Available", "D3", False),
+			("CryptoCaidDreAvailable", "D", False),
+			("CryptoCaidBulCrypt1Available", "B1", False),
+			("CryptoCaidBulCrypt2Available", "B2", False),
+			("CryptoCaidVerimatrixAvailable", "Vm", False),
+			("CryptoCaidTandbergAvailable", "TB", False),
+			("CryptoCaidSecaSelected", "S", True),
+			("CryptoCaidViaSelected", "V", True),
+			("CryptoCaidIrdetoSelected", "I", True),
+			("CryptoCaidNDSSelected", "Nd", True),
+			("CryptoCaidConaxSelected", "Co", True),
+			("CryptoCaidCryptoWSelected", "Cw", True),
+			("CryptoCaidPowerVUSelected", "P", True),
+			("CryptoCaidBetaSelected", "B", True),
+			("CryptoCaidNagraSelected", "N", True),
+			("CryptoCaidBissSelected", "Bi", True),
+			("CryptoCaidDre3Selected", "D3", True),
+			("CryptoCaidDreSelected", "D", True),
+			("CryptoCaidBulCrypt1Selected", "B1", True),
+			("CryptoCaidBulCrypt2Selected", "B2", True),
+			("CryptoCaidVerimatrixSelected", "Vm", True),
+			("CryptoCaidTandbergSelected", "TB", True),
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 		)
 		self.ecmdata = GetEcmInfo()
 		self.feraw = self.fedata = self.updateFEdata = None
@@ -126,6 +185,7 @@ class PliExtraInfo(Poll, Converter):
 
 		for caid_entry in caid_data:
 			if int(caid_entry[0], 16) <= int(self.current_caid, 16) <= int(caid_entry[1], 16):
+<<<<<<< HEAD
 				color = Hex2strColor(colors[0]) # green
 			else:
 				color = Hex2strColor(colors[2]) # grey
@@ -141,6 +201,24 @@ class PliExtraInfo(Poll, Converter):
 				res += color + caid_entry[3]
 
 		res += Hex2strColor(colors[3]) # white (this acts like a color "reset" for following strings
+=======
+				color = "\c%08x" % colors[0] # green
+			else:
+				color = "\c%08x" % colors[2] # grey
+				try:
+					for caid in available_caids:
+						if int(caid_entry[0], 16) <= caid <= int(caid_entry[1], 16):
+							color = "\c%08x" % colors[1] # yellow
+				except:
+					pass
+
+			if color != "\c%08x" % colors[2] or caid_entry[4]:
+				if res:
+					res += " "
+				res += color + caid_entry[3]
+
+		res += "\c%08x" % colors[3] # white (this acts like a color "reset" for following strings
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 		return res
 
 	def createCryptoSpecial(self, info):
@@ -162,7 +240,11 @@ class PliExtraInfo(Poll, Converter):
 		yres = info.getInfo(iServiceInformation.sVideoHeight)
 		mode = ("i", "p", " ")[info.getInfo(iServiceInformation.sProgressive)]
 		fps = (info.getInfo(iServiceInformation.sFrameRate) + 500) / 1000
+<<<<<<< HEAD
 		if not fps:
+=======
+		if not fps or fps == -1:
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 			try:
 				fps = (int(open("/proc/stb/vmpeg/0/framerate", "r").read()) + 500) / 1000
 			except:
@@ -182,12 +264,18 @@ class PliExtraInfo(Poll, Converter):
 		sidpid = info.getInfo(iServiceInformation.sSID)
 		tsid = info.getInfo(iServiceInformation.sTSID)
 		onid = info.getInfo(iServiceInformation.sONID)
-		if vpid < 0 : vpid = 0
-		if apid < 0 : apid = 0
-		if pcrpid < 0 : pcrpid = 0
-		if sidpid < 0 : sidpid = 0
-		if tsid < 0 : tsid = 0
-		if onid < 0 : onid = 0
+		if vpid < 0:
+			vpid = 0
+		if apid < 0:
+			apid = 0
+		if pcrpid < 0:
+			pcrpid = 0
+		if sidpid < 0:
+			sidpid = 0
+		if tsid < 0:
+			tsid = 0
+		if onid < 0:
+			onid = 0
 		return "%d-%d:%05d:%04d:%04d:%04d" % (onid, tsid, sidpid, vpid, apid, pcrpid)
 
 	def createTransponderInfo(self, fedata, feraw, info):
@@ -207,7 +295,7 @@ class PliExtraInfo(Poll, Converter):
 		frequency = feraw.get("frequency")
 		if frequency:
 			if "DVB-T" in feraw.get("tuner_type"):
-				return str(int(frequency / 1000000. + 0.5))
+				return "%d %s" % (int(frequency / 1000000. + 0.5), _("MHz"))
 			else:
 				return str(int(frequency / 1000 + 0.5))
 		return ""

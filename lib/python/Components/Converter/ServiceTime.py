@@ -1,8 +1,10 @@
 from Converter import Converter
 from Components.Element import cached, ElementError
 from enigma import iServiceInformation
+from os import lstat, path
 
-class ServiceTime(Converter, object):
+
+class ServiceTime(Converter):
 	STARTTIME = 0
 	ENDTIME = 1
 	DURATION = 2
@@ -27,7 +29,12 @@ class ServiceTime(Converter, object):
 			return None
 
 		if self.type == self.STARTTIME:
-			return info.getInfo(service, iServiceInformation.sTimeCreate)
+			time = info.getInfo(service, iServiceInformation.sTimeCreate)
+			if time == -1:
+				service_path = service.getPath()
+				if path.isdir(service_path):
+					return lstat(service_path).st_mtime
+			return time
 		elif self.type == self.ENDTIME:
 			begin = info.getInfo(service, iServiceInformation.sTimeCreate)
 			len = info.getLength(service)

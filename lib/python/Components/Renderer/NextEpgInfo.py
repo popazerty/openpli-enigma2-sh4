@@ -5,6 +5,7 @@ from time import time, localtime, strftime
 from skin import parseColor
 from Tools.Hex2strColor import Hex2strColor
 
+
 class NextEpgInfo(Renderer, VariableText):
 	def __init__(self):
 		Renderer.__init__(self)
@@ -14,7 +15,11 @@ class NextEpgInfo(Renderer, VariableText):
 		self.hideLabel = 0
 		self.timecolor = ""
 		self.labelcolor = ""
+<<<<<<< HEAD
 		self.foregroundColor = "\c00?0?0?0"
+=======
+		self.foregroundColor = "\c00f0f0f0"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 		self.numOfSpaces = 1
 
 	GUI_WIDGET = eLabel
@@ -55,6 +60,7 @@ class NextEpgInfo(Renderer, VariableText):
 				self.numOfSpaces = int(value)
 				attribs.append((attrib, value))
 			if attrib == "timeColor":
+<<<<<<< HEAD
 				self.timecolor = Hex2strColor(parseColor(value).argb())
 				attribs.append((attrib, value))
 			if attrib == "labelColor":
@@ -62,6 +68,15 @@ class NextEpgInfo(Renderer, VariableText):
 				attribs.append((attrib, value))
 			if attrib == "foregroundColor":
 				self.foregroundColor = Hex2strColor(parseColor(value).argb())
+=======
+				self.timecolor = "\c%08x" % parseColor(value).argb()
+				attribs.append((attrib, value))
+			if attrib == "labelColor":
+				self.labelcolor = "\c%08x" % parseColor(value).argb()
+				attribs.append((attrib, value))
+			if attrib == "foregroundColor":
+				self.foregroundColor = "\c%08x" % parseColor(value).argb()
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 				attribs.append((attrib, value))
 		for (attrib, value) in attribs:
 			self.skinAttributes.remove((attrib, value))

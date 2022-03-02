@@ -32,7 +32,12 @@
 
 fontRenderClass *fontRenderClass::instance;
 
-static pthread_mutex_t ftlock=PTHREAD_ADAPTIVE_MUTEX_INITIALIZER_NP;
+static pthread_mutex_t ftlock= 
+#ifdef __GLIBC__
+	PTHREAD_ADAPTIVE_MUTEX_INITIALIZER_NP;
+#else
+	PTHREAD_MUTEX_INITIALIZER;
+#endif
 
 struct fntColorCacheKey
 {
@@ -1242,7 +1247,7 @@ void eTextPara::realign(int dir)	// der code hier ist ein wenig merkwuerdig.
 			if (linelength > area.width())
 				return;
 			dir = dirCenter;
-			// fall-through on purpose
+			[[fallthrough]];
 		case dirRight:
 		case dirCenter:
 		case dirBidi:

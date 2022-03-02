@@ -243,8 +243,11 @@ public:
 	bool frontendIsMultistream(int index);
 	std::string getFrontendCapabilities(int index);
 	void setFrontendType(int index, const char *types);
+<<<<<<< HEAD
 protected:
 	void initDemux(int num_demux);
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 };
 SWIG_TEMPLATE_TYPEDEF(ePtr<eDVBResourceManager>, eDVBResourceManager);
 SWIG_EXTEND(ePtr<eDVBResourceManager>,

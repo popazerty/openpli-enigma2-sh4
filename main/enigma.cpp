@@ -94,6 +94,7 @@ void keyEvent(const eRCKey &key)
 #include <lib/dvb/db.h>
 #include <lib/dvb/dvbtime.h>
 #include <lib/dvb/epgcache.h>
+#include <lib/dvb/epgtransponderdatareader.h>
 
 /* Defined in eerror.cpp */
 void setDebugTime(bool enable);
@@ -107,6 +108,7 @@ class eMain: public eApplication, public sigc::trackable
 	ePtr<eDVBResourceManager> m_mgr;
 	ePtr<eDVBLocalTimeHandler> m_locale_time_handler;
 	ePtr<eEPGCache> m_epgcache;
+	ePtr<eEPGTransponderDataReader> m_epgtransponderdatareader;
 
 public:
 	eMain()
@@ -119,6 +121,7 @@ public:
 		m_mgr = new eDVBResourceManager();
 		m_locale_time_handler = new eDVBLocalTimeHandler();
 		m_epgcache = new eEPGCache();
+		m_epgtransponderdatareader = new eEPGTransponderDataReader();
 		m_mgr->setChannelList(m_dvbdb);
 	}
 
@@ -269,7 +272,7 @@ int main(int argc, char **argv)
 			if (::access(rfilename.c_str(), R_OK) < 0)
 				break;
 
-			loadPNG(wait[i], rfilename.c_str());
+			loadImage(wait[i], rfilename.c_str());
 			if (!wait[i])
 			{
 				eDebug("[MAIN] failed to load %s: %m", rfilename.c_str());
@@ -297,8 +300,7 @@ int main(int argc, char **argv)
 	/* start at full size */
 	eVideoWidget::setFullsize(true);
 
-//	python.execute("mytest", "__main__");
-	python.execFile(eEnv::resolve("${libdir}/enigma2/python/mytest.py").c_str());
+	python.execFile(eEnv::resolve("${libdir}/enigma2/python/StartEnigma.py").c_str());
 
 	/* restore both decoders to full size */
 	eVideoWidget::setFullsize(true);
@@ -352,6 +354,10 @@ const char *getBoxType()
 
 void dump_malloc_stats(void)
 {
+#ifdef __GLIBC__
 	struct mallinfo mi = mallinfo();
 	eDebug("MALLOC: %d total", mi.uordblks);
+#else
+	eDebug("MALLOC: info not exposed");
+#endif
 }

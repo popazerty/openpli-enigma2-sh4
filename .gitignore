@@ -39,7 +39,10 @@ compile
 .dirstamp
 mipsel-oe-linux-libtool
 /.vs
+<<<<<<< HEAD
 *.pyc
 *.pyo
 *.mo
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 .vscode/

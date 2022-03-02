@@ -1,4 +1,5 @@
 from Screens.Screen import Screen
+from Components.ActionMap import ActionMap
 from Components.ConfigList import ConfigListScreen
 from Components.config import config, ConfigSlider, getConfigListEntry, ConfigYesNo
 from Components.Label import Label
@@ -6,32 +7,42 @@ from Plugins.SystemPlugins.OSDPositionSetup.plugin import setPosition, setConfig
 from enigma import quitMainloop, eTimer, getDesktop
 import os
 
+
 class OverscanWizard(Screen, ConfigListScreen):
 	def __init__(self, session, timeOut=True):
 		if getDesktop(0).size().height() == 1080:
 			self.skin = """<screen position="fill" flags="wfNoBorder">
 				<ePixmap pixmap="overscan1920x1080.png" position="0,0" size="1920,1080" zPosition="3" alphatest="on"/>
+<<<<<<< HEAD
 				<eLabel position="378,180" size="1244,686" zPosition="3"/>
 				<widget name="title" position="383,185" size="1234,50" font="Regular;40" foregroundColor="blue" zPosition="4"/>
 				<widget name="introduction" position="383,235" size="1234,623" halign="center" valign="center" font="Regular;30" zPosition="4"/>
 				<widget name="config" position="383,635" size="1234,226" font="Regular;30" itemHeight="40" zPosition="4"/>
+=======
+				<eLabel position="338,190" size="1244,698" zPosition="3"/>
+				<widget name="title" position="353,202" size="1224,50" font="Regular;40" foregroundColor="blue" zPosition="4"/>
+				<widget name="introduction" position="343,252" size="1234,623" halign="center" valign="center" font="Regular;30" zPosition="4"/>
+				<widget name="config" position="343,662" size="1234,226" font="Regular;30" itemHeight="40" zPosition="4"/>
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 			</screen>"""
 		else:
 			self.skin = """<screen position="fill"  flags="wfNoBorder">
 				<ePixmap pixmap="overscan1280x720.png" position="0,0" size="1280,720" zPosition="3" alphatest="on"/>
+<<<<<<< HEAD
 				<eLabel position="223,120" size="810,475" zPosition="3"/>
 				<widget name="title" position="228,125" size="800,40" font="Regular;30" foregroundColor="blue" zPosition="4"/>
 				<widget name="introduction" position="228,165" size="800,623" halign="center" valign="center" font="Regular;20" zPosition="4"/>
 				<widget name="config" position="228,590" size="800,120" font="Regular;20" itemHeight="30" zPosition="4"/>
+=======
+				<eLabel position="235,131" size="810,457" zPosition="3"/>
+				<widget name="title" position="240,135" size="800,40" font="Regular;30" foregroundColor="blue" zPosition="4"/>
+				<widget name="introduction" position="240,175" size="800,623" halign="center" valign="center" font="Regular;18" zPosition="4"/>
+				<widget name="config" position="240,590" size="800,120" font="Regular;20" itemHeight="30" zPosition="4"/>
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 			</screen>"""
 
 		Screen.__init__(self, session)
-		self.setup_title = _("Overscan wizard")
-
-		from Components.ActionMap import ActionMap
-		from Components.Button import Button
-
-		self["title"] = Label(_("Overscan wizard"))
+		self.setTitle(_("Overscan wizard"))
 		self["introduction"] = Label()
 
 		self["actions"] = ActionMap(["SetupActions", "ColorActions", "MenuActions"],
@@ -44,8 +55,7 @@ class OverscanWizard(Screen, ConfigListScreen):
 
 		self.step = 1
 		self.list = []
-		ConfigListScreen.__init__(self, self.list, session = self.session, on_change = self.changedEntry)
-		self.onChangedEntry = []
+		ConfigListScreen.__init__(self, self.list, session)
 		self.setScreen()
 
 		self.Timer = eTimer()
@@ -59,15 +69,15 @@ class OverscanWizard(Screen, ConfigListScreen):
 	def __layoutFinished(self):
 		from enigma import eSize, ePoint
 		if getDesktop(0).size().height() == 1080:
-			lenlist = len(self.list)*40
-			self["config"].instance.move(ePoint(383, 863 - lenlist))
+			lenlist = len(self.list) * 40
+			self["config"].instance.move(ePoint(343, 873 - lenlist))
 			self["config"].instance.resize(eSize(1234, lenlist))
 			self["introduction"].instance.resize(eSize(1234, 623 - lenlist))
 		else:
-			lenlist = len(self.list)*30
-			self["config"].instance.move(ePoint(228, 590 - lenlist))
+			lenlist = len(self.list) * 30
+			self["config"].instance.move(ePoint(240, 580 - lenlist))
 			self["config"].instance.resize(eSize(800, lenlist))
-			self["introduction"].instance.resize(eSize(800, 415 - lenlist))
+			self["introduction"].instance.resize(eSize(800, 405 - lenlist))
 
 	def setScreen(self):
 		self.list = []
@@ -80,13 +90,13 @@ class OverscanWizard(Screen, ConfigListScreen):
 				"In other words, if the yellow box touches all four sides of your screen, you have at least 5% overscan on all sides.\n\n"
 				"If you see the tips of all eight arrowheads, then your TV has overscan disabled.\n\n"
 				"Test Pattern by TigerDave - www.tigerdave.com/ht_menu.htm"))
-			self.yes_no = ConfigYesNo(default = True, graphic = False)
+			self.yes_no = ConfigYesNo(default=True, graphic=False)
 			self.list.append(getConfigListEntry(_("Did you see all eight arrow heads?"), self.yes_no))
 			self.save_new_position = False
 			setPosition(0, 0, 0, 0)
 		elif self.step == 2:
 			self.Timer.stop()
-			self["title"].setText(_("Overscan wizard"))
+			self.setTitle(_("Overscan wizard"))
 			self["introduction"].setText(_("It seems you did not see all the eight arrow heads. This means your TV "
 				"has overscan enabled, and is not configured properly.\n\n"
 				"Please refer to your TV's manual to find how you can disable overscan on your TV. Look for terms like 'Just fit', 'Full width', etc. "
@@ -101,10 +111,10 @@ class OverscanWizard(Screen, ConfigListScreen):
 				"you may also miss parts of the user interface, for example volume bars and more.\n\n"
 				"You can now try to resize and change the position of the user interface until you see the eight arrow heads.\n\n"
 				"When done press OK.\n\n"))
-			self.dst_left = ConfigSlider(default = config.plugins.OSDPositionSetup.dst_left.value, increment = 1, limits = (0, 720))
-			self.dst_right = ConfigSlider(default = config.plugins.OSDPositionSetup.dst_left.value + config.plugins.OSDPositionSetup.dst_width.value, increment = 1, limits = (0, 720))
-			self.dst_top = ConfigSlider(default = config.plugins.OSDPositionSetup.dst_top.value, increment = 1, limits = (0, 576))
-			self.dst_bottom = ConfigSlider(default = config.plugins.OSDPositionSetup.dst_top.value + config.plugins.OSDPositionSetup.dst_height.value, increment = 1, limits = (0, 576))
+			self.dst_left = ConfigSlider(default=config.plugins.OSDPositionSetup.dst_left.value, increment=1, limits=(0, 720))
+			self.dst_right = ConfigSlider(default=config.plugins.OSDPositionSetup.dst_left.value + config.plugins.OSDPositionSetup.dst_width.value, increment=1, limits=(0, 720))
+			self.dst_top = ConfigSlider(default=config.plugins.OSDPositionSetup.dst_top.value, increment=1, limits=(0, 576))
+			self.dst_bottom = ConfigSlider(default=config.plugins.OSDPositionSetup.dst_top.value + config.plugins.OSDPositionSetup.dst_height.value, increment=1, limits=(0, 576))
 			self.list.append(getConfigListEntry(_("left"), self.dst_left))
 			self.list.append(getConfigListEntry(_("right"), self.dst_right))
 			self.list.append(getConfigListEntry(_("top"), self.dst_top))
@@ -117,14 +127,14 @@ class OverscanWizard(Screen, ConfigListScreen):
 				"Unfortunately, your model of receiver is not capable to adjust the dimensions of the user interface. "
 				"If not everything is visible, you should change the installed skin to one that supports the overscan area of your TV.\n\n"
 				"When you select a different skin, the user interface of your receiver will restart.\n\n"
-				"Note: you can always start the Overscan wizard later,  via\n\nmenu->installation->system->Overscan wizard"))
+				"Note: you can always start the Overscan wizard later, via\n\nmenu->installation->system->Overscan wizard"))
 			self.yes_no.value = False
 			self.list.append(getConfigListEntry(_("Do you want to select a different skin?"), self.yes_no))
 		elif self.step == 5:
 			self.Timer.stop()
-			self["title"].setText(_("Overscan wizard"))
+			self.setTitle(_("Overscan wizard"))
 			self["introduction"].setText(_("The overscan wizard has been completed.\n\n"
-				"Note: you can always start the Overscan wizard later,  via\n\nMenu->Installation->System->Audio/Video->Overscan wizard"))
+				"Note: you can always start the Overscan wizard later, via\n\nMenu->Installation->System->Audio/Video->Overscan wizard"))
 			self.yes_no.value = True
 			self.list.append(getConfigListEntry(_("Do you want to quit the overscan wizard?"), self.yes_no))
 		elif self.step == 6:
@@ -133,29 +143,14 @@ class OverscanWizard(Screen, ConfigListScreen):
 			self["introduction"].setText(_("The user interface of the receiver will now restart to select the selected skin"))
 			quitMainloop(3)
 		self["config"].list = self.list
-		self["config"].l.setList(self.list)
 		if self["config"].instance:
 			self.__layoutFinished()
 
 	def TimerTimeout(self):
 		self.countdown -= 1
-		self["title"].setText(_("Overscan wizard") + " (%s)" % self.countdown)
+		self.setTitle(_("Overscan wizard") + " (%s)" % self.countdown)
 		if not(self.countdown):
 			self.keyCancel()
-
-	def changedEntry(self):
-		for x in self.onChangedEntry:
-			x()
-
-	def getCurrentEntry(self):
-		return self["config"].getCurrent() and self["config"].getCurrent()[0] or ""
-
-	def getCurrentValue(self):
-		return self["config"].getCurrent() and len(self["config"].getCurrent()) > 1 and str(self["config"].getCurrent()[1].getText()) or ""
-
-	def createSummary(self):
-		from Screens.Setup import SetupSummary
-		return SetupSummary
 
 	def keyLeft(self):
 		ConfigListScreen.keyLeft(self)
@@ -190,7 +185,8 @@ class OverscanWizard(Screen, ConfigListScreen):
 					config.plugins.OSDPositionSetup.dst_top.value = 0
 					config.plugins.OSDPositionSetup.dst_height.value = 576
 				config.misc.do_overscanwizard.value = False
-				config.save()
+				config.misc.do_overscanwizard.save()
+				config.plugins.OSDPositionSetup.save()
 				setConfiguredPosition()
 				self.close()
 			else:
@@ -202,7 +198,7 @@ class OverscanWizard(Screen, ConfigListScreen):
 			self.dst_left.value = self.dst_right.value
 		if self.dst_top.value > self.dst_bottom.value:
 			self.dst_top.value = self.dst_bottom.value
-		self["config"].l.setList(self.list)
+		self["config"].list = self.list
 		setPosition(int(self.dst_left.value), int(self.dst_right.value) - int(self.dst_left.value), int(self.dst_top.value), int(self.dst_bottom.value) - int(self.dst_top.value))
 
 	def keyCancel(self):

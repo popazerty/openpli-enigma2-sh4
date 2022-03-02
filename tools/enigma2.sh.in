@@ -4,6 +4,7 @@ prefix=@prefix@
 exec_prefix=@exec_prefix@
 datarootdir=@datarootdir@
 
+<<<<<<< HEAD
 if [ -e @libdir@/enigma2/python/Plugins/SystemPlugins/SH4BoosterControl/plugin.pyo ]; then
 	cpufreq=`cat /etc/enigma2/settings | grep config.plugins.booster.normalfrequenz | cut -d "=" -f2`
 	case $cpufreq in
@@ -27,6 +28,8 @@ if [ -e @libdir@/enigma2/python/Plugins/SystemPlugins/SH4BoosterControl/plugin.p
 	echo "[enigma2] Setting CPU clock speed to $cpufreq MHz (overclk=$overclk)"
 fi
 
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 if [ -d /home/root ]; then
 	export HOME=/home/root
 	cd
@@ -58,6 +61,7 @@ while : ; do
 	if [ -x @bindir@/enigma2_pre_start.sh ]; then
 		@bindir@/enigma2_pre_start.sh
 	fi
+<<<<<<< HEAD
 
 	# start enigma
 	sync
@@ -73,6 +77,23 @@ while : ; do
 	fi
 
 
+=======
+
+	# start enigma
+	sync
+	if [ $DEBUG_LVL -lt 4 ]; then
+		LD_PRELOAD=$LIBS ENIGMA_DEBUG_LVL=$DEBUG_LVL @bindir@/enigma2
+	else
+		# remove old logfiles
+		keep=5;
+		for file in `ls -t /home/root/enigma.*.debuglog`; do let "keep--"; if [ "$keep" -lt "0" ]; then rm $file; fi; done
+		# todays log file
+		file="/home/root/enigma.$(date +%Y%m%d).debuglog"
+		LD_PRELOAD=$LIBS ENIGMA_DEBUG_LVL=$DEBUG_LVL @bindir@/enigma2 >> $file 2>&1
+	fi
+
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 	# enigma2 exit codes:
 	#
 	#  1 - halt
@@ -93,9 +114,12 @@ while : ; do
 			/sbin/halt
 			;;
 		2)
+<<<<<<< HEAD
 			if [ -f /proc/stb/fp/force_restart ]; then
 				echo 1 > /proc/stb/fp/force_restart
 			fi
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 			/sbin/reboot
 			;;
 		3)
@@ -132,11 +156,23 @@ while : ; do
 			prevupd=0
 			currupd=999
 			opkg update 2>&1 | tee /home/root/opkgupgrade.log
+<<<<<<< HEAD
+=======
+			# check if we need to upgrade busybox first
+			if [ "$(opkg list-upgradable busybox)" != "" ]; then
+				opkg update busybox 2>&1 | tee -a /home/root/opkgupgrade.log
+			fi
+			# update all other packages
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 			while [ $currupd -gt 0 -a $currupd -ne $prevupd ]; do
 				opkg upgrade $DESTS 2>&1 | tee -a /home/root/opkgupgrade.log
 				prevupd=$currupd
 				currupd=`opkg list-upgradable | wc -l`
+<<<<<<< HEAD
 				echo "===> $currupd PACKAGE(S) REMAINING" >> /home/root/ipkupgrade.log
+=======
+				echo "===> $currupd PACKAGE(S) REMAINING" >> /home/root/opkgupgrade.log
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 			done
 			/sbin/reboot
 			;;

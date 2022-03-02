@@ -6,12 +6,14 @@ from enigma import eLabel
 
 # TODO: Harddisk.py has similiar functions, but only similiar.
 # fix this to use same code
+
+
 class DiskInfo(VariableText, GUIComponent):
 	FREE = 0
 	USED = 1
 	SIZE = 2
 
-	def __init__(self, path, type, update = True):
+	def __init__(self, path, type, update=True):
 		GUIComponent.__init__(self)
 		VariableText.__init__(self)
 		self.type = type
@@ -30,12 +32,12 @@ class DiskInfo(VariableText, GUIComponent):
 				percent = '(' + str((100 * stat.f_bavail) // stat.f_blocks) + '%)'
 				free = stat.f_bfree * stat.f_bsize
 				if free < 10000000:
-					free = _("%d kB") % (free >> 10)
+					free = "%d %s" % (free >> 10, _("kB"))
 				elif free < 10000000000:
-					free = _("%d MB") % (free >> 20)
+					free = "%d %s" % (free >> 20, _("MB"))
 				else:
-					free = _("%d GB") % (free >> 30)
-				self.setText(_("%s %s free disk space") % (free, percent))
+					free = "%d %s" % (free >> 30, _("GB"))
+				self.setText(_("%(freespace)s %(percent)s free disk space") % {"freespace": free, "percent": percent})
 			except:
 				# occurs when f_blocks is 0 or a similar error
 				self.setText("-?-")

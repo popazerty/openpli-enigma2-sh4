@@ -6,8 +6,14 @@ from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from enigma import eTimer
 
+<<<<<<< HEAD:lib/python/Screens/Opkg.py
 class Opkg(Screen):
 	def __init__(self, session, cmdList = []):
+=======
+
+class Opkg(Screen):
+	def __init__(self, session, cmdList=[]):
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf:lib/python/Screens/Opkg.py
 		Screen.__init__(self, session)
 
 		self.cmdList = cmdList
@@ -60,7 +66,11 @@ class Opkg(Screen):
 		else:
 			cmd = self.cmdList[self.runningCmd]
 			self.slider.setValue(self.runningCmd)
+<<<<<<< HEAD:lib/python/Screens/Opkg.py
 			self.opkg.startCmd(cmd[0], args = cmd[1])
+=======
+			self.opkg.startCmd(cmd[0], args=cmd[1])
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf:lib/python/Screens/Opkg.py
 			self.startActivityTimer()
 
 	def doActivityTimer(self):
@@ -112,7 +122,7 @@ class Opkg(Screen):
 			self.session.openWithCallback(
 				self.modificationCallback,
 				MessageBox,
-				_("A configuration file (%s) was modified since Installation.\nDo you want to keep your version?") % (param)
+				_("A configuration file (%s) has been modified since it was installed. Would you like to keep the modified version?") % (param)
 			)
 
 	def modificationCallback(self, res):

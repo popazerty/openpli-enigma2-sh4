@@ -66,6 +66,11 @@ public:
 		NEW_ROTOR_POS,               // new rotor position (not validated)
 		ROTOR_CMD,                   // completed rotor cmd (finalized)
 		ROTOR_POS,                   // current rotor position
+<<<<<<< HEAD
+=======
+		SAT_POSITION,                // current frontend satellite position
+		ADVANCED_LINKED_ROOT,        // number slot connected frontend
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 		LINKED_PREV_PTR,             // prev double linked list (for linked FEs)
 		LINKED_NEXT_PTR,             // next double linked list (for linked FEs)
 		SATPOS_DEPENDS_PTR,          // pointer to FE with configured rotor (with twin/quattro lnb)
@@ -100,6 +105,7 @@ private:
 	char m_description[128];
 	dvb_frontend_info fe_info;
 	int satfrequency;
+	int m_voltage5_terrestrial; // -1 undefined, 0 off, 1 on
 	eDVBFrontendParameters oparm;
 
 	int m_state;

@@ -51,6 +51,10 @@ DEFAULT_ZONE = "Amsterdam"  # OpenPLi
 TIMEZONE_FILE = "/etc/timezone.xml"  # This should be SCOPE_TIMEZONES_FILE!  This file moves arond the filesystem!!!  :(
 TIMEZONE_DATA = "/usr/share/zoneinfo/"  # This should be SCOPE_TIMEZONES_DATA!
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 def InitTimeZones():
 	config.timezone = ConfigSubsection()
 	config.timezone.area = ConfigSelection(default=DEFAULT_AREA, choices=timezones.getTimezoneAreaList())
@@ -239,6 +243,7 @@ class Timezones:
 	#
 	def getTimezoneAreaList(self):
 		return sorted(self.timezones.keys())
+<<<<<<< HEAD
 
 	# Return a sorted list of all Zone entries for an Area.
 	#
@@ -265,6 +270,34 @@ class Timezones:
 			choices = self.getTimezoneList(area=area)
 		return areaDefaultZone.setdefault(area, choices[0][0])
 
+=======
+
+	# Return a sorted list of all Zone entries for an Area.
+	#
+	def getTimezoneList(self, area=None):
+		if area is None:
+			area = config.timezone.area.value
+		return self.timezones.get(area, [("UTC", "UTC")])
+
+	# Return a default Zone for any given Area.  If there is no specific
+	# default then the first Zone in the Area will be returned.
+	#
+	def getTimezoneDefault(self, area=None, choices=None):
+		areaDefaultZone = {
+			"Australia": "Sydney",
+			"Classic": "Europe/%s" % DEFAULT_ZONE,
+			"Etc": "GMT",
+			"Europe": DEFAULT_ZONE,
+			"Generic": "UTC",
+			"Pacific": "Auckland"
+		}
+		if area is None:
+			area = config.timezone.area.value
+		if choices is None:
+			choices = self.getTimezoneList(area=area)
+		return areaDefaultZone.setdefault(area, choices[0][0])
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 	def activateTimezone(self, zone, area, runCallbacks=True):
 		tz = zone if area in ("Classic", "Generic") else path.join(area, zone)
 		file = path.join(TIMEZONE_DATA, tz)

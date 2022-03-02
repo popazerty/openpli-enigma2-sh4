@@ -6,8 +6,12 @@ from Components.Label import Label
 from ServiceReference import ServiceReference
 from enigma import eListboxPythonMultiContent, eListbox, gFont, iServiceInformation, eServiceCenter, eDVBFrontendParametersSatellite, RT_HALIGN_LEFT, RT_VALIGN_CENTER
 from Tools.Transponder import ConvertToHumanReadable, getChannelNumber
-import skin
+from skin import applySkinFactor, fonts, parameters
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 TYPE_TEXT = 0
 TYPE_VALUE_HEX = 1
 TYPE_VALUE_DEC = 2
@@ -18,9 +22,14 @@ TYPE_VALUE_FREQ = 6
 TYPE_VALUE_FREQ_FLOAT = 7
 TYPE_VALUE_BITRATE = 8
 
+
 def to_unsigned(x):
 	return x & 0xFFFFFFFF
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 def ServiceInfoListEntry(a, b="", valueType=TYPE_TEXT, param=4, altColor=False):
 	print "b:", b
 	if not isinstance(b, str):
@@ -42,6 +51,7 @@ def ServiceInfoListEntry(a, b="", valueType=TYPE_TEXT, param=4, altColor=False):
 			b = ("%d.%d%s") % (b // 10, b % 10, direction)
 		else:
 			b = str(b)
+<<<<<<< HEAD
 	xa, ya, wa, ha = skin.parameters.get("ServiceInfoLeft", (0, 0, 300, 25))
 	xb, yb, wb, hb = skin.parameters.get("ServiceInfoRight", (300, 0, 600, 25))
 	color = skin.parameters.get("ServiceInfoAltColor", (0x00FFBF00)) # alternative foreground color
@@ -52,6 +62,19 @@ def ServiceInfoListEntry(a, b="", valueType=TYPE_TEXT, param=4, altColor=False):
 	else:
 		res.append((eListboxPythonMultiContent.TYPE_TEXT, xa, ya, wa + wb, ha, 0, RT_HALIGN_LEFT|RT_VALIGN_CENTER, a, color if altColor is True else None)) # spread horizontally
 	return res
+=======
+	xa, ya, wa, ha = parameters.get("ServiceInfoLeft", applySkinFactor(0, 0, 300, 25))
+	xb, yb, wb, hb = parameters.get("ServiceInfoRight", applySkinFactor(300, 0, 600, 25))
+	color = parameters.get("ServiceInfoAltColor", (0x00FFBF00)) # alternative foreground color
+	res = [None]
+	if b:
+		res.append((eListboxPythonMultiContent.TYPE_TEXT, xa, ya, wa, ha, 0, RT_HALIGN_LEFT | RT_VALIGN_CENTER, a))
+		res.append((eListboxPythonMultiContent.TYPE_TEXT, xb, yb, wb, hb, 0, RT_HALIGN_LEFT | RT_VALIGN_CENTER, b))
+	else:
+		res.append((eListboxPythonMultiContent.TYPE_TEXT, xa, ya, wa + wb, ha, 0, RT_HALIGN_LEFT | RT_VALIGN_CENTER, a, color if altColor is True else None)) # spread horizontally
+	return res
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 class ServiceInfoList(GUIComponent):
 	def __init__(self, source):
@@ -59,7 +82,7 @@ class ServiceInfoList(GUIComponent):
 		self.l = eListboxPythonMultiContent()
 		self.list = source
 		self.l.setList(self.list)
-		font = skin.fonts.get("ServiceInfo", ("Regular", 21, 25))
+		font = fonts.get("ServiceInfo", applySkinFactor("Regular", 21, 25))
 		self.l.setFont(0, gFont(font[0], font[1]))
 		self.l.setItemHeight(font[2])
 
@@ -68,8 +91,10 @@ class ServiceInfoList(GUIComponent):
 	def postWidgetCreate(self, instance):
 		self.instance.setContent(self.l)
 
+
 TYPE_SERVICE_INFO = 1
 TYPE_TRANSPONDER_INFO = 2
+
 
 class ServiceInfo(Screen):
 	def __init__(self, session, serviceref=None):
@@ -94,7 +119,7 @@ class ServiceInfo(Screen):
 		play_service = session.nav.getCurrentlyPlayingServiceReference()
 		if serviceref and not (play_service and play_service == serviceref):
 			self.type = TYPE_TRANSPONDER_INFO
-			self.skinName="ServiceInfoSimple"
+			self.skinName = "ServiceInfoSimple"
 			self.transponder_info = eServiceCenter.getInstance().info(serviceref).getInfoObject(serviceref, iServiceInformation.sTransponderData)
 			# info is a iStaticServiceInformation, not a iServiceInformation
 		else:
@@ -112,7 +137,7 @@ class ServiceInfo(Screen):
 			if self.feinfo or self.transponder_info:
 				self["key_blue"] = self["blue"] = Label(_("Tuner setting values"))
 			else:
-				self.skinName="ServiceInfoSimple"
+				self.skinName = "ServiceInfoSimple"
 
 		self.onShown.append(self.ShowServiceInformation)
 
@@ -139,17 +164,32 @@ class ServiceInfo(Screen):
 				height = self.info.getInfo(iServiceInformation.sVideoHeight)
 				if width > 0 and height > 0:
 					resolution = videocodec + " - "
-					resolution += "%dx%d - " % (width,height)
-					resolution += str((self.info.getInfo(iServiceInformation.sFrameRate) + 500) / 1000)
+					resolution += "%dx%d - " % (width, height)
+					fps = (self.info.getInfo(iServiceInformation.sFrameRate) + 500) / 1000
+					if fps in (0, -1):
+						try:
+							fps = (int(open("/proc/stb/vmpeg/0/framerate", "r").read()) + 500) / 1000
+						except:
+							pass
+					resolution += str(fps)
 					resolution += (" i", " p", "")[self.info.getInfo(iServiceInformation.sProgressive)]
 					aspect = self.getServiceInfoValue(iServiceInformation.sAspect)
+<<<<<<< HEAD
 					aspect = aspect in ( 1, 2, 5, 6, 9, 0xA, 0xD, 0xE ) and "4:3" or "16:9"
 					resolution += " - ["+aspect+"]"
+=======
+					aspect = aspect in (1, 2, 5, 6, 9, 0xA, 0xD, 0xE) and "4:3" or "16:9"
+					resolution += " - [" + aspect + "]"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 				gamma = ("SDR", "HDR", "HDR10", "HLG", "")[self.info.getInfo(iServiceInformation.sGamma)]
 				if gamma:
 					resolution += " - " + gamma
 			self.service = self.session.nav.getCurrentService()
+<<<<<<< HEAD
 			if "%3a//" in refstr and reftype not in (1,257,4098,4114):
+=======
+			if "%3a//" in refstr and reftype not in (1, 257, 4098, 4114):
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 			#IPTV 4097 5001, no PIDs shown
 				fillList = [(_("Service name"), name, TYPE_TEXT),
 					(_("Videocodec, size & format"), resolution, TYPE_TEXT),
@@ -220,7 +260,11 @@ class ServiceInfo(Screen):
 				audioPID = self.audio.getTrackInfo(i).getPID()
 				audioLang = self.audio.getTrackInfo(i).getLanguage()
 				if audioLang == "":
+<<<<<<< HEAD
 					audioLang = "Not defined"
+=======
+					audioLang = _("Not defined")
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 				if self.showAll or currentTrack == i:
 					trackList += [(_("Audio PID%s, codec & lang") % ((" %s") % (i + 1) if self.numberofTracks > 1 and self.showAll else ""), "%04X (%d) - %s - %s" % (to_unsigned(audioPID), audioPID, audioDesc, audioLang), TYPE_TEXT)]
 				if self.getServiceInfoValue(iServiceInformation.sAudioPID) == "N/A":
@@ -257,12 +301,21 @@ class ServiceInfo(Screen):
 					subList += [(_("DVB Subtitles PID & lang"), "%04X (%d) - %s" % (to_unsigned(subPID), subPID, subLang), TYPE_TEXT)]
 
 				elif x[0] == 1: # Teletext
+<<<<<<< HEAD
 					subNumber = "%x%02x" %(x[3] and x[3] or 8, x[2])
 					subList += [(_("TXT Subtitles page & lang"), "%s - %s" % (subNumber, subLang), TYPE_TEXT)]
 
 				elif x[0] == 2: # File
 					types = (_("unknown"), _("Embedded"), _("SSA File"), _("ASS File"),
 							_("SRT File"), _("VOB File"), _("PGS File"))
+=======
+					subNumber = "%x%02x" % (x[3] and x[3] or 8, x[2])
+					subList += [(_("TXT Subtitles page & lang"), "%s - %s" % (subNumber, subLang), TYPE_TEXT)]
+
+				elif x[0] == 2: # File
+					types = (_("unknown"), _("embedded"), _("SSA file"), _("ASS file"),
+							_("SRT file"), _("VOB file"), _("PGS file"))
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 					try:
 						description = types[x[2]]
 					except:
@@ -302,8 +355,8 @@ class ServiceInfo(Screen):
 				return (tuner,
 					(_("System & Modulation"), frontendData["system"] + " " + frontendData["modulation"], TYPE_TEXT),
 					(_("Orbital position"), frontendData["orbital_position"], TYPE_VALUE_DEC),
-					(_("Frequency & Polarization"), "%s MHz" % (frontendData.get("frequency", 0) / 1000) + " - " + frontendData["polarization"], TYPE_TEXT),
-					(_("Symbol rate & FEC"), "%s KSymb/s" % (frontendData.get("symbol_rate", 0) / 1000) + " - " + frontendData["fec_inner"], TYPE_TEXT),
+					(_("Frequency & Polarization"), _("%s MHz") % (frontendData.get("frequency", 0) / 1000) + " - " + frontendData["polarization"], TYPE_TEXT),
+					(_("Symbol rate & FEC"), _("%s KSymb/s") % (frontendData.get("symbol_rate", 0) / 1000) + " - " + frontendData["fec_inner"], TYPE_TEXT),
 					(_("Inversion, Pilot & Roll-off"), frontendData["inversion"] + " - " + str(frontendData.get("pilot", None)) + " - " + str(frontendData.get("rolloff", None)), TYPE_TEXT),
 					(_("Input Stream ID"), issy(frontendData.get("is_id", 0)), TYPE_VALUE_DEC),
 					(_("PLS Mode"), frontendData.get("pls_mode", None), TYPE_TEXT),
@@ -314,11 +367,11 @@ class ServiceInfo(Screen):
 				return (tuner,
 					(_("Modulation"), frontendData["modulation"], TYPE_TEXT),
 					(_("Frequency"), frontendData.get("frequency", 0), TYPE_VALUE_FREQ_FLOAT),
-					(_("Symbol rate & FEC"), "%s KSymb/s" % (frontendData.get("symbol_rate", 0) / 1000) + " - " + frontendData["fec_inner"], TYPE_TEXT),
+					(_("Symbol rate & FEC"), _("%s KSymb/s") % (frontendData.get("symbol_rate", 0) / 1000) + " - " + frontendData["fec_inner"], TYPE_TEXT),
 					(_("Inversion"), frontendData["inversion"], TYPE_TEXT))
 			elif frontendDataOrg["tuner_type"] == "DVB-T":
 				return (tuner,
-					(_("Frequency & Channel"), "%.3f MHz" % ((frontendData.get("frequency", 0) / 1000) / 1000.0) + " - " + frontendData["channel"], TYPE_TEXT),
+					(_("Frequency & Channel"), _("%.3f MHz") % ((frontendData.get("frequency", 0) / 1000) / 1000.0) + " - " + frontendData["channel"], TYPE_TEXT),
 					(_("Inversion & Bandwidth"), frontendData["inversion"] + " - " + str(frontendData["bandwidth"]), TYPE_TEXT),
 					(_("Code R. LP-HP & Guard Int."), frontendData["code_rate_lp"] + " - " + frontendData["code_rate_hp"] + " - " + frontendData["guard_interval"], TYPE_TEXT),
 					(_("Constellation & FFT mode"), frontendData["constellation"] + " - " + frontendData["transmission_mode"], TYPE_TEXT),
@@ -336,9 +389,9 @@ class ServiceInfo(Screen):
 			if item[1]:
 				value = item[1]
 				if len(item) < 4:
-					tlist.append(ServiceInfoListEntry(item[0]+":", value, item[2]))
+					tlist.append(ServiceInfoListEntry(item[0] + ":", value, item[2]))
 				else:
-					tlist.append(ServiceInfoListEntry(item[0]+":", value, item[2], item[3]))
+					tlist.append(ServiceInfoListEntry(item[0] + ":", value, item[2], item[3]))
 		self["infolist"].l.setList(tlist)
 
 	def getServiceInfoValue(self, what):
@@ -367,7 +420,7 @@ class ServiceInfo(Screen):
 						break
 				if caid[2]:
 					if CaIdDescription == "Seca":
-						provid = ",".join([caid[2][i:i+4] for i in range(0, len(caid[2]), 30)])
+						provid = ",".join([caid[2][i:i + 4] for i in range(0, len(caid[2]), 30)])
 					if CaIdDescription == "Nagra":
 						provid = caid[2][-4:]
 					if CaIdDescription == "Via":

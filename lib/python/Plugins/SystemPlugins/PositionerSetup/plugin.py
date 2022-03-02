@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from enigma import eTimer, eDVBSatelliteEquipmentControl, eDVBResourceManager, eDVBDiseqcCommand, eDVBFrontendParametersSatellite, iDVBFrontend
 
 from Screens.Screen import Screen
@@ -901,287 +902,21 @@ class PositionerSetup(Screen):
 			gotoXtable = (0x00, 0x02, 0x03, 0x05, 0x06, 0x08, 0x0A, 0x0B, 0x0D, 0x0E)
 			a = int(round(abs(angle) * 10.0))
 			return ((a / 10) << 4) + gotoXtable[a % 10]
+=======
+from Plugins.Plugin import PluginDescriptor
+from Components.NimManager import nimmanager
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
-		satHourAngle = rotor_calc.calcSatHourangle(satlon, sitelat, sitelon)
-		if sitelat >= 0: # Northern Hemisphere
-			rotorCmd = azimuth2Rotorcode(180 - satHourAngle)
-			if satHourAngle <= 180: # the east
-				rotorCmd |= 0xE000
-			else:					# west
-				rotorCmd |= 0xD000
-		else: # Southern Hemisphere
-			if satHourAngle <= 180: # the east
-				rotorCmd = azimuth2Rotorcode(satHourAngle) | 0xD000
-			else: # west
-				rotorCmd = azimuth2Rotorcode(360 - satHourAngle) | 0xE000
-		return rotorCmd
 
-	def gotoX(self, satlon):
-		rotorCmd = PositionerSetup.gotoXcalc(satlon, self.sitelat, self.sitelon)
-		self.diseqccommand("gotoX", rotorCmd)
-		x = PositionerSetup.rotorCmd2Step(rotorCmd, self.tuningstepsize)
-		print>>log, (_("Rotor step position:") + " %4d") % x
-		return x
-
-	def getTurningspeed(self):
-		if self.polarisation == eDVBFrontendParametersSatellite.Polarisation_Horizontal:
-			turningspeed = self.turningspeedH
-		else:
-			turningspeed = self.turningspeedV
-		return max(turningspeed, 0.1)
-
-	TURNING_START_STOP_DELAY = 1.600	# seconds
-	MAX_SEARCH_ANGLE = 12.0				# degrees
-	MAX_FOCUS_ANGLE = 6.0				# degrees
-	LOCK_LIMIT = 0.1					# ratio
-	MEASURING_TIME = 2.500				# seconds
-
-	def measure(self, time = MEASURING_TIME):	# time in seconds
-		self.snr_percentage = 0.0
-		self.lock_count = 0.0
-		self.stat_count = 0
-		self.low_rate_adapter_count = 0
-		self.max_count = max(int((time * 1000 + self.UPDATE_INTERVAL / 2)/ self.UPDATE_INTERVAL), 1)
-		self.collectingStatistics = True
-		self.dataAvailable.clear()
-		self.dataAvailable.wait()
-
-	def logMsg(self, msg, timeout = 0):
-		self.statusMsg(msg, timeout = timeout)
-		self.printMsg(msg)
-
-	def sync(self):
-		self.lock_count = 0.0
-		n = 0
-		while self.lock_count < (1 - self.LOCK_LIMIT) and n < 5:
-			self.measure(time = 0.500)
-			n += 1
-		if self.lock_count < (1 - self.LOCK_LIMIT):
-			return False
-		return True
-
-	randomGenerator = None
-	def randomBool(self):
-		if self.randomGenerator is None:
-			self.randomGenerator = SystemRandom()
-		return self.randomGenerator.random() >= 0.5
-
-	def gotoXcalibration(self):
-
-		def move(x):
-			z = self.gotoX(x + satlon)
-			time = int(abs(x - prev_pos) / turningspeed + 2 * self.TURNING_START_STOP_DELAY)
-			sleep(time * self.MAX_LOW_RATE_ADAPTER_COUNT)
-			return z
-
-		def reportlevels(pos, level, lock):
-			print>>log, (_("Signal quality") + " %5.1f" + chr(176) + "   : %6.2f") % (pos, level)
-			print>>log, (_("Lock ratio") + "     %5.1f" + chr(176) + "   : %6.2f") % (pos, lock)
-
-		def optimise(readings):
-			xi = readings.keys()
-			yi = map(lambda (x, y) : x, readings.values())
-			x0 = sum(map(mul, xi, yi)) / sum(yi)
-			xm = xi[yi.index(max(yi))]
-			return (x0, xm)
-
-		def toGeopos(x):
-			if x < 0:
-				return _("W")
-			else:
-				return _("E")
-
-		def toGeoposEx(x):
-			if x < 0:
-				return _("west")
-			else:
-				return _("east")
-
-		self.logMsg(_("GotoX calibration"))
-		satlon = self.orbitalposition.float
-		print>>log, (_("Satellite longitude:") + " %5.1f" + chr(176) + " %s") % (satlon, self.orientation.value)
-		satlon = PositionerSetup.orbital2metric(satlon, self.orientation.value)
-		prev_pos = 0.0						# previous relative position w.r.t. satlon
-		turningspeed = self.getTurningspeed()
-
-		x = 0.0								# relative position w.r.t. satlon
-		dir = 1
-		if self.randomBool():
-			dir = -dir
-		while abs(x) < self.MAX_SEARCH_ANGLE:
-			if self.sync():
+def getUsableRotorNims(only_first=False):
+	usableRotorNims = []
+	nimList = nimmanager.getNimListOfType("DVB-S")
+	for nim in nimList:
+		if nimmanager.getRotorSatListForNim(nim, only_first=only_first):
+			usableRotorNims.append(nim)
+			if only_first:
 				break
-			x += (1.0 * dir)						# one degree east/west
-			self.statusMsg((_("Searching") + " " + toGeoposEx(dir) + " %2d" + chr(176)) % abs(x), blinking = True)
-			move(x)
-			prev_pos = x
-		else:
-			x = 0.0
-			dir = -dir
-			while abs(x) < self.MAX_SEARCH_ANGLE:
-				x += (1.0 * dir)					# one degree east/west
-				self.statusMsg((_("Searching") + " " + toGeoposEx(dir) + " %2d" + chr(176)) % abs(x), blinking = True)
-				move(x)
-				prev_pos = x
-				if self.sync():
-					break
-			else:
-				msg = _("Cannot find any signal ..., aborting !")
-				self.printMsg(msg)
-				self.statusMsg("")
-				self.session.open(MessageBox, msg, MessageBox.TYPE_ERROR, timeout = 5)
-				return
-		x = round(x / self.tuningstepsize) * self.tuningstepsize
-		move(x)
-		prev_pos = x
-		measurements = {}
-		self.measure()
-		print>>log, (_("Initial signal quality") + " %5.1f" + chr(176) + ": %6.2f") % (x, self.snr_percentage)
-		print>>log, (_("Initial lock ratio") + "     %5.1f" + chr(176) + ": %6.2f") % (x, self.lock_count)
-		measurements[x] = (self.snr_percentage, self.lock_count)
-
-		start_pos = x
-		x = 0.0
-		dir = 1
-		if self.randomBool():
-			dir = -dir
-		while x < self.MAX_FOCUS_ANGLE:
-			x += self.tuningstepsize * dir					# one step east/west
-			self.statusMsg((_("Moving") + " " + toGeoposEx(dir) + " %5.1f" + chr(176)) % abs(x + start_pos), blinking = True)
-			move(x + start_pos)
-			prev_pos = x + start_pos
-			self.measure()
-			measurements[x + start_pos] = (self.snr_percentage, self.lock_count)
-			reportlevels(x + start_pos, self.snr_percentage, self.lock_count)
-			if self.lock_count < self.LOCK_LIMIT:
-				break
-		else:
-			msg = _("Cannot determine") + " " + toGeoposEx(dir) + " " + _("limit ..., aborting !")
-			self.printMsg(msg)
-			self.statusMsg("")
-			self.session.open(MessageBox, msg, MessageBox.TYPE_ERROR, timeout = 5)
-			return
-		x = 0.0
-		dir = -dir
-		self.statusMsg((_("Moving") + " " + toGeoposEx(dir) + " %5.1f" + chr(176)) % abs(start_pos), blinking = True)
-		move(start_pos)
-		prev_pos = start_pos
-		if not self.sync():
-			msg = _("Sync failure moving back to origin !")
-			self.printMsg(msg)
-			self.statusMsg("")
-			self.session.open(MessageBox, msg, MessageBox.TYPE_ERROR, timeout = 5)
-			return
-		while abs(x) < self.MAX_FOCUS_ANGLE:
-			x += self.tuningstepsize * dir					# one step west/east
-			self.statusMsg((_("Moving") + " " + toGeoposEx(dir) + " %5.1f" + chr(176)) % abs(x + start_pos), blinking = True)
-			move(x + start_pos)
-			prev_pos = x + start_pos
-			self.measure()
-			measurements[x + start_pos] = (self.snr_percentage, self.lock_count)
-			reportlevels(x + start_pos, self.snr_percentage, self.lock_count)
-			if self.lock_count < self.LOCK_LIMIT:
-				break
-		else:
-			msg = _("Cannot determine") + " " + toGeoposEx(dir) + " " + _("limit ..., aborting !")
-			self.printMsg(msg)
-			self.statusMsg("")
-			self.session.open(MessageBox, msg, MessageBox.TYPE_ERROR, timeout = 5)
-			return
-		(x0, xm) = optimise(measurements)
-		x = move(x0)
-		if satlon > 180:
-			satlon -= 360
-		x0 += satlon
-		xm += satlon
-		print>>log, (_("Weighted position") + "     : %5.1f" + chr(176) + " %s") % (abs(x0), toGeopos(x0))
-		print>>log, (_("Strongest position") + "    : %5.1f" + chr(176) + " %s") % (abs(xm), toGeopos(xm))
-		self.logMsg((_("Final position at") + " %5.1f" + chr(176) + " %s / %d; " + _("offset is") + " %4.1f" + chr(176)) % (abs(x0), toGeopos(x0), x, x0 - satlon), timeout = 10)
-
-	def autofocus(self):
-
-		def move(x):
-			if x > 0:
-				self.diseqccommand("moveEast", (-x) & 0xFF)
-			elif x < 0:
-				self.diseqccommand("moveWest", x & 0xFF)
-			if x != 0:
-				time = int(abs(x) * self.tuningstepsize / turningspeed + 2 * self.TURNING_START_STOP_DELAY)
-				sleep(time * self.MAX_LOW_RATE_ADAPTER_COUNT)
-
-		def reportlevels(pos, level, lock):
-			print>>log, (_("Signal quality") + " [%2d]   : %6.2f") % (pos, level)
-			print>>log, (_("Lock ratio") + " [%2d]       : %6.2f") % (pos, lock)
-
-		def optimise(readings):
-			xi = readings.keys()
-			yi = map(lambda (x, y) : x, readings.values())
-			x0 = int(round(sum(map(mul, xi, yi)) / sum(yi)))
-			xm = xi[yi.index(max(yi))]
-			return (x0, xm)
-
-		def toGeoposEx(x):
-			if x < 0:
-				return _("west")
-			else:
-				return _("east")
-
-		self.logMsg(_("Auto focus commencing ..."))
-		turningspeed = self.getTurningspeed()
-		measurements = {}
-		maxsteps = max(min(round(self.MAX_FOCUS_ANGLE / self.tuningstepsize), 0x1F), 3)
-		self.measure()
-		print>>log, (_("Initial signal quality:") + " %6.2f") % self.snr_percentage
-		print>>log, (_("Initial lock ratio") + "    : %6.2f") % self.lock_count
-		if self.lock_count < 1 - self.LOCK_LIMIT:
-			msg = _("There is no signal to lock on !")
-			self.printMsg(msg)
-			self.statusMsg("")
-			self.session.open(MessageBox, msg, MessageBox.TYPE_ERROR, timeout = 5)
-			return
-		print>>log, _("Signal OK, proceeding")
-		x = 0
-		dir = 1
-		if self.randomBool():
-			dir = -dir
-		measurements[x] = (self.snr_percentage, self.lock_count)
-		nsteps = 0
-		while nsteps < maxsteps:
-			x += dir
-			self.statusMsg((_("Moving") + " " + toGeoposEx(dir) + " %2d") % abs(x), blinking = True)
-			move(dir) 		# one step
-			self.measure()
-			measurements[x] = (self.snr_percentage, self.lock_count)
-			reportlevels(x, self.snr_percentage, self.lock_count)
-			if self.lock_count < self.LOCK_LIMIT:
-				break
-			nsteps += 1
-		else:
-			msg = _("Cannot determine") + " " + toGeoposEx(dir) + " " + _("limit ..., aborting !")
-			self.printMsg(msg)
-			self.statusMsg("")
-			self.session.open(MessageBox, msg, MessageBox.TYPE_ERROR, timeout = 5)
-			return
-		dir = -dir
-		self.statusMsg(_("Moving") + " " + toGeoposEx(dir) + "  0", blinking = True)
-		move(-x)
-		if not self.sync():
-			msg = _("Sync failure moving back to origin !")
-			self.printMsg(msg)
-			self.statusMsg("")
-			self.session.open(MessageBox, msg, MessageBox.TYPE_ERROR, timeout = 5)
-			return
-		x = 0
-		nsteps = 0
-		while nsteps < maxsteps:
-			x += dir
-			self.statusMsg((_("Moving") + " " + toGeoposEx(dir) + " %2d") % abs(x), blinking = True)
-			move(dir) 		# one step
-			self.measure()
-			measurements[x] = (self.snr_percentage, self.lock_count)
-			reportlevels(x, self.snr_percentage, self.lock_count)
-			if self.lock_count < self.LOCK_LIMIT:
-				break
+<<<<<<< HEAD
 			nsteps += 1
 		else:
 			msg = _("Cannot determine") + " " + toGeoposEx(dir) + " " + _("limit ..., aborting !")
@@ -1586,19 +1321,38 @@ def getUsableRotorNims(only_first=False):
 	return usableRotorNims
 
 def PositionerMain(session, **kwargs):
+=======
+	return usableRotorNims
+
+
+def PositionerMain(session, **kwargs):
+	from ui import PositionerSetup, RotorNimSelection
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 	usableRotorNims = getUsableRotorNims()
 	if len(usableRotorNims) == 1:
 		session.open(PositionerSetup, usableRotorNims[0])
 	elif len(usableRotorNims) > 1:
 		session.open(RotorNimSelection, usableRotorNims)
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 def PositionerSetupStart(menuid, **kwargs):
 	if menuid == "scan" and getUsableRotorNims(True):
 		return [(_("Positioner setup"), PositionerMain, "positioner_setup", None)]
 	return []
+<<<<<<< HEAD
 
 def Plugins(**kwargs):
 	if nimmanager.hasNimType("DVB-S"):
 		return PluginDescriptor(name=_("Positioner setup"), description = _("Setup your positioner"), where = PluginDescriptor.WHERE_MENU, needsRestart = False, fnc = PositionerSetupStart)
+=======
+
+
+def Plugins(**kwargs):
+	if nimmanager.hasNimType("DVB-S"):
+		return PluginDescriptor(name=_("Positioner setup"), description=_("Setup your positioner"), where=PluginDescriptor.WHERE_MENU, needsRestart=False, fnc=PositionerSetupStart)
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 	else:
 		return []

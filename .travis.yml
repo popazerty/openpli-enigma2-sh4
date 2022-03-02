@@ -1,7 +1,7 @@
 language: cpp
 
-sudo: required
-dist: trusty
+dist: bionic
+os: linux
 
 addons:
   apt:
@@ -25,7 +25,7 @@ addons:
     - libjpeg-turbo8-dev
     - libgif-dev
 
-matrix:
+jobs:
   include:
     - os: linux
       addons:
@@ -33,7 +33,7 @@ matrix:
           sources:
             - ubuntu-toolchain-r-test
           packages:
-            - g++-4.9
+            - g++-8
             - linux-libc-dev
             - git
             - build-essential
@@ -53,7 +53,7 @@ matrix:
             - libjpeg-turbo8-dev
             - libgif-dev
       env:
-         - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9"
+        - MATRIX_EVAL="CC=gcc-8 && CXX=g++-8"
 
     - os: linux
       addons:
@@ -61,7 +61,7 @@ matrix:
           sources:
             - ubuntu-toolchain-r-test
           packages:
-            - g++-5
+            - g++-10
             - linux-libc-dev
             - git
             - build-essential
@@ -81,8 +81,9 @@ matrix:
             - libjpeg-turbo8-dev
             - libgif-dev
       env:
-         - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
+        - MATRIX_EVAL="CC=gcc-10 && CXX=g++-10"
 
+<<<<<<< HEAD
     - os: linux
       addons:
         apt:
@@ -139,6 +140,8 @@ matrix:
       env:
         - MATRIX_EVAL="CC=gcc-8 && CXX=g++-8"
 
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 git:
   depth: 10
 

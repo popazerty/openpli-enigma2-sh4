@@ -17,9 +17,18 @@ from Tools.Directories import fileExists
 from Tools.HardwareInfo import HardwareInfo
 from enigma import eTimer, getBoxType, eDVBDB
 from urllib2 import urlopen
+<<<<<<< HEAD
 import datetime, os, json
 import time
 import calendar
+=======
+import datetime
+import os
+import json
+import time
+import calendar
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 class UpdatePlugin(Screen, ProtectedScreen):
 	skin = """
@@ -34,7 +43,7 @@ class UpdatePlugin(Screen, ProtectedScreen):
 		Screen.__init__(self, session)
 		ProtectedScreen.__init__(self)
 
-		self.sliderPackages = { "dreambox-dvb-modules": 1, "enigma2": 2, "tuxbox-image-info": 3 }
+		self.sliderPackages = {"dreambox-dvb-modules": 1, "enigma2": 2, "tuxbox-image-info": 3}
 
 		self.setTitle(_("Software update"))
 		self.slider = Slider(0, 4)
@@ -73,7 +82,7 @@ class UpdatePlugin(Screen, ProtectedScreen):
 
 	def isProtected(self):
 		return config.ParentalControl.setuppinactive.value and\
-			(not config.ParentalControl.config_sections.main_menu.value and not config.ParentalControl.config_sections.configuration.value  or hasattr(self.session, 'infobar') and self.session.infobar is None) and\
+			(not config.ParentalControl.config_sections.main_menu.value and not config.ParentalControl.config_sections.configuration.value or hasattr(self.session, 'infobar') and self.session.infobar is None) and\
 			config.ParentalControl.config_sections.software_update.value
 
 	def checkTraficLight(self):
@@ -101,12 +110,17 @@ class UpdatePlugin(Screen, ProtectedScreen):
 				version = open("/etc/issue").readlines()[-2].split()[1]
 
 				# do we have an entry for this version
+<<<<<<< HEAD
 				if version in status and machine in status[version]['machines']:
+=======
+				if (version in status or 'all' in status) and (machine in status[version]['machines'] or 'all' in status[version]['machines']):
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 					if 'abort' in status[version]:
 						abort = status[version]['abort']
 					if 'from' in status[version]:
 						starttime = datetime.datetime.strptime(status[version]['from'], '%Y%m%d%H%M%S')
 					else:
+<<<<<<< HEAD
 						starttime = datetime.datetime.now()
 					if 'to' in status[version]:
 						endtime = datetime.datetime.strptime(status[version]['to'], '%Y%m%d%H%M%S')
@@ -114,6 +128,16 @@ class UpdatePlugin(Screen, ProtectedScreen):
 						endtime = datetime.datetime.now()
 					if (starttime <= datetime.datetime.now() and endtime >= datetime.datetime.now()):
 						message = str(status[version]['message'])
+=======
+						starttime = 0
+					if 'to' in status[version]:
+						endtime = datetime.datetime.strptime(status[version]['to'], '%Y%m%d%H%M%S')
+					else:
+						endtime = datetime.datetime.now() + 1
+					if 'message' in status[version]:
+						if (starttime <= datetime.datetime.now() and endtime >= datetime.datetime.now()):
+							message = status[version]['message']
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 				# check if we have per-language messages
 				if type(message) is dict:
@@ -123,6 +147,7 @@ class UpdatePlugin(Screen, ProtectedScreen):
 					elif 'en_EN' in message:
 						message = message['en_EN']
 					else:
+<<<<<<< HEAD
 						message =  _("The current image might not be stable.\nFor more information see %s.") % ("openpli.org")
 
 			except Exception, e:
@@ -132,14 +157,32 @@ class UpdatePlugin(Screen, ProtectedScreen):
 		# or display a generic warning if fetching failed
 		else:
 			message = _("The status of the current image could not be checked because %s can not be reached.") % ("openpli.org")
+=======
+						message = _("The current image might not be stable.\nFor more information see %s.") % ("https://forums.openpli.org")
+
+			except Exception, e:
+				print "[SoftwareUpdate] status error: ", str(e)
+				message = _("The current image might not be stable.\nFor more information see %s.") % ("https://forums.openpli.org")
+
+		# or display a generic warning if fetching failed
+		else:
+			message = _("The status of the current image could not be checked because %s can not be reached.") % ("https://openpli.org")
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 		# show the user the message first
 		if message is not None:
 			if abort:
+<<<<<<< HEAD
 				self.session.openWithCallback(self.close, MessageBox, message, type=MessageBox.TYPE_ERROR, picon = picon)
 			else:
 				message += "\n\n" + _("Do you want to update your receiver?")
 				self.session.openWithCallback(self.startActualUpdate, MessageBox, message, picon = picon)
+=======
+				self.session.openWithCallback(self.close, MessageBox, message, type=MessageBox.TYPE_MESSAGE, picon=picon)
+			else:
+				message += "\n\n" + _("Do you want to update your receiver?")
+				self.session.openWithCallback(self.startActualUpdate, MessageBox, message, picon=picon)
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 		# no message, continue with the update
 		else:
@@ -148,12 +191,16 @@ class UpdatePlugin(Screen, ProtectedScreen):
 	def getLatestImageTimestamp(self):
 		def gettime(url):
 			try:
+<<<<<<< HEAD
 				return time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime(calendar.timegm(urlopen("%s/Packages.gz" % url).info().getdate('Last-Modified'))-time.altzone))
+=======
+				return time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime(calendar.timegm(urlopen("%s/Packages.gz" % url).info().getdate('Last-Modified')) - time.altzone))
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 			except:
 				return ""
 		return sorted([gettime(open("/etc/opkg/%s" % file, "r").readlines()[0].split()[2]) for file in os.listdir("/etc/opkg") if not file.startswith("3rd-party") and file not in ("arch.conf", "opkg.conf", "picons-feed.conf")], reverse=True)[0]
 
-	def startActualUpdate(self,answer):
+	def startActualUpdate(self, answer):
 		if answer:
 			self.updating = True
 			self.opkg.startCmd(OpkgComponent.CMD_UPDATE)
@@ -202,7 +249,7 @@ class UpdatePlugin(Screen, ProtectedScreen):
 				self.session.openWithCallback(
 					self.modificationCallback,
 					MessageBox,
-					_("A configuration file (%s) has been modified since it was installed.\nDo you want to keep your modifications?") % (param)
+					_("A configuration file (%s) has been modified since it was installed. Would you like to keep the modified version?") % (param)
 				)
 		elif event == OpkgComponent.EVENT_ERROR:
 			self.error += 1
@@ -260,7 +307,11 @@ class UpdatePlugin(Screen, ProtectedScreen):
 					error = _("No updates available. Please try again later.")
 				if self.updating:
 					error = _("Update failed. Your receiver does not have a working internet connection.")
+<<<<<<< HEAD
 				self.status.setText(_("Error") +  " - " + error)
+=======
+				self.status.setText(_("Error") + " - " + error)
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 		elif event == OpkgComponent.EVENT_LISTITEM:
 			if 'enigma2-plugin-settings-' in param[0] and self.channellist_only > 0:
 				self.channellist_name = param[0]
@@ -280,12 +331,16 @@ class UpdatePlugin(Screen, ProtectedScreen):
 			self.close()
 			return
 		if answer[1] == "cold":
-			self.session.open(TryQuitMainloop,retvalue=42)
+			self.session.open(TryQuitMainloop, retvalue=42)
 			self.close()
 		elif answer[1] == "channels":
 			self.channellist_only = 1
 			self.slider.setValue(1)
+<<<<<<< HEAD
 			self.opkg.startCmd(OpkgComponent.CMD_LIST, args = {'installed_only': True})
+=======
+			self.opkg.startCmd(OpkgComponent.CMD_LIST, args={'installed_only': True})
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 		elif answer[1] == "commits":
 			self.session.openWithCallback(boundFunction(self.opkgCallback, OpkgComponent.EVENT_DONE, None), CommitInfo)
 		elif answer[1] == "showlist":
@@ -295,7 +350,11 @@ class UpdatePlugin(Screen, ProtectedScreen):
 			text = open("/home/root/opkgupgrade.log", "r").read()
 			self.session.openWithCallback(boundFunction(self.opkgCallback, OpkgComponent.EVENT_DONE, None), TextBox, text, _("Latest update log"), True)
 		else:
+<<<<<<< HEAD
 			self.opkg.startCmd(OpkgComponent.CMD_UPGRADE, args = {'test_only': False})
+=======
+			self.opkg.startCmd(OpkgComponent.CMD_UPGRADE, args={'test_only': False})
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 	def modificationCallback(self, res):
 		self.opkg.write(res and "N" or "Y")

@@ -12,9 +12,9 @@
 #ifndef SWIG
 
 #include <vector>
-#include <list>
 #include <tr1/unordered_map>
 
+<<<<<<< HEAD
 #include <errno.h>
 
 #include <lib/dvb/eit.h>
@@ -25,8 +25,9 @@
 #include <lib/dvb/opentv.h>
 #include <lib/base/huffman.h>
 #endif
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 #include <lib/dvb/idvb.h>
-#include <lib/dvb/demux.h>
 #include <lib/dvb/dvbtime.h>
 #include <lib/base/ebase.h>
 #include <lib/base/thread.h>
@@ -36,7 +37,8 @@
 
 struct eventData;
 class eServiceReferenceDVB;
-class eDVBServicePMTHandler;
+class eEPGChannelData;
+class eEPGTransponderDataReader;
 
 struct uniqueEPGKey
 {
@@ -89,8 +91,6 @@ typedef std::map<uint16_t, eventData*> eventMap;
 //timeMap is sorted by beginTime
 typedef std::map<time_t, eventData*> timeMap;
 
-typedef std::map<eDVBChannelID, time_t> updateMap;
-
 struct hash_uniqueEPGKey
 {
 	inline size_t operator()( const uniqueEPGKey &x) const
@@ -104,8 +104,6 @@ struct EventCacheItem {
 	timeMap byTime;
 };
 
-typedef std::set<uint32_t> tidMap;
-
 typedef std::tr1::unordered_map<uniqueEPGKey, EventCacheItem, hash_uniqueEPGKey, uniqueEPGKey::equal> eventCache;
 #ifdef ENABLE_PRIVATE_EPG
 	typedef std::tr1::unordered_map<time_t, std::pair<time_t, uint16_t> > contentTimeMap;
@@ -115,29 +113,11 @@ typedef std::tr1::unordered_map<uniqueEPGKey, EventCacheItem, hash_uniqueEPGKey,
 
 #endif
 
-#ifdef ENABLE_FREESAT
-#include <bitset>
-class freesatEITSubtableStatus
-{
-private:
-	u_char version;
-	uint16_t sectionMap[32];
-	void initMap(uint8_t maxSection);
-
-public:
-	freesatEITSubtableStatus(u_char version, uint8_t maxSection);
-	bool isSectionPresent(uint8_t sectionNo);
-	void seen(uint8_t sectionNo, uint8_t maxSegmentSection);
-	bool isVersionChanged(u_char testVersion);
-	void updateVersion(u_char newVersion, uint8_t maxSection);
-	bool isCompleted();
-};
-#endif
-
 class eEPGCache: public eMainloop, private eThread, public sigc::trackable
 {
 #ifndef SWIG
 	DECLARE_REF(eEPGCache)
+<<<<<<< HEAD
 	struct channel_data: public sigc::trackable
 	{
 		pthread_mutex_t channel_active;
@@ -264,6 +244,8 @@ class eEPGCache: public eMainloop, private eThread, public sigc::trackable
 		void abortEPG();
 		void abortNonAvail();
 	};
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 	bool FixOverlapping(EventCacheItem &servicemap, time_t TM, int duration, const timeMap::iterator &tm_it, const uniqueEPGKey &service);
 public:
 	struct Message
@@ -271,59 +253,43 @@ public:
 		enum
 		{
 			flush,
-			startChannel,
-			leaveChannel,
 			quit,
-			got_private_pid,
-			got_mhw2_channel_pid,
-			got_mhw2_title_pid,
-			got_mhw2_summary_pid,
 			timeChanged
 		};
 		int type;
-		iDVBChannel *channel;
 		uniqueEPGKey service;
 		union {
 			int err;
-			time_t time;
-			bool avail;
-			int pid;
 		};
 		Message()
-			:type(0), time(0) {}
+			:type(0) {}
 		Message(int type)
 			:type(type) {}
-		Message(int type, bool b)
-			:type(type), avail(b) {}
-		Message(int type, iDVBChannel *channel, int err=0)
-			:type(type), channel(channel), err(err) {}
 		Message(int type, const eServiceReference& service, int err=0)
 			:type(type), service(service), err(err) {}
-		Message(int type, time_t time)
-			:type(type), time(time) {}
 	};
 	eFixedMessagePump<Message> messages;
+
 private:
-	friend struct channel_data;
 	friend struct eventData;
+	friend class eEPGChannelData;
+	friend class eEPGTransponderDataReader;
 	static eEPGCache *instance;
 
-	typedef std::map<iDVBChannel*, channel_data*> ChannelMap;
-
-	ePtr<eTimer> cleanTimer;
-	ChannelMap m_knownChannels;
-	ePtr<eConnection> m_chanAddedConn;
-
-	unsigned int enabledSources;
 	unsigned int historySeconds;
 
 	std::vector<int> onid_blacklist;
-	std::map<std::string,int> customeitpids;
 	eventCache eventDB;
-	updateMap channelLastUpdated;
 	std::string m_filename;
 	bool m_running;
+<<<<<<< HEAD
 	bool load_epg;
+=======
+	unsigned int m_enabledEpgSources;
+	ePtr<eTimer> cleanTimer;
+	bool load_epg;
+	PSignal0<void> epgCacheStarted;
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 #ifdef ENABLE_PRIVATE_EPG
 	contentMaps content_time_tables;
@@ -334,9 +300,11 @@ private:
 #ifdef ENABLE_PRIVATE_EPG
 	void privateSectionRead(const uniqueEPGKey &, const uint8_t *);
 #endif
-	void sectionRead(const uint8_t *data, int source, channel_data *channel);
+	void sectionRead(const uint8_t *data, int source, eEPGChannelData *channel);
+
 	void gotMessage(const Message &message);
 	void cleanLoop();
+<<<<<<< HEAD
 	void submitEventData(const std::vector<int>& sids, const std::vector<eDVBChannelID>& chids, long start, long duration, const char* title, const char* short_summary, const char* long_description, char event_type, int source);
 	void clearCompleteEPGCache();
 
@@ -344,6 +312,10 @@ private:
 	void DVBChannelAdded(eDVBChannel*);
 	void DVBChannelStateChanged(iDVBChannel*);
 	void DVBChannelRunning(iDVBChannel *);
+=======
+	void submitEventData(const std::vector<int>& sids, const std::vector<eDVBChannelID>& chids, long start, long duration, const char* title, const char* short_summary, const char* long_description, char event_type, int event_id, int source);
+	void clearCompleteEPGCache();
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 	eServiceReferenceDVB *m_timeQueryRef;
 	time_t m_timeQueryBegin;
@@ -363,12 +335,6 @@ public:
 #ifndef SWIG
 	eEPGCache();
 	~eEPGCache();
-
-#ifdef ENABLE_PRIVATE_EPG
-	void PMTready(eDVBServicePMTHandler *pmthandler);
-#else
-	void PMTready(eDVBServicePMTHandler *pmthandler) {}
-#endif
 
 #endif
 	// must be called once!
@@ -399,7 +365,8 @@ public:
 		PARTIAL_TITLE_SEARCH,
 		START_TITLE_SEARCH,
 		END_TITLE_SEARCH,
-		PARTIAL_DESCRIPTION_SEARCH
+		PARTIAL_DESCRIPTION_SEARCH,
+		CRID_SEARCH
 	};
 	enum {
 		CASE_CHECK,

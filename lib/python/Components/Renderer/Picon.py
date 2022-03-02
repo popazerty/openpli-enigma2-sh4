@@ -1,6 +1,12 @@
-import os, re, unicodedata
+import os
+import re
+import unicodedata
 from Renderer import Renderer
+<<<<<<< HEAD
 from enigma import ePixmap, eServiceCenter, eServiceReference, iServiceInformation
+=======
+from enigma import ePixmap, ePicLoad, eServiceCenter, eServiceReference, iServiceInformation
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 from Tools.Alternatives import GetWithAlternative
 from Tools.Directories import pathExists, SCOPE_SKIN_IMAGE, SCOPE_CURRENT_SKIN, resolveFilename
 from Components.Harddisk import harddiskmanager
@@ -10,6 +16,7 @@ from Components.config import config
 searchPaths = []
 lastPiconPath = None
 
+
 def initPiconPaths():
 	global searchPaths
 	searchPaths = []
@@ -18,18 +25,20 @@ def initPiconPaths():
 	for part in harddiskmanager.getMountedPartitions():
 		onMountpointAdded(part.mountpoint)
 
+
 def onMountpointAdded(mountpoint):
 	global searchPaths
 	try:
 		path = os.path.join(mountpoint, 'picon') + '/'
 		if os.path.isdir(path) and path not in searchPaths:
 			for fn in os.listdir(path):
-				if fn.endswith('.png'):
+				if fn.endswith('.png') or fn.endswith('.svg'):
 					print "[Picon] adding path:", path
 					searchPaths.append(path)
 					break
 	except Exception, ex:
 		print "[Picon] Failed to investigate %s:" % mountpoint, ex
+
 
 def onMountpointRemoved(mountpoint):
 	global searchPaths
@@ -40,27 +49,35 @@ def onMountpointRemoved(mountpoint):
 	except:
 		pass
 
+
 def onPartitionChange(why, part):
 	if why == 'add':
 		onMountpointAdded(part.mountpoint)
 	elif why == 'remove':
 		onMountpointRemoved(part.mountpoint)
 
+
 def findPicon(serviceName):
 	global lastPiconPath
 	if lastPiconPath is not None:
-		pngname = lastPiconPath + serviceName + ".png"
-		if pathExists(pngname):
-			return pngname
+		for ext in ('.png', '.svg'):
+			pngname = lastPiconPath + serviceName + ext
+			if pathExists(pngname):
+				return pngname
 	global searchPaths
 	for path in searchPaths:
 		if pathExists(path):
-			pngname = path + serviceName + ".png"
-			if pathExists(pngname):
-				lastPiconPath = path
-				return pngname
+			for ext in ('.png', '.svg'):
+				pngname = path + serviceName + ext
+				if pathExists(pngname):
+					lastPiconPath = path
+					return pngname
 	return ""
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 def getPiconName(serviceRef):
 	service = eServiceReference(serviceRef)
 	if service.getPath().startswith("/") and serviceRef.startswith("1:"):
@@ -97,10 +114,16 @@ def getPiconName(serviceRef):
 				pngname = findPicon(series)
 	return pngname
 
+
 class Picon(Renderer):
 	def __init__(self):
 		Renderer.__init__(self)
+		self.usePicLoad = False
+		self.PicLoad = ePicLoad()
+		self.PicLoad.PictureData.get().append(self.updatePicon)
+		self.piconsize = (0,0)
 		self.pngname = ""
+		self.service_text = ""
 		self.lastPath = None
 		pngname = findPicon("picon_default")
 		self.defaultpngname = None
@@ -127,34 +150,59 @@ class Picon(Renderer):
 		for (attrib, value) in self.skinAttributes:
 			if attrib == "path":
 				self.addPath(value)
-				attribs.remove((attrib,value))
+				attribs.remove((attrib, value))
 			elif attrib == "isFrontDisplayPicon":
 				self.showPicon = value == "0"
-				attribs.remove((attrib,value))
+				attribs.remove((attrib, value))
+			elif attrib == "usePicLoad":
+				self.usePicLoad = value == "1"
+				attribs.remove((attrib, value))
+			elif attrib == "size":
+				self.piconsize = value
 		self.skinAttributes = attribs
 		self.changed((self.CHANGED_ALL,))
 		return Renderer.applySkin(self, desktop, parent)
 
 	GUI_WIDGET = ePixmap
 
+	def updatePicon(self, picInfo=None):
+		ptr = self.PicLoad.getData()
+		if ptr is not None and self.instance:
+			self.instance.setPixmap(ptr.__deref__())
+			self.instance.show()
+
 	def changed(self, what):
 		if self.instance:
 			if self.showPicon or config.usage.show_picon_in_display.value:
 				pngname = ""
-				if what[0] != self.CHANGED_CLEAR:
+				if what[0] in (self.CHANGED_ALL, self.CHANGED_SPECIFIC):
+					if self.usePicLoad and self.source.text and self.service_text and self.source.text == self.service_text:
+						return
+					self.service_text = self.source.text
 					pngname = getPiconName(self.source.text)
+				else:
+					if what[0] == self.CHANGED_CLEAR:
+						self.service_text = self.pngname = ""
+						if self.visible:
+							self.instance.hide()
+					return
 				if not pngname: # no picon for service found
 					pngname = self.defaultpngname
 				if self.pngname != pngname:
 					if pngname:
-						self.instance.setScale(1)
-						self.instance.setPixmapFromFile(pngname)
-						self.instance.show()
+						if self.usePicLoad:
+							self.PicLoad.setPara((self.piconsize[0], self.piconsize[1], 0, 0, 1, 1, "#FF000000"))
+							self.PicLoad.startDecode(pngname)
+						else:
+							self.instance.setScale(1)
+							self.instance.setPixmapFromFile(pngname)
+							self.instance.show()
 					else:
 						self.instance.hide()
 					self.pngname = pngname
 			elif self.visible:
 				self.instance.hide()
+
 
 harddiskmanager.on_partition_list_change.append(onPartitionChange)
 initPiconPaths()

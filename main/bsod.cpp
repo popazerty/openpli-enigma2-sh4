@@ -3,16 +3,22 @@
 #include <csignal>
 #include <fstream>
 #include <sstream>
+#ifdef __GLIBC__
 #include <execinfo.h>
+#endif
 #include <dlfcn.h>
 #include <lib/base/eenv.h>
 #include <lib/base/eerror.h>
 #include <lib/base/nconfig.h>
 #include <lib/gdi/gmaindc.h>
+<<<<<<< HEAD
 
 //#warning "no oops support!"
 #define NO_OOPS_SUPPORT
 
+=======
+#include <asm/ptrace.h>
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 #include "version_info.h"
 
 /************************************************/
@@ -278,9 +284,9 @@ void bsodFatal(const char *component)
 	if (component) raise(SIGKILL);
 }
 
-#if defined(__MIPSEL__)
 void oops(const mcontext_t &context)
 {
+#if defined(__MIPSEL__)
 	eLog(lvlFatal, "PC: %08lx", (unsigned long)context.pc);
 	int i;
 	for (i=0; i<32; i += 4)
@@ -289,14 +295,21 @@ void oops(const mcontext_t &context)
 			(int)context.gregs[i+0], (int)context.gregs[i+1],
 			(int)context.gregs[i+2], (int)context.gregs[i+3]);
 	}
-}
+#elif defined(__arm__)
+	eLog(lvlFatal, "PC: %08lx", (unsigned long)context.arm_pc);
+	eLog(lvlFatal, "Fault Address: %08lx", (unsigned long)context.fault_address);
+	eLog(lvlFatal, "Error Code:: %lu", (unsigned long)context.error_code);
+#else
+	eLog(lvlFatal, "FIXME: no oops support!");
 #endif
+}
 
 /* Use own backtrace print procedure because backtrace_symbols_fd
  * only writes to files. backtrace_symbols cannot be used because
  * it's not async-signal-safe and so must not be used in signal
  * handlers.
  */
+#ifdef __GLIBC__
 void print_backtrace()
 {
 	void *array[15];
@@ -316,14 +329,15 @@ void print_backtrace()
 		}
 	}
 }
+#endif
 
 void handleFatalSignal(int signum, siginfo_t *si, void *ctx)
 {
-#ifndef NO_OOPS_SUPPORT
 	ucontext_t *uc = (ucontext_t*)ctx;
 	oops(uc->uc_mcontext);
-#endif
+#ifdef __GLIBC__
 	print_backtrace();
+#endif
 	eLog(lvlFatal, "-------FATAL SIGNAL");
 	bsodFatal("enigma2, signal");
 }

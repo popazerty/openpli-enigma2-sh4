@@ -2,13 +2,21 @@ from copy import copy, deepcopy
 
 from enigma import BT_SCALE, RT_HALIGN_CENTER, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_VALIGN_BOTTOM, RT_VALIGN_CENTER, RT_VALIGN_TOP, eListboxPythonMultiContent, getPrevAsciiCode, gFont
 
+<<<<<<< HEAD
 from skin import fonts, parameters
+=======
+from skin import applySkinFactor, fonts, parameters
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 from Components.ActionMap import HelpableNumberActionMap
 from Components.Input import Input
 from Components.Label import Label
 from Components.Language import language
 from Components.MenuList import MenuList
+<<<<<<< HEAD
 from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaTest
+=======
+from Components.MultiContent import MultiContentEntryText, MultiContentEntryPixmapAlphaBlend
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 from Components.Sources.StaticText import StaticText
 from Screens.ChoiceBox import ChoiceBox
 from Screens.HelpMenu import HelpableScreen
@@ -17,6 +25,10 @@ from Tools.Directories import SCOPE_CURRENT_SKIN, resolveFilename
 from Tools.LoadPixmap import LoadPixmap
 from Tools.NumericalTextInput import NumericalTextInput
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 VKB_DONE_ICON = 0
 VKB_ENTER_ICON = 1
 VKB_OK_ICON = 2
@@ -34,7 +46,11 @@ SPACE = u"SPACEICON"  # Symbol to be used for a SPACE on the keyboard.  Must be 
 class VirtualKeyBoardList(MenuList):
 	def __init__(self, list, enableWrapAround=False):
 		MenuList.__init__(self, list, enableWrapAround, eListboxPythonMultiContent)
+<<<<<<< HEAD
 		font = fonts.get("VirtualKeyBoard", ("Regular", 28, 45))
+=======
+		font = fonts.get("VirtualKeyBoard", applySkinFactor("Regular", 28, 45))
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 		self.l.setFont(0, gFont(font[0], font[1]))
 		self.l.setFont(1, gFont(font[0], font[1] * 5 // 9))  # Smaller font is 56% the height of bigger font
 		self.l.setItemHeight(font[2])
@@ -337,6 +353,7 @@ class VirtualKeyBoard(Screen, HelpableScreen):
 		]
 		self.latvian = [
 			[
+<<<<<<< HEAD
 				[u"", u"1", u"2", u"3", u"4", u"5", u"6", u"7", u"8", u"9", u"0", u"-", u"f", u"BACKSPACEICON"],
 				[u"FIRSTICON", u"\u016B", u"g", u"j", u"r", u"m", u"v", u"n", u"z", u"\u0113", u"\u010D", u"\u017E", u"h", u"\u0137"],
 				[u"LASTICON", u"\u0161", u"u", u"s", u"i", u"l", u"d", u"a", u"t", u"e", u"c", u"\u00B4", self.green, self.green],
@@ -359,6 +376,24 @@ class VirtualKeyBoard(Screen, HelpableScreen):
 				[u"FIRSTICON", u"Q", u"\u0122", u"", u"\u0156", u"W", u"Y", u"", u"", u"", u"", u"{", u"}", u""],
 				[u"LASTICON", u"", u"", u"", u"", u"", u"", u"", u"", u"", u"", u"\u00A8", self.green, self.green],
 				[u"CAPSLOCKICON", u"|", u"", u"X", u"", u"\u0136", u"", u"\u00D5", u"", u"", u"", u"", u"CAPSLOCKICON", u"CAPSLOCKICON"],
+=======
+				[u"`", u"1", u"2", u"3", u"4", u"5", u"6", u"7", u"8", u"9", u"0", u"-", u"=", u"BACKSPACEICON"],
+				[u"FIRSTICON", u"q", u"w", u"e", u"r", u"t", u"y", u"u", u"i", u"o", u"p", u"[", u"]", u"\\"],
+				[u"LASTICON", u"a", u"s", u"d", u"f", u"g", u"h", u"j", u"k", u"l", u";", u"'", self.green, self.green],
+				[u"CAPSLOCKICON", u"CAPSLOCKICON", u"z", u"x", u"c", u"v", u"b", u"n", u"m", u",", u".", u"/", u"CAPSLOCKICON", u"CAPSLOCKICON"],
+				self.footer
+			], [
+				[u"~", u"!", u"@", u"#", u"$", u"%", u"^", u"&", u"*", u"(", u")", u"_", u"+", u"BACKSPACEICON"],
+				[u"FIRSTICON", u"Q", u"W", u"E", u"R", u"T", u"Y", u"U", u"I", u"O", u"P", u"{", u"}", u"|"],
+				[u"LASTICON", u"A", u"S", u"D", u"F", u"G", u"H", u"J", u"K", u"L", u":", u"\"", self.green, self.green],
+				[u"CAPSLOCKICON", u"CAPSLOCKICON", u"Z", u"X", u"C", u"V", u"B", u"N", u"M", u"<", u">", u"?", u"CAPSLOCKICON", u"CAPSLOCKICON"],
+				self.footer
+			], [
+				[u"\u00b4", u"\u00b9", u"\u00b2", u"\u00b3", u"\u20ac", u"\u00bd", u"\u00be", u"\u007b", u"\u005b", u"\u005d", u"\u007d ", u"\u005c", u"\u2013", u"BACKSPACEICON"],
+				[u"FIRSTICON", u"q", u"\u0113", u"\u0112", u"\u0157", u"\u0156", u"\u016B", u"\u016A", u"\u012B", u"\u012A", u"\u014D", u"\u014C", u"\u00ab", u"\u00bb"],
+				[u"LASTICON", u"\u0101", u"\u0100", u"\u0161", u"\u0160", u"\u0123", u"\u0122", u"\u0137", u"\u0136", u"\u013C", u"\u013B", u"\u003b", self.green, self.green],
+				[u"CAPSLOCKICON", u"CAPSLOCKICON", u"\u017E", u"\u017D", u"\u010D", u"\u010C", u"b", u"\u0146", u"\u0145", u"\u0060", u"\u00b7", u"\u002f", u"CAPSLOCKICON", u"CAPSLOCKICON"],
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 				self.footer
 			]
 		]
@@ -473,9 +508,13 @@ class VirtualKeyBoard(Screen, HelpableScreen):
 			"de_CH": [_("German"), _("Switzerland"), self.germanSwiss(self.german)],
 			"el_GR": [_("Greek"), _("Greece"), self.greek],
 			"hu_HU": [_("Hungarian"), _("Hungary"), self.hungarian(self.german)],
+<<<<<<< HEAD
 			"lv_01": [_("Latvian"), _("Alternative 1"), self.latvianStandard(self.english)],
 			"lv_02": [_("Latvian"), _("Alternative 2"), self.latvian],
 			"lv_LV": [_("Latvian"), _("Latvia"), self.latvianQWERTY(self.english)],
+=======
+			"lv_LV": [_("Latvian"), _("Latvia"), self.latvian],
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 			"lt_LT": [_("Lithuanian"), _("Lithuania"), self.lithuanian(self.english)],
 			"nb_NO": [_("Norwegian"), _("Norway"), self.norwegian(self.scandinavian)],
 			"fa_IR": [_("Persian"), _("Iran, Islamic Republic"), self.persian(self.english)],
@@ -534,7 +573,11 @@ class VirtualKeyBoard(Screen, HelpableScreen):
 		self["key_blue"] = StaticText(self.shiftMsgs[1])
 		self["key_text"] = StaticText(_("TEXT"))
 		self["key_help"] = StaticText(_("HELP"))
+<<<<<<< HEAD
 		width, height = parameters.get("VirtualKeyBoard", (45, 45))
+=======
+		width, height = parameters.get("VirtualKeyBoard", applySkinFactor(45, 45))
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 		if self.bg_l is None or self.bg_m is None or self.bg_r is None:
 			self.width = width
 			self.height = height
@@ -546,7 +589,11 @@ class VirtualKeyBoard(Screen, HelpableScreen):
 		# 	Vertical alignment: 0=Auto, 1=Top, 2=Center, 3=Bottom (Auto=Center).
 		self.alignment = parameters.get("VirtualKeyBoardAlignment", (0, 0))
 		# Padding -> (Left/Right, Top/Botton) in pixels
+<<<<<<< HEAD
 		self.padding = parameters.get("VirtualKeyBoardPadding", (4, 4))
+=======
+		self.padding = parameters.get("VirtualKeyBoardPadding", applySkinFactor(4, 4))
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 		# Text color for each shift level.  (Ensure there is a color for each shift level!)
 		self.shiftColors = parameters.get("VirtualKeyBoardShiftColors", (0x00ffffff, 0x00ffffff, 0x0000ffff, 0x00ff00ff))
 		self.language = None
@@ -727,6 +774,7 @@ class VirtualKeyBoard(Screen, HelpableScreen):
 		])
 		return keyList
 
+<<<<<<< HEAD
 	def latvianQWERTY(self, base):
 		keyList = self.latvianStandard(base)
 		keyList[0][1][13] = u"\u00B0"
@@ -754,6 +802,8 @@ class VirtualKeyBoard(Screen, HelpableScreen):
 		])
 		return keyList
 
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 	def lithuanian(self, base):
 		keyList = deepcopy(base)
 		keyList[0][0] = [u"`", u"\u0105", u"\u010D", u"\u0119", u"\u0117", u"\u012F", u"\u0161", u"\u0173", u"\u016B", u"9", u"0", u"-", u"\u017E", u"BACKSPACEICON"]
@@ -953,6 +1003,7 @@ class VirtualKeyBoard(Screen, HelpableScreen):
 					x += self.width * width
 				else:
 					w = self.bg_l.size().width()
+<<<<<<< HEAD
 					res.append(MultiContentEntryPixmapAlphaTest(pos=(x, 0), size=(w, self.height), png=self.bg_l))
 					x += w
 					w = self.bg_m.size().width() + (self.width * (width - 1))
@@ -960,12 +1011,22 @@ class VirtualKeyBoard(Screen, HelpableScreen):
 					x += w
 					w = self.bg_r.size().width()
 					res.append(MultiContentEntryPixmapAlphaTest(pos=(x, 0), size=(w, self.height), png=self.bg_r))
+=======
+					res.append(MultiContentEntryPixmapAlphaBlend(pos=(x, 0), size=(w, self.height), png=self.bg_l))
+					x += w
+					w = self.bg_m.size().width() + (self.width * (width - 1))
+					res.append(MultiContentEntryPixmapAlphaBlend(pos=(x, 0), size=(w, self.height), png=self.bg_m, flags=BT_SCALE))
+					x += w
+					w = self.bg_r.size().width()
+					res.append(MultiContentEntryPixmapAlphaBlend(pos=(x, 0), size=(w, self.height), png=self.bg_r))
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 					x += w
 				highlight = self.keyHighlights.get(key.upper(), (None, None, None))  # Check if the cell needs to be highlighted.
 				if highlight[0] is None or highlight[1] is None or highlight[2] is None:  # If available display the cell highlight.
 					xHighlight += self.width * width
 				else:
 					w = highlight[0].size().width()
+<<<<<<< HEAD
 					res.append(MultiContentEntryPixmapAlphaTest(pos=(xHighlight, 0), size=(w, self.height), png=highlight[0]))
 					xHighlight += w
 					w = highlight[1].size().width() + (self.width * (width - 1))
@@ -973,6 +1034,15 @@ class VirtualKeyBoard(Screen, HelpableScreen):
 					xHighlight += w
 					w = highlight[2].size().width()
 					res.append(MultiContentEntryPixmapAlphaTest(pos=(xHighlight, 0), size=(w, self.height), png=highlight[2]))
+=======
+					res.append(MultiContentEntryPixmapAlphaBlend(pos=(xHighlight, 0), size=(w, self.height), png=highlight[0]))
+					xHighlight += w
+					w = highlight[1].size().width() + (self.width * (width - 1))
+					res.append(MultiContentEntryPixmapAlphaBlend(pos=(xHighlight, 0), size=(w, self.height), png=highlight[1], flags=BT_SCALE))
+					xHighlight += w
+					w = highlight[2].size().width()
+					res.append(MultiContentEntryPixmapAlphaBlend(pos=(xHighlight, 0), size=(w, self.height), png=highlight[2]))
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 					xHighlight += w
 				if self.alignment[0] == 1:  # Determine the cell alignment.
 					alignH = RT_HALIGN_LEFT
@@ -1009,7 +1079,11 @@ class VirtualKeyBoard(Screen, HelpableScreen):
 						top += (h - hImage) // 2
 					elif alignV == RT_VALIGN_BOTTOM:
 						top += h - hImage
+<<<<<<< HEAD
 					res.append(MultiContentEntryPixmapAlphaTest(pos=(left, top), size=(wImage, hImage), png=image))
+=======
+					res.append(MultiContentEntryPixmapAlphaBlend(pos=(left, top), size=(wImage, hImage), png=image))
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 					# print("[VirtualKeyBoard] DEBUG: Left=%d, Top=%d, Width=%d, Height=%d, Image Width=%d, Image Height=%d" % (left, top, w, h, wImage, hImage))
 				else:  # Display the cell text.
 					if len(key) > 1:  # NOTE: UTF8 / Unicode glyphs only count as one character here.
@@ -1030,6 +1104,7 @@ class VirtualKeyBoard(Screen, HelpableScreen):
 		start, width = self.findStartAndWidth(self.selectedKey)
 		x = start * self.width
 		w = self.sel_l.size().width()
+<<<<<<< HEAD
 		self.list[self.selectedKey // self.keyboardWidth].append(MultiContentEntryPixmapAlphaTest(pos=(x, 0), size=(w, self.height), png=self.sel_l))
 		x += w
 		w = self.sel_m.size().width() + (self.width * (width - 1))
@@ -1037,6 +1112,15 @@ class VirtualKeyBoard(Screen, HelpableScreen):
 		x += w
 		w = self.sel_r.size().width()
 		self.list[self.selectedKey // self.keyboardWidth].append(MultiContentEntryPixmapAlphaTest(pos=(x, 0), size=(w, self.height), png=self.sel_r))
+=======
+		self.list[self.selectedKey // self.keyboardWidth].append(MultiContentEntryPixmapAlphaBlend(pos=(x, 0), size=(w, self.height), png=self.sel_l))
+		x += w
+		w = self.sel_m.size().width() + (self.width * (width - 1))
+		self.list[self.selectedKey // self.keyboardWidth].append(MultiContentEntryPixmapAlphaBlend(pos=(x, 0), size=(w, self.height), png=self.sel_m, flags=BT_SCALE))
+		x += w
+		w = self.sel_r.size().width()
+		self.list[self.selectedKey // self.keyboardWidth].append(MultiContentEntryPixmapAlphaBlend(pos=(x, 0), size=(w, self.height), png=self.sel_r))
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 		self.previousSelectedKey = self.selectedKey
 		self["list"].setList(self.list)
 

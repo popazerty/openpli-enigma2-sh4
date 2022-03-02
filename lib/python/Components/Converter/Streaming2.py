@@ -9,6 +9,10 @@ from pprint import pprint
 # lines starting with '+' are PIDs to record:
 # 	"+d:[p:t[,p:t...]]" with d=demux nr, p: pid, t: type
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 class Streaming2(Converter):
 	@cached
 	def getText(self):
@@ -33,6 +37,10 @@ class Streaming2(Converter):
 
 		retval += "\n"
 
+<<<<<<< HEAD
 		return(retval);
+=======
+		return(retval)
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 	text = property(getText)

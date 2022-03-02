@@ -1,7 +1,12 @@
 from Renderer import Renderer
 from enigma import eDVBCI_UI, eLabel, iPlayableService
+<<<<<<< HEAD
+=======
+from skin import parameters
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 from Components.SystemInfo import SystemInfo
 from Components.VariableText import VariableText
+from os import popen
 
 class CiModuleControl(Renderer, VariableText):
 	def __init__(self):
@@ -11,6 +16,8 @@ class CiModuleControl(Renderer, VariableText):
 		self.eDVBCIUIInstance and self.eDVBCIUIInstance.ciStateChanged.get().append(self.ciModuleStateChanged)
 		self.text = ""
 		self.allVisible = False
+		self.no_visible_state1 = "ciplushelper" in popen("top -n 1").read()
+		self.colors = parameters.get("CiModuleControlColors", (0x007F7F7F, 0x00FFFF00, 0x0000FF00, 0x00FF2525)) # "state 0 (no module) gray", "state 1 (init module) yellow", "state 2 (module ready) green", "state -1 (error) red"
 
 	GUI_WIDGET = eLabel
 
@@ -19,7 +26,7 @@ class CiModuleControl(Renderer, VariableText):
 		for (attrib, value) in self.skinAttributes:
 			if attrib == "allVisible":
 				self.allVisible = value == "1"
-				attribs.remove((attrib,value))
+				attribs.remove((attrib, value))
 				break
 		self.skinAttributes = attribs
 		return Renderer.applySkin(self, desktop, parent)
@@ -34,27 +41,32 @@ class CiModuleControl(Renderer, VariableText):
 			if NUM_CI and NUM_CI > 0:
 				if self.eDVBCIUIInstance:
 					for slot in range(NUM_CI):
+<<<<<<< HEAD
+=======
+						state = self.eDVBCIUIInstance.getState(slot)
+						if state == 1 and self.no_visible_state1:
+							continue
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 						add_num = True
 						if string:
 							string += " "
-						state = self.eDVBCIUIInstance.getState(slot)
 						if state != -1:
 							if state == 0:
 								if not self.allVisible:
 									string += ""
 									add_num = False
 								else:
-									string += "\c007?7?7?"
+									string += "\c%08x" % self.colors[0] # no module
 							elif state == 1:
-								string += "\c00????00"
+								string += "\c%08x" % self.colors[1] # init module
 							elif state == 2:
-								string += "\c0000??00"
+								string += "\c%08x" % self.colors[2] # module ready
 						else:
 							if not self.allVisible:
 								string += ""
 								add_num = False
 							else:
-								string += "\c00??2525"
+								string += "\c%08x" % self.colors[3] # error
 						if add_num:
 							string += "%d" % (slot + 1)
 					if string:

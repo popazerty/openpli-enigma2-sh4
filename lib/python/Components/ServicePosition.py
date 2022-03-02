@@ -3,21 +3,21 @@ from Components.GUIComponent import GUIComponent
 from enigma import eTimer, iPlayableService, ePositionGauge
 import time
 
-class ServicePosition(PerServiceDisplay, object):
+
+class ServicePosition(PerServiceDisplay):
 	TYPE_LENGTH = 0,
 	TYPE_POSITION = 1,
 	TYPE_REMAINING = 2,
 	TYPE_RELATIVE = 3
 
 	def __init__(self, navcore, type):
-		object.__init__(self)
-		self.updateTimer = eTimer()
-		self.updateTimer.callback.append(self.update)
 		PerServiceDisplay.__init__(self, navcore,
 			{
 				iPlayableService.evStart: self.newService,
 				iPlayableService.evEnd: self.stopEvent
 			})
+		self.updateTimer = eTimer()
+		self.updateTimer.callback.append(self.update)
 		self.type = type
 		self.relative_base = 0
 #		self.setType(type)
@@ -62,7 +62,7 @@ class ServicePosition(PerServiceDisplay, object):
 				elif self.type == self.TYPE_REMAINING:
 					l = self.get(self.TYPE_LENGTH) - self.get(self.TYPE_POSITION)
 
-				self.setText("%d:%02d" % (l/60, l%60))
+				self.setText("%d:%02d" % (l / 60, l % 60))
 			else:
 				l = self.get(self.TYPE_POSITION)
 				if l != -1:
@@ -85,6 +85,7 @@ class ServicePosition(PerServiceDisplay, object):
 	def stopEvent(self):
 		self.updateTimer.stop()
 		self.setText("")
+
 
 class ServicePositionGauge(PerServiceBase, GUIComponent):
 	def __init__(self, navcore):
@@ -139,7 +140,7 @@ class ServicePositionGauge(PerServiceBase, GUIComponent):
 	def newCuesheet(self):
 		service = self.navcore.getCurrentService()
 		cue = service and service.cueSheet()
-		cutlist = (cue and cue.getCutList()) or [ ]
+		cutlist = (cue and cue.getCutList()) or []
 		if self.instance is not None:
 			self.instance.setInOutList(cutlist)
 

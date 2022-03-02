@@ -589,6 +589,10 @@
 		<key id="KEY_TV" mapto="keyTV" flags="b" />
 		<key id="KEY_TV2" mapto="keyTV" flags="b" />
 		<key id="KEY_RADIO" mapto="keyRadio" flags="b" />
+<<<<<<< HEAD
+=======
+		<key id="KEY_AUDIO" mapto="audio" flags="b" />
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 	</map>
 
 	<map context="TimerEditActions">
@@ -922,6 +926,7 @@
 		<key id="KEY_EJECTCD" mapto="ejectcd_long" flags="l" />
 		<key id="KEY_VOD" mapto="vod" flags="b" />
 		<key id="KEY_VOD" mapto="vod_long" flags="l" />
+<<<<<<< HEAD
 		<key id="KEY_TVSAT" mapto="tvsat" flags="m" />
 		<key id="KEY_PICASA" mapto="picasa" flags="m" />
 		<key id="KEY_SHOUTCAST" mapto="shoutcast" flags="m" />
@@ -939,4 +944,13 @@
 		<key id="KEY_FAST" mapto="fast" flags="m" />
 		<key id="KEY_RECALL" mapto="recall" flags="m" />
 	</map>
+=======
+	</map>
+	<translate>
+		<device name="gigablue remote control">
+			<key from="KEY_OPTION" to="KEY_HELP" />
+			<key from="KEY_F2" to="KEY_SCREEN" />
+		</device>
+	</translate>
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 </keymap>

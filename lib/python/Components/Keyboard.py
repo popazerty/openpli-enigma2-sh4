@@ -24,7 +24,11 @@ class Keyboard:
 							if key == "name":
 								mapName = val
 				except (IOError, OSError) as err:
+<<<<<<< HEAD
 					print "[Keyboard] Error %d: Opening keymap file '%s'! (%s)" % (err.errno, filename, err.strerror)
+=======
+					print "[Keyboard] Error %d: Opening keymap file '%s'! (%s)" % (err.errno, keymapFile, err.strerror)
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 				if mapFile is not None and mapName is not None:
 					print "[Keyboard] Adding keymap '%s' ('%s')." % (mapName, mapFile)
 					self.keyboardMaps.append((mapFile, mapName))

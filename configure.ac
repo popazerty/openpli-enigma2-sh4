@@ -203,6 +203,7 @@ if test x"$with_lcddev" != xno ; then
 	AC_DEFINE_UNQUOTED(LCD_DEV, "$withval", [Defines which device to use for lcd (e.g. /dev/fb1)])
 fi
 
+<<<<<<< HEAD
 AC_ARG_ENABLE([sh],
         [AS_HELP_STRING(--enable-sh,    enable sh patches)],
         [case "${enableval}" in
@@ -212,6 +213,8 @@ AC_ARG_ENABLE([sh],
         esac])
 AM_CONDITIONAL([ENABLE_SH], [test x$enable_sh = xtrue])
 
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 AC_ARG_WITH(alphablendingacceleration,
 	AC_HELP_STRING([--with-alphablendingacceleration=never/always/auto], [alphablending acceleration strategy: never accelerate / always accelerate / automatically decide when to accelerate (default)]),
 	[[with_alphablendingacceleration=$withval]],
@@ -270,9 +273,29 @@ AC_SUBST(ENIGMA2_CFLAGS)
 
 AX_CXX_COMPILE_STDCXX_11([ext],[mandatory])
 
+AX_CHECK_COMPILE_FLAG([-Wattribute-alias], [CXXFLAGS="$CXXFLAGS -Wattribute-alias"])
+AX_CHECK_COMPILE_FLAG([-Wattribute-alias=1], [CXXFLAGS="$CXXFLAGS -Wattribute-alias=1"])
+
 CPPFLAGS="$CPPFLAGS $PYTHON_CPPFLAGS"
 CFLAGS="$CFLAGS -Wall"
+<<<<<<< HEAD
 CXXFLAGS="$CXXFLAGS -Wall -flto $BASE_CFLAGS $ENIGMA2_CFLAGS $PTHREAD_CFLAGS $OPENMP_CFLAGS $ALSA_CFLAGS"
+=======
+CXXFLAGS="$CXXFLAGS -Wall -Wextra -Werror \
+	-Wformat=2 -Wformat-overflow=2 -Wformat-nonliteral -Wformat-security \
+	-Wimplicit-fallthrough=5 -Wduplicated-branches -Wtrampolines \
+	-Wdangling-else -Wshift-overflow=2 -Wswitch \
+	-Wunused-but-set-parameter -Wunused-const-variable=1 -Wuninitialized \
+	-Wstringop-overflow=3 -Woverlength-strings \
+	-Wunsafe-loop-optimizations -Wpointer-arith \
+	-Wfloat-equal -Wlogical-op \
+	-Wno-error=cast-align=strict -Wno-error=ignored-qualifiers \
+	-Wno-error=cast-function-type \
+	-Wno-error=stringop-truncation -Wno-error=shadow -Wno-error=cast-qual \
+	-Wno-error=aggregate-return -Wno-error=missing-field-initializers \
+	-Wno-error=packed -Wno-error=vla -Wno-error=clobbered -Wno-error=unused-parameter \
+	$BASE_CFLAGS $ENIGMA2_CFLAGS $PTHREAD_CFLAGS $OPENMP_CFLAGS $ALSA_CFLAGS"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 AC_CONFIG_FILES([
 Makefile

@@ -7,9 +7,16 @@ from InfoBarGenerics import InfoBarShowHide, InfoBarMenu, InfoBarInstantRecord, 
 from enigma import eServiceReference
 from Components.ServiceEventTracker import InfoBarBase
 
+<<<<<<< HEAD
 class SubservicesQuickzap(InfoBarBase, InfoBarShowHide, InfoBarMenu, \
 		InfoBarInstantRecord, InfoBarSeek, InfoBarTimeshift, \
 		InfoBarTimeshiftState, InfoBarExtensions, InfoBarSubtitleSupport, \
+=======
+
+class SubservicesQuickzap(InfoBarBase, InfoBarShowHide, InfoBarMenu,
+		InfoBarInstantRecord, InfoBarSeek, InfoBarTimeshift,
+		InfoBarTimeshiftState, InfoBarExtensions, InfoBarSubtitleSupport,
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 		InfoBarAudioSelection, Screen):
 	def __init__(self, session, subservices):
 		Screen.__init__(self, session)
@@ -24,7 +31,11 @@ class SubservicesQuickzap(InfoBarBase, InfoBarShowHide, InfoBarMenu, \
 		self.__lastservice = self.currentlyPlayingSubservice = self.getSubserviceIndex(self.session.nav.getCurrentlyPlayingServiceReference())
 		self["CurrentSubserviceNumber"] = Label("")
 		self.currentSubserviceNumberLabel = self["CurrentSubserviceNumber"]
+<<<<<<< HEAD
 		self["actions"] = NumberActionMap( [ "InfobarSubserviceQuickzapActions", "NumberActions", "DirectionActions", "ColorActions" ],
+=======
+		self["actions"] = NumberActionMap(["InfobarSubserviceQuickzapActions", "NumberActions", "DirectionActions", "ColorActions"],
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 			{
 				"up": self.showSelection,
 				"down": self.showSelection,

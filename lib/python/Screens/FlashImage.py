@@ -15,21 +15,40 @@ from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 from Tools.Downloader import downloadWithProgress
 from Tools.HardwareInfo import HardwareInfo
 from Tools.Multiboot import getImagelist, getCurrentImage, getCurrentImageMode, deleteImage, restoreImages
+<<<<<<< HEAD
 import os, urllib2, json, time, zipfile, shutil, tempfile
 
 from enigma import eEPGCache
+=======
+import os
+import urllib2
+import json
+import time
+import zipfile
+import shutil
+import tempfile
+import struct
+
+from enigma import eEPGCache
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 def checkimagefiles(files):
 	return len([x for x in files if 'kernel' in x and '.bin' in x or x in ('uImage', 'rootfs.bin', 'root_cfe_auto.bin', 'root_cfe_auto.jffs2', 'oe_rootfs.bin', 'e2jffs2.img', 'rootfs.tar.bz2', 'rootfs.ubi')]) == 2
 
+
 class SelectImage(Screen):
 	def __init__(self, session, *args):
 		Screen.__init__(self, session)
+<<<<<<< HEAD
 		self.session = session
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 		self.jsonlist = {}
 		self.imagesList = {}
 		self.setIndex = 0
 		self.expanded = []
+<<<<<<< HEAD
 		self.setTitle(_("Multiboot image selector"))
 		self["key_red"] = StaticText(_("Cancel"))
 		self["key_green"] = StaticText()
@@ -37,6 +56,14 @@ class SelectImage(Screen):
 		self["key_blue"] = StaticText()
 		self["description"] = StaticText()
 		self["list"] = ChoiceList(list=[ChoiceEntryComponent('',((_("Retrieving image list - Please wait...")), "Waiter"))])
+=======
+		self.setTitle(_("Select image"))
+		self["key_red"] = StaticText(_("Cancel"))
+		self["key_green"] = StaticText()
+		self["key_yellow"] = StaticText()
+		self["description"] = StaticText()
+		self["list"] = ChoiceList(list=[ChoiceEntryComponent('', ((_("Retrieving image list - Please wait...")), "Waiter"))])
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 		self["actions"] = ActionMap(["OkCancelActions", "ColorActions", "DirectionActions", "KeyboardInputActions", "MenuActions"],
 		{
@@ -64,9 +91,18 @@ class SelectImage(Screen):
 			for file in [x for x in files if os.path.splitext(x)[1] == ".zip" and model in x]:
 				try:
 					if checkimagefiles([x.split(os.sep)[-1] for x in zipfile.ZipFile(file).namelist()]):
+<<<<<<< HEAD
 						if "Downloaded Images" not in self.imagesList:
 							self.imagesList["Downloaded Images"] = {}
 						self.imagesList["Downloaded Images"][file] = {'link': file, 'name': file.split(os.sep)[-1]}
+=======
+						imagetyp = _("Downloaded Images")
+						if 'backup' in file.split(os.sep)[-1]:
+							imagetyp = _("Fullbackup Images")
+						if imagetyp not in self.imagesList:
+							self.imagesList[imagetyp] = {}
+						self.imagesList[imagetyp][file] = {'link': file, 'name': file.split(os.sep)[-1]}
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 				except:
 					pass
 
@@ -83,6 +119,7 @@ class SelectImage(Screen):
 			self.imagesList = dict(self.jsonlist)
 
 			for media in ['/media/%s' % x for x in os.listdir('/media')] + (['/media/net/%s' % x for x in os.listdir('/media/net')] if os.path.isdir('/media/net') else []):
+<<<<<<< HEAD
 				if not(SystemInfo['HasMMC'] and "/mmc" in media) and os.path.isdir(media):
 					try:
 						getImages(media, [os.path.join(media, x) for x in os.listdir(media) if os.path.splitext(x)[1] == ".zip" and model in x])
@@ -94,16 +131,29 @@ class SelectImage(Screen):
 									shutil.rmtree(dir)
 					except:
 						pass
+=======
+				try:
+					getImages(media, [os.path.join(media, x) for x in os.listdir(media) if os.path.splitext(x)[1] == ".zip" and model in x])
+					for folder in ["images", "downloaded_images", "imagebackups"]:
+						if folder in os.listdir(media):
+							subfolder = os.path.join(media, folder)
+							if os.path.isdir(subfolder) and not os.path.islink(subfolder) and not os.path.ismount(subfolder):
+								getImages(subfolder, [os.path.join(subfolder, x) for x in os.listdir(subfolder) if os.path.splitext(x)[1] == ".zip" and model in x])
+								for dir in [dir for dir in [os.path.join(subfolder, dir) for dir in os.listdir(subfolder)] if os.path.isdir(dir) and os.path.splitext(dir)[1] == ".unzipped"]:
+									shutil.rmtree(dir)
+				except:
+					pass
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 		list = []
 		for catagorie in reversed(sorted(self.imagesList.keys())):
 			if catagorie in self.expanded:
-				list.append(ChoiceEntryComponent('expanded',((str(catagorie)), "Expander")))
+				list.append(ChoiceEntryComponent('expanded', ((str(catagorie)), "Expander")))
 				for image in reversed(sorted(self.imagesList[catagorie].keys())):
-					list.append(ChoiceEntryComponent('verticalline',((str(self.imagesList[catagorie][image]['name'])), str(self.imagesList[catagorie][image]['link']))))
+					list.append(ChoiceEntryComponent('verticalline', ((str(self.imagesList[catagorie][image]['name'])), str(self.imagesList[catagorie][image]['link']))))
 			else:
 				for image in self.imagesList[catagorie].keys():
-					list.append(ChoiceEntryComponent('expandable',((str(catagorie)), "Expander")))
+					list.append(ChoiceEntryComponent('expandable', ((str(catagorie)), "Expander")))
 					break
 		if list:
 			self["list"].setList(list)
@@ -130,7 +180,7 @@ class SelectImage(Screen):
 			self.session.openWithCallback(self.getImagesList, FlashImage, currentSelected[0][0], currentSelected[0][1])
 
 	def keyDelete(self):
-		currentSelected= self["list"].l.getCurrentSelection()[0][1]
+		currentSelected = self["list"].l.getCurrentSelection()[0][1]
 		if not("://" in currentSelected or currentSelected in ["Expander", "Waiter"]):
 			try:
 				os.remove(currentSelected)
@@ -175,6 +225,7 @@ class SelectImage(Screen):
 		self["list"].instance.moveSelection(self["list"].instance.moveDown)
 		self.selectionChanged()
 
+
 class FlashImage(Screen):
 	skin = """<screen position="center,center" size="640,150" flags="wfNoBorder" backgroundColor="#54242424">
 		<widget name="header" position="5,10" size="e-10,50" font="Regular;40" backgroundColor="#54242424"/>
@@ -184,7 +235,11 @@ class FlashImage(Screen):
 
 	BACKUP_SCRIPT = resolveFilename(SCOPE_PLUGINS, "Extensions/AutoBackup/settings-backup.sh")
 
+<<<<<<< HEAD
 	def __init__(self, session,  imagename, source):
+=======
+	def __init__(self, session, imagename, source):
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 		Screen.__init__(self, session)
 		self.containerbackup = None
 		self.containerofgwrite = None
@@ -219,7 +274,11 @@ class FlashImage(Screen):
 			imagesList = getImagelist()
 			currentimageslot = getCurrentImage()
 			choices = []
+<<<<<<< HEAD
 			slotdict = { k:v for k, v in SystemInfo["canMultiBoot"].items() if not v['device'].startswith('/dev/sda')}
+=======
+			slotdict = {k: v for k, v in SystemInfo["canMultiBoot"].items() if not v['device'].startswith('/dev/sda')}
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 			for x in range(1, len(slotdict) + 1):
 				choices.append(((_("slot%s - %s (current image) with, backup") if x == currentimageslot else _("slot%s - %s, with backup")) % (x, imagesList[x]['imagename']), (x, "with backup")))
 			for x in range(1, len(slotdict) + 1):
@@ -228,7 +287,11 @@ class FlashImage(Screen):
 			self.session.openWithCallback(self.checkMedia, MessageBox, self.message, list=choices, default=currentimageslot, simple=True)
 		else:
 			choices = [(_("Yes, with backup"), "with backup"), (_("Yes, without backup"), "without backup"), (_("No, do not flash image"), False)]
+<<<<<<< HEAD
 			self.session.openWithCallback(self.checkMedia, MessageBox, self.message , list=choices, default=False, simple=True)
+=======
+			self.session.openWithCallback(self.checkMedia, MessageBox, self.message, list=choices, default=False, simple=True)
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 	def checkMedia(self, retval):
 		if retval:
@@ -287,6 +350,7 @@ class FlashImage(Screen):
 						self.startDownload()
 				except:
 					self.session.openWithCallback(self.abort, MessageBox, _("Unable to create the required directories on the media (e.g. USB stick or Harddisk) - Please verify media and try again!"), type=MessageBox.TYPE_ERROR, simple=True)
+<<<<<<< HEAD
 			else:
 				self.session.openWithCallback(self.abort, MessageBox, _("Could not find suitable media - Please remove some downloaded images or insert a media (e.g. USB stick) with sufficiant free space and try again!"), type=MessageBox.TYPE_ERROR, simple=True)
 		else:
@@ -302,6 +366,23 @@ class FlashImage(Screen):
 				self.containerbackup = Console()
 				self.containerbackup.ePopen("%s%s'%s' %s" % (self.BACKUP_SCRIPT, config.plugins.autobackup.autoinstall.value and " -a " or " ", self.destination, int(config.plugins.autobackup.prevbackup.value)), self.backupsettingsDone)
 			else:
+=======
+			else:
+				self.session.openWithCallback(self.abort, MessageBox, _("Could not find suitable media - Please remove some downloaded images or insert a media (e.g. USB stick) with sufficiant free space and try again!"), type=MessageBox.TYPE_ERROR, simple=True)
+		else:
+			self.abort()
+
+	def startBackupsettings(self, retval):
+		if retval:
+			if os.path.isfile(self.BACKUP_SCRIPT):
+				self["info"].setText(_("Backing up to: %s") % self.destination)
+				configfile.save()
+				if config.plugins.autobackup.epgcache.value:
+					eEPGCache.getInstance().save()
+				self.containerbackup = Console()
+				self.containerbackup.ePopen("%s%s'%s' %s" % (self.BACKUP_SCRIPT, config.plugins.autobackup.autoinstall.value and " -a " or " ", self.destination, int(config.plugins.autobackup.prevbackup.value)), self.backupsettingsDone)
+			else:
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 				self.session.openWithCallback(self.startDownload, MessageBox, _("Unable to backup settings as the AutoBackup plugin is missing, do you want to continue?"), default=False, simple=True)
 		else:
 			self.abort()
@@ -311,7 +392,7 @@ class FlashImage(Screen):
 		if retval == 0:
 			self.startDownload()
 		else:
-			self.session.openWithCallback(self.abort, MessageBox, _("Error during backup settings\n%s") % reval, type=MessageBox.TYPE_ERROR, simple=True)
+			self.session.openWithCallback(self.abort, MessageBox, _("Error during backup settings\n%s") % retval, type=MessageBox.TYPE_ERROR, simple=True)
 
 	def startDownload(self, reply=True):
 		self.show()
@@ -343,7 +424,11 @@ class FlashImage(Screen):
 
 	def unzip(self):
 		self["header"].setText(_("Unzipping Image"))
+<<<<<<< HEAD
 		self["info"].setText("%s\n%s"% (self.imagename, _("Please wait")))
+=======
+		self["info"].setText("%s\n%s" % (self.imagename, _("Please wait")))
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 		self["progress"].hide()
 		self.callLater(self.doUnzip)
 
@@ -356,6 +441,10 @@ class FlashImage(Screen):
 
 	def flashimage(self):
 		self["header"].setText(_("Flashing Image"))
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 		def findimagefiles(path):
 			for path, subdirs, files in os.walk(path):
 				if not subdirs and files:
@@ -394,11 +483,19 @@ class FlashImage(Screen):
 		else:
 			return 0
 
+<<<<<<< HEAD
 class MultibootSelection(SelectImage):
 	def __init__(self, session, *args):
 		Screen.__init__(self, session)
 		self.skinName = "SelectImage"
 		self.session = session
+=======
+
+class MultibootSelection(SelectImage):
+	def __init__(self, session, *args):
+		SelectImage.__init__(self, session)
+		self.skinName = ["MultibootSelection", "SelectImage"]
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 		self.expanded = []
 		self.tmp_dir = None
 		self.setTitle(_("Multiboot image selector"))
@@ -451,6 +548,7 @@ class MultibootSelection(SelectImage):
 					self.deletedImagesExists = True
 				elif imagesList[x]["imagename"] != _("Empty slot"):
 					if SystemInfo["canMode12"]:
+<<<<<<< HEAD
 						list.insert(index, ChoiceEntryComponent('',((_("slot%s - %s mode 1 (current image)") if x == self.currentimageslot and mode != 12 else _("slot%s - %s mode 1")) % (x, imagesList[x]['imagename']), (x, 1))))
 						list.append(ChoiceEntryComponent('',((_("slot%s - %s mode 12 (current image)") if x == self.currentimageslot and mode == 12 else _("slot%s - %s mode 12")) % (x, imagesList[x]['imagename']), (x, 12))))
 					else:
@@ -461,6 +559,18 @@ class MultibootSelection(SelectImage):
 			list.append(ChoiceEntryComponent('',((_("Boot to Android image")), "Android")))
 		if not list:
 			list.append(ChoiceEntryComponent('',((_("No images found")), "Waiter")))
+=======
+						list.insert(index, ChoiceEntryComponent('', ((_("slot%s - %s mode 1 (current image)") if x == self.currentimageslot and mode != 12 else _("slot%s - %s mode 1")) % (x, imagesList[x]['imagename']), (x, 1))))
+						list.append(ChoiceEntryComponent('', ((_("slot%s - %s mode 12 (current image)") if x == self.currentimageslot and mode == 12 else _("slot%s - %s mode 12")) % (x, imagesList[x]['imagename']), (x, 12))))
+					else:
+						list.append(ChoiceEntryComponent('', ((_("slot%s - %s (current image)") if x == self.currentimageslot and mode != 12 else _("slot%s - %s")) % (x, imagesList[x]['imagename']), (x, 1))))
+		if os.path.isfile(os.path.join(self.tmp_dir, "STARTUP_RECOVERY")):
+			list.append(ChoiceEntryComponent('', ((_("Boot to Recovery menu")), "Recovery")))
+		if os.path.isfile(os.path.join(self.tmp_dir, "STARTUP_ANDROID")):
+			list.append(ChoiceEntryComponent('', ((_("Boot to Android image")), "Android")))
+		if not list:
+			list.append(ChoiceEntryComponent('', ((_("No images found")), "Waiter")))
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 		self["list"].setList(list)
 		self.selectionChanged()
 
@@ -493,7 +603,17 @@ class MultibootSelection(SelectImage):
 					startupfile = os.path.join(self.tmp_dir, "%s_%s" % (SystemInfo["canMultiBoot"][slot[0]]['startupfile'].rsplit('_', 1)[0], slot[1]))
 				else:
 					startupfile = os.path.join(self.tmp_dir, "%s" % SystemInfo["canMultiBoot"][slot[0]]['startupfile'])
+<<<<<<< HEAD
 				shutil.copyfile(startupfile, os.path.join(self.tmp_dir, "STARTUP"))
+=======
+				if SystemInfo["canDualBoot"]:
+					with open('/dev/block/by-name/flag', 'wb') as f:
+						f.write(struct.pack("B", int(slot[0])))
+					startupfile = os.path.join("/boot", "%s" % SystemInfo["canMultiBoot"][slot[0]]['startupfile'])
+					shutil.copyfile(startupfile, os.path.join("/boot", "STARTUP"))
+				else:
+					shutil.copyfile(startupfile, os.path.join(self.tmp_dir, "STARTUP"))
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 			else:
 				model = HardwareInfo().get_machine_name()
 				if slot[1] == 1:

@@ -1,13 +1,27 @@
+<<<<<<< HEAD
 import threading, urllib2, os, shutil, tempfile
+=======
+import threading
+import urllib2
+import os
+import shutil
+import tempfile
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 from json import loads
 from enigma import eDVBDB, eEPGCache
 from Screens.MessageBox import MessageBox
 from config import config, ConfigText
 from Tools import Notifications
 from base64 import encodestring
+<<<<<<< HEAD
+=======
+from urllib import quote
+from time import sleep
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 import xml.etree.ElementTree as et
 
 settingfiles = ('lamedb', 'bouquets.', 'userbouquet.', 'blacklist', 'whitelist', 'alternatives.')
+
 
 class ImportChannels():
 
@@ -30,7 +44,21 @@ class ImportChannels():
 		request = urllib2.Request(url)
 		if self.header:
 			request.add_header("Authorization", self.header)
+<<<<<<< HEAD
 		return urllib2.urlopen(request, timeout=timeout)
+=======
+		try:
+			result = urllib2.urlopen(request, timeout=timeout)
+		except urllib2.URLError, e:
+			if "[Errno -3]" in str(e.reason):
+				print "[Import Channels] Network is not up yet, delay 5 seconds"
+				# network not up yet
+				sleep(5)
+				return self.getUrl(url, timeout)
+			print "[Import Channels] URLError ", e
+			raise e
+		return result
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 	def getTerrestrialUrl(self):
 		url = config.usage.remote_fallback_dvb_t.value
@@ -60,7 +88,11 @@ class ImportChannels():
 		self.getTerrestrialRegion(settings)
 		self.tmp_dir = tempfile.mkdtemp(prefix="ImportChannels")
 		if "epg" in self.remote_fallback_import:
+<<<<<<< HEAD
 			print "Writing epg.dat file on sever box"
+=======
+			print "[Import Channels] Writing epg.dat file on sever box"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 			try:
 				self.getUrl("%s/web/saveepg" % self.url, timeout=30).read()
 			except:
@@ -95,8 +127,14 @@ class ImportChannels():
 					file = file.encode("UTF-8")
 					print "[Import Channels] Downloading %s" % file
 					try:
+<<<<<<< HEAD
 						open(os.path.join(self.tmp_dir, os.path.basename(file)), "wb").write(self.getUrl("%s/file?file=%s" % (self.url, file)).read())
 					except:
+=======
+						open(os.path.join(self.tmp_dir, os.path.basename(file)), "wb").write(self.getUrl("%s/file?file=%s" % (self.url, quote(file))).read())
+					except Exception, e:
+						print "[Import Channels] Exception: %s" % str(e)
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 						self.ImportChannelsDone(False, _("ERROR downloading file %s") % file)
 						return
 			except:

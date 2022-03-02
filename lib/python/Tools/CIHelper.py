@@ -1,9 +1,14 @@
 from xml.etree.cElementTree import parse
+<<<<<<< HEAD
 from enigma import eDVBCIInterfaces, eDVBCI_UI, eEnv, eServiceCenter, eServiceReference, getBestPlayableServiceReference, iRecordableService 
+=======
+from enigma import eDVBCIInterfaces, eDVBCI_UI, eEnv, eServiceCenter, eServiceReference, getBestPlayableServiceReference, iRecordableService
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 from Components.SystemInfo import SystemInfo
 from Components.config import config
 import NavigationInstance
 import os
+
 
 class CIHelper:
 
@@ -18,9 +23,10 @@ class CIHelper:
 		NUM_CI = SystemInfo["CommonInterface"]
 		if NUM_CI and NUM_CI > 0:
 			self.CI_ASSIGNMENT_LIST = []
+
 			def getValue(definitions, default):
 				Len = len(definitions)
-				return Len > 0 and definitions[Len-1].text or default
+				return Len > 0 and definitions[Len - 1].text or default
 
 			for ci in range(NUM_CI):
 				filename = eEnv.resolve("${sysconfdir}/enigma2/ci") + str(ci) + ".xml"
@@ -59,7 +65,11 @@ class CIHelper:
 										if not self.CI_ASSIGNMENT_SERVICES_LIST.get(ref, False):
 											self.CI_ASSIGNMENT_SERVICES_LIST[ref] = read_slot
 
+<<<<<<< HEAD
 						if read_slot is not False and (read_services or read_providers or usingcaid):
+=======
+						if read_slot is not False:
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 							self.CI_ASSIGNMENT_LIST.append((int(read_slot), (read_services, read_providers, usingcaid)))
 				except:
 					print "[CI_ASSIGNMENT %d] ERROR parsing xml..." % ci
@@ -70,7 +80,11 @@ class CIHelper:
 			if self.CI_ASSIGNMENT_LIST:
 				for item in self.CI_ASSIGNMENT_LIST:
 					try:
+<<<<<<< HEAD
 						eDVBCIInterfaces.getInstance().setDescrambleRules(item[0],item[1])
+=======
+						eDVBCIInterfaces.getInstance().setDescrambleRules(item[0], item[1])
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 						print "[CI_ASSIGNMENT %d] activate with following settings" % item[0]
 					except:
 						print "[CI_ASSIGNMENT %d] ERROR setting DescrambleRules" % item[0]
@@ -78,7 +92,11 @@ class CIHelper:
 	def ciRecordEvent(self, service, event):
 		if event in (iRecordableService.evEnd, iRecordableService.evStart, None):
 			self.CI_RECORDS_LIST = []
+<<<<<<< HEAD
 			if NavigationInstance.instance.getRecordings():
+=======
+			if NavigationInstance.instance.getRecordings()  and hasattr(NavigationInstance.instance, "RecordTimer") and hasattr(NavigationInstance.instance.RecordTimer, "timer_list"):
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 				for timer in NavigationInstance.instance.RecordTimer.timer_list:
 					if not timer.justplay and timer.state in (1, 2) and timer.record_service and not (timer.record_ecm and not timer.descramble):
 						if timer.service_ref.ref.flags & eServiceReference.isGroup:
@@ -116,7 +134,11 @@ class CIHelper:
 						provider_services_refs.append(service.toString())
 		return provider_services_refs
 
+<<<<<<< HEAD
 	def ServiceIsAssigned(self, ref, timer=None): 
+=======
+	def ServiceIsAssigned(self, ref, timer=None):
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 		if self.CI_ASSIGNMENT_SERVICES_LIST is not None:
 			if self.CI_RECORDS_LIST is None and NavigationInstance.instance and hasattr(NavigationInstance.instance, "RecordTimer") and hasattr(NavigationInstance.instance, "record_event"):
 				NavigationInstance.instance.record_event.append(self.ciRecordEvent)
@@ -185,7 +207,9 @@ class CIHelper:
 				return 0
 		return 1
 
+
 cihelper = CIHelper()
+
 
 def isPlayable(service):
 	ret = cihelper.isPlayable(service)

@@ -1,6 +1,12 @@
 # takes a header file, outputs action ids
 
+<<<<<<< HEAD
 import tokenize, sys
+=======
+import tokenize
+import sys
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 def filter(g):
 	while 1:
@@ -17,6 +23,7 @@ def filter(g):
 		if t[1] != "\n":
 #			print t
 			yield t[1]
+
 
 def do_file(f, mode):
 	tokens = filter(tokenize.generate_tokens(open(f, 'r').readline))
@@ -99,6 +106,7 @@ def do_file(f, mode):
 						print "{\"" + actionname + "\", \"" + t + "\", " + "::".join((classname, t)) + "},"
 
 					counter += 1
+
 
 mode = sys.argv[1]
 

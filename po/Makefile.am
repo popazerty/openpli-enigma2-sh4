@@ -1,6 +1,10 @@
 dist_noinst_SCRIPTS = xml2po.py
 
+<<<<<<< HEAD
 LANGS = ar bg ca cs da de el en es et fa fi fr fy he hr hu id is it ku lt lv nl nb nn pl pt pt_BR ro ru sk sl sr sv th tr uk vi zh_CN zh_HK
+=======
+LANGS = ar bg ca cs da de el en es et fa fi fr fy gl he hr hu id is it ku lt lv mk nl nb nn pl pt pt_BR ro ru sk sl sr sv th tr uk vi zh_CN zh_HK
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 LANGMO = $(LANGS:=.mo)
 LANGPO = $(LANGS:=.po)
 
@@ -8,7 +12,7 @@ EXTRA_DIST = $(LANGPO)
 
 if UPDATE_PO
 # the TRANSLATORS: allows putting translation comments before the to-be-translated line.
-enigma2-py.pot: $(top_srcdir)/*.py $(top_srcdir)/lib/python/*/*.py $(top_srcdir)/lib/python/*/*/*.py $(top_srcdir)/lib/python/Plugins/*/*/*.py
+enigma2-py.pot: $(top_srcdir)/lib/python/*.py $(top_srcdir)/lib/python/*/*.py $(top_srcdir)/lib/python/*/*/*.py $(top_srcdir)/lib/python/Plugins/*/*/*.py
 	$(XGETTEXT) --no-wrap -L Python --from-code=UTF-8 -kpgettext:1c,2 --add-comments="TRANSLATORS:" -d @PACKAGE_NAME@ -s -o $@ $^
 	$(SED) --in-place $@ --expression=s/CHARSET/UTF-8/
 

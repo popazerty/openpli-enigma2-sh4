@@ -2,16 +2,22 @@ from enigma import eServiceCenter, eServiceReference
 from Components.config import config
 from ServiceReference import isPlayableForCur
 from Tools.CIHelper import cihelper
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 def getAlternativeChannels(service):
 	alternativeServices = eServiceCenter.getInstance().list(eServiceReference(service))
 	return alternativeServices and alternativeServices.getContent("S", True)
+
 
 def CompareWithAlternatives(serviceA, serviceB):
 	return serviceA and serviceB and (
 		serviceA == serviceB or
 		serviceA.startswith('1:134:') and serviceB in getAlternativeChannels(serviceA) or
 		serviceB.startswith('1:134:') and serviceA in getAlternativeChannels(serviceB))
+
 
 def GetWithAlternative(service):
 	if service.startswith('1:134:'):
@@ -20,6 +26,10 @@ def GetWithAlternative(service):
 			return channels[0]
 	return service
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 def ResolveCiAlternative(ref, ignore_ref=None, record_mode=False):
 	if ref and isinstance(ref, eServiceReference):
 		if ref.flags & eServiceReference.isGroup:
@@ -30,6 +40,10 @@ def ResolveCiAlternative(ref, ignore_ref=None, record_mode=False):
 				for service in serviceList.getContent("R"):
 					if not ignore_ref or service != ignore_ref:
 						refstr = service.toString()
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 						def resolveRecordLiveMode():
 							if record_mode:
 								is_assignment = cihelper.ServiceIsAssigned(refstr)

@@ -7,7 +7,7 @@
 #include <lib/dvb/dvb.h>
 #include <lib/dvb/metaparser.h>
 #include <lib/dvb_ci/dvbci.h>
-#include <lib/dvb/epgcache.h>
+#include <lib/dvb/epgtransponderdatareader.h>
 #include <lib/dvb/scan.h>
 #include <lib/dvb_ci/dvbci_session.h>
 #include <dvbsi++/ca_descriptor.h>
@@ -162,7 +162,7 @@ void eDVBServicePMTHandler::PMTready(int error)
 		case streamserver:
 		case scrambled_streamserver:
 		case streamclient:
-			eEPGCache::getInstance()->PMTready(this);
+			eEPGTransponderDataReader::getInstance()->PMTready(this);
 			break;
 		default:
 			/* do not start epg caching for other types of services */
@@ -374,7 +374,17 @@ int eDVBServicePMTHandler::getProgramInfo(program &program)
 		eDVBService::cacheID cacheTag;
 	};
 	ePtr<eTable<ProgramMapSection> > ptr;
+<<<<<<< HEAD
 	int cached_apid[eDVBService::cacheMax];
+=======
+	int cached_apid_ac3 = -1;
+	int cached_apid_ac4 = -1;
+	int cached_apid_ddp = -1;
+	int cached_apid_mpeg = -1;
+	int cached_apid_aache = -1;
+	int cached_apid_aac = -1;
+	int cached_apid_dra = -1;
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 	int cached_vpid = -1;
 	int cached_tpid = -1;
 	int ret = -1;
@@ -394,11 +404,21 @@ int eDVBServicePMTHandler::getProgramInfo(program &program)
 	if ( m_service && !m_service->cacheEmpty() )
 	{
 		cached_vpid = m_service->getCacheEntry(eDVBService::cVPID);
+<<<<<<< HEAD
 		for (int m = 0; m < eDVBService::nAudioCacheTags; m++)
 		{
 			eDVBService::cacheID cTag = eDVBService::audioCacheTags[m];
 			cached_apid[cTag] = m_service->getCacheEntry(cTag);
 		}
+=======
+		cached_apid_mpeg = m_service->getCacheEntry(eDVBService::cMPEGAPID);
+		cached_apid_ac3 = m_service->getCacheEntry(eDVBService::cAC3PID);
+		cached_apid_ac4 = m_service->getCacheEntry(eDVBService::cAC4PID);
+		cached_apid_ddp = m_service->getCacheEntry(eDVBService::cDDPPID);
+		cached_apid_aache = m_service->getCacheEntry(eDVBService::cAACHEAPID);
+		cached_apid_aac = m_service->getCacheEntry(eDVBService::cAACAPID);
+		cached_apid_dra = m_service->getCacheEntry(eDVBService::cDRAAPID);
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 		cached_tpid = m_service->getCacheEntry(eDVBService::cTPID);
 	}
 
@@ -407,7 +427,17 @@ int eDVBServicePMTHandler::getProgramInfo(program &program)
 		unsigned int i;
 		int first_non_mpeg = -1;
 		int audio_cached = -1;
+<<<<<<< HEAD
 		int autoaudio[eDVBService::cacheMax];
+=======
+		int autoaudio_mpeg = -1;
+		int autoaudio_ac3 = -1;
+		int autoaudio_ac4 = -1;
+		int autoaudio_ddp = -1;
+		int autoaudio_aache = -1;
+		int autoaudio_aac = -1;
+		int autoaudio_dra = -1;
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 		int autoaudio_level = 4;
 		const static audioMap audioMapMain[] = {
 			{ audioStream::atMPEG,  eDVBService::cMPEGAPID,  },
@@ -484,7 +514,17 @@ int eDVBServicePMTHandler::getProgramInfo(program &program)
 			as(program.audioStreams.begin());
 			as != program.audioStreams.end(); ++as, ++i)
 		{
+<<<<<<< HEAD
 			for (int m = 0; m < eDVBService::nAudioCacheTags; m++)
+=======
+			if (program.audioStreams[i].pid == cached_apid_ac3
+			 || program.audioStreams[i].pid == cached_apid_ac4
+			 || program.audioStreams[i].pid == cached_apid_ddp
+			 || program.audioStreams[i].pid == cached_apid_mpeg
+			 || program.audioStreams[i].pid == cached_apid_aache
+			 || program.audioStreams[i].pid == cached_apid_aac
+			 || program.audioStreams[i].pid == cached_apid_dra)
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 			{
 				eDVBService::cacheID cTag = eDVBService::audioCacheTags[m];
 				if (as->pid == cached_apid[cTag])
@@ -496,6 +536,7 @@ int eDVBServicePMTHandler::getProgramInfo(program &program)
 				}
 			}
 			/* also, we need to know the first non-mpeg (i.e. "ac3"/dts/...) stream */
+<<<<<<< HEAD
 			if (as->type != audioStream::atMPEG) {
 				if (first_non_mpeg == -1)
 					first_non_mpeg = i;
@@ -510,6 +551,17 @@ int eDVBServicePMTHandler::getProgramInfo(program &program)
 						}
 					}
 				}
+=======
+			if ((program.audioStreams[i].type != audioStream::atMPEG) && ((first_non_mpeg == -1)
+				|| (program.audioStreams[i].pid == cached_apid_ac3)
+				|| (program.audioStreams[i].pid == cached_apid_ac4)
+				|| (program.audioStreams[i].pid == cached_apid_ddp)
+				|| (program.audioStreams[i].pid == cached_apid_aache)
+				|| (program.audioStreams[i].pid == cached_apid_aac)
+				|| (program.audioStreams[i].pid == cached_apid_dra)))
+			{
+				first_non_mpeg = i;
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 			}
 			if (!as->language_code.empty())
 			{
@@ -518,6 +570,7 @@ int eDVBServicePMTHandler::getProgramInfo(program &program)
 					it = autoaudio_languages.begin();
 					x <= autoaudio_level && it != autoaudio_languages.end(); x++, it++)
 				{
+<<<<<<< HEAD
 					if ((*it).find(as->language_code) != std::string::npos)
 					{
 						for (int m = 0; m < nAudioMapMain; m++)
@@ -531,7 +584,39 @@ int eDVBServicePMTHandler::getProgramInfo(program &program)
 						}
 						autoaudio_level = x;
 						break;
+=======
+					bool languageFound = false;
+					size_t pos = 0;
+					char delimiter = '/';
+					std::string audioStreamLanguages = program.audioStreams[i].language_code;
+					audioStreamLanguages += delimiter;
+					while ((pos = audioStreamLanguages.find(delimiter)) != std::string::npos)
+					{
+						if ((*it).find(audioStreamLanguages.substr(0, pos)) != std::string::npos)
+						{
+							if (program.audioStreams[i].type == audioStream::atMPEG && (autoaudio_level > x || autoaudio_mpeg == -1))
+								autoaudio_mpeg = i;
+							else if (program.audioStreams[i].type == audioStream::atAC3 && (autoaudio_level > x || autoaudio_ac3 == -1))
+								autoaudio_ac3 = i;
+							else if (program.audioStreams[i].type == audioStream::atAC4 && (autoaudio_level > x || autoaudio_ac4 == -1))
+								autoaudio_ac4 = i;
+							else if (program.audioStreams[i].type == audioStream::atDDP && (autoaudio_level > x || autoaudio_ddp == -1))
+								autoaudio_ddp = i;
+							else if (program.audioStreams[i].type == audioStream::atAACHE && (autoaudio_level > x || autoaudio_aache == -1))
+								autoaudio_aache = i;
+							else if (program.audioStreams[i].type == audioStream::atAAC && (autoaudio_level > x || autoaudio_aac == -1))
+								autoaudio_aac = i;
+							else if (program.audioStreams[i].type == audioStream::atDRA && (autoaudio_level > x || autoaudio_dra == -1))
+								autoaudio_dra = i;
+							autoaudio_level = x;
+							languageFound = true;
+							break;
+						}
+						audioStreamLanguages.erase(0, pos + 1);
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 					}
+					if (languageFound)
+						break;
 				}
 			}
 		}
@@ -584,6 +669,7 @@ int eDVBServicePMTHandler::getProgramInfo(program &program)
 			program.defaultAudioStream = autoaudio[eDVBService::cDDPPID];
 		else
 		{
+<<<<<<< HEAD
 			int defaultAudio = -1;
 			for (int m = 0; m < nAudioMapMain; m++)
 			{
@@ -596,6 +682,20 @@ int eDVBServicePMTHandler::getProgramInfo(program &program)
 			}
 			if (defaultAudio != -1)
 				program.defaultAudioStream = defaultAudio;
+=======
+			if (autoaudio_mpeg != -1)
+				program.defaultAudioStream = autoaudio_mpeg;
+			else if (autoaudio_ac3 != -1)
+				program.defaultAudioStream = autoaudio_ac3;
+			else if (autoaudio_ac4 != -1)
+				program.defaultAudioStream = autoaudio_ac4;
+			else if (autoaudio_ddp != -1)
+				program.defaultAudioStream = autoaudio_ddp;
+			else if (autoaudio_aache != -1)
+				program.defaultAudioStream = autoaudio_aache;
+			else if (autoaudio_aac != -1)
+				program.defaultAudioStream = autoaudio_aac;
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 			else if (first_non_mpeg != -1 && (defaultac3 || defaultddp))
 				program.defaultAudioStream = first_non_mpeg;
 		}
@@ -673,7 +773,65 @@ int eDVBServicePMTHandler::getProgramInfo(program &program)
 			program.videoStreams.push_back(s);
 			++cnt;
 		}
+<<<<<<< HEAD
 		for (int m = 0; m < nAudioMapList; m++)
+=======
+		if ( cached_apid_ac3 != -1 )
+		{
+			audioStream s;
+			s.type = audioStream::atAC3;
+			s.pid = cached_apid_ac3;
+			s.rdsPid = -1;
+			program.audioStreams.push_back(s);
+			++cnt;
+		}
+		if ( cached_apid_ac4 != -1 )
+		{
+			audioStream s;
+			s.type = audioStream::atAC4;
+			s.pid = cached_apid_ac4;
+			s.rdsPid = -1;
+			program.audioStreams.push_back(s);
+			++cnt;
+		}
+		if ( cached_apid_ddp != -1 )
+		{
+			audioStream s;
+			s.type = audioStream::atDDP;
+			s.pid = cached_apid_ddp;
+			s.rdsPid = -1;
+			program.audioStreams.push_back(s);
+			++cnt;
+		}
+		if ( cached_apid_aache != -1 )
+		{
+			audioStream s;
+			s.type = audioStream::atAACHE;
+			s.pid = cached_apid_aache;
+			s.rdsPid = -1;
+			program.audioStreams.push_back(s);
+			++cnt;
+		}
+		if ( cached_apid_aac != -1 )
+		{
+			audioStream s;
+			s.type = audioStream::atAAC;
+			s.pid = cached_apid_aac;
+			s.rdsPid = -1;
+			program.audioStreams.push_back(s);
+			++cnt;
+		}
+		if ( cached_apid_dra != -1 )
+		{
+			audioStream s;
+			s.type = audioStream::atDRA;
+			s.pid = cached_apid_dra;
+			s.rdsPid = -1;
+			program.audioStreams.push_back(s);
+			++cnt;
+		}
+		if ( cached_apid_mpeg != -1 )
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 		{
 			eDVBService::cacheID cTag = audioMapList[m].cacheTag;
 			if (cached_apid[cTag] != -1)
@@ -745,7 +903,11 @@ int eDVBServicePMTHandler::compareAudioSubtitleCode(const std::string &subtitleT
 {
 	for (const auto& _audioTrack : split(audioTrack, "/"))
 	{
+<<<<<<< HEAD
 		if (strcasecmp(subtitleTrack, _audioTrack) == 0)
+=======
+		if (strcasecmp(subtitleTrack.c_str(), _audioTrack.c_str()) == 0)
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 			return 0;
 	}
 	return -1;

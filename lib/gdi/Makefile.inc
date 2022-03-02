@@ -20,8 +20,12 @@ gdi_libenigma_gdi_a_SOURCES = \
 	gdi/picexif.cpp \
 	gdi/picload.cpp \
 	gdi/pixmapcache.cpp \
+<<<<<<< HEAD
 	gdi/region.cpp \
 	gdi/stmfb.cpp
+=======
+	gdi/region.cpp
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 gdiincludedir = $(pkgincludedir)/lib/gdi
 gdiinclude_HEADERS = \

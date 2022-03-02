@@ -107,6 +107,7 @@ class SkinSelector(Screen, HelpableScreen):
 				if exists(skinPath):
 					resolution = None
 					if skinFile == "skin.xml":
+<<<<<<< HEAD
 						with open(skinPath, "r") as fd:
 							resolutions = {
 								"480": _("NTSC"),
@@ -121,6 +122,25 @@ class SkinSelector(Screen, HelpableScreen):
 							skinheight = re.search("\<?resolution.*?\syres\s*=\s*\"(\d+)\"", mm).group(1)
 							resolution = skinheight and resolutions.get(skinheight, None)
 							mm.close()
+=======
+						try:
+							with open(skinPath, "r") as fd:
+								resolutions = {
+									"480": _("NTSC"),
+									"576": _("PAL"),
+									"720": _("HD"),
+									"1080": _("FHD"),
+									"2160": _("4K"),
+									"4320": _("8K"),
+									"8640": _("16K")
+								}
+								mm = mmap.mmap(fd.fileno(), 0, prot=mmap.PROT_READ)
+								skinheight = re.search("\<?resolution.*?\syres\s*=\s*\"(\d+)\"", mm).group(1)
+								resolution = skinheight and resolutions.get(skinheight, None)
+								mm.close()
+						except:
+							pass
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 						print("[SkinSelector] Resolution of skin '%s': '%s'." % (skinPath, "Unknown" if resolution is None else resolution))
 						# Code can be added here to reject unsupported resolutions.
 					# The "piconprev.png" image should be "prevpicon.png" to keep it with its partner preview image.
@@ -228,6 +248,10 @@ class SkinSelector(Screen, HelpableScreen):
 			current = current.replace("_", " ")
 		return current
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 class LcdSkinSelector(SkinSelector):
 	def __init__(self, session, screenTitle=_("Display Skin")):
 		SkinSelector.__init__(self, session, screenTitle=screenTitle)
@@ -237,6 +261,10 @@ class LcdSkinSelector(SkinSelector):
 		self.current = currentDisplaySkin
 		self.xmlList = ["skin_display.xml", "skin_display_picon.xml"]
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 class SkinSelectorSummary(Screen):
 	def __init__(self, session, parent):
 		Screen.__init__(self, session, parent=parent)

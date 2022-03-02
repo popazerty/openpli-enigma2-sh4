@@ -16,11 +16,18 @@
 
 gAccel *gAccel::instance;
 
+<<<<<<< HEAD
 #define STMFB_ACCEL
 
 extern int stmfb_accel_init(void);
 extern void stmfb_accel_close(void);
 extern void stmfb_accel_blit(
+=======
+#ifdef BCM_ACCEL
+extern int bcm_accel_init(void);
+extern void bcm_accel_close(void);
+extern void bcm_accel_blit(
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 		int src_addr, int src_width, int src_height, int src_stride, int src_format,
 		int dst_addr, int dst_width, int dst_height, int dst_stride,
 		int src_x, int src_y, int width, int height,
@@ -36,12 +43,25 @@ gAccel::gAccel():
 	m_accel_size(0)
 {
 	instance = this;
+<<<<<<< HEAD
 	stmfb_accel_init();
+=======
+
+#ifdef BCM_ACCEL
+	m_bcm_accel_state = bcm_accel_init();
+#endif
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 }
 
 gAccel::~gAccel()
 {
+<<<<<<< HEAD
 	stmfb_accel_close();
+=======
+#ifdef BCM_ACCEL
+	bcm_accel_close();
+#endif
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 	instance = 0;
 }
 
@@ -115,6 +135,7 @@ bool gAccel::hasAlphaBlendingSupport()
 
 int gAccel::blit(gUnmanagedSurface *dst, gUnmanagedSurface *src, const eRect &p, const eRect &area, int flags)
 {
+<<<<<<< HEAD
 	//eDebug( "src: %4d %4d %4d %4d\tdst: %4d %4d %4d %4d\n"
 	//		"area: %4d %4d %4d %4d\tp: %4d %4d %4d %4d\n",
 	//		src->data_phys, src->x, src->y, src->stride,
@@ -153,6 +174,30 @@ int gAccel::blit(gUnmanagedSurface *dst, gUnmanagedSurface *src, const eRect &p,
 					++i;
 				}
 			for(; i != 256; ++i)
+=======
+#ifdef BCM_ACCEL
+	if (!m_bcm_accel_state)
+	{
+		unsigned int pal_addr = 0;
+		int src_format = 0;
+		if (src->bpp == 32)
+			src_format = 0;
+		else if ((src->bpp == 8) && src->clut.data)
+		{
+			src_format = 1;
+			/* sync pal */
+			if (src->clut.data_phys == 0)
+			{
+				/* sync pal */
+				pal_addr = src->stride * src->y;
+				unsigned int *pal = (unsigned int*)(((unsigned char*)src->data) + pal_addr);
+				pal_addr += src->data_phys;
+				for (int i = 0; i < src->clut.colors; ++i)
+					*pal++ = src->clut.data[i].argb() ^ 0xFF000000;
+				src->clut.data_phys = pal_addr;
+			}
+			else
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 			{
 				pal[i] = (0x010101*i) | 0xFF000000;
 			}
@@ -188,6 +233,18 @@ int gAccel::fill(gUnmanagedSurface *dst, const eRect &area, unsigned long col)
 #ifdef FORCE_NO_FILL_ACCELERATION
 	return -1;
 #endif
+<<<<<<< HEAD
+=======
+#ifdef BCM_ACCEL
+	if (!m_bcm_accel_state) {
+		bcm_accel_fill(
+			dst->data_phys, dst->x, dst->y, dst->stride,
+			area.left(), area.top(), area.width(), area.height(),
+			col);
+		return 0;
+	}
+#endif
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 	return -1;
 }
 

@@ -6,7 +6,7 @@ from Components.Label import Label
 from Components.ScrollLabel import ScrollLabel
 from Components.PluginComponent import plugins
 from Components.TimerList import TimerList
-from Components.UsageConfig import preferredTimerPath
+from Components.UsageConfig import preferredTimerPath, dropEPGNewLines, replaceEPGSeparator
 from Components.Sources.ServiceEvent import ServiceEvent
 from Components.Sources.StaticText import StaticText
 from Components.Sources.Event import Event
@@ -19,6 +19,7 @@ from Tools.FallbackTimer import FallbackTimerList
 from time import localtime
 from Components.config import config
 
+
 class EventViewBase:
 	ADD_TIMER = 0
 	REMOVE_TIMER = 1
@@ -26,7 +27,7 @@ class EventViewBase:
 	def __init__(self, event, Ref, callback=None, similarEPGCB=None, parent=None):
 		self.similarEPGCB = similarEPGCB
 		self.cbFunc = callback
-		self.currentService=Ref
+		self.currentService = Ref
 		self.isRecording = (not Ref.ref.flags & eServiceReference.isGroup) and Ref.ref.getPath()
 		self.event = event
 		self["Service"] = ServiceEvent()
@@ -111,8 +112,9 @@ class EventViewBase:
 				break
 		if isRecordEvent:
 			title_text = timer.repeated and _("Attention, this is repeated timer!\n") or ""
-			menu = [(_("Delete timer"), "delete"),(_("Edit timer"), "edit")]
+			menu = [(_("Delete timer"), "delete"), (_("Edit timer"), "edit")]
 			buttons = ["red", "green"]
+
 			def timerAction(choice):
 				if choice is not None:
 					if choice[1] == "delete":
@@ -121,7 +123,11 @@ class EventViewBase:
 						self.session.openWithCallback(self.finishedEdit, TimerEntry, timer)
 			self.session.openWithCallback(timerAction, ChoiceBox, title=title_text + _("Select action for timer '%s'.") % timer.name, list=menu, keys=buttons)
 		else:
+<<<<<<< HEAD
 			newEntry = RecordTimerEntry(self.currentService, checkOldTimers = True, dirname = preferredTimerPath(), *parseEvent(self.event))
+=======
+			newEntry = RecordTimerEntry(self.currentService, checkOldTimers=True, dirname=preferredTimerPath(), *parseEvent(self.event))
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 			newEntry.justplay = config.recording.timer_default_type.value == "zap"
 			newEntry.always_zap = config.recording.timer_default_type.value == "zap+record"
 			self.session.openWithCallback(self.finishedAdd, TimerEntry, newEntry)
@@ -133,6 +139,7 @@ class EventViewBase:
 				def removeEditTimer():
 					entry.service_ref, entry.begin, entry.end, entry.external = entry.service_ref_prev, entry.begin_prev, entry.end_prev, entry.external_prev
 					self.removeTimer(entry)
+
 				def moveEditTimerError():
 					entry.external = entry.external_prev
 					self.onSelectionChanged()
@@ -207,7 +214,7 @@ class EventViewBase:
 		self.finishedAdd(answer)
 
 	def setService(self, service):
-		self.currentService=service
+		self.currentService = service
 		self["Service"].newService(service.ref)
 		if self.isRecording:
 			self["channel"].setText(_("Recording"))
@@ -218,7 +225,7 @@ class EventViewBase:
 			else:
 				self["channel"].setText(_("unknown service"))
 
-	def sort_func(self,x,y):
+	def sort_func(self, x, y):
 		if x[1] < y[1]:
 			return -1
 		elif x[1] == y[1]:
@@ -232,17 +239,17 @@ class EventViewBase:
 		if event is None:
 			return
 		text = event.getEventName()
-		short = event.getShortDescription()
-		ext = event.getExtendedDescription()
+		short = dropEPGNewLines(event.getShortDescription())
+		ext = dropEPGNewLines(event.getExtendedDescription().rstrip())
 		if short == text:
 			short = ""
 		if short and ext:
-			ext = short + "\n\n" + ext
+			ext = short + replaceEPGSeparator(config.epg.fulldescription_separator.value) + ext
 		elif short:
 			ext = short
 
 		if text and ext:
-			text += "\n\n"
+			text += replaceEPGSeparator(config.epg.fulldescription_separator.value)
 		text += ext
 
 		self.setTitle(event.getEventName())
@@ -250,11 +257,11 @@ class EventViewBase:
 		self["epg_description"].setText(text)
 		self["FullDescription"].setText(ext)
 		self["datetime"].setText(event.getBeginTimeString())
-		self["duration"].setText(_("%d min")%(event.getDuration()/60))
+		self["duration"].setText(_("%d min") % (event.getDuration() / 60))
 		self["key_red"].setText("")
 		if self.SimilarBroadcastTimer is not None:
-			self.SimilarBroadcastTimer.start(400,True)
-		self.setTimerState()	
+			self.SimilarBroadcastTimer.start(400, True)
+		self.setTimerState()
 
 	def setTimerState(self):
 		serviceref = self.currentService
@@ -301,9 +308,9 @@ class EventViewBase:
 				text += '\n%02d.%02d.%d, %02d:%02d  -  %s' % (t[2], t[1], t[0], t[3], t[4], x[0])
 
 			descr = self["epg_description"]
-			descr.setText(descr.getText()+text)
+			descr.setText(descr.getText() + text)
 			descr = self["FullDescription"]
-			descr.setText(descr.getText()+text)
+			descr.setText(descr.getText() + text)
 			self["key_red"].setText(_("Similar"))
 
 	def openSimilarList(self):
@@ -316,9 +323,9 @@ class EventViewBase:
 	def doContext(self):
 		if self.event:
 			text = _("Select action")
-			menu = [(p.name, boundFunction(self.runPlugin, p)) for p in plugins.getPlugins(where = PluginDescriptor.WHERE_EVENTINFO) \
-				if 'servicelist' not in p.__call__.func_code.co_varnames \
-					if 'selectedevent' not in p.__call__.func_code.co_varnames ]
+			menu = [(p.name, boundFunction(self.runPlugin, p)) for p in plugins.getPlugins(where=PluginDescriptor.WHERE_EVENTINFO)
+				if 'servicelist' not in p.__call__.func_code.co_varnames
+					if 'selectedevent' not in p.__call__.func_code.co_varnames]
 			if len(menu) == 1:
 				menu and menu[0][1]()
 			elif len(menu) > 1:
@@ -331,11 +338,13 @@ class EventViewBase:
 	def runPlugin(self, plugin):
 		plugin(session=self.session, service=self.currentService, event=self.event, eventName=self.event.getEventName())
 
+
 class EventViewSimple(Screen, EventViewBase):
 	def __init__(self, session, Event, Ref, callback=None, similarEPGCB=None, parent=None):
 		Screen.__init__(self, session)
 		self.skinName = "EventView"
 		EventViewBase.__init__(self, Event, Ref, callback, similarEPGCB, parent)
+
 
 class EventViewEPGSelect(Screen, EventViewBase):
 	def __init__(self, session, Event, Ref, callback=None, singleEPGCB=None, multiEPGCB=None, similarEPGCB=None, parent=None):

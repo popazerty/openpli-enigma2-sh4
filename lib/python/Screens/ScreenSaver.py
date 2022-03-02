@@ -5,9 +5,17 @@ from Components.Pixmap import Pixmap
 from Components.config import config
 import Screens.Standby
 from enigma import ePoint, eTimer, iPlayableService, eActionMap
+<<<<<<< HEAD
 import os, random
 from sys import maxint
 
+=======
+import os
+import random
+from sys import maxint
+
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 class InfoBarScreenSaver:
 	def __init__(self):
 		self.onExecBegin.append(self.__onExecBegin)
@@ -32,12 +40,22 @@ class InfoBarScreenSaver:
 	def ScreenSaverTimerStart(self):
 		time = int(config.usage.screen_saver.value)
 		flag = hasattr(self, "seekstate") and self.seekstate[0]
+<<<<<<< HEAD
 		if not flag:
 			ref = self.session.nav.getCurrentlyPlayingServiceOrGroup()
 			if ref and not (hasattr(self.session, "pipshown") and self.session.pipshown):
 				ref = ref.toString().split(":")
 				flag = ref[2] == "2" or os.path.splitext(ref[10])[1].lower() in AUDIO_EXTENSIONS
 		if time and flag:
+=======
+		pip_show = hasattr(self.session, "pipshown") and self.session.pipshown
+		if not flag:
+			ref = self.session.nav.getCurrentlyPlayingServiceReference()
+			if ref and not pip_show:
+				ref = ref.toString().split(":")
+				flag = ref[2] in ("2", "A") or os.path.splitext(ref[10])[1].lower() in AUDIO_EXTENSIONS
+		if time and flag and not pip_show:
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 			self.screenSaverTimer.startLongTimer(time)
 		else:
 			self.screenSaverTimer.stop()
@@ -56,6 +74,10 @@ class InfoBarScreenSaver:
 			self.show()
 			self.ScreenSaverTimerStart()
 			eActionMap.getInstance().unbindAction('', self.keypressScreenSaver)
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 class Screensaver(Screen):
 	def __init__(self, session):
@@ -73,8 +95,7 @@ class Screensaver(Screen):
 		self.onShow.append(self.__onShow)
 		self.onHide.append(self.__onHide)
 
-		self.__event_tracker = ServiceEventTracker(screen=self, eventmap=
-			{
+		self.__event_tracker = ServiceEventTracker(screen=self, eventmap={
 				iPlayableService.evStart: self.serviceStarted
 			})
 
@@ -96,14 +117,14 @@ class Screensaver(Screen):
 
 	def serviceStarted(self):
 		if self.shown:
-			ref = self.session.nav.getCurrentlyPlayingServiceOrGroup()
+			ref = self.session.nav.getCurrentlyPlayingServiceReference()
 			if ref:
 				ref = ref.toString().split(":")
 				if not os.path.splitext(ref[10])[1].lower() in AUDIO_EXTENSIONS:
 					self.hide()
 
 	def doMovePicture(self):
-		self.posx = random.randint(1,self.maxx)
-		self.posy = random.randint(1,self.maxy)
+		self.posx = random.randint(1, self.maxx)
+		self.posy = random.randint(1, self.maxy)
 		self["picture"].instance.move(ePoint(self.posx, self.posy))
 		self.moveLogoTimer.startLongTimer(5)

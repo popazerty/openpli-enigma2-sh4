@@ -4,6 +4,10 @@ from Components.ActionMap import ActionMap
 from Components.ScrollLabel import ScrollLabel
 from Components.Sources.StaticText import StaticText
 from Screens.MessageBox import MessageBox
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 class Console(Screen):
 	#TODO move this to skin.xml
@@ -12,7 +16,11 @@ class Console(Screen):
 			<widget name="text" position="0,0" size="550,400" font="Console;14" />
 		</screen>"""
 
+<<<<<<< HEAD
 	def __init__(self, session, title = "Console", cmdlist = None, finishedCallback = None, closeOnSuccess = False, showStartStopText=True, skin=None):
+=======
+	def __init__(self, session, title="Console", cmdlist=None, finishedCallback=None, closeOnSuccess=False, showStartStopText=True, skin=None):
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 		Screen.__init__(self, session)
 
 		self.finishedCallback = finishedCallback
@@ -91,7 +99,10 @@ class Console(Screen):
 			self.hide()
 		else:
 			self.show()
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 	def cancel(self):
 		if self.finished:
@@ -99,7 +110,11 @@ class Console(Screen):
 		else:
 			self.cancel_msg = self.session.openWithCallback(self.cancelCallback, MessageBox, _("Cancel execution?"), type=MessageBox.TYPE_YESNO, default=False)
 
+<<<<<<< HEAD
 	def cancelCallback(self, ret = None):
+=======
+	def cancelCallback(self, ret=None):
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 		self.cancel_msg = None
 		if ret:
 			self.container.appClosed.remove(self.runFinished)

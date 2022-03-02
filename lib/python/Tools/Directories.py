@@ -3,7 +3,11 @@ import errno
 import inspect
 import os
 
+<<<<<<< HEAD
 from enigma import eEnv, getDesktop
+=======
+from enigma import eEnv
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 from re import compile
 from stat import S_IMODE
 
@@ -72,6 +76,19 @@ defaultPaths = {
 	SCOPE_LIBDIR: (eEnv.resolve("${libdir}/"), PATH_DONTCREATE)
 }
 
+<<<<<<< HEAD
+=======
+
+def addInList(*paths):
+	return [path for path in paths if os.path.isdir(path)]
+
+
+skinResolveList = []
+lcdskinResolveList = []
+fontsResolveList = []
+
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 def resolveFilename(scope, base="", path_prefix=None):
 	# You can only use the ~/ if we have a prefix directory.
 	if base.startswith("~/"):
@@ -102,8 +119,26 @@ def resolveFilename(scope, base="", path_prefix=None):
 		base = data[0]
 		suffix = data[1]
 	path = base
+<<<<<<< HEAD
 	# If base is "" then set path to the scope.  Otherwise use the scope to resolve the base filename.
 	if base is "":
+=======
+
+	def itemExists(resolveList, base):
+		baseList = [base]
+		if base.endswith(".png"):
+			baseList.append("%s%s" % (base[:-3], "svg"))
+		elif base.endswith(".svg"):
+			baseList.append("%s%s" % (base[:-3], "png"))
+		for item in resolveList:
+			for base in baseList:
+				file = os.path.join(item, base)
+				if pathExists(file):
+					return file
+
+	# If base is "" then set path to the scope.  Otherwise use the scope to resolve the base filename.
+	if base == "":
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 		path, flags = defaultPaths.get(scope)
 		# If the scope is SCOPE_CURRENT_SKIN or SCOPE_ACTIVE_SKIN append the current skin to the scope path.
 		if scope in (SCOPE_CURRENT_SKIN, SCOPE_ACTIVE_SKIN):
@@ -121,6 +156,7 @@ def resolveFilename(scope, base="", path_prefix=None):
 					relative = "%s%s%s" % (pluginCode[0], os.sep, pluginCode[1])
 					path = os.path.join(plugins, relative)
 	elif scope in (SCOPE_CURRENT_SKIN, SCOPE_ACTIVE_SKIN):
+<<<<<<< HEAD
 		# This import must be here as this module finds the config file as part of the config initialisation.
 		from Components.config import config
 		skin = os.path.dirname(config.skin.primary_skin.value)
@@ -179,6 +215,73 @@ def resolveFilename(scope, base="", path_prefix=None):
 		resolveList.append(os.path.join(defaultPaths[SCOPE_LCDSKIN][0], "skin_default"))
 		resolveList.append(defaultPaths[SCOPE_FONTS][0])
 		for item in resolveList:
+=======
+		global skinResolveList
+		if not skinResolveList:
+			# This import must be here as this module finds the config file as part of the config initialisation.
+			from Components.config import config
+			skin = os.path.dirname(config.skin.primary_skin.value)
+			skinResolveList = addInList(
+					os.path.join(defaultPaths[SCOPE_CONFIG][0], skin),
+					os.path.join(defaultPaths[SCOPE_CONFIG][0], "skin_common"),
+					defaultPaths[SCOPE_CONFIG][0],
+					os.path.join(defaultPaths[SCOPE_SKIN][0], skin),
+					os.path.join(defaultPaths[SCOPE_SKIN][0], "skin_default"),
+					defaultPaths[SCOPE_SKIN][0]
+				)
+		file = itemExists(skinResolveList, base)
+		if file:
+			path = file
+	elif scope == SCOPE_CURRENT_LCDSKIN:
+		global lcdskinResolveList
+		if not lcdskinResolveList:
+			# This import must be here as this module finds the config file as part of the config initialisation.
+			from Components.config import config
+			if hasattr(config.skin, "display_skin"):
+				skin = os.path.dirname(config.skin.display_skin.value)
+			else:
+				skin = ""
+			lcdskinResolveList = addInList(
+					os.path.join(defaultPaths[SCOPE_CONFIG][0], "display", skin),
+					os.path.join(defaultPaths[SCOPE_CONFIG][0], "display", "skin_common"),
+					defaultPaths[SCOPE_CONFIG][0],
+					os.path.join(defaultPaths[SCOPE_LCDSKIN][0], skin),
+					os.path.join(defaultPaths[SCOPE_LCDSKIN][0], "skin_default"),
+					defaultPaths[SCOPE_LCDSKIN][0]
+				)
+		file = itemExists(lcdskinResolveList, base)
+		if file:
+			path = file
+	elif scope == SCOPE_FONTS:
+		global fontsResolveList
+		if not fontsResolveList:
+			# This import must be here as this module finds the config file as part of the config initialisation.
+			from Components.config import config
+			skin = os.path.dirname(config.skin.primary_skin.value)
+			display = os.path.dirname(config.skin.display_skin.value) if hasattr(config.skin, "display_skin") else None
+			fontsResolveList = addInList(
+					os.path.join(defaultPaths[SCOPE_CONFIG][0], "fonts"),
+					os.path.join(defaultPaths[SCOPE_CONFIG][0], skin, "fonts"),
+					os.path.join(defaultPaths[SCOPE_CONFIG][0], skin)
+				)
+			if display:
+				fontsResolveList += addInList(os.path.join(defaultPaths[SCOPE_CONFIG][0], "display", display))
+			fontsResolveList += addInList(
+					os.path.join(defaultPaths[SCOPE_CONFIG][0], "skin_common"),
+					defaultPaths[SCOPE_CONFIG][0],
+					os.path.join(defaultPaths[SCOPE_SKIN][0], skin, "fonts"),
+					os.path.join(defaultPaths[SCOPE_SKIN][0], skin),
+					os.path.join(defaultPaths[SCOPE_SKIN][0], "skin_default", "fonts"),
+					os.path.join(defaultPaths[SCOPE_SKIN][0], "skin_default")
+				)
+			if display:
+				fontsResolveList += addInList(os.path.join(defaultPaths[SCOPE_LCDSKIN][0], display))
+			fontsResolveList += addInList(
+					os.path.join(defaultPaths[SCOPE_LCDSKIN][0], "skin_default"),
+					defaultPaths[SCOPE_FONTS][0]
+				)
+		for item in fontsResolveList:
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 			file = os.path.join(item, base)
 			if pathExists(file):
 				path = file
@@ -209,6 +312,7 @@ def resolveFilename(scope, base="", path_prefix=None):
 	if suffix is not None:
 		path = "%s:%s" % (path, suffix)
 	return path
+<<<<<<< HEAD
 
 def comparePath(leftPath, rightPath):
 	if leftPath.endswith(os.sep):
@@ -221,6 +325,22 @@ def comparePath(leftPath, rightPath):
 		if left[segment] != right[segment]:
 			return False
 	return True
+=======
+
+
+def comparePath(leftPath, rightPath):
+	if leftPath.endswith(os.sep):
+		leftPath = leftPath[:-1]
+	if rightPath.endswith(os.sep):
+		rightPath = rightPath[:-1]
+	left = leftPath.split(os.sep)
+	right = rightPath.split(os.sep)
+	for segment in range(len(left)):
+		if left[segment] != right[segment]:
+			return False
+	return True
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 def bestRecordingLocation(candidates):
 	path = ""
@@ -238,6 +358,7 @@ def bestRecordingLocation(candidates):
 		except (IOError, OSError) as err:
 			print "[Directories] Error %d: Couldn't get free space for '%s' (%s)" % (err.errno, candidate[1], err.strerror)
 	return path
+
 
 def defaultRecordingLocation(candidate=None):
 	if candidate and pathExists(candidate):
@@ -265,6 +386,10 @@ def defaultRecordingLocation(candidate=None):
 			path += "/"  # Bad habits die hard, old code relies on this.
 	return path
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 def createDir(path, makeParents=False):
 	try:
 		if makeParents:
@@ -274,6 +399,10 @@ def createDir(path, makeParents=False):
 		return 1
 	except OSError:
 		return 0
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 def removeDir(path):
 	try:
@@ -282,6 +411,10 @@ def removeDir(path):
 	except OSError:
 		return 0
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 def fileExists(f, mode="r"):
 	if mode == "r":
 		acc_mode = os.R_OK
@@ -291,9 +424,17 @@ def fileExists(f, mode="r"):
 		acc_mode = os.F_OK
 	return os.access(f, acc_mode)
 
+<<<<<<< HEAD
 def fileCheck(f, mode="r"):
 	return fileExists(f, mode) and f
 
+=======
+
+def fileCheck(f, mode="r"):
+	return fileExists(f, mode) and f
+
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 def fileHas(f, content, mode="r"):
 	result = False
 	if fileExists(f, mode):
@@ -304,6 +445,10 @@ def fileHas(f, content, mode="r"):
 			result = True
 	return result
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 def getRecordingFilename(basename, dirname=None):
 	# Filter out non-allowed characters.
 	non_allowed_characters = "/.\\:*?<>|\""
@@ -331,9 +476,17 @@ def getRecordingFilename(basename, dirname=None):
 			return path
 		path += "_%03d" % i
 		i += 1
+<<<<<<< HEAD
 
 # This is clearly a hack:
 #
+=======
+
+# This is clearly a hack:
+#
+
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 def InitFallbackFiles():
 	resolveFilename(SCOPE_CONFIG, "userbouquet.favourites.tv")
 	resolveFilename(SCOPE_CONFIG, "bouquets.tv")
@@ -343,6 +496,11 @@ def InitFallbackFiles():
 # Returns a list of tuples containing pathname and filename matching the given pattern
 # Example-pattern: match all txt-files: ".*\.txt$"
 #
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 def crawlDirectory(directory, pattern):
 	list = []
 	if directory:
@@ -352,6 +510,7 @@ def crawlDirectory(directory, pattern):
 				if expression.match(file) is not None:
 					list.append((root, file))
 	return list
+
 
 def copyfile(src, dst):
 	f1 = None
@@ -387,6 +546,10 @@ def copyfile(src, dst):
 	except (IOError, OSError) as err:
 		print "[Directories] Error %d: Obtaining stats from '%s' to '%s'! (%s)" % (err.errno, src, dst, err.strerror)
 	return status
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 def copytree(src, dst, symlinks=False):
 	names = os.listdir(src)
@@ -425,6 +588,11 @@ def copytree(src, dst, symlinks=False):
 # Renames files or if source and destination are on different devices moves them in background
 # input list of (source, destination)
 #
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 def moveFiles(fileList):
 	errorFlag = False
 	movedList = []
@@ -450,6 +618,10 @@ def moveFiles(fileList):
 			except (IOError, OSError) as err:
 				print "[Directories] Error %d: Renaming '%s' to '%s'! (%s)" % (err.errno, item[1], item[0], err.strerror)
 				print "[Directories] Failed to undo move:", item
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 def getSize(path, pattern=".*"):
 	path_size = 0
@@ -462,6 +634,10 @@ def getSize(path, pattern=".*"):
 		path_size = os.path.getsize(path)
 	return path_size
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 def lsof():
 	lsof = []
 	for pid in os.listdir("/proc"):
@@ -475,10 +651,18 @@ def lsof():
 				pass
 	return lsof
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 def getExtension(file):
 	filename, extension = os.path.splitext(file)
 	return extension
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 def mediafilesInUse(session):
 	from Components.MovieList import KNOWN_EXTENSIONS
 	files = [os.path.basename(x[2]) for x in lsof() if getExtension(x[2]) in KNOWN_EXTENSIONS]
@@ -495,5 +679,10 @@ def mediafilesInUse(session):
 # contain spaces or other special characters.  This method adjusts the
 # filename to be a safe and single entity for passing to a shell.
 #
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 def shellquote(s):
 	return "'%s'" % s.replace("'", "'\\''")

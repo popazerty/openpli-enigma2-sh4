@@ -1,7 +1,8 @@
 from Components.Converter.Converter import Converter
 from Components.Element import cached
 
-class RemainingToText(Converter, object):
+
+class RemainingToText(Converter):
 	DEFAULT = 0
 	WITH_SECONDS = 1
 	NO_SECONDS = 2
@@ -55,7 +56,11 @@ class RemainingToText(Converter, object):
 				elif self.type == self.NO_SECONDS or self.type == self.PROGRESS:
 					return "%s%d:%02d" % (prefix, hours, minutes)
 				elif self.type == self.IN_SECONDS:
+<<<<<<< HEAD
 					return prefix+str(tsecs)
+=======
+					return prefix + str(tsecs)
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 				elif self.type == self.DEFAULT or self.type == self.ONLY_MINUTES:
 					if remaining <= duration:
 						prefix = "+"

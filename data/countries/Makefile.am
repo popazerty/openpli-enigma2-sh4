@@ -14,6 +14,7 @@ dist_install_DATA = \
 	ee.png \
 	fi.png \
 	fr.png \
+	gl_ES.png \
 	gr.png \
 	hk.png \
 	hr.png \
@@ -27,6 +28,7 @@ dist_install_DATA = \
 	lt.png \
 	lv.png \
 	missing.png \
+	mk.png \
 	nl.png \
 	no.png \
 	pl.png \

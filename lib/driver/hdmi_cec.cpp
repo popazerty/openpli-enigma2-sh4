@@ -345,6 +345,7 @@ void eHdmiCEC::hdmiEvent(int what)
 					case 0x44: /* key pressed */
 						keypressed = true;
 						pressedkey = rxmessage.data[1];
+						[[fallthrough]];
 					case 0x45: /* key released */
 					{
 						long code = translateKey(pressedkey);
@@ -500,7 +501,17 @@ void eHdmiCEC::sendMessage(struct cec_message &message)
 		}
 		else
 		{
+<<<<<<< HEAD
 			::write(hdmiFd, &message, 2 + message.length);
+=======
+#ifdef DREAMBOX
+			message.flag = 1;
+			::ioctl(hdmiFd, 3, &message);
+#else
+			ssize_t ret = ::write(hdmiFd, &message, 2 + message.length);
+			if (ret < 0) eDebug("[eHdmiCEC] write failed: %m");
+#endif
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 		}
 	}
 }

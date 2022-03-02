@@ -3,6 +3,7 @@
 #include <fcntl.h>
 
 #include <lib/base/cfile.h>
+#include <lib/base/wrappers.h>
 #include <lib/gdi/picload.h>
 #include <libmmeimage/libmmeimage.h>
 
@@ -13,6 +14,12 @@ extern "C" {
 #include <gif_lib.h>
 }
 
+#define NANOSVG_ALL_COLOR_KEYWORDS
+#define NANOSVG_IMPLEMENTATION
+#include <nanosvg.h>
+#define NANOSVGRAST_IMPLEMENTATION
+#include <nanosvgrast.h>
+
 extern const uint32_t crc32_table[256];
 
 DEFINE_REF(ePicLoad);
@@ -22,9 +29,7 @@ static std::string getSize(const char* file)
 	struct stat64 s;
 	if (stat64(file, &s) < 0)
 		return "";
-	char tmp[20];
-	snprintf(tmp, 20, "%ld kB", (long)s.st_size / 1024);
-	return tmp;
+	return std::to_string((long)(s.st_size / 1024)) + " kB";
 }
 
 static unsigned char *color_resize(unsigned char * orgin, int ox, int oy, int dx, int dy)
@@ -64,6 +69,8 @@ static unsigned char *color_resize(unsigned char * orgin, int ox, int oy, int dx
 					b += q[2];
 				}
 			}
+			if (sq == 0) // prevent division by zero
+				sq = 1;
 			p[0] = r / sq;
 			p[1] = g / sq;
 			p[2] = b / sq;
@@ -112,7 +119,11 @@ static unsigned char *bmp_load(const char *file,  int *x, int *y)
 
 	int fd = open(file, O_RDONLY);
 	if (fd == -1) return NULL;
-	if (lseek(fd, BMP_SIZE_OFFSET, SEEK_SET) == -1) return NULL;
+	if (lseek(fd, BMP_SIZE_OFFSET, SEEK_SET) == -1)
+	{
+		close(fd);
+		return NULL;
+	}
 	if (read(fd, buff, 4) != 4) // failed to read x
 	{
 		close(fd);
@@ -160,7 +171,10 @@ static unsigned char *bmp_load(const char *file,  int *x, int *y)
 			lseek(fd, raster, SEEK_SET);
 			unsigned char * tbuffer = new unsigned char[*x / 2 + 1];
 			if (tbuffer == NULL)
+			{
+				close(fd);
 				return NULL;
+			}
 			for (int i = 0; i < *y; i++)
 			{
 				if (read(fd, tbuffer, (*x) / 2 + *x % 2) != ((*x) / 2 + *x % 2))
@@ -205,7 +219,10 @@ static unsigned char *bmp_load(const char *file,  int *x, int *y)
 			lseek(fd, raster, SEEK_SET);
 			unsigned char * tbuffer = new unsigned char[*x];
 			if (tbuffer == NULL)
+			{
+				close(fd);
 				return NULL;
+			}
 			for (int i = 0; i < *y; i++)
 			{
 				if (read(fd, tbuffer, *x) != *x)
@@ -258,6 +275,7 @@ static unsigned char *bmp_load(const char *file,  int *x, int *y)
 			break;
 		}
 		default:
+			delete [] pic_buffer;
 			close(fd);
 			return NULL;
 	}
@@ -411,8 +429,10 @@ static unsigned char *jpeg_load(const char *file, int *ox, int *oy, unsigned int
 	struct jpeg_decompress_struct cinfo;
 	struct jpeg_decompress_struct *ciptr = &cinfo;
 	struct r_jpeg_error_mgr emgr;
-	unsigned char *pic_buffer=NULL;
+	unsigned char *pic_buffer;
 	CFile fh(file, "rb");
+
+	pic_buffer = nullptr;
 
 	if (!fh)
 		return NULL;
@@ -515,6 +535,75 @@ inline void m_rend_gif_decodecolormap(unsigned char *cmb, unsigned char *rgbb, C
 		*(rgbb++) = cmentry->Red;
 		*(rgbb++) = cmentry->Green;
 		*(rgbb++) = cmentry->Blue;
+	}
+}
+
+static void svg_load(Cfilepara* filepara, bool forceRGB = false)
+{
+	NSVGimage *image = nullptr;
+	NSVGrasterizer *rast = nullptr;
+	unsigned char *pic_buffer = nullptr;
+	int w = 0;
+	int h = 0;
+	double xscale, yscale, scale;
+
+	image = nsvgParseFromFile(filepara->file, "px", 96.0f);
+	if (image == nullptr)
+	{
+		return;
+	}
+
+	rast = nsvgCreateRasterizer();
+	if (rast == nullptr)
+	{
+		nsvgDelete(image);
+		return;
+	}
+
+	xscale = ((double) filepara->max_x) / image->width;
+	yscale = ((double) filepara->max_y) / image->height;
+	scale =  xscale > yscale ? yscale : xscale;
+
+	w = image->width*scale;
+	h = image->height*scale;
+
+	pic_buffer = (unsigned char*)malloc(w*h*4);
+	if (pic_buffer == nullptr)
+	{
+		nsvgDeleteRasterizer(rast);
+		nsvgDelete(image);
+		return;
+	}
+
+	eDebug("[ePicLoad] svg_load max %dx%d from %dx%d scale %f new %dx%d", filepara->max_x, filepara->max_y, (int)image->width, (int)image->height, scale, w, h);
+	// Rasterizes SVG image, returns RGBA image (non-premultiplied alpha)
+	nsvgRasterize(rast, image, 0, 0, scale, pic_buffer, w, h, w*4);
+
+	filepara->pic_buffer = pic_buffer;
+	filepara->bits = 32;
+	filepara->ox = w;
+	filepara->oy = h;
+
+	nsvgDeleteRasterizer(rast);
+	nsvgDelete(image);
+
+	if(forceRGB) // convert 32bit RGBA to 24bit RGB
+	{
+		unsigned char *pic_buffer2 = (unsigned char*)malloc(w*h*3); // 24bit RGB
+		if (pic_buffer2 == nullptr)
+		{
+			free(pic_buffer);
+			return;
+		}
+		for (int i=0; i<w*h; i++)
+		{
+			pic_buffer2[3*i]   = pic_buffer[4*i];
+			pic_buffer2[3*i+1] = pic_buffer[4*i+1];
+			pic_buffer2[3*i+2] = pic_buffer[4*i+2];
+		}
+		filepara->bits = 24;
+		filepara->pic_buffer = pic_buffer2;
+		free(pic_buffer);
 	}
 }
 
@@ -746,6 +835,8 @@ void ePicLoad::decodePic()
 				break;
 		case F_GIF:	gif_load(m_filepara);
 				break;
+		case F_SVG:	svg_load(m_filepara);
+				break;
 	}
 }
 
@@ -868,7 +959,12 @@ void ePicLoad::decodeThumb()
 				break;
 		case F_GIF:	gif_load(m_filepara, true);
 				break;
+<<<<<<< HEAD
 		}
+=======
+		case F_SVG:	svg_load(m_filepara, true);
+				break;
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 	}
 	//eDebug("[ePicLoad] getThumb picture loaded %s", m_filepara->file);
 
@@ -1038,22 +1134,22 @@ PyObject *ePicLoad::getInfo(const char *filename)
 		PyList_SET_ITEM(list, pos++,  PyString_FromString(m_exif->m_exifinfo->LightSource));
 		PyList_SET_ITEM(list, pos++,  PyString_FromFormat("%d", m_exif->m_exifinfo->CompressionLevel));
 		PyList_SET_ITEM(list, pos++,  PyString_FromFormat("%d", m_exif->m_exifinfo->ISOequivalent));
-		sprintf(tmp, "%.2f", m_exif->m_exifinfo->Xresolution);
+		snprintf(tmp, sizeof(tmp) - 1, "%.2f", m_exif->m_exifinfo->Xresolution);
 		PyList_SET_ITEM(list, pos++,  PyString_FromString(tmp));
-		sprintf(tmp, "%.2f", m_exif->m_exifinfo->Yresolution);
+		snprintf(tmp, sizeof(tmp) - 1, "%.2f", m_exif->m_exifinfo->Yresolution);
 		PyList_SET_ITEM(list, pos++,  PyString_FromString(tmp));
 		PyList_SET_ITEM(list, pos++,  PyString_FromString(m_exif->m_exifinfo->ResolutionUnit));
-		sprintf(tmp, "%.2f", m_exif->m_exifinfo->Brightness);
+		snprintf(tmp, sizeof(tmp) - 1, "%.2f", m_exif->m_exifinfo->Brightness);
 		PyList_SET_ITEM(list, pos++,  PyString_FromString(tmp));
-		sprintf(tmp, "%.5f sec.", m_exif->m_exifinfo->ExposureTime);
+		snprintf(tmp, sizeof(tmp) - 1, "%.5f sec.", m_exif->m_exifinfo->ExposureTime);
 		PyList_SET_ITEM(list, pos++,  PyString_FromString(tmp));
-		sprintf(tmp, "%.5f", m_exif->m_exifinfo->ExposureBias);
+		snprintf(tmp, sizeof(tmp) - 1, "%.5f", m_exif->m_exifinfo->ExposureBias);
 		PyList_SET_ITEM(list, pos++,  PyString_FromString(tmp));
-		sprintf(tmp, "%.5f", m_exif->m_exifinfo->Distance);
+		snprintf(tmp, sizeof(tmp) - 1, "%.5f", m_exif->m_exifinfo->Distance);
 		PyList_SET_ITEM(list, pos++,  PyString_FromString(tmp));
-		sprintf(tmp, "%.5f", m_exif->m_exifinfo->CCDWidth);
+		snprintf(tmp, sizeof(tmp) - 1, "%.5f", m_exif->m_exifinfo->CCDWidth);
 		PyList_SET_ITEM(list, pos++,  PyString_FromString(tmp));
-		sprintf(tmp, "%.2f", m_exif->m_exifinfo->ApertureFNumber);
+		snprintf(tmp, sizeof(tmp) - 1, "%.2f", m_exif->m_exifinfo->ApertureFNumber);
 		PyList_SET_ITEM(list, pos++,  PyString_FromString(tmp));
 	}
 	else
@@ -1079,16 +1175,17 @@ bool ePicLoad::getExif(const char *filename, int fileType, int Thumb)
 
 int ePicLoad::getData(ePtr<gPixmap> &result)
 {
-	result = 0;
 	if (m_filepara == NULL)
 	{
 		eDebug("[ePicLoad] Weird situation, was not decoding anything!");
+		result = 0;
 		return 1;
 	}
 	if(m_filepara->pic_buffer == NULL)
 	{
 		delete m_filepara;
 		m_filepara = NULL;
+		result = 0;
 		if (m_exif != NULL) {
 			m_exif->ClearExif();
 			delete m_exif;
@@ -1107,7 +1204,7 @@ int ePicLoad::getData(ePtr<gPixmap> &result)
 	// center image      : xoff, yoff
 	int scrx, scry; // Aspect ratio calculation
 	int orientation = m_conf.auto_orientation ? (m_exif && m_exif->m_exifinfo->Orient ? m_exif->m_exifinfo->Orient : 1) : 1;
-	if (m_conf.aspect_ratio == 0)  // do not keep aspect ratio but just fill the destination area
+	if ((m_conf.aspect_ratio > -0.1) && (m_conf.aspect_ratio < 0.1)) // do not keep aspect ratio but just fill the destination area
 	{
 		scrx = m_filepara->max_x;
 		scry = m_filepara->max_y;
@@ -1377,21 +1474,17 @@ RESULT ePicLoad::setPara(PyObject *val)
 	if (PySequence_Size(val) < 7)
 		return 0;
 	else {
-		ePyObject fast		= PySequence_Fast(val, "");
-		int width		= PyInt_AsLong(PySequence_Fast_GET_ITEM(fast, 0));
-		int height		= PyInt_AsLong(PySequence_Fast_GET_ITEM(fast, 1));
-		double aspectRatio 	= PyInt_AsLong(PySequence_Fast_GET_ITEM(fast, 2));
-		int as			= PyInt_AsLong(PySequence_Fast_GET_ITEM(fast, 3));
-		bool useCache		= PyInt_AsLong(PySequence_Fast_GET_ITEM(fast, 4));
-		int resizeType	        = PyInt_AsLong(PySequence_Fast_GET_ITEM(fast, 5));
-		const char *bg_str	= PyString_AsString(PySequence_Fast_GET_ITEM(fast, 6));
-		bool auto_orientation	= (PySequence_Size(val) > 7) ?
-						PyInt_AsLong(PySequence_Fast_GET_ITEM(fast, 7)) :
-						0;
-
+		ePyObject fast = PySequence_Fast(val, "");
+		int width = PyInt_AsLong(PySequence_Fast_GET_ITEM(fast, 0));
+		int height = PyInt_AsLong(PySequence_Fast_GET_ITEM(fast, 1));
+		double aspectRatio = PyInt_AsLong(PySequence_Fast_GET_ITEM(fast, 2));
+		int as = PyInt_AsLong(PySequence_Fast_GET_ITEM(fast, 3));
+		bool useCache = PyInt_AsLong(PySequence_Fast_GET_ITEM(fast, 4));
+		int resizeType = PyInt_AsLong(PySequence_Fast_GET_ITEM(fast, 5));
+		const char *bg_str = PyString_AsString(PySequence_Fast_GET_ITEM(fast, 6));
+		bool auto_orientation = (PySequence_Size(val) > 7) ? PyInt_AsLong(PySequence_Fast_GET_ITEM(fast, 7)) : 0;
 		return setPara(width, height, aspectRatio, as, useCache, resizeType, bg_str, auto_orientation);
 	}
-	return 1;
 }
 
 RESULT ePicLoad::setPara(int width, int height, double aspectRatio, int as, bool useCache, int resizeType, const char *bg_str, bool auto_orientation)
@@ -1430,6 +1523,8 @@ int ePicLoad::getFileType(const char * file)
 	else if (id[0] == 0xff && id[1] == 0xd8 && id[2] == 0xff)			return F_JPEG;
 	else if (id[0] == 'B'  && id[1] == 'M' )					return F_BMP;
 	else if (id[0] == 'G'  && id[1] == 'I'  && id[2] == 'F')			return F_GIF;
+	else if (id[0] == '<'  && id[1] == 's'  && id[2] == 'v' && id[3] == 'g')	return F_SVG;
+	else if (endsWith(file, ".svg"))						return F_SVG;
 	return -1;
 }
 
@@ -1439,9 +1534,7 @@ int ePicLoad::getFileType(const char * file)
 SWIG_VOID(int) loadPic(ePtr<gPixmap> &result, std::string filename, int x, int y, int aspect, int resize_mode, int rotate, int background, std::string cachefile)
 {
 	long asp1, asp2;
-	result = 0;
 	eDebug("[loadPic] deprecated loadPic function used!!! please use the non blocking version! you can see demo code in Pictureplayer plugin... this function is removed in the near future!");
-	ePicLoad mPL;
 
 	switch(aspect)
 	{
@@ -1463,10 +1556,13 @@ SWIG_VOID(int) loadPic(ePtr<gPixmap> &result, std::string filename, int x, int y
 	else
 		PyTuple_SET_ITEM(tuple, 6,  PyString_FromString("#00000000"));
 
+	ePicLoad mPL;
 	mPL.setPara(tuple);
 
 	if(!mPL.startDecode(filename.c_str(), 0, 0, false))
 		mPL.getData(result);
+	else
+		result = 0;
 
 	return 0;
 }

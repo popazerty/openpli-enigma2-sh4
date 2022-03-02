@@ -15,6 +15,7 @@ config.mediaplayer.sortPlaylists = ConfigYesNo(default=False)
 config.mediaplayer.alwaysHideInfoBar = ConfigYesNo(default=True)
 config.mediaplayer.onMainMenu = ConfigYesNo(default=False)
 
+
 class DirectoryBrowser(Screen, HelpableScreen):
 
 	def __init__(self, session, currDir):
@@ -54,7 +55,12 @@ class DirectoryBrowser(Screen, HelpableScreen):
 	def exit(self):
 		self.close(False)
 
+<<<<<<< HEAD
 class MediaPlayerSettings(Screen, ConfigListScreen):
+=======
+
+class MediaPlayerSettings(ConfigListScreen, Screen):
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 	def __init__(self, session, parent):
 		Screen.__init__(self, session)
@@ -65,7 +71,11 @@ class MediaPlayerSettings(Screen, ConfigListScreen):
 		self["key_red"] = StaticText(_("Cancel"))
 		self["key_green"] = StaticText(_("Save"))
 
+<<<<<<< HEAD
 		ConfigListScreen.__init__(self, [], session=session, on_change=self.changedEntry)
+=======
+		ConfigListScreen.__init__(self, [], session)
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 		self.parent = parent
 		self.initConfigList()
 		config.mediaplayer.saveDirOnExit.addNotifier(self.initConfigList)
@@ -77,8 +87,11 @@ class MediaPlayerSettings(Screen, ConfigListScreen):
 			"cancel": self.keyCancel,
 			"ok": self.ok,
 		}, -2)
+<<<<<<< HEAD
 
 		self.onLayoutFinish.append(self.createSummary)
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 	def initConfigList(self, element=None):
 		print "[initConfigList]", element

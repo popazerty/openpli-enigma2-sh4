@@ -10,14 +10,14 @@ from Components.ImportChannels import ImportChannels
 
 from enigma import getPeerStreamingBoxes
 
+
 class SetupFallbacktuner(ConfigListScreen, Screen):
 	def __init__(self, session):
 		Screen.__init__(self, session)
 		Screen.setTitle(self, _("Fallback tuner setup"))
 		self.skinName = ["FallbackTunerSetup", "Setup"]
 		self.onChangedEntry = []
-		self.session = session
-		ConfigListScreen.__init__(self, [], session = session, on_change = self.changedEntry)
+		ConfigListScreen.__init__(self, [], session=session, on_change=self.changedEntry)
 
 		self["actions2"] = ActionMap(["SetupActions"],
 		{
@@ -75,11 +75,12 @@ class SetupFallbacktuner(ConfigListScreen, Screen):
 		self.avahiselect.addNotifier(set_avahiselect_seperate)
 		try:
 			ipDefault = [int(x) for x in config.usage.remote_fallback.value.split(":")[1][2:].split(".")]
-			portDefault = int( config.usage.remote_fallback.value.split(":")[2])
+			portDefault = int(config.usage.remote_fallback.value.split(":")[2])
 		except:
 			ipDefault = [0, 0, 0, 0]
 			portDefault = 8001
 		self.ip = ConfigIP(default=ipDefault, auto_jump=True)
+<<<<<<< HEAD
 		self.port = ConfigInteger(default=portDefault, limits=(1,65535))
 		self.ip_seperate = ConfigIP( default=ipDefault, auto_jump=True)
 		self.port_seperate = ConfigInteger(default=portDefault, limits=(1,65535))
@@ -89,6 +90,17 @@ class SetupFallbacktuner(ConfigListScreen, Screen):
 		self.port_dvb_c = ConfigInteger(default=portDefault, limits=(1,65535))
 		self.ip_atsc = ConfigIP( default=ipDefault, auto_jump=True)
 		self.port_atsc = ConfigInteger(default=portDefault, limits=(1,65535))
+=======
+		self.port = ConfigInteger(default=portDefault, limits=(1, 65535))
+		self.ip_seperate = ConfigIP(default=ipDefault, auto_jump=True)
+		self.port_seperate = ConfigInteger(default=portDefault, limits=(1, 65535))
+		self.ip_dvb_t = ConfigIP(default=ipDefault, auto_jump=True)
+		self.port_dvb_t = ConfigInteger(default=portDefault, limits=(1, 65535))
+		self.ip_dvb_c = ConfigIP(default=ipDefault, auto_jump=True)
+		self.port_dvb_c = ConfigInteger(default=portDefault, limits=(1, 65535))
+		self.ip_atsc = ConfigIP(default=ipDefault, auto_jump=True)
+		self.port_atsc = ConfigInteger(default=portDefault, limits=(1, 65535))
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 	def createSetup(self):
 		self.list = []
@@ -108,10 +120,14 @@ class SetupFallbacktuner(ConfigListScreen, Screen):
 			if self.avahiselect.value == "ip":
 				self.list.append(getConfigListEntry("  %s" % _("Fallback remote receiver IP"),
 					self.ip,
+<<<<<<< HEAD
 					_("IP of fallback remote receiver")))			
+=======
+					_("IP of fallback remote receiver")))
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 				self.list.append(getConfigListEntry("  %s" % _("Fallback remote receiver Port"),
 					self.port,
-					_("Port of fallback remote receiver")))			
+					_("Port of fallback remote receiver")))
 			if self.avahiselect.value == "url":
 				self.list.append(getConfigListEntry("  %s" % _("Fallback remote receiver URL"),
 					config.usage.remote_fallback,
@@ -123,10 +139,14 @@ class SetupFallbacktuner(ConfigListScreen, Screen):
 			if self.avahiselect_seperate.value == "ip":
 				self.list.append(getConfigListEntry("  %s" % _("Fallback remote receiver IP"),
 					self.ip_seperate,
+<<<<<<< HEAD
 					_("IP of fallback remote receiver")))			
+=======
+					_("IP of fallback remote receiver")))
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 				self.list.append(getConfigListEntry("  %s" % _("Fallback remote receiver Port"),
 					self.port_seperate,
-					_("Port of fallback remote receiver")))			
+					_("Port of fallback remote receiver")))
 			if self.avahiselect_seperate.value == "url":
 				self.list.append(getConfigListEntry("  %s" % _("Fallback remote receiver URL"),
 					config.usage.remote_fallback_import_url,
@@ -208,7 +228,6 @@ class SetupFallbacktuner(ConfigListScreen, Screen):
 						config.usage.remote_fallback_atsc,
 						_("URL of fallback remote receiver")))
 		self["config"].list = self.list
-		self["config"].l.setList(self.list)
 
 	def selectionChanged(self):
 		if self.force_update_list:
@@ -218,7 +237,6 @@ class SetupFallbacktuner(ConfigListScreen, Screen):
 			self.force_update_list = False
 		if not (isinstance(self["config"].getCurrent()[1], ConfigBoolean) or isinstance(self["config"].getCurrent()[1], ConfigSelection)):
 			self.force_update_list = True
-		self["description"].setText(self.getCurrentDescription())
 
 	def changedEntry(self):
 		if isinstance(self["config"].getCurrent()[1], ConfigBoolean) or isinstance(self["config"].getCurrent()[1], ConfigSelection):

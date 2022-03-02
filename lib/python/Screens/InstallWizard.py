@@ -8,18 +8,25 @@ from Components.Opkg import OpkgComponent
 from enigma import eDVBDB
 
 config.misc.installwizard = ConfigSubsection()
+<<<<<<< HEAD
 config.misc.installwizard.hasnetwork = ConfigBoolean(default = False)
 config.misc.installwizard.opkgloaded = ConfigBoolean(default = False)
 config.misc.installwizard.channellistdownloaded = ConfigBoolean(default = False)
+=======
+config.misc.installwizard.hasnetwork = ConfigBoolean(default=False)
+config.misc.installwizard.opkgloaded = ConfigBoolean(default=False)
+config.misc.installwizard.channellistdownloaded = ConfigBoolean(default=False)
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
-class InstallWizard(Screen, ConfigListScreen):
+
+class InstallWizard(ConfigListScreen, Screen):
 
 	STATE_UPDATE = 0
 	STATE_CHOISE_CHANNELLIST = 1
 	INSTALL_PLUGINS = 2
 	SCAN = 3
 
-	def __init__(self, session, args = None):
+	def __init__(self, session, args=None):
 		Screen.__init__(self, session)
 
 		self.index = args
@@ -31,13 +38,19 @@ class InstallWizard(Screen, ConfigListScreen):
 			config.misc.installwizard.hasnetwork.value = False
 			config.misc.installwizard.opkgloaded.value = False
 			modes = {0: " "}
-			self.enabled = ConfigSelection(choices = modes, default = 0)
+			self.enabled = ConfigSelection(choices=modes, default=0)
 			self.adapters = [adapter for adapter in iNetwork.getAdapterList() if adapter in ('eth0', 'eth1')]
 			self.checkNetwork()
 		elif self.index == self.STATE_CHOISE_CHANNELLIST:
+<<<<<<< HEAD
 			self.enabled = ConfigYesNo(default = True, graphic = False)
 			modes = {"19e-23e-basis": "Astra1 Astra3 basis", "19e-23e": "Astra 1 Astra 3", "19e-23e-28e": "Astra 1 Astra 2 Astra 3", "13e-19e-23e-28e": "Astra 1 Astra 2 Astra 3 Hotbird", "9e-13e-19e-23e-28e-rotating": "Rotating", "kabelnl": "Kabel-NL"}
 			self.channellist_type = ConfigSelection(choices = modes, default = "19e-23e-basis")
+=======
+			self.enabled = ConfigYesNo(default=True, graphic=False)
+			modes = {"19e-23e-basis": "Astra1 Astra3 basis", "19e-23e": "Astra 1 Astra 3", "19e-23e-28e": "Astra 1 Astra 2 Astra 3", "13e-19e-23e-28e": "Astra 1 Astra 2 Astra 3 Hotbird", "9e-13e-19e-23e-28e-rotating": "Rotating", "kabelnl": "Kabel-NL"}
+			self.channellist_type = ConfigSelection(choices=modes, default="19e-23e-basis")
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 			self.createMenu()
 		elif self.index == self.INSTALL_PLUGINS:
 			self.noplugins = ConfigNothing()
@@ -83,7 +96,7 @@ class InstallWizard(Screen, ConfigListScreen):
 		if self.index == self.STATE_UPDATE:
 			if config.misc.installwizard.hasnetwork.value:
 				ip = ".".join([str(x) for x in iNetwork.getAdapterAttribute(self.adapter, "ip")])
-				self.list.append(getConfigListEntry(_("Your internet connection is working (ip: %s)") % ip, self.enabled))
+				self.list.append(getConfigListEntry(_("Your internet connection is working (IP address: %s)") % ip, self.enabled))
 			else:
 				self.list.append(getConfigListEntry(_("Your receiver does not have an internet connection"), self.enabled))
 		elif self.index == self.STATE_CHOISE_CHANNELLIST:
@@ -104,7 +117,6 @@ class InstallWizard(Screen, ConfigListScreen):
 			if nimmanager.getEnabledNimListOfType("DVB-C"):
 				self.list.append(getConfigListEntry(_("Do a cable service scan now"), self.cablescan))
 		self["config"].list = self.list
-		self["config"].l.setList(self.list)
 
 	def keyLeft(self):
 		if self.index == 0:
@@ -147,13 +159,21 @@ class InstallWizard(Screen, ConfigListScreen):
 			else:
 				self.doNextStep = True
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 class InstallWizardOpkgUpdater(Screen):
 	skin = """
 	<screen position="c-300,c-25" size="600,50" title=" ">
 		<widget source="statusbar" render="Label" position="10,5" zPosition="10" size="e-10,30" halign="center" valign="center" font="Regular;22" transparent="1" shadowColor="black" shadowOffset="-1,-1" />
 	</screen>"""
 
+<<<<<<< HEAD
 	def __init__(self, session, index, info, cmd, pkg = None):
+=======
+	def __init__(self, session, index, info, cmd, pkg=None):
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 		self.skin = InstallWizardOpkgUpdater.skin
 		Screen.__init__(self, session)
 

@@ -1,3 +1,4 @@
+#include <lib/base/wrappers.h>
 #include <lib/service/listboxservice.h>
 #include <lib/service/service.h>
 #include <lib/gdi/font.h>
@@ -707,6 +708,7 @@ void eListboxServiceContent::paint(gPainter &painter, eWindowStyle &style, const
 		bool serviceAvail = true;
 		bool serviceFallback = false;
 		int isplayable_value;
+		gRGB EventProgressbarColor = 0xe7b53f;
 
 		if (!marked && isPlayable && service_info && m_is_playable_ignore.valid())
 		{
@@ -809,16 +811,31 @@ void eListboxServiceContent::paint(gPainter &painter, eWindowStyle &style, const
 						if (serviceAvail)
 						{
 							if (!selected && m_color_set[eventForeground])
+							{
 								painter.setForegroundColor(m_color[eventForeground]);
+								EventProgressbarColor = m_color[eventForeground];
+							}
 							else if (selected && m_color_set[eventForegroundSelected])
+							{
 								painter.setForegroundColor(m_color[eventForegroundSelected]);
+								EventProgressbarColor = m_color[eventForegroundSelected];
+							}
 							else
 								painter.setForegroundColor(gRGB(0xe7b53f));
 
 							if (serviceFallback && !selected && m_color_set[eventForegroundFallback]) // fallback receiver
+							{
 								painter.setForegroundColor(m_color[eventForegroundFallback]);
+								EventProgressbarColor = m_color[eventForegroundFallback];
+							}
 							else if (serviceFallback && selected && m_color_set[eventForegroundSelectedFallback])
+							{
 								painter.setForegroundColor(m_color[eventForegroundSelectedFallback]);
+<<<<<<< HEAD
+=======
+								EventProgressbarColor = m_color[eventForegroundSelectedFallback];
+							}
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 						}
 						break;
 					}
@@ -881,7 +898,7 @@ void eListboxServiceContent::paint(gPainter &painter, eWindowStyle &style, const
 							{
 								std::string piconFilename = PyString_AS_STRING(pRet);
 								if (!piconFilename.empty())
-									loadPNG(piconPixmap, piconFilename.c_str());
+									loadImage(piconPixmap, piconFilename.c_str());
 							}
 							Py_DECREF(pRet);
 						}
@@ -1121,6 +1138,8 @@ void eListboxServiceContent::paint(gPainter &painter, eWindowStyle &style, const
 					painter.setForegroundColor(m_color[serviceEventProgressbarColor]);
 				else if (selected && m_color_set[serviceEventProgressbarColorSelected])
 					painter.setForegroundColor(m_color[serviceEventProgressbarColorSelected]);
+				else if (m_show_two_lines == 2)
+					painter.setForegroundColor(EventProgressbarColor);
 				painter.fill(tmp);
 			}
 

@@ -1,15 +1,33 @@
 from Components.SystemInfo import SystemInfo
 from Components.Console import Console
+<<<<<<< HEAD
 import os, glob, tempfile
+=======
+import os
+import glob
+import tempfile
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 class tmp:
 	dir = None
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 def getMultibootStartupDevice():
 	tmp.dir = tempfile.mkdtemp(prefix="Multiboot")
 	for device in ('/dev/block/by-name/bootoptions', '/dev/mmcblk0p1', '/dev/mmcblk1p1', '/dev/mmcblk0p3', '/dev/mmcblk0p4'):
 		if os.path.exists(device):
+<<<<<<< HEAD
 			Console().ePopen('mount %s %s' % (device, tmp.dir))
+=======
+			if os.path.exists("/dev/block/by-name/flag"):
+				Console().ePopen('mount --bind %s %s' % (device, tmp.dir))
+			else:
+				Console().ePopen('mount %s %s' % (device, tmp.dir))
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 			if os.path.isfile(os.path.join(tmp.dir, "STARTUP")):
 				print '[Multiboot] Startupdevice found:', device
 				return device
@@ -17,8 +35,15 @@ def getMultibootStartupDevice():
 	if not os.path.ismount(tmp.dir):
 		os.rmdir(tmp.dir)
 
+<<<<<<< HEAD
 def getparam(line, param):
 	return line.rsplit('%s=' % param, 1)[1].split(' ', 1)[0]
+=======
+
+def getparam(line, param):
+	return line.replace("userdataroot", "rootuserdata").rsplit('%s=' % param, 1)[1].split(' ', 1)[0]
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 def getMultibootslots():
 	bootslots = {}
@@ -48,11 +73,20 @@ def getMultibootslots():
 			os.rmdir(tmp.dir)
 		if not mode12found and SystemInfo["canMode12"]:
 			#the boot device has ancient content and does not contain the correct STARTUP files
+<<<<<<< HEAD
 			for slot in range(1,5):
 				bootslots[slot] = { 'device': '/dev/mmcblk0p%s' % (slot * 2 + 1), 'startupfile': None}
 	print '[Multiboot] Bootslots found:', bootslots
 	return bootslots
 
+=======
+			for slot in range(1, 5):
+				bootslots[slot] = {'device': '/dev/mmcblk0p%s' % (slot * 2 + 1), 'startupfile': None}
+	print '[Multiboot] Bootslots found:', bootslots
+	return bootslots
+
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 def getCurrentImage():
 	if SystemInfo["canMultiBoot"]:
 		slot = [x[-1] for x in open('/sys/firmware/devicetree/base/chosen/bootargs', 'r').read().split() if x.startswith('rootsubdir')]
@@ -64,9 +98,17 @@ def getCurrentImage():
 				if SystemInfo["canMultiBoot"][slot]['device'] == device:
 					return slot
 
+<<<<<<< HEAD
 def getCurrentImageMode():
 	return bool(SystemInfo["canMultiBoot"]) and SystemInfo["canMode12"] and int(open('/sys/firmware/devicetree/base/chosen/bootargs', 'r').read().replace('\0', '').split('=')[-1])
 
+=======
+
+def getCurrentImageMode():
+	return bool(SystemInfo["canMultiBoot"]) and SystemInfo["canMode12"] and int(open('/sys/firmware/devicetree/base/chosen/bootargs', 'r').read().replace('\0', '').split('=')[-1])
+
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 def deleteImage(slot):
 	tmp.dir = tempfile.mkdtemp(prefix="Multiboot")
 	Console().ePopen('mount %s %s' % (SystemInfo["canMultiBoot"][slot]['device'], tmp.dir))
@@ -77,6 +119,10 @@ def deleteImage(slot):
 	if not os.path.ismount(tmp.dir):
 		os.rmdir(tmp.dir)
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 def restoreImages():
 	for slot in SystemInfo["canMultiBoot"]:
 		tmp.dir = tempfile.mkdtemp(prefix="Multiboot")
@@ -88,6 +134,10 @@ def restoreImages():
 		if not os.path.ismount(tmp.dir):
 			os.rmdir(tmp.dir)
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 def getImagelist():
 	imagelist = {}
 	if SystemInfo["canMultiBoot"]:
@@ -104,11 +154,19 @@ def getImagelist():
 					date = max(date, datetime.fromtimestamp(os.stat(os.path.join(imagedir, "usr/bin/enigma2")).st_mtime).strftime('%Y-%m-%d'))
 				except:
 					date = _("Unknown")
+<<<<<<< HEAD
 				imagelist[slot] = { 'imagename': "%s (%s)" % (open(os.path.join(imagedir, "etc/issue")).readlines()[-2].capitalize().strip()[:-6], date) }
 			elif os.path.isfile(os.path.join(imagedir, 'usr/bin/enigma2.bak')):
 				imagelist[slot] = { 'imagename': _("Deleted image") }
 			else:
 				imagelist[slot] = { 'imagename': _("Empty slot") }
+=======
+				imagelist[slot] = {'imagename': "%s (%s)" % (open(os.path.join(imagedir, "etc/issue")).readlines()[-2].capitalize().strip()[:-6], date)}
+			elif os.path.isfile(os.path.join(imagedir, 'usr/bin/enigma2.bak')):
+				imagelist[slot] = {'imagename': _("Deleted image")}
+			else:
+				imagelist[slot] = {'imagename': _("Empty slot")}
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 			Console().ePopen('umount %s' % tmp.dir)
 		if not os.path.ismount(tmp.dir):
 			os.rmdir(tmp.dir)

@@ -329,7 +329,10 @@ public:
 		cVPID, cMPEGAPID, cTPID, cPCRPID, cAC3PID,
 		cVTYPE, cACHANNEL, cAC3DELAY, cPCMDELAY,
 		cSUBTITLE, cAACHEAPID=12, cDDPPID, cAACAPID,
+<<<<<<< HEAD
 		cLPCMPID, cDTSHDPID, cDTSPID,
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 		cDATAPID, cPMTPID, cDRAAPID, cAC4PID, cacheMax
 	};
 
@@ -517,7 +520,7 @@ public:
 	enum { feSatellite, feCable, feTerrestrial, feATSC };
 	enum { stateIdle, stateTuning, stateFailed, stateLock, stateLostLock, stateClosed };
 	enum { toneOff, toneOn };
-	enum { voltageOff, voltage13, voltage18, voltage13_5, voltage18_5 };
+	enum { voltageOff, voltage13, voltage18, voltage13_5, voltage18_5, voltage5_terrestrial };
 };
 
 class iDVBFrontendStatus:  public iDVBFrontend_ENUMS, public iObject
@@ -611,6 +614,11 @@ public:
 	virtual void setRotorMoving(int slotid, bool)=0;
 	virtual RESULT resetAdvancedsatposdependsRoot(int link)=0;
 	virtual bool isOrbitalPositionConfigured(int orbital_position)=0;
+<<<<<<< HEAD
+=======
+	virtual bool tunerLinkedInUse(int root)=0;
+	virtual void forceUpdateRotorPos(int slot, int orbital_position)=0;
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 };
 
 struct eDVBCIRouting

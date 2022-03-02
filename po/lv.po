@@ -3,9 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2\n"
 "Report-Msgid-Bugs-To: \n"
+<<<<<<< HEAD
 "POT-Creation-Date: 2020-12-01 22:53+0100\n"
 "PO-Revision-Date: 2020-12-09 12:09+0100\n"
 "Last-Translator: kueken\n"
+=======
+"POT-Creation-Date: 2022-02-26 15:37+0100\n"
+"PO-Revision-Date: 2014-11-12 00:49+0200\n"
+"Last-Translator: Taapat <taapat@gmail.com>\n"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 "Language-Team: Taapat <taapat@gmail.com>\n"
 "Language: lv_LV\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +23,16 @@ msgstr ""
 
 msgid ""
 "\n"
+<<<<<<< HEAD
+=======
+" Do you want to switch to Android ?"
+msgstr ""
+"\n"
+" Vai vēlaties pārslēgt uz Android?"
+
+msgid ""
+"\n"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 "After pressing OK, please wait!"
 msgstr ""
 "\n"
@@ -24,6 +40,7 @@ msgstr ""
 
 msgid ""
 "\n"
+<<<<<<< HEAD
 "Conflict detection disabled!"
 msgstr ""
 "\n"
@@ -31,6 +48,8 @@ msgstr ""
 
 msgid ""
 "\n"
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 "Press OK on your remote control to continue."
 msgstr ""
 "\n"
@@ -58,8 +77,13 @@ msgstr ""
 "\n"
 "Taimeris '%s' izslēgts!"
 
+<<<<<<< HEAD
 msgid " "
 msgstr ""
+=======
+msgid " (+5 volt terrestrial)"
+msgstr " (+5 volti tv)"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid " (0 - all networks)"
 msgstr " (0 - visi tīkli)"
@@ -81,6 +105,9 @@ msgstr " (Radio)"
 msgid " (TV)"
 msgstr " (TV)"
 
+msgid " (auto detection)"
+msgstr " (automātiski)"
+
 msgid " (disabled)"
 msgstr " (izslēgts)"
 
@@ -93,8 +120,14 @@ msgstr " (lielāks kā rotora jebkurš auto)"
 msgid " (lower than any auto)"
 msgstr " (mazāks kā jebkurš auto)"
 
-msgid " extensions."
-msgstr " paplašinājumiem."
+msgid " - Unicable/JESS LNBs not found"
+msgstr " - Unicable/JESS LNBs nav atrasts"
+
+msgid " Warning: the selected tuner should not use SCR Unicable type for LNBs because each tuner need a own SCR number."
+msgstr " Brīdinājums! Norādītajam uztvērējam nevajadzētu izmantot SCR Unicable tipu, jo katram uztvērējam ir nepieciešams savs SCR numurs."
+
+msgid " min"
+msgstr " min"
 
 msgid " min"
 msgstr " min"
@@ -102,23 +135,28 @@ msgstr " min"
 msgid " ms"
 msgstr " ms"
 
+<<<<<<< HEAD
 msgid " packages selected."
 msgstr " pakotnes izvēlētas."
 
 msgid " updates available."
 msgstr " atjauninājumi pieejami."
+=======
+msgid " unicable LNB input of rotor"
+msgstr " unicable LNB rotora ieeja"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 #, python-format
-msgid "%.0f GB"
-msgstr "%.0f GB"
+msgid "%(freespace)s %(percent)s free disk space"
+msgstr "%(freespace)s %(percent)s brīva vieta uz diska"
 
 #, python-format
-msgid "%.0f MB"
-msgstr "%.0f MB"
+msgid "%.1f° E"
+msgstr "%.1f° E"
 
 #, python-format
-msgid "%.0f kB"
-msgstr "%.0f kB"
+msgid "%.1f° W"
+msgstr "%.1f° W"
 
 #, python-format
 msgid "%.1f° E"
@@ -133,26 +171,16 @@ msgid "%.2f GB"
 msgstr "%.2f GB"
 
 #, python-format
+msgid "%.3f MHz"
+msgstr "%.3f MHz"
+
+#, python-format
 msgid "%02d:%02d"
 msgstr "%02d:%02d"
 
 #, python-format
-msgid "%03d MB"
-msgstr "%03d MB"
-
-#, python-format
 msgid "%2.1f sec"
 msgstr "%2.1f sek"
-
-#. TRANSLATORS: short time representation hour:minute
-#, python-format
-msgid "%2d:%02d"
-msgstr "%2d:%02d"
-
-#. TRANSLATORS: full time representation hour:minute:seconds
-#, python-format
-msgid "%2d:%02d:%02d"
-msgstr "%2d:%02d:%02d"
 
 #, python-format
 msgid "%3.01f dB"
@@ -183,6 +211,7 @@ msgstr "%a %e.%m"
 #. TRANSLATORS: long date representation short dayname daynum short monthname hour:minute in strftime() format! See 'man strftime'
 msgid "%a %e/%m  %-H:%M"
 msgstr "%a %e.%m  %-H:%M"
+<<<<<<< HEAD
 
 #, python-format
 msgid "%d B"
@@ -191,6 +220,8 @@ msgstr "%d B"
 #, python-format
 msgid "%d GB"
 msgstr "%d GB"
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 #, python-format
 msgid "%d MB"
@@ -244,10 +275,6 @@ msgstr[1] "%d darbi tiek veikti fonā!"
 msgstr[2] "%d darbi tiek veikti fonā!"
 
 #, python-format
-msgid "%d kB"
-msgstr "%d kB"
-
-#, python-format
 msgid "%d kB/s"
 msgstr "%d kB/s"
 
@@ -269,6 +296,13 @@ msgstr "%d minūtes"
 #, python-format
 msgid "%d ms"
 msgstr "%d ms"
+
+#, python-format
+msgid "%d package selected."
+msgid_plural "%d packages selected."
+msgstr[0] " pakotne izvēlēta."
+msgstr[1] " pakotnes izvēlētas."
+msgstr[2] " pakotnes izvēlētas."
 
 #, python-format
 msgid "%d pixel wide"
@@ -309,10 +343,6 @@ msgstr "%d-%m"
 msgid "%d.%02d. %02d:%02d"
 msgstr "%d.%02d. %02d:%02d"
 
-#, python-format
-msgid "%d.%03d GB"
-msgstr "%d.%03d GB"
-
 msgid "%d.%B %Y"
 msgstr "%d.%B %Y"
 
@@ -332,13 +362,26 @@ msgstr "%d:%02d"
 msgid "%k:%M %e/%m"
 msgstr "%k:%M %e.%m"
 
+<<<<<<< HEAD
 #, fuzzy, python-format
 msgid "%s"
 msgstr "Kan%s"
+=======
+#, python-format
+msgid ""
+"%s\n"
+"Do you still want to flash image\n"
+"%s?"
+msgstr ""
+"%s\n"
+"Vai tiešam vēlaties uzstādīt imidžu\n"
+"%s?"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 #, python-format
 msgid ""
 "%s\n"
+<<<<<<< HEAD
 "Do you still want to flash image\n"
 "%s?"
 msgstr ""
@@ -349,6 +392,8 @@ msgstr ""
 #, python-format
 msgid ""
 "%s\n"
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 "Press ok for multiboot selection\n"
 "Press exit to close"
 msgstr ""
@@ -361,12 +406,16 @@ msgid "%s %d.%d"
 msgstr "%s %d.%d"
 
 #, python-format
-msgid "%s %s free disk space"
-msgstr "%s %s brīva vieta uz diska"
+msgid "%s KSymb/s"
+msgstr "%s KSymb/s"
 
 #, python-format
-msgid "%s (%s)\n"
-msgstr "%s (%s)\n"
+msgid "%s MHz"
+msgstr "%s MHz"
+
+#, python-format
+msgid "%s imported from fallback tuner"
+msgstr "%s importēts no attālinātā uztvērēja"
 
 #, fuzzy, python-format
 msgid "%s imported from fallback tuner"
@@ -383,6 +432,7 @@ msgid_plural "%s updated packages available"
 msgstr[0] "%s pakotnes atjauninājums pieejams"
 msgstr[1] "%s pakotņu atjauninājumi pieejami"
 msgstr[2] "%s pakotņu atjauninājumi pieejami"
+<<<<<<< HEAD
 
 #, python-format
 msgid "%s%% Autoinstalling %s"
@@ -399,6 +449,8 @@ msgstr "%s/%s: %s"
 #, python-format
 msgid "%s:%s"
 msgstr "%s:%s"
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 #, python-format
 msgid "%s?"
@@ -448,44 +500,23 @@ msgstr "0"
 msgid "1"
 msgstr "1"
 
-msgid "1.0"
-msgstr "1.0"
-
-msgid "1.1"
-msgstr "1.1"
-
-msgid "1.2"
-msgstr "1.2"
-
 msgid "10 MB/s"
 msgstr "10 MB/s"
 
 msgid "100 MB/s"
 msgstr "100 MB/s"
 
-msgid "10bit"
-msgstr "10bit"
-
 msgid "12V output"
 msgstr "12V izeja"
 
-msgid "12bit"
-msgstr "12bit"
-
 msgid "13 V"
 msgstr "13 V"
-
-msgid "16:10"
-msgstr "16:10"
 
 msgid "16:10 Letterbox"
 msgstr "16:10 platekrāns"
 
 msgid "16:10 PanScan"
 msgstr "16:10 panorāma"
-
-msgid "16:9"
-msgstr "16:9"
 
 msgid "16:9 Letterbox"
 msgstr "16:9 platekrāns"
@@ -494,13 +525,20 @@ msgid "16:9 always"
 msgstr "16:9 vienmēr"
 
 msgid "16K"
+<<<<<<< HEAD
 msgstr ""
+=======
+msgstr "16K"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "18 V"
 msgstr "18 V"
 
 msgid "2"
 msgstr "2"
+
+msgid "2 new lines"
+msgstr "divas tukšas rindas"
 
 msgid "20 MB/s"
 msgstr "20 MB/s"
@@ -538,6 +576,7 @@ msgstr "3d režīms"
 msgid "4"
 msgstr "4"
 
+<<<<<<< HEAD
 msgid "420"
 msgstr "420"
 
@@ -554,15 +593,22 @@ msgstr "noklusētais"
 msgid "4:3"
 msgstr "4:3"
 
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "4:3 Letterbox"
 msgstr "4:3 platekrāns"
 
 msgid "4:3 PanScan"
 msgstr "4:3 panorāma"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "4K"
 msgstr "4"
+=======
+msgid "4K"
+msgstr "4K"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "5"
 msgstr "5"
@@ -583,12 +629,17 @@ msgstr "7"
 msgid "8"
 msgstr "8"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "8K"
 msgstr "8"
 
 msgid "8bit"
 msgstr "8bit"
+=======
+msgid "8K"
+msgstr "8K"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "9"
 msgstr "9"
@@ -617,22 +668,13 @@ msgstr "??"
 msgid "A"
 msgstr "A"
 
-#, python-format
-msgid ""
-"A configuration file (%s) has been modified since it was installed.\n"
-"Do you want to keep your modifications?"
-msgstr ""
-"Konfigurācijas fails (%s) kopš uzstādīšanas ir izmainīts.\n"
-"Vai vēlaties paturēt izmainīto versiju?"
+msgid "A completed recording timer is about to put your receiver in standby mode. Would you like to proceed?"
+msgstr "Taimeris ir beidzis ierakstu un vēlas izslēgt uztvērēju gaidstāvē. Vai to darīt?"
 
-#, python-format
-msgid ""
-"A configuration file (%s) was modified since Installation.\n"
-"Do you want to keep your version?"
-msgstr ""
-"Konfigurācijas fails (%s) kopš uzstādīšanas ir izmainīts.\n"
-"Vai vēlaties paturēt izmainīto versiju?"
+msgid "A completed recording timer is about to shut down your receiver. Would you like to proceed?"
+msgstr "Taimeris ir beidzis ierakstu un vēlas izslēgt uztvērēju. Vai izslēgt?"
 
+<<<<<<< HEAD
 msgid "A file from media is in use!"
 msgstr "Tiek izmantoti faili no datu nesēja!"
 
@@ -649,13 +691,21 @@ msgid ""
 msgstr ""
 "Taimeris ir beidzis ierakstu un vēlas izslēgt\n"
 "uztvērēju. Vai izslēgt?"
+=======
+#, python-format
+msgid "A configuration file (%s) has been modified since it was installed. Would you like to keep the modified version?"
+msgstr "Konfigurācijas fails (%s) kopš uzstādīšanas ir izmainīts. Vai vēlaties paturēt izmainīto versiju?"
+
+msgid "A file from media is in use!"
+msgstr "Tiek izmantoti faili no datu nesēja!"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "A graphical EPG for all services of a specific bouquet"
 msgstr "Grafiskais EPG visiem kanāliem izvēlētajā buķetē"
 
 #, python-format
 msgid ""
-"A record has been started:\n"
+"A recording has started:\n"
 "%s"
 msgstr ""
 "Ieraksts ir sācies:\n"
@@ -671,11 +721,14 @@ msgstr ""
 "Pašreiz notiek ieraksts.\n"
 "Ko vēlaties darīt?"
 
-msgid "A recording is currently running. Please stop the recording before trying to scan."
+msgid "A recording is currently running. Please stop the recording before starting a DiSEqC test."
+msgstr "Pašreiz notiek ieraksts. Lūdzu apturiet ierakstu pirms mēģiniet testēt DiSEqC."
+
+msgid "A recording is currently running. Please stop the recording before starting a service scan."
 msgstr "Pašreiz notiek ieraksts. Pirms mēģināt meklēt lūdzu apturiet ierakstu."
 
-msgid "A recording is currently running. Please stop the recording before trying to start a testing DiSEqC."
-msgstr "Pašreiz notiek ieraksts. Lūdzu apturiet ierakstu pirms mēģiniet testēt DiSEqC."
+msgid "A repeating event is currently recording. What would you like to do?"
+msgstr "Pārraide pašreiz ierakstās. Ko vēlaties darīt?"
 
 #, python-format
 msgid "A required tool (%s) was not found."
@@ -693,19 +746,20 @@ msgstr ""
 "\n"
 "Vai vēlaties izslēgt otru tīkla iekārtu?"
 
-msgid ""
-"A sleep timer wants to set your\n"
-"receiver to standby. Do that now?"
-msgstr ""
-"Miega taimeris vēlas uztvērēju\n"
-"izslēgt gaidstāvē. Vai to darīt?"
+msgid "A sleep timer is about to put your receiver in standby mode. Would you like to proceed?"
+msgstr "Miega taimeris vēlas uztvērēju izslēgt gaidstāvē. Vai to darīt?"
 
+<<<<<<< HEAD
 msgid ""
 "A sleep timer wants to shut down\n"
 "your receiver. Shutdown now?"
 msgstr ""
 "Miega taimeris vēlas izslēgt\n"
 "uztvērēju. Vai izslēgt?"
+=======
+msgid "A sleep timer is about to shut down your receiver. Would you like to proceed?"
+msgstr "Miega taimeris vēlas izslēgt uztvērēju. Vai izslēgt?"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "A small overview of the available icon states and actions."
 msgstr "Vienkāršs pārskats par pieejamām ikonām un darbībām."
@@ -738,9 +792,6 @@ msgstr "ASS fails"
 msgid "ASS file"
 msgstr "ASS fails"
 
-msgid "ATSC"
-msgstr "ATSC"
-
 msgid "ATSC provider"
 msgstr "ATSC operators"
 
@@ -759,7 +810,11 @@ msgstr "Pārtraukt favorītu rediģēšanu"
 msgid "About"
 msgstr "Par"
 
+<<<<<<< HEAD
 msgid "Accesspoint:"
+=======
+msgid "Access point:"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgstr "Piekļuves punkts:"
 
 msgid "Activate HbbTV (Redbutton)"
@@ -846,9 +901,14 @@ msgstr "Pievienot kanālu buķetei"
 msgid "Add service to favourites"
 msgstr "Pievienot kanālu favorītiem"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Add services to this bouquet?"
 msgstr "pievienot kanālu buķetei"
+=======
+msgid "Add services to this bouquet?"
+msgstr "Pievienot kanālus šai buķetei?"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Add timer"
 msgstr "Pievienot taimeri"
@@ -868,15 +928,20 @@ msgstr "Pievienot vecāku kontrolei"
 msgid "Add/remove change timer for current event"
 msgstr "Pievienot/noņemt mainīt taimeri tekošajai pārraidei"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Additional cable of motorized LNB"
 msgstr "Otrais kabelis vai motorizēta LNB"
+=======
+msgid "Additional cable of motorized LNB"
+msgstr "Papildus kabelis motorizētai LNB"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Additional motor options allow you to enter details from your motor's spec sheet so enigma can work out how long it will take to move the dish from one satellite to another satellite."
-msgstr "Papildu motora iespējas ļauj izmantot informāciju no sava motora specifikācijas. Tāpēc enigma var noteikt, cik ilgs laiks būs nepieciešams, lai pārvietotu satelītantenu no viena satelīta uz citu."
+msgstr "Papildu motora iespējas ļauj izmantot informāciju no sava motora specifikācijas. Tāpēc uztvērējs var noteikt, cik ilgs laiks būs nepieciešams, lai pārvietotu satelītantenu no viena satelīta uz citu."
 
 msgid "Additional motor options allow you to enter details from your motor's spec sheet so enigma can work out how long it will take to move to another satellite."
-msgstr "Papildu motora iespējas ļauj izmantot informāciju no sava motora specifikācijas. Tāpēc enigma var noteikt, cik ilgs laiks būs nepieciešams, lai pārvietoties uz citu satelītu."
+msgstr "Papildu motora iespējas ļauj izmantot informāciju no sava motora specifikācijas. Tāpēc uztvērējs var noteikt, cik ilgs laiks būs nepieciešams, lai pārvietoties uz citu satelītu."
 
 msgid "Adjust 3D settings"
 msgstr "Pielāgo 3D iestatījumus"
@@ -956,9 +1021,14 @@ msgstr "Visi pavadoņi 4 (USALS)"
 msgid "All services provider"
 msgstr "Visu kanālu operatori"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "All slots"
 msgstr "Izvēlieties slotu"
+=======
+msgid "All slots"
+msgstr "Visi sloti"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Allocate"
 msgstr "Iedalīt"
@@ -975,10 +1045,14 @@ msgstr "Atļaut 10bit"
 msgid "Allow 12bit"
 msgstr "Atļaut 12bit"
 
+<<<<<<< HEAD
 msgid "Allow quit movieplayer with exit"
 msgstr "Iziet no mediju atskaņotāja ar exit taustiņu"
 
 msgid "Allow quitting movieplayer with exit"
+=======
+msgid "Allow quitting movie player with exit"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgstr "Iziet no mediju atskaņotāja ar exit taustiņu"
 
 msgid "Allow subtitle language to equal audio language"
@@ -991,7 +1065,11 @@ msgid "Allow unsupported modes"
 msgstr "Izmantot neatbalstītus režīmus"
 
 msgid "Allows the TV remote to be used to control the receiver."
+<<<<<<< HEAD
 msgstr ""
+=======
+msgstr "Uztvērēja vadībai lietot TV tālvadības pulti."
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Alpha"
 msgstr "Alfa"
@@ -1011,6 +1089,7 @@ msgstr "Arī pēc gaidstāves"
 msgid "Alternative"
 msgstr "Alternatīvas"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Alternative 1"
 msgstr "Alternatīvas"
@@ -1019,11 +1098,17 @@ msgstr "Alternatīvas"
 msgid "Alternative 2"
 msgstr "Alternatīvas"
 
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "Alternative URL for images listed on FlashImage"
 msgstr "Adrese papildus imidžu uzstādīšanai"
 
 msgid "Alternative URLs for DVB-T/C or ATSC"
+<<<<<<< HEAD
 msgstr ""
+=======
+msgstr "Adrese DVB-T/C vai ATSC avotam"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Alternative numbering mode"
 msgstr "Alternatīvais numuru režīms"
@@ -1072,7 +1157,7 @@ msgid "Angola"
 msgstr "Angola"
 
 msgid "Anguilla"
-msgstr "Angilja"
+msgstr "Ganglija"
 
 msgid "Antarctica"
 msgstr "Antarktika"
@@ -1086,20 +1171,32 @@ msgstr "Jebkura aktivitāte"
 msgid "Arabic"
 msgstr "Arābu"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Are you sure to delete image:"
 msgstr "Vai tiešām vēlaties dzēst šo ierakstu?"
+=======
+msgid "Are you sure to delete image:"
+msgstr "Vai tiešām vēlaties dzēst:"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Are you sure to purge all deleted user bouquets?"
 msgstr "Vai tiešām vēlaties iztīrīt visas dzēstās buķetes?"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Are you sure to reboot to"
 msgstr "Vai tiešām vēlaties dzēst šo ierakstu?"
 
+=======
+msgid "Are you sure to reboot to"
+msgstr "Vai tiešām vēlaties pārstartēt"
+
+#. TRANSLATORS: The user is asked to delete all satellite services from a specific orbital position after a configuration change
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 #, python-format
-msgid "Are you sure to remove all %d.%d%s%s services?"
-msgstr "Vai tiešām vēlaties nodzēst visus %d.%d%s%s kanālus?"
+msgid "Are you sure to remove all %s services?"
+msgstr "Vai tiešām vēlaties nodzēst visus %s kanālus?"
 
 msgid "Are you sure to remove all cable services?"
 msgstr "Vai tiešām vēlaties nodzēst visus kabeļu kanālus?"
@@ -1110,6 +1207,7 @@ msgstr "Vai tiešām vēlaties nodzēst visus televīzijas kanālus?"
 msgid "Are you sure to remove this entry?"
 msgstr "Vai tiešām vēlaties dzēst šo ierakstu?"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Are you sure to restore all deleted images"
 msgstr "Vai tiešām vēlaties nodzēst visus kabeļu kanālus?"
@@ -1119,6 +1217,10 @@ msgid ""
 "Are you sure to save the current configuration and reboot your receiver?\n"
 "\n"
 msgstr "Pārbaudīt uztvērēja tīkla iestatījumus.\n"
+=======
+msgid "Are you sure to restore all deleted images"
+msgstr "Vai tiešām vēlaties atjaunot visus dzēstos imidžus"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid ""
 "Are you sure you want to activate this network configuration?\n"
@@ -1172,8 +1274,8 @@ msgstr "Armēnija"
 msgid "Artist"
 msgstr "Izpildītājs"
 
-msgid "Arts/Culture"
-msgstr "Māksla/Kultūra"
+msgid "Arts/Culture (without music)"
+msgstr "māksla, kultūra"
 
 msgid "Aruba"
 msgstr "Aruba"
@@ -1227,6 +1329,12 @@ msgstr "Audio informācija"
 
 msgid "Audio auto volume level"
 msgstr "Automātiskā skaļuma līmenis"
+<<<<<<< HEAD
+=======
+
+msgid "Audio description for the visually impaired"
+msgstr "Audio apraksts vājredzīgajiem"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Audio language selection 1"
 msgstr "Audio valodas izvēle 1"
@@ -1276,8 +1384,8 @@ msgstr "Autorizēšanas režīms"
 msgid "Auto"
 msgstr "Automātiski"
 
-msgid "Auto Diseqc"
-msgstr "Auto Diseqc"
+msgid "Auto DiSEqC"
+msgstr "Auto DiSEqC"
 
 msgid "Auto EXIF Orientation rotation/flipping"
 msgstr "Automātiska attēla attēlošana izmantojot EXIF datus"
@@ -1291,8 +1399,8 @@ msgstr "Automātiska ielāde"
 msgid "Auto focus"
 msgstr "Automātisks fokuss"
 
-msgid "Auto focus commencing ..."
-msgstr "Automātisks fokuss sākas ..."
+msgid "Auto focus commencing..."
+msgstr "Automātisks fokuss sākas..."
 
 msgid "Auto language selection"
 msgstr "Automātiska valodas izvēle"
@@ -1300,21 +1408,36 @@ msgstr "Automātiska valodas izvēle"
 msgid "Auto play blu-ray file"
 msgstr "Automātiski atskaņot blu-ray"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Auto play last service in radio mode"
 msgstr "Veikt ātro kanālu meklēšanu"
+=======
+msgid "Auto play last service in radio mode"
+msgstr "Atskaņot pēdējo kanālu radio režīmā"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Auto scart switching"
 msgstr "Automātiska SCART pārslēgšana"
 
+<<<<<<< HEAD
+=======
+#, python-format
+msgid "Autoinstalling %s"
+msgstr "Uzstāda %s"
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "Autoinstalling Completed"
 msgstr "Uzstādīšana pabeigta"
 
 msgid "Autoinstalling please wait for packages being updated"
 msgstr "Lūdzu uzgaidiet kamēr paketes tiks uzstādītas"
+<<<<<<< HEAD
 
 msgid "Automatic"
 msgstr "Automātiski"
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Automatic Scan"
 msgstr "Automātiskā meklēšana"
@@ -1326,7 +1449,11 @@ msgid "Automatic scan"
 msgstr "Automātiskā meklēšana"
 
 msgid "Automatically put the TV in standby whenever the receiver goes into standby or deep standby."
+<<<<<<< HEAD
 msgstr ""
+=======
+msgstr "Pārslēgt TV gaidīšanas režīmā neatkarīgi no tā vai uztvērējs izslēdzas vai pārslēdzas gaidīšanas režīmā."
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Automatically start timeshift after"
 msgstr "Automātiski sākt laika aizturi pēc"
@@ -1340,6 +1467,12 @@ msgstr "Pieejamie mainīgo formāti"
 msgid "Available locales are:"
 msgstr "Pieejamās valodas:"
 
+<<<<<<< HEAD
+=======
+msgid "Axas E4HD Ultra"
+msgstr "Axas E4HD Ultra"
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "Azerbaijan"
 msgstr "Azerbaidžāna"
 
@@ -1351,15 +1484,6 @@ msgstr "BER"
 
 msgid "BER:"
 msgstr "BER:"
-
-msgid "BT 2020 CL"
-msgstr "BT 2020 CL"
-
-msgid "BT 2020 NCL"
-msgstr "BT 2020 NCL"
-
-msgid "BT 709"
-msgstr "BT 709"
 
 msgid "Back"
 msgstr "Atpakaļ"
@@ -1423,7 +1547,11 @@ msgid "Basque"
 msgstr "Basku"
 
 msgid "Before sending the command to switch the TV to standby, the receiver tests if all the other devices plugged to TV are in standby. If they are not, the 'sourceinactive' command will be sent to the TV instead of the 'standby' command."
+<<<<<<< HEAD
 msgstr ""
+=======
+msgstr "Pirms sūtīt komandu pārslēgt TV gaidīšanas režīmā uztvērējs pārbaudīs vai visas ierīces, kuras pieslēgtas TV, ir gaidīšanas režīmā. Ja kāda nav, tad tiks sūtīta komanda 'avots neaktīvs' nevis komanda 'gaidīšanas režīms'."
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Begin time"
 msgstr "Sākuma laiks"
@@ -1476,6 +1604,12 @@ msgstr "Melns ekrāns"
 msgid "Black screen till locked"
 msgstr "Melns ekrāns līdz noenkurojies"
 
+msgid "Blindscan"
+msgstr "Aklā meklēšana"
+
+msgid "Blindscan terrestrial (if possible)"
+msgstr "Aklā televīzijas kanālu meklēšana"
+
 msgid "Block noise reduction"
 msgstr "Bloķēt trokšņu slāpēšanu"
 
@@ -1497,6 +1631,7 @@ msgstr "Zilā piesātinājums"
 msgid "Boost green"
 msgstr "Zaļā piesātinājums"
 
+<<<<<<< HEAD
 msgid "Booster Control"
 msgstr ""
 
@@ -1509,6 +1644,16 @@ msgstr ""
 #, fuzzy
 msgid "Bootup time"
 msgstr "Kārt. laiks"
+=======
+msgid "Boot to Android image"
+msgstr "Pārstartēt uz Android imidžu"
+
+msgid "Boot to Recovery menu"
+msgstr "Pārstartēt atkopšanas izvēlnē"
+
+msgid "Bootup time"
+msgstr "Darbības laiks"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Bosnia and Herzegovina"
 msgstr "Bosnija un Hercegovina"
@@ -1597,14 +1742,15 @@ msgstr "CI slots: "
 msgid "CPU: "
 msgstr "Procesors: "
 
-msgid "CVBS"
-msgstr "CVBS"
-
 msgid "Cable"
 msgstr "Kabeļu"
 
 msgid "Cable Scan"
 msgstr "Kabeļu meklēšana"
+
+#, python-format
+msgid "Cable scan executable utility not found '%s'!"
+msgstr "Kabeļu skenēšanas aplikācija nav atrasta '%s'!"
 
 msgid "Cabo Verde"
 msgstr "Kaboverde"
@@ -1650,6 +1796,24 @@ msgid ""
 "Screens change with left/right buttons or use red, green, blue to toggle.\n"
 "Yellow for returning back to this intro"
 msgstr ""
+<<<<<<< HEAD
+=======
+"Testē bojātos pikseļus TV ekrāna.\n"
+"\n"
+"Pieejamās krāsas testam:\n"
+"\n"
+"sarkana\n"
+"zaļa\n"
+"zila\n"
+"balta\n"
+"melna\n"
+"ciāna\n"
+"purpursarkana\n"
+"dzeltena\n"
+"\n"
+"Ekrānus var pārslēgt ar pa kreisi/pa labi taustiņiem vai izmantot sarkano, zaļo vai zilo taustiņu.\n"
+"Dzeltenais pārslēgs atpakaļ uz šo ekrānu."
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Can only find a network drive to store the backup this means after the flash the autorestore will not work. Alternativaly you can mount the network drive after the flash and perform a manufacurer reset to autorestore"
 msgstr "Ir atrasts tikai tīkla disks kur saglabāt rezerves kopiju. Tas nozīmē, ka pēc imidža uzstādīšanas automātiskā atjaunošana nenotiks. Jūs varat piemontēt tīkla disku pēc imidža uzstādīšanas un izmantot rūpnīcas uzstādījumus lai automātiski atjaunotu iestatījumus."
@@ -1661,17 +1825,29 @@ msgid "Cancel"
 msgstr "Atcelt"
 
 msgid "Cancel any changes to the currently active skin"
+<<<<<<< HEAD
 msgstr ""
 
 msgid "Cancel any changes to the currently active skin and exit all menus"
 msgstr ""
+=======
+msgstr "Atcelt jebkuras izmaiņas pašreizējā noformējumā"
+
+msgid "Cancel any changes to the currently active skin and exit all menus"
+msgstr "Atcelt jebkuras izmaiņas pašreizējā noformējumā un aizvērt visas izvēlnes"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Cancel any text changes and exit"
 msgstr "Atcelt teksta izmaiņas un iziet"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Cancel execution?"
 msgstr "Kanālu izvēle"
+=======
+msgid "Cancel execution?"
+msgstr "Atcelt izpildi?"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Cancelled upon user request"
 msgstr "Atcelts pēc lietotāja pieprasījuma"
@@ -1797,6 +1973,7 @@ msgstr "Kanāla numurs un pikona"
 msgid "Channelnumber, picon and servicename"
 msgstr "Kanāla numurs, pikona un kanāla nosaukums"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Channelnumber/Clock in Standby Clock"
 msgstr "Kanāla numurs un pikona"
@@ -1809,6 +1986,14 @@ msgid "Channels and EPG"
 msgstr "Kanālus un EPG"
 
 #, fuzzy
+=======
+msgid "Channels"
+msgstr "Kanālus"
+
+msgid "Channels and EPG"
+msgstr "Kanālus un EPG"
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "Channels only"
 msgstr "Kanāls"
 
@@ -1830,6 +2015,9 @@ msgstr "Pārbaudīt interneta savienojumu"
 msgid "Check the internet connection again"
 msgstr "Pārbaudīt interneta savienojumu vēlreiz"
 
+msgid "Checking ONID/TSID"
+msgstr "Pārbauda ONID/TSID"
+
 msgid "Checking filesystem..."
 msgstr "Pārbauda failu sistēmu..."
 
@@ -1844,8 +2032,8 @@ msgstr ""
 "Pārbauda uztvērēju %s\n"
 "DiSEqC ieeja %s no %s"
 
-msgid "Children/Youth"
-msgstr "Bērni/Jaunieši"
+msgid "Children/Youth/Education/Science"
+msgstr "Bērnu, jauniešu, izglītība, zinātne"
 
 msgid "Chile"
 msgstr "Čīle"
@@ -1865,6 +2053,15 @@ msgstr "Izvēlieties uztvērēju"
 msgid "Choose bouquet"
 msgstr "Izvēlieties buķeti"
 
+<<<<<<< HEAD
+=======
+msgid "Choose whether to scan a single transponder, one satellite or multiple satellites."
+msgstr "Izvēlieties, vai skenēt vienu transponderi, vienu satelītu vai vairākus satelītus."
+
+msgid "Choose whether to scan for free services only or whether to include paid/encrypted services too."
+msgstr "Izvēlieties, vai meklēt tikai bezmaksas kanālus vai iekļaut arī maksas un šifrētos kanālus."
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "Choose which tuner to configure."
 msgstr "Izvēlieties kuru uztvērēju konfigurēt"
 
@@ -1901,10 +2098,13 @@ msgstr "Dzēst repertuāru"
 msgid "Client is streaming from this box!"
 msgstr "Klients straumē no uztvērēja!"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Clock always"
 msgstr "vienmēr"
 
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "Clone TV screen to LCD"
 msgstr "Kopēt TV ekrānu uz LCD"
 
@@ -1941,9 +2141,14 @@ msgstr "Kolekcijas iestatījumi"
 msgid "Colombia"
 msgstr "Kolumbija"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Color"
 msgstr "Kolumbija"
+=======
+msgid "Color"
+msgstr "Krāsa"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Color format"
 msgstr "Krāsu formāts"
@@ -1961,7 +2166,11 @@ msgid "Command order"
 msgstr "Komandu secība"
 
 msgid "Command the TV to switch to the correct HDMI input when zap timers activate."
+<<<<<<< HEAD
 msgstr ""
+=======
+msgstr "Nosūtīt komandu pārslēgt TV uz korektu HDMI ieeju kad aktivizē pārslēgšanas taimeri."
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Commit info"
 msgstr "Izmaiņas"
@@ -2027,9 +2236,14 @@ msgstr "Uzstāda papildus aizturi lai darbotos ārējo subtitru sinhronizācija.
 msgid "Configure an additional delay to improve subtitle synchronisation."
 msgstr "Uzstāda papildus aizturi lai darbotos subtitru sinhronizācija."
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Configure default type for new timers."
 msgstr "Uzstāda tīkla masku."
+=======
+msgid "Configure default type for new timers."
+msgstr "Jauno taimeru noklusētais tips."
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Configure for how long the infobar will remain visible after activation."
 msgstr "Uzstāda cik ilgi infojosla paliek redzama pēc aktivizācijas."
@@ -2087,6 +2301,9 @@ msgstr "Uzstāda uz kuras ierīces būtu jāizmanto fona dzēšanas iespēja."
 
 msgid "Configure remote control type"
 msgstr "Konfigurēt vadības pults tipu"
+
+msgid "Configure separator type used in full description for separate short and extended descriptions."
+msgstr "Pilnā aprakstā izmantotais atdalītāja veids starp īso un paplašināto aprakstu."
 
 msgid "Configure the DiSEqC mode for this LNB."
 msgstr "Konfigurēt DiSEqC veidu šim LNB."
@@ -2340,6 +2557,9 @@ msgstr "Uzstāda kura video izeja tiks lietota."
 msgid "Configuring"
 msgstr "Konfigurē"
 
+msgid "Conflict detection disabled!"
+msgstr "Konfliktu noteikšana izslēgta!"
+
 msgid "Conflict not resolved!"
 msgstr "Konflikts nav novērsts!"
 
@@ -2472,9 +2692,14 @@ msgstr "Kuba"
 msgid "Curacao"
 msgstr "Kirasao"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Current"
 msgstr "Pašreizējā vērtība: "
+=======
+msgid "Current"
+msgstr "Pašreizējais"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Current CEC address"
 msgstr "Pašreizējā CEC adrese"
@@ -2550,9 +2775,6 @@ msgstr "Čehija"
 msgid "D"
 msgstr "D"
 
-msgid "DAC"
-msgstr "DAC"
-
 msgid "DHCP"
 msgstr "DHCP"
 
@@ -2583,27 +2805,6 @@ msgstr "DVB subtitru melnā caurspīdīgums"
 msgid "DVB type"
 msgstr "DVB veids"
 
-msgid "DVB-C"
-msgstr "DVB-C"
-
-msgid "DVB-C ANNEX B"
-msgstr "DVB-C ANNEX B"
-
-msgid "DVB-C ANNEX C"
-msgstr "DVB-C ANNEX C"
-
-msgid "DVB-S"
-msgstr "DVB-S"
-
-msgid "DVB-S2"
-msgstr "DVB-S2"
-
-msgid "DVB-T"
-msgstr "DVB-T"
-
-msgid "DVB-T2"
-msgstr "DVB-T2"
-
 msgid "DVD Burn"
 msgstr "DVD ieraksts"
 
@@ -2625,7 +2826,10 @@ msgstr "DVD atskaņotājs"
 msgid "DVD titlelist"
 msgstr "DVD nosaukumi"
 
+<<<<<<< HEAD
 #, fuzzy
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "DVDPlayer"
 msgstr "DVD atskaņotājs"
 
@@ -2659,6 +2863,7 @@ msgstr "Mediju failu atrašanās vieta pēc noklusējuma"
 msgid "Default settings"
 msgstr "Noklusējuma iestatījumi"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Default timer type"
 msgstr "Dzēst taimeri"
@@ -2666,6 +2871,13 @@ msgstr "Dzēst taimeri"
 #, fuzzy
 msgid "Default+Picon"
 msgstr "Pēc noklusējuma"
+=======
+msgid "Default timer type"
+msgstr "Noklusētais taimera tips"
+
+msgid "Default+Picon"
+msgstr "Noklusējuma un pikona"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Define the location of the EPG Cache file."
 msgstr "Norādiet EPG kešatmiņas faila atrašanās vietu."
@@ -2716,7 +2928,11 @@ msgid "Delay before sequence repeat"
 msgstr "Aizture pirms secības atkārtojuma"
 
 msgid "Delay between CEC commands when sending a series of commands. Some devices require this delay for correct functioning, usually between 50-150ms."
+<<<<<<< HEAD
 msgstr ""
+=======
+msgstr "Aizture starp CEC komandām kad sūta vairākas. Dažām ierīcēm, lai tās strādātu korekti, nepieciešama 50-150ms aizture."
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Delay between diseqc commands"
 msgstr "Aizture starp DiSEqC komandām"
@@ -2739,6 +2955,7 @@ msgstr "Aizture milisekundēs simbolu ritināšanas ātrumam displejā."
 msgid "Delete"
 msgstr "Dzēst"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Delete Image"
 msgstr "Izdzēst imidžu"
@@ -2746,6 +2963,13 @@ msgstr "Izdzēst imidžu"
 #, fuzzy
 msgid "Delete all the text"
 msgstr "Dzēst repertuāra ierakstu"
+=======
+msgid "Delete Image"
+msgstr "Dzēst imidžu"
+
+msgid "Delete all the text"
+msgstr "Dzēst visu tekstu"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Delete entry"
 msgstr "Dzēst ierakstu "
@@ -2765,6 +2989,7 @@ msgstr "Dzēst repertuāra ierakstu"
 msgid "Delete saved playlist"
 msgstr "Dzēst saglabāto repertuāru"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Delete the character to the left of text cursor"
 msgstr "Dzēst burtu pa kreisi"
@@ -2772,6 +2997,13 @@ msgstr "Dzēst burtu pa kreisi"
 #, fuzzy
 msgid "Delete the character under the text cursor"
 msgstr "Dzēst burtu"
+=======
+msgid "Delete the character to the left of text cursor"
+msgstr "Dzēst burtu pa kreisi no kursora"
+
+msgid "Delete the character under the text cursor"
+msgstr "Dzēst burtu zem kursora"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Delete timer"
 msgstr "Dzēst taimeri"
@@ -2779,9 +3011,14 @@ msgstr "Dzēst taimeri"
 msgid "Deleted"
 msgstr "Izdzēsts"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Deleted image"
 msgstr "Izdzēst imidžu"
+=======
+msgid "Deleted image"
+msgstr "Dzēstais imidžs"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Deleted items"
 msgstr "Dzēsts"
@@ -2807,6 +3044,7 @@ msgstr "Atcelt izvēli"
 msgid "Destination of fallback remote receiver"
 msgstr "Attālinātā rezerves uztvērēja adrese"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Destination of fallback remote receiver for ATSC"
 msgstr "Attālinātā rezerves uztvērēja adrese"
@@ -2818,6 +3056,16 @@ msgstr "Attālinātā rezerves uztvērēja adrese"
 #, fuzzy
 msgid "Destination of fallback remote receiver for DVB-T"
 msgstr "Attālinātā rezerves uztvērēja adrese"
+=======
+msgid "Destination of fallback remote receiver for ATSC"
+msgstr "ATSC attālinātā rezerves uztvērēja adrese"
+
+msgid "Destination of fallback remote receiver for DVB-C"
+msgstr "DVB-C attālinātā rezerves uztvērēja adrese"
+
+msgid "Destination of fallback remote receiver for DVB-T"
+msgstr "DVB-T attālinātā rezerves uztvērēja adrese"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Details for plugin: "
 msgstr "Spraudņu papildinformācija: "
@@ -2825,13 +3073,13 @@ msgstr "Spraudņu papildinformācija: "
 msgid "Detect next boxes before standby"
 msgstr "Noteikt citas iekārtas pirms gaidstāves"
 
-msgid "Detected HDD:"
-msgstr "Atmiņas iekārtas:"
-
 msgid "Detected NIMs:"
 msgstr "Uztvērēji:"
 
-msgid "Devicename:"
+msgid "Detected storage devices:"
+msgstr "Atmiņas iekārtas:"
+
+msgid "Device name:"
 msgstr "Iekārtas nosaukums:"
 
 msgid "DiSEqC"
@@ -2885,8 +3133,8 @@ msgid "Directory browser"
 msgstr "Mapju pārlūks"
 
 #, python-format
-msgid "Directory contains %s and %s."
-msgstr "Mape satur %s un %s."
+msgid "Directory contains %(file)s and %(subdir)s."
+msgstr "Mape satur %(file)s un %(subdir)s."
 
 msgid "Disable"
 msgstr "Izslēgt"
@@ -2912,6 +3160,9 @@ msgstr "Izslēgts"
 msgid "Disk space to reserve for recordings (in GB)"
 msgstr "Rezerve ierakstiem diskā (GB)"
 
+msgid "Disk state: "
+msgstr "Diska statuss: "
+
 msgid "Display 16:9 content as"
 msgstr "Attēlot 16:9 saturu"
 
@@ -2930,9 +3181,14 @@ msgstr "Rādīt EPG informāciju pašreizējai pārraidei."
 msgid "Display EPG list for current channel"
 msgstr "Rādīt EPG sarakstu pašreizējai pārraidei."
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Display Skin"
 msgstr "Displeja iestatījumi"
+=======
+msgid "Display Skin"
+msgstr "Displeja noformējums"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Display and userinterface"
 msgstr "Attēla un lietotāja interfeiss"
@@ -3066,7 +3322,10 @@ msgstr "Vai tiešām vēlaties iziet no šī veidņa?"
 msgid "Do you want to reboot your receiver?"
 msgstr "Vai vēlaties pārstartēt uztvērēju?"
 
+<<<<<<< HEAD
 #, fuzzy
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "Do you want to remove all the crash logfiles"
 msgstr "Vai vēlaties dzēst visus žurnāla failus"
 
@@ -3092,9 +3351,12 @@ msgstr "Vai vēlaties atjaunot uztvērēju uz %s?"
 msgid "Do you want to update your receiver?"
 msgstr "Vai vēlaties atjaunot uztvērēju?"
 
+<<<<<<< HEAD
 msgid "Dolby"
 msgstr "Dolby"
 
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "Dominica"
 msgstr "Dominika"
 
@@ -3117,7 +3379,11 @@ msgid "Don't zap and remove timer"
 msgstr "Nepārslēgt un dzēst taimeri"
 
 msgid "Done"
+<<<<<<< HEAD
 msgstr ""
+=======
+msgstr "Ok"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 #, python-format
 msgid "Done - Installed, updated or removed %d package (%s)"
@@ -3135,15 +3401,27 @@ msgstr "Lejuplādējamie jaunie spraudņi"
 msgid "Downloadable plugins"
 msgstr "Lejuplādējamie spraudņi"
 
+msgid "Downloaded Images"
+msgstr "Lejupielādētie attēli"
+
 msgid "Downloading"
 msgstr "Lejuplādē"
 
 msgid "Downloading Image"
 msgstr "Lejuplādē imidžu"
 
+msgid "Downloading a new packet list. Please wait..."
+msgstr "Mēģina lejuplādēt jaunu pakotņu sarakstu. Lūdzu gaidiet..."
+
 msgid "Downloading plugin information. Please wait..."
 msgstr "Lejuplādē spraudņu informāciju. Lūdzu uzgaidiet..."
 
+<<<<<<< HEAD
+=======
+msgid "Drama and Films"
+msgstr "Drāma un filmas"
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "Drop unconfigured satellites"
 msgstr "Izlaist nekonfigurētos pavadoņus"
 
@@ -3169,7 +3447,11 @@ msgid "EPG language selection 2"
 msgstr "EPG valodas izvēle 2"
 
 msgid "EPG only"
+<<<<<<< HEAD
 msgstr ""
+=======
+msgstr "tikai EPG"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "EPG selection"
 msgstr "EPG izvēle"
@@ -3178,7 +3460,11 @@ msgid "EPG settings"
 msgstr "EPG iestatījumi"
 
 msgid "EPG:"
+<<<<<<< HEAD
 msgstr ""
+=======
+msgstr "EPG:"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 #, python-format
 msgid "ERROR - failed to scan (%s)!"
@@ -3209,9 +3495,14 @@ msgstr "Rediģēt alternatīvas"
 msgid "Edit chapters of current title"
 msgstr "Rediģēt pašreizējā nosaukuma nodaļas"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Edit menu"
 msgstr "Rediģēt taimeri"
+=======
+msgid "Edit menu"
+msgstr "Rediģēt izvēlni"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Edit selection"
 msgstr "Rediģēt"
@@ -3236,9 +3527,12 @@ msgstr "Rediģēt nosaukumu"
 
 msgid "Edit update source url"
 msgstr "Rediģēt atjaunināšanas avota adresi"
+<<<<<<< HEAD
 
 msgid "Education/Science/..."
 msgstr "Izglītība/Zinātne/..."
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Egypt"
 msgstr "Ēģipte"
@@ -3249,11 +3543,19 @@ msgstr "Salvadora"
 msgid "Electronic Program Guide"
 msgstr "Elektroniskais Programmu Gids"
 
+<<<<<<< HEAD
 msgid "Embedded"
 msgstr "Iekšējais"
 
 msgid "Emergency"
 msgstr ""
+=======
+msgid "Emergency"
+msgstr "Noklusētais"
+
+msgid "Empty Trash"
+msgstr "Dzēst visu"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Empty slot"
 msgstr "Tukšs slots"
@@ -3268,19 +3570,22 @@ msgid "Enable 'neutrino' style zap controlling"
 msgstr "Ieslēgt 'neutrino' stila pārslēgšanu"
 
 msgid "Enable 5V for active antenna"
-msgstr "Aktivizēt 5V aktīvai antenai"
+msgstr "Lietot 5V aktīvai antenai"
 
 msgid "Enable EIT EPG"
-msgstr "Aktivizēt EIT EPG"
+msgstr "Lietot EIT EPG"
+
+msgid "Enable HDMI-CEC"
+msgstr "Izmantot HDMI-CEC iestatījumus"
 
 msgid "Enable HDMI-CEC"
 msgstr "Izmantot HDMI-CEC iestatījumus"
 
 msgid "Enable MHW EPG"
-msgstr "Aktivizēt MHW EPG"
+msgstr "Lietot MHW EPG"
 
 msgid "Enable Netmed EPG"
-msgstr "Aktivizēt Netmed EPG"
+msgstr "Lietot Netmed EPG"
 
 msgid "Enable OK as preview in channel selection"
 msgstr "Lietot OK priekšskatījumam kanālu sarakstā"
@@ -3288,17 +3593,23 @@ msgstr "Lietot OK priekšskatījumam kanālu sarakstā"
 msgid "Enable OK for channel selection"
 msgstr "Lietot OK kanālu saraksta atvēršanai"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Enable OpenTV EPG"
 msgstr "Aktivizēt EIT EPG"
+=======
+msgid "Enable OpenTV EPG"
+msgstr "Lietot OpenTV EPG"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Enable ViaSat EPG"
-msgstr "Aktivizēt ViaSat EPG"
+msgstr "Lietot ViaSat EPG"
 
 msgid "Enable Virgin EPG"
-msgstr "Aktivizēt Virgin EPG"
+msgstr "Lietot Virgin EPG"
 
 msgid "Enable auto cable scan"
+<<<<<<< HEAD
 msgstr "Aktivizēt kabeļu tīkla auto skenēšanu"
 
 #, fuzzy
@@ -3308,6 +3619,16 @@ msgstr "Aktivizēt ātro auto skenēšanu"
 #, fuzzy, python-format
 msgid "Enable auto fastscan for %s"
 msgstr "Aktivizēt ātro auto skenēšanu priekš %s"
+=======
+msgstr "Lietot kabeļu tīkla auto skenēšanu"
+
+msgid "Enable auto fastscan"
+msgstr "Lietot ātro auto skenēšanu"
+
+#, python-format
+msgid "Enable auto fastscan for %s"
+msgstr "Lietot ātro auto skenēšanu priekš %s"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Enable bouquet edit"
 msgstr "Aktivizēt buķešu rediģēšanu"
@@ -3316,7 +3637,10 @@ msgid "Enable bouquet selection in multi-EPG"
 msgstr "Aktivizēt buķešu izvēli multi-EPG"
 
 msgid "Enable fallback remote receiver"
-msgstr "Izmantot citu rezeves uztvērēju"
+msgstr "Izmantot citu rezerves uztvērēju"
+
+msgid "Enable favourites edit"
+msgstr "Aktivizēt favorītu rediģēšanu"
 
 msgid "Enable favourites edit"
 msgstr "Aktivizēt favorītu rediģēšanu"
@@ -3333,9 +3657,14 @@ msgstr "Aktivizēt pārvietošanas režīmu"
 msgid "Enable multiple bouquets"
 msgstr "Aktivizēt vairāk-buķešu režīmu"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Enable or disable using HDMI-CEC."
 msgstr "Izmantot HDMI-CEC iestatījumus"
+=======
+msgid "Enable or disable using HDMI-CEC."
+msgstr "Ieslēgt vai izslēgt HDMI-CEC."
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Enable parental protection"
 msgstr "Aktivizēt vecāku kontroli"
@@ -3409,24 +3738,36 @@ msgstr "Angļu"
 
 #, python-format
 msgid "Enigma (re)starts: %d\n"
-msgstr "Enigma (pār)startēta: %d reizes\n"
+msgstr "Uztvērējs (pār)startēts: %d reizes\n"
+
+#, python-format
+msgid "Enigma debug level: %d\n"
+msgstr "Atkļūdošanas līmenis: %d\n"
 
 #, python-format
 msgid "Enigma debug level: %d\n"
 msgstr "Atkļūdošanas līmenis: %d\n"
 
 msgid "Enigma version: "
-msgstr "Enigmas versija: "
+msgstr "Versija: "
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Enter"
 msgstr "centrs"
+=======
+msgid "Enter"
+msgstr "Ievadīt"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Enter IP address"
 msgstr "IP adrese"
 
 msgid "Enter PIN"
 msgstr "Ievadiet PIN"
+
+msgid "Enter PIN code"
+msgstr "Ievadiet PIN kodu"
 
 msgid "Enter URL"
 msgstr "Adrese (URL)"
@@ -3446,9 +3787,6 @@ msgstr "Atvērt galveno izvēlni..."
 msgid "Enter persistent PIN code"
 msgstr "Ievadiet patstāvīgo PIN kodu"
 
-msgid "Enter pin code"
-msgstr "Ievadiet PIN kodu"
-
 msgid "Enter the frequency at which you LNB switches between low band and high band. For more information consult the spec sheet of your LNB."
 msgstr "Ievadiet frekvenci, kurā jūs LNB pārslēdzas no zemas joslas uz augstu joslu. Plašāku informāciju skatiet LNB specifikācijā."
 
@@ -3458,8 +3796,11 @@ msgstr "Ievadiet frekvences soļa lielumu kas jāizmanto meklējot kabeļu multi
 msgid "Enter the number stored in the positioner that corresponds to this satellite."
 msgstr "Ievadiet šī satelītam pozicionēšanas ierīcē saglabāto numuru."
 
-msgid "Enter the service pin"
+msgid "Enter the service PIN"
 msgstr "Ievadiet kanāla PIN"
+
+msgid "Enter valid ONID/TSID"
+msgstr "Ievadiet derīgu ONID/TSID"
 
 msgid "Enter your current latitude. This is the number of degrees you are from the equator as a decimal."
 msgstr "Ievadiet pašreizējo platumu. Tas ir grādu skaits kā decimāldaļa, kādā attālumā esat no ekvatora."
@@ -3522,13 +3863,21 @@ msgid "Error stop stream!"
 msgstr "Kļūda apturot straumēšanu!"
 
 msgid "Error when writing epg.dat on server"
+<<<<<<< HEAD
 msgstr ""
+=======
+msgstr "Kļūda rakstot uz attālinātā uztvērēja epg.dat"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 #, fuzzy
 msgid "Error while retreiving epg.dat from server"
+<<<<<<< HEAD
 msgstr ""
 "Kļūda iegūstot taimerus no attālinātā uztvērēja\n"
 "%s"
+=======
+msgstr "Kļūda iegūstot epg.dat no attālinātā uztvērēja"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 #, python-format
 msgid ""
@@ -3540,9 +3889,13 @@ msgstr ""
 
 #, fuzzy
 msgid "Error while retreiving location of epg.dat on server"
+<<<<<<< HEAD
 msgstr ""
 "Kļūda iegūstot taimerus no attālinātā uztvērēja\n"
 "%s"
+=======
+msgstr "Kļūda iegūstot epg.dat atrašanās vietu no attālinātā uztvērēja"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 #, python-format
 msgid ""
@@ -3692,7 +4045,10 @@ msgid "External subtitle dialog colorisation"
 msgstr "Krāsaini dialogi ārējos subtitros"
 
 msgid "External subtitle switch fonts"
-msgstr "Mainīt arējo subtitru fontus"
+msgstr "Mainīt ārējo subtitru fontus"
+
+msgid "Externally powered"
+msgstr "Barojas neatkarīgi"
 
 #, fuzzy
 msgid "Externally powered"
@@ -3744,12 +4100,17 @@ msgstr "FEC"
 msgid "FEC:"
 msgstr "FEC:"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "FFmpeg version: "
 msgstr "Enigmas versija: "
 
 msgid "FHD"
 msgstr ""
+=======
+msgid "FHD"
+msgstr "FHD"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "FTA"
 msgstr "FTA"
@@ -3779,7 +4140,7 @@ msgid "Failed:"
 msgstr "Neizdevās:"
 
 msgid "Falkland Islands (Malvinas)"
-msgstr "Folklenda (Malvinu) salas"
+msgstr "Folklenda (Maldinu) salas"
 
 msgid "Fallback Timer"
 msgstr "Attālinātais taimeris"
@@ -3796,6 +4157,7 @@ msgstr "Rezerves uztvērēja ports"
 msgid "Fallback remote receiver URL"
 msgstr "Rezerves uztvērēja adrese"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Fallback remote receiver for ATSC"
 msgstr "Rezerves uztvērēja ports"
@@ -3807,6 +4169,16 @@ msgstr "Rezerves uztvērēja ports"
 #, fuzzy
 msgid "Fallback remote receiver for DVB-T"
 msgstr "Rezerves uztvērēja ports"
+=======
+msgid "Fallback remote receiver for ATSC"
+msgstr "ATSC rezerves uztvērējs"
+
+msgid "Fallback remote receiver for DVB-C"
+msgstr "DVB-C rezerves uztvērējs"
+
+msgid "Fallback remote receiver for DVB-T"
+msgstr "DVB-T rezerves uztvērējs"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Fallback remote receiver setup"
 msgstr "Attālinātais uztvērējs"
@@ -3814,9 +4186,14 @@ msgstr "Attālinātais uztvērējs"
 msgid "Fallback tuner setup"
 msgstr "Attālinātā uztvērēja iestatījumi"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "False"
 msgstr "nepatiess"
+=======
+msgid "False"
+msgstr "Nē"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 #, python-format
 msgid "Fan %d"
@@ -3843,10 +4220,19 @@ msgstr "Ātrā epoha"
 msgid "Fast forward speeds"
 msgstr "Pārtīšanas ātrumi"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "FastScan"
 msgstr "Ātrā meklēšana"
 
+=======
+msgid "FastScan"
+msgstr "Ātrā meklēšana"
+
+msgid "Fastscan"
+msgstr "Ātrā meklēšana"
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "Favourites"
 msgstr "Favorīti"
 
@@ -3924,6 +4310,9 @@ msgstr "Šādi uzdevumi tiks veikti pēc tam, kad nospiedīsiet OK!"
 msgid "Force legacy signal stats"
 msgstr "Piespiedu mantoto signālu statistika"
 
+msgid "Force zap to recording service in standby"
+msgstr "Gaidstāvē pārslēgt uz ierakstāmo kanālu"
+
 msgid "Format"
 msgstr "Formatēt"
 
@@ -3986,6 +4375,9 @@ msgstr "No:"
 msgid "Frontprocessor version: %s"
 msgstr "Frontprocesora versija: %s"
 
+msgid "Full description separator"
+msgstr "Аprakstu atdalītājs"
+
 #. TRANSLATORS: (aspect ratio policy: display as fullscreen, even if the content aspect ratio does not match the screen ratio)
 msgid "Full screen"
 msgstr "Aizpildīts ekrāns"
@@ -3996,6 +4388,9 @@ msgstr "Pilnīgi caurspīdīgs"
 msgid "Full view resolution"
 msgstr "Pilnekrāna izšķirtspēja"
 
+msgid "Fullbackup Images"
+msgstr "Imidži no dublējumkopijas"
+
 msgid "Function of OK button"
 msgstr "Taustiņa Labi funkcija"
 
@@ -4005,12 +4400,21 @@ msgstr "Papildus iestatījumi"
 msgid "Further options"
 msgstr "Papildus iestatījumi"
 
+<<<<<<< HEAD
 msgid "GStreamer version: "
 msgstr "GStreamer versija: "
+=======
+msgid "G"
+msgstr "G"
+
+msgid "GB"
+msgstr "GB"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "GUI Settings"
 msgstr "Personīgie iestatījumi"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "GUI Skin"
 msgstr "Personīgie iestatījumi"
@@ -4022,6 +4426,18 @@ msgstr ""
 "Lai lietotu jauno valodu nepieciešams pārstartēt enigmu.\n"
 "Vai vēlaties pārstartēt?"
 
+=======
+msgid "GUI Skin"
+msgstr "Noformējums"
+
+msgid ""
+"GUI needs a restart to apply a new language\n"
+"Do you want to restart the GUI now?"
+msgstr ""
+"Lai lietotu jauno valodu nepieciešams pārstartēt uztvērēju.\n"
+"Vai vēlaties pārstartēt?"
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "Gabon"
 msgstr "Gabona"
 
@@ -4100,9 +4516,14 @@ msgstr "Iet uz 0"
 msgid "Goto X"
 msgstr "Iet uz X"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Goto down service"
 msgstr "Iet uz pēdējo kanālu"
+=======
+msgid "Goto down service"
+msgstr "Iet uz leju"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Goto index position"
 msgstr "Iet uz indeksa pozīciju"
@@ -4128,9 +4549,14 @@ msgstr "Iet uz brīvo laiku / pašreiz"
 msgid "Goto specific date/time"
 msgstr "Iet uz noteiktu datumu/laiku"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Goto up service"
 msgstr "Iet uz pēdējo kanālu"
+=======
+msgid "Goto up service"
+msgstr "Iet uz augšu"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Goto:"
 msgstr "Iet uz:"
@@ -4187,11 +4613,22 @@ msgstr "Gajana"
 msgid "HD"
 msgstr "D"
 
+msgid "HD"
+msgstr "HD"
+
 msgid "HD list"
 msgstr "HD saraksts"
 
+<<<<<<< HEAD
 msgid "HDMI"
 msgstr "HDMI"
+=======
+msgid "HD2400"
+msgstr "HD2400"
+
+msgid "HD60/HD66SE/Multibox/Multibox SE"
+msgstr "HD60/HD66SE/Multibox/Multibox SE"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "HDMI Colordepth"
 msgstr "HDMI krāsu dziļums"
@@ -4211,20 +4648,28 @@ msgstr "HDMI-CEC avots aktīvs"
 msgid "HDMI-CEC Source Inactive"
 msgstr "HDMI-CEC avots neaktīvs"
 
+msgid "HDMI-CEC address"
+msgstr "HDMI-CEC addrese"
+
 msgid "HDMI-CEC setup"
 msgstr "HDMI-CEC iestatījumi"
-
-msgid "HDR10"
-msgstr "HDR10"
 
 msgid "HDR10 support"
 msgstr "HDR10 atbalsts"
 
+<<<<<<< HEAD
 msgid "HELP"
 msgstr "Palīdzība"
 
 msgid "HLG"
 msgstr "HLG"
+=======
+msgid "HDx1/HD1xxx/HD5x0C/VS1x00/et7x00/et8500/et7000mini"
+msgstr "HDx1/HD1xxx/HD5x0C/VS1x00/et7x00/et8500/et7000mini"
+
+msgid "HELP"
+msgstr "Palīdzība"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "HLG support"
 msgstr "HLG atbalsts"
@@ -4264,9 +4709,12 @@ msgstr "Ebreju"
 
 msgid "Helps setting up your antenna"
 msgstr "Palīdzēs iestatīt jūsu antenu"
+<<<<<<< HEAD
 
 msgid "Here you can change the screen positions with the arrow buttons on your remote control!"
 msgstr ""
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Hidden network"
 msgstr "Neredzams tīkls"
@@ -4288,6 +4736,9 @@ msgstr "Slēpt servisus ar vecāku aizsardzību"
 
 msgid "Hide player"
 msgstr "Slēpt atskaņotāju"
+
+msgid "Hide sub-menu"
+msgstr "Paslēpt apakšizvēlni"
 
 msgid "Hide zap errors"
 msgstr "Slēpt noskaņošanas kļūdas"
@@ -4344,7 +4795,11 @@ msgid "Hotkey zap"
 msgstr "Pārslēgšana uz"
 
 msgid "Hotplug"
+<<<<<<< HEAD
 msgstr ""
+=======
+msgstr "Hotplug"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "How many minutes do you want add to the recording?"
 msgstr "Cik minūšu vēlaties pievienot ierakstam?"
@@ -4363,6 +4818,9 @@ msgstr "Ungārija"
 
 msgid "I do not want to perform any service scans"
 msgstr "Es nevēlos veikt kanālu meklēšanu"
+
+msgid "I55SE/H7(new model)/H9(new model)/H9COMBO/H9TWIN/H9SE/H9COMBOSE/H10/H11"
+msgstr "I55SE/H7(new model)/H9(new model)/H9COMBO/H9TWIN/H9SE/H9COMBOSE/H10/H11"
 
 msgid "IDLE"
 msgstr "NEIZMANTOTS"
@@ -4392,10 +4850,17 @@ msgid "Icons"
 msgstr "Ikona"
 
 msgid "If disabled, underline characters in file and directory names are not shown and are replaced with spaces."
+<<<<<<< HEAD
 msgstr ""
 
 msgid "If enabled, a log will be kept of CEC protocol traffic ('hdmicec.log')"
 msgstr ""
+=======
+msgstr "Ja izslēgts pasvītrojuma rakstzīmes failu un direktoriju nosaukumos netiks rādītas un tiks aizstātas ar atstarpēm."
+
+msgid "If enabled, a log will be kept of CEC protocol traffic ('hdmicec.log')"
+msgstr "Ja ieslēgts CEC komandas tiks ierakstītas un saglabātas failā hdmicec.log"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "If enabled, bookmarks will be updated with the new location when you move or copy a recording."
 msgstr "Ja iespējots, pēc tam kad jūs pārvietosiet vai kopēsiet ierakstu, grāmatzīmes tiks atjaunotas."
@@ -4416,7 +4881,11 @@ msgid "If set to 'yes' signal values (SNR, etc) will be calculated from API V3. 
 msgstr "Ja iestatīts 'jā', signāla vērtības (SNR utt.) tiks aprēķinātas no API V3. Šī ir vecā API versija, kas tagad ir aizstāta."
 
 msgid "If set to 'yes' the same commands will be sent to the TV for deep standby events, as are sent during regular standby events."
+<<<<<<< HEAD
 msgstr ""
+=======
+msgstr "Ja iestatīts 'jā', uz TV tieks sūtītas vienādas komandas gan izslēdzoties, gan pārslēdzoties gaidstāvē."
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "If using multiple uncommitted switches the DiSEqC commands must be sent multiple times. Set to the number of uncommitted switches in the chain minus one."
 msgstr "Ja izmanto vairākus nesaistītus slēdžus (uncommitted switches), DiSEqC komandas ir jānosūta vairākas reizes. Iestatiet nesaistīto slēdžu skaitu, atskaitot vienu."
@@ -4460,9 +4929,14 @@ msgstr "Ignorēt DVB-T apakštīklu"
 msgid "Ignore conflict"
 msgstr "Ignorēt"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Image View On"
 msgstr "Imidžs: "
+=======
+msgid "Image View On"
+msgstr "Ieslēgt attēlu"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 #, python-format
 msgid ""
@@ -4485,9 +4959,15 @@ msgstr "Importēt kanālus un/vai EPG no attālinātā uztvērēja kad uztvērē
 msgid "Import channels and/or EPG from remote receiver URL when receiver or enigma2 is restarted"
 msgstr "Importēt kanālus un/vai EPG no attālinātā uztvērēja kad enigma tiek pārstartēta"
 
+<<<<<<< HEAD
 #, fuzzy, python-format
 msgid "Import from fallback tuner failed, %s"
 msgstr "Kanālu importēšana no attālinātā uztvērēja neizdevās %s"
+=======
+#, python-format
+msgid "Import from fallback tuner failed, %s"
+msgstr "Importēšana no attālinātā uztvērēja neizdevās %s"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Import from remote receiver URL"
 msgstr "Importēt no attālinātā uztvērēja"
@@ -4627,14 +5107,11 @@ msgstr "Uzstāda"
 msgid "Installing software..."
 msgstr "Uzstāda programmatūru..."
 
-msgid "Instant record"
+msgid "Instant recording"
 msgstr "Ieraksts"
 
 msgid "Instant recording location"
 msgstr "Ieraksta vieta"
-
-msgid "Instant recording..."
-msgstr "Ieraksts..."
 
 msgid "Interface: "
 msgstr "Interfeiss: "
@@ -4647,6 +5124,9 @@ msgstr "Iekšējā atmiņa"
 
 msgid "Internal hdd only"
 msgstr "Tikai iekšējais hdd"
+
+msgid "Internet (ntp)"
+msgstr "Internets (ntp)"
 
 msgid "Interval between keys when repeating:"
 msgstr "Intervāls starp taustiņiem, kad atkārtojas:"
@@ -4858,9 +5338,6 @@ msgstr "Kreisais"
 msgid "Left from servicename"
 msgstr "Pa kreisi no kanāla nosaukuma"
 
-msgid "Leisure hobbies"
-msgstr "Brīvā laika hobiji"
-
 msgid "Lesotho"
 msgstr "Lesoto"
 
@@ -4926,11 +5403,11 @@ msgid "List type"
 msgstr "Saraksta veids"
 
 #, python-format
-msgid "List version %d, found %d channel"
-msgid_plural "List version %d, found %d channels"
-msgstr[0] "Saraksta versija %d, atrasts %d kanāls"
-msgstr[1] "Saraksta versija %d, atrasti %d kanāli"
-msgstr[2] "Saraksta versija %d, atrasti %d kanāli"
+msgid "List version %(ver)d, found %(num)d channel"
+msgid_plural "List version %(ver)d, found %(num)d channels"
+msgstr[0] "Saraksta versija %(ver)d, atrasts %(num)d kanāls"
+msgstr[1] "Saraksta versija %(ver)d, atrasti %(num)d kanāli"
+msgstr[2] "Saraksta versija %(ver)d, atrasti %(num)d kanāli"
 
 msgid "Listen to the radio..."
 msgstr "Klausīties radio..."
@@ -4995,6 +5472,12 @@ msgstr "Ilgstoša taustiņa nospiešana"
 msgid "Longitude"
 msgstr "Garums"
 
+msgid "Looking for active transponders in the cable network. Please wait..."
+msgstr "Mēģina atrast izmantojamus transponderus kabeļu tīklā. Lūdzu gaidiet..."
+
+msgid "Looking for active transponders in the terrestrial network. Please wait..."
+msgstr "Mēģina atrast izmantojamus transponderus. Lūdzu gaidiet..."
+
 msgid "Loop through from"
 msgstr "Loop cauri no"
 
@@ -5007,6 +5490,12 @@ msgstr "Luksemburga"
 msgid "Luxembourgish"
 msgstr "Luksemburgiešu"
 
+msgid "MB"
+msgstr "MB"
+
+msgid "MHz"
+msgstr "MHz"
+
 msgid "MMC card"
 msgstr "MMC karte"
 
@@ -5015,9 +5504,6 @@ msgstr "VAIRĀK"
 
 msgid "Macao"
 msgstr "Makao"
-
-msgid "Macedonia (the former Yugoslav Republic of)"
-msgstr "Maķedonija"
 
 msgid "Madagascar"
 msgstr "Madagaskara"
@@ -5029,7 +5515,7 @@ msgid "Maintain old EPG data for"
 msgstr "Saglabāt vecos EPG datus"
 
 msgid "Make it possible to manually initiate the channels import and/or EPG via the extension menu"
-msgstr "Atļaut kanālu un/vai EPG importu izmatojot paplašinājumu izvēlni"
+msgstr "Atļaut kanālu un/vai EPG importu izmantojot paplašinājumu izvēlni"
 
 msgid "Make this mark an 'in' point"
 msgstr "Padarīt šo zīmi par 'ieejas' punktu"
@@ -5079,9 +5565,14 @@ msgstr "Manuālā meklēšana"
 msgid "Manual transponder"
 msgstr "Manuāls transponderis"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Manually import from fallback tuner"
 msgstr "Importēt taimerus no attālinātā uztvērēja"
+=======
+msgid "Manually import from fallback tuner"
+msgstr "Importēt manuāli no attālinātā uztvērēja"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Manufacturer"
 msgstr "Ražotājs"
@@ -5090,6 +5581,11 @@ msgid ""
 "Manufacturer reset in progress\n"
 "Please wait until enigma2 restarts"
 msgstr ""
+<<<<<<< HEAD
+=======
+"Notiek atiestatīšana\n"
+"Lūdzu uzgaidiet kamēr pārstartē"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Margin after recording (minutes)"
 msgstr "Atstarpe pēc ieraksta (minūtēs)"
@@ -5126,6 +5622,12 @@ msgstr "Majota"
 
 msgid "Media player"
 msgstr "Mediju atskaņotājs"
+
+msgid "Media player: GStreamer, version "
+msgstr "Mediju atskaņotājs: GStreamer "
+
+msgid "Media player: ffmpeg, version "
+msgstr "Mediju atskaņotājs: Fmpeg "
 
 msgid "Media scanner"
 msgstr "Mediju skenētājs"
@@ -5257,6 +5759,7 @@ msgstr "Pārvietot attēlu attēlā"
 msgid "Move east"
 msgstr "Griezt uz austrumiem"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Move the keyboard cursor down"
 msgstr "Pārvietot kursoru uz leju"
@@ -5286,12 +5789,36 @@ msgid "Move the text cursor to the first character"
 msgstr "Pārvietot kursoru uz pirmo burtu"
 
 #, fuzzy
+=======
+msgid "Move the keyboard cursor down"
+msgstr "Pārvietot kursoru uz leju"
+
+msgid "Move the keyboard cursor left"
+msgstr "Pārvietot kursoru pa kreisi"
+
+msgid "Move the keyboard cursor right"
+msgstr "Pārvietot kursoru pa labi"
+
+msgid "Move the keyboard cursor up"
+msgstr "Pārvietot kursoru uz augšu"
+
+msgid "Move the text cursor left"
+msgstr "Pārvietot kursoru pa kreisi"
+
+msgid "Move the text cursor right"
+msgstr "Pārvietot kursoru pa labi"
+
+msgid "Move the text cursor to the first character"
+msgstr "Pārvietot kursoru uz pirmo burtu"
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "Move the text cursor to the last character"
 msgstr "Pārvietot kursoru uz pēdējo burtu"
 
 msgid "Move to position X"
 msgstr "Griezt uz pozīciju X"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Move to the next page"
 msgstr "pārslēgt uz nākamo leņķi"
@@ -5307,6 +5834,19 @@ msgstr "atgriezties uz iepriekšējo nodaļu"
 #, fuzzy
 msgid "Move to the previous skin"
 msgstr "pārvietot augšup uz iepriekšējo ierakstu"
+=======
+msgid "Move to the next page"
+msgstr "Pārvietot kursoru uz nākamo lapu"
+
+msgid "Move to the next skin"
+msgstr "Pārvietot uz nākamo noformējumu"
+
+msgid "Move to the previous page"
+msgstr "Pārvietot uz iepriekšējo lapu"
+
+msgid "Move to the previous skin"
+msgstr "Pārvietot uz iepriekšējo noformējumu"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Move west"
 msgstr "Griezt uz rietumiem"
@@ -5328,9 +5868,12 @@ msgstr "Mediju atrašanās vieta"
 
 msgid "Movie selection"
 msgstr "Mediju faili"
+<<<<<<< HEAD
 
 msgid "Movie/Drama"
 msgstr "Filma/Drāma"
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Movielist menu"
 msgstr "Mediju saraksta izvēlne"
@@ -5338,13 +5881,13 @@ msgstr "Mediju saraksta izvēlne"
 msgid "Moving"
 msgstr "Griezt"
 
-msgid "Moving east ..."
+msgid "Moving east..."
 msgstr "Griezt uz austrumiem..."
 
 msgid "Moving to position"
 msgstr "Griezt uz pozīciju"
 
-msgid "Moving west ..."
+msgid "Moving west..."
 msgstr "Griezt uz rietumiem..."
 
 msgid "Mozambique"
@@ -5354,7 +5897,7 @@ msgid "Multi EPG"
 msgstr "Daudzkanālu EPG"
 
 msgid "Multi channel downmix"
-msgstr "Dudzkanālu skaņas dekodēšana"
+msgstr "Daudzkanālu skaņas dekodēšana"
 
 msgid "Multi-EPG bouquet selection"
 msgstr "Daudzkanālu EPG buķetes izvēle"
@@ -5362,12 +5905,17 @@ msgstr "Daudzkanālu EPG buķetes izvēle"
 msgid "MultiType"
 msgstr "Vairāku veidu"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Multiboot image selector"
 msgstr "Izvēlēti visi multisat"
+=======
+msgid "Multiboot image selector"
+msgstr "Multiboot imidži"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Multichannel PCM"
-msgstr "Dudzkanālu PCM"
+msgstr "Daudzkanālu PCM"
 
 msgid "Multimedia"
 msgstr "Multimedija"
@@ -5407,6 +5955,9 @@ msgstr "NĒ"
 
 msgid "NOW"
 msgstr "PAŠREIZ"
+
+msgid "NTP Hostname"
+msgstr "NTP serveris"
 
 msgid "NTSC"
 msgstr "NTSC"
@@ -5506,8 +6057,8 @@ msgstr "Jaunkaledonija"
 msgid "New Zealand"
 msgstr "Jaunzēlande"
 
-msgid "News Current Affairs"
-msgstr "Jaunumi Aktualitātes"
+msgid "News/Current Affairs/Social"
+msgstr "Ziņas, aktuālitātes, sociālie"
 
 msgctxt "button label, 'next screen'"
 msgid "Next"
@@ -5544,9 +6095,14 @@ msgstr "ECM pidi nav pieejami (brīvais kanāls)"
 msgid "No HDD found or HDD not initialized!"
 msgstr "Nav atrasts vai inicializēts cietais disks!"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "No active subservices available."
 msgstr "atjauninājumi nav pieejami"
+=======
+msgid "No active subservices available."
+msgstr "Nav pieejami aktīvi papildkanāli."
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "No age block"
 msgstr "Nebloķēt pēc vecuma"
@@ -5568,16 +6124,20 @@ msgid "No description available."
 msgstr "Apraksts nav pieejams."
 
 msgid "No displayable files on this medium found!"
-msgstr "Šinī datu nesējā nav atrasti attēlojami faili!"
+msgstr "Datu nesējā nav atrasti attēlojami faili!"
 
 msgid "No epg.dat file found server"
+<<<<<<< HEAD
 msgstr ""
+=======
+msgstr "Attālinātā uztvērējā epg.dat fails nav pieejams"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "No event info found, recording indefinitely."
 msgstr "Nav atrasta informācija par pārraidi, ierakstīs nepārtraukti."
 
-msgid "No fast winding possible yet.. but you can use the number buttons to skip forward/backward!"
-msgstr "Pārtīšana pašreiz nav iespējama.. bet varat lietot ciparu taustiņus lai pārlektu uz priekšu/atpakaļ!"
+msgid "No fast winding possible yet... but you can use the number buttons to skip forward/backward!"
+msgstr "Pārtīšana pašreiz nav iespējama... bet varat lietot ciparu taustiņus lai pārlektu uz priekšu/atpakaļ!"
 
 msgid "No free index available"
 msgstr "Nav pieejami brīvi indeksi"
@@ -5585,9 +6145,14 @@ msgstr "Nav pieejami brīvi indeksi"
 msgid "No free tuner!"
 msgstr "Nav brīva uztvērēja!"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "No images found"
 msgstr "Tīkli nav atrasti"
+=======
+msgid "No images found"
+msgstr "Imidži nav pieejami"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "No network connection available."
 msgstr "Tīkla savienojums nav pieejams."
@@ -5705,6 +6270,9 @@ msgstr ""
 msgid "North"
 msgstr "Ziemeļi"
 
+msgid "North Macedonia (The Republic of)"
+msgstr "Ziemeļmaķedonija (Republika)"
+
 msgid "Northern Mariana Islands"
 msgstr "Ziemeļu Marianas salas"
 
@@ -5714,6 +6282,7 @@ msgstr "Norvēģija"
 msgid "Norwegian"
 msgstr "Norvēģu"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Not Installed"
 msgstr "Instalēt"
@@ -5721,6 +6290,10 @@ msgstr "Instalēt"
 #, fuzzy
 msgid "Not Required"
 msgstr "Nav definēts"
+=======
+msgid "Not Installed"
+msgstr "Nav uzstādīts"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Not associated"
 msgstr "Nav piešķirts"
@@ -5729,8 +6302,8 @@ msgid "Not defined"
 msgstr "Nav definēts"
 
 #, python-format
-msgid "Not enough disk space. Please free up some disk space and try again. (%d MB required, %d MB available)"
-msgstr "Nav pietiekami vietas uz diska. Lūdzu atbrīvot vietu uz diska un mēģināt vēlreiz. (%d MB ir nepieciešami, bet %d MB pieejami)"
+msgid "Not enough disk space. Please free up some disk space and try again. (%(req)d MB required, %(avail)d MB available)"
+msgstr "Nav pietiekami vietas uz diska. Lūdzu atbrīvot vietu uz diska un mēģināt vēlreiz. (%(req)d MB ir nepieciešami, bet %(avail)d MB pieejami)"
 
 msgid "Not tested:"
 msgstr "Nav pārbaudīts:"
@@ -5862,12 +6435,13 @@ msgid "Open service list"
 msgstr "Atvērt kanālu sarakstu"
 
 msgid "Open setup tuner "
-msgstr "Atvērt iestatījumus uztvērējam "
+msgstr "Atvērt uztvērēja iestatījumus "
 
 msgid "Open the movie list"
 msgstr "Atvērt mediju sarakstu"
 
 msgid "Operating LED status in deep standby mode"
+<<<<<<< HEAD
 msgstr ""
 
 msgid "Operating LED status in standby mode"
@@ -5878,6 +6452,18 @@ msgstr ""
 
 msgid "Opkg"
 msgstr ""
+=======
+msgstr "LED izslēdzot"
+
+msgid "Operating LED status in standby mode"
+msgstr "LED gaidstāvē"
+
+msgid "Operating LED status while running."
+msgstr "LED darbojoties"
+
+msgid "Opkg"
+msgstr "Opkg"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Options disable timer"
 msgstr "Iespēja izslēgt taimeri"
@@ -5890,6 +6476,9 @@ msgstr "Parastā"
 
 msgid "Original"
 msgstr "Oriģināls"
+
+msgid "Original audio"
+msgstr "Oriģinālais"
 
 msgid "Other"
 msgstr "Cits"
@@ -5915,9 +6504,6 @@ msgstr "Pārrakstīt konfigurācijas failus?"
 msgid "PAL"
 msgstr "PAL"
 
-msgid "PCM"
-msgstr "PCM"
-
 msgid "PCR PID"
 msgstr "PCR PID"
 
@@ -5931,7 +6517,11 @@ msgid "PGS file"
 msgstr "PGS fails"
 
 msgid "PID Filtering"
+<<<<<<< HEAD
 msgstr ""
+=======
+msgstr "PID filtrēšana"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "PIN code needed"
 msgstr "Vajadzīgs PIN kods"
@@ -5950,6 +6540,9 @@ msgstr "PMT PID"
 
 msgid "PPanel"
 msgstr "PPanelis"
+
+msgid "PULSe 4K(mini)"
+msgstr "PULSe 4K(mini)"
 
 msgid "Package list update"
 msgstr "Pakotņu saraksta atjaunināšana"
@@ -6015,9 +6608,14 @@ msgstr "Nopauzēt atskaņošanu"
 msgid "Pause/Continue playback"
 msgstr "Nopauzēt/Turpināt atskaņošanu"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Pending restart"
 msgstr "Izslēgšana"
+=======
+msgid "Pending restart"
+msgstr "Gaida restartēšanu"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Percentage left"
 msgstr "Procenti kreisā pusē"
@@ -6063,7 +6661,11 @@ msgid "Pitcairn"
 msgstr "Pitkērna"
 
 msgid "Pixels\n"
+<<<<<<< HEAD
 msgstr ""
+=======
+msgstr "Pikseļi\n"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Play"
 msgstr "Atskaņot"
@@ -6071,7 +6673,10 @@ msgstr "Atskaņot"
 msgid "Play DVD"
 msgstr "Atskaņot DVD"
 
+<<<<<<< HEAD
 #, fuzzy
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "Play DVDs"
 msgstr "Atskaņot DVD"
 
@@ -6133,7 +6738,11 @@ msgstr ""
 "Lūdzu konfigurējiet vai pārbaudiet DNS aizpildot nepieciešamās vērtības.\n"
 "Kad esat gatavs nospiediet OK, lai turpinātu."
 
+<<<<<<< HEAD
 msgid "Please configure the fallback tuner setup?"
+=======
+msgid "Please configure the fallback tuner setup"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgstr "Iestatiet attālināto uztvērēju"
 
 msgid ""
@@ -6170,7 +6779,7 @@ msgstr "Lūdzu ievadiet jauno aprakstu:"
 msgid "Please enter new name:"
 msgstr "Lūdzu ievadiet jauno nosaukumu:"
 
-msgid "Please enter the correct pin code"
+msgid "Please enter the correct PIN code"
 msgstr "Lūdzu ievadiet pareizu PIN kodu"
 
 msgid "Please enter the new PIN code"
@@ -6272,9 +6881,14 @@ msgstr "Lūdzu iestatiet uztvērēju Q"
 msgid "Please set up tuner R"
 msgstr "Lūdzu iestatiet uztvērēju R"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Please set your time zone"
 msgstr "Lūdzu iestatiet uztvērēju A"
+=======
+msgid "Please set your time zone"
+msgstr "Lūdzu iestatiet jūsu laika zonu"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Please setup the following basic configs!"
 msgstr "Lūdzu iestatiet pamata iestatījumus!"
@@ -6303,7 +6917,7 @@ msgstr "Lūdzu uzgaidiet (atjauno pakotnes)"
 msgid "Please wait for activation of your network configuration..."
 msgstr "Lūdzu uzgaidiet kamēr tīkla konfigurācija tiek aktivizēta..."
 
-msgid "Please wait while scanning is in progress..."
+msgid "Please wait while scanning..."
 msgstr "Lūdzu uzgaidiet kamēr notiek meklēšana..."
 
 msgid "Please wait while we configure your network..."
@@ -6501,9 +7115,15 @@ msgstr "Papildus iespējām spiediet MENU uz tālvadības pults."
 msgid "Press OK on your remote control to continue."
 msgstr "Spiediet OK uz tālvadības pults, lai turpinātu."
 
+<<<<<<< HEAD
 #, fuzzy, python-format
 msgid "Press OK to activate the selected %s skin."
 msgstr "Spiediet OK lai aktivizētu izvēlēto noformējumu."
+=======
+#, python-format
+msgid "Press OK to activate the selected %s skin."
+msgstr "Spiediet OK lai aktivizētu izvēlēto %s noformējumu."
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Press OK to activate the settings."
 msgstr "Spiediet OK, lai aktivizētu iestatījumus."
@@ -6515,9 +7135,15 @@ msgstr "Spiediet OK, lai rediģētu iestatījumus."
 msgid "Press OK to get further details for %s"
 msgstr "Spiediet OK turpmākai informācijai %s"
 
+<<<<<<< HEAD
 #, fuzzy, python-format
 msgid "Press OK to keep the currently selected %s skin."
 msgstr "Spiediet OK lai aktivizētu izvēlēto noformējumu."
+=======
+#, python-format
+msgid "Press OK to keep the currently selected %s skin."
+msgstr "Spiediet OK lai saglabātu izvēlēto %s noformējumu."
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Press OK to scan"
 msgstr "Spiediet OK, lai meklētu"
@@ -6534,9 +7160,14 @@ msgstr "Spiediet OK, lai izvēlētos kanālu."
 msgid "Press OK to select satellites"
 msgstr "Spiediet OK, lai izvēlētos pavadoņus"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Press OK to select the save location of the log file."
 msgstr "Nospiediet OK, lai pārslēgtu izvēli."
+=======
+msgid "Press OK to select the save location of the log file."
+msgstr "Spiediet OK, lai saglabātu žurnāla faila atrašanās vietu."
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Press OK to select/deselect a CAId."
 msgstr "Spiediet OK, lai izvēlētos/neizvēlētos CAId."
@@ -6556,6 +7187,12 @@ msgstr "Izvēlieties pogu un spiediet OK, lai pievienotu darbību."
 msgid "Press or select button and then press 'OK' for attach next function or edit attached."
 msgstr "Izvēlieties pogu un spiediet OK, lai pievienotu nākošo darbību vai izmainītu esošo."
 
+<<<<<<< HEAD
+=======
+msgid "Press yellow button to set CEC address again"
+msgstr "Nospiediet dzelteno pogu, lai vēlreiz iestatītu CEC adresi"
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "Press yellow to set this interface as default interface."
 msgstr "Spiediet dzelteno, lai iestatītu šo interfeisu kā noklusējuma."
 
@@ -6620,8 +7257,8 @@ msgstr "Aizsargāt izvēlnes kārtošanu"
 msgid "Protect movie list"
 msgstr "Aizsargāt mediju sarakstu"
 
-msgid "Protect on epg age"
-msgstr "Aizsargāt pēc epg norādītā vecuma"
+msgid "Protect on EPG age"
+msgstr "Aizsargāt pēc EPG norādītā vecuma"
 
 msgid "Protect plugin browser"
 msgstr "Aizsargāt spraudņu pārlūku"
@@ -6650,9 +7287,14 @@ msgstr "Puertoriko"
 msgid "Purge deleted user bouquets"
 msgstr "Iztīrīt dzēstās buķetes"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Put A/V receiver to standby too."
 msgstr "Iestatīt uztvērēju gaidstāvē"
+=======
+msgid "Put A/V receiver to standby too."
+msgstr "Iestatīt arī A/V resīveri gaidstāvē."
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Put TV in standby"
 msgstr "Iestatīt TV gaidstāvē"
@@ -6681,9 +7323,6 @@ msgstr "Ātrā pārslēgšana"
 msgid "RF output"
 msgstr "RF izeja"
 
-msgid "RGB"
-msgstr "RGB"
-
 msgid "Radio"
 msgstr "Radio"
 
@@ -6709,9 +7348,14 @@ msgstr "Vai tiešām dzēst izpildītos taimerus?"
 msgid "Really exit the subservices quickzap?"
 msgstr "Vai tiešām iziet no papildkanālu ātrās pārslēgšanas režīma?"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Really perform a manufacturer reset now?"
 msgstr "Aizsargāt iestatījumu atiestatīšanu"
+=======
+msgid "Really perform a manufacturer reset now?"
+msgstr "Vai tiešām veikt atiestatīšanu?"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Really reboot now?"
 msgstr "Vai tiešām pārstartēt?"
@@ -6730,7 +7374,11 @@ msgid "Really store at index %2d for current position?"
 msgstr "Vai tiešām saglabāt numuru %2d pašreizējai pozīcijai?"
 
 msgid "Really update the frontprocessor and reboot now?"
+<<<<<<< HEAD
 msgstr "Vai tiešām atjaunot frontprocesoru un pārstartēt tagad?"
+=======
+msgstr "Vai tiešām atjaunot un pārstartēt tagad?"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Really update your settop box and reboot now?"
 msgstr "Vai tiešām atjaunot uztvērēju un pārstartēt tagad?"
@@ -6906,6 +7554,12 @@ msgstr "Dzēst izvēlēto pavadoni"
 msgid "Remove terrestrial services"
 msgstr "Dzēst televīzijas kanālus"
 
+<<<<<<< HEAD
+=======
+msgid "Remove the services on scanned transponders before re-adding services?"
+msgstr "Vai dzēst kanālus no skenētajiem transponderiem pirms kanālu atkārtotas pievienošanas?"
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "Remove this logfile"
 msgstr "Dzēst šo žurnāla failu"
 
@@ -6943,21 +7597,14 @@ msgstr "Atkārtot repertuāru"
 msgid "Repeat type"
 msgstr "Atkārtošanas veids"
 
-msgid ""
-"Repeating event currently recording.\n"
-"What do you want to do?"
-msgstr ""
-"Pārraide pašreiz tiek ierakstīta.\n"
-"Ko vēlaties darīt?"
-
-msgid "Repeating event currently recording... What do you want to do?"
-msgstr "Pārraide pašreiz ierakstās... Ko vēlaties darīt?"
-
 msgid "Repeats"
 msgstr "Atkārtojumi"
 
 msgid "Replace `- ` in dialogs with colored text per speaker (like teletext subtitles for the hearing impaired)"
 msgstr "Aizvieto `- ` dialogos ar krāsainu tekstu atbilstoši runātājam (kā nedzirdīgo teleteksta subtitros)"
+
+msgid "Replace newlines in EPG"
+msgstr "Aizvietot EPG tukšās rindas"
 
 msgid "Request for physical address report"
 msgstr "Fiziskās adreses pieprasījums"
@@ -7002,10 +7649,10 @@ msgid "Resolution"
 msgstr "Izšķirtspēja"
 
 msgid "Restart"
-msgstr "Pārstartēt"
+msgstr "Pārstartēt uztvērēju"
 
 msgid "Restart GUI now?"
-msgstr "Pārstartēt enigmu?"
+msgstr "Pārstartēt?"
 
 msgid "Restart both"
 msgstr "Pārstartēt abus"
@@ -7014,7 +7661,13 @@ msgid "Restart cardserver"
 msgstr "Pārstartēt karšu serveri"
 
 msgid "Restart enigma"
-msgstr "Pārstartēt enigmu"
+msgstr "Pārstartēt"
+
+msgid "Restart enigma in debug mode"
+msgstr "Pārstartēt testa režīmā"
+
+msgid "Restart enigma in standard mode"
+msgstr "Pārstartēt standarta režīmā"
 
 msgid "Restart enigma in debug mode"
 msgstr "Pārstartēt enigmu testa režīmā"
@@ -7040,6 +7693,7 @@ msgstr "Atjaunot"
 msgid "Restore backups"
 msgstr "Atjaunot dublējumkopiju"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Restore defaults"
 msgstr "Pēc noklusējuma"
@@ -7047,6 +7701,13 @@ msgstr "Pēc noklusējuma"
 #, fuzzy
 msgid "Restore deleted images"
 msgstr "Atjaunot dzēstās buķetes"
+=======
+msgid "Restore defaults"
+msgstr "Atiestatīt"
+
+msgid "Restore deleted images"
+msgstr "Atjaunot dzēstos imidžus"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Restore deleted user bouquets"
 msgstr "Atjaunot dzēstās buķetes"
@@ -7146,9 +7807,6 @@ msgstr "Krievijas Federācija"
 msgid "Rwanda"
 msgstr "Ruanda"
 
-msgid "S-Video"
-msgstr "S-Video"
-
 msgid "SCPC optimized search range"
 msgstr "SCPC optimizēta meklēšana"
 
@@ -7161,9 +7819,6 @@ msgstr "SCR JESS"
 msgid "SCR Unicable"
 msgstr "SCR Unicable"
 
-msgid "SDR"
-msgstr "SDR"
-
 msgid "SINGLE LAYER DVD"
 msgstr "SINGLE LAYER DVD"
 
@@ -7173,12 +7828,15 @@ msgstr "SNR"
 msgid "SNR:"
 msgstr "SNR:"
 
+<<<<<<< HEAD
 msgid "SPDIF"
 msgstr "SPDIF"
 
 msgid "SRT File"
 msgstr "SRT fails"
 
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "SRT file"
 msgstr "SRT fails"
 
@@ -7266,9 +7924,14 @@ msgstr "Saglabāt"
 msgid "Save / Enter text and exit"
 msgstr "Saglabāt vai ievadīt tekstu un iziet"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Save and activate the currently selected skin"
 msgstr "Spiediet OK lai aktivizētu izvēlēto noformējumu."
+=======
+msgid "Save and activate the currently selected skin"
+msgstr "Saglabājiet un aktivizējiet izvēlēto noformējumu"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Save and exit"
 msgstr "Saglabāt un iziet"
@@ -7359,6 +8022,9 @@ msgstr "Meklēšanas veids"
 msgid "Scan state"
 msgstr "Meklēšanas statuss"
 
+msgid "Scan using transponders on NIT table? 'No' will use transponders in xml file."
+msgstr "Skenēt izmantojot transponderus no NIT informācijas? Izvēloties 'Nē' izmantos transponderus no xml faila."
+
 msgid "Scan wireless networks"
 msgstr "Meklēt bezvadu tīklus"
 
@@ -7384,9 +8050,6 @@ msgstr[0] "Meklēšana pabeigta, %d kanāls atrasts"
 msgstr[1] "Meklēšana pabeigta, %d kanāli atrasti"
 msgstr[2] "Meklēšana pabeigta, %d kanāli atrasti"
 
-msgid "Scanning failed!"
-msgstr "Meklēšana pārtraukta!"
-
 msgid "Scanning..."
 msgstr "Meklēšana..."
 
@@ -7399,7 +8062,10 @@ msgstr "Ritināšanas aizture"
 msgid "Scroll repeats"
 msgstr "Ritināšanas atkārtojums"
 
+<<<<<<< HEAD
 #, fuzzy
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "Search"
 msgstr "Meklē"
 
@@ -7412,8 +8078,8 @@ msgstr "Meklēt rietumos"
 msgid "Searching"
 msgstr "Meklē"
 
-msgid "Searching east ..."
-msgstr "Meklē austrumos ..."
+msgid "Searching east..."
+msgstr "Meklē austrumos..."
 
 msgid "Searching for available updates. Please wait..."
 msgstr "Meklē pieejamos atjauninājumus. Lūdzu uzgaidiet..."
@@ -7421,8 +8087,8 @@ msgstr "Meklē pieejamos atjauninājumus. Lūdzu uzgaidiet..."
 msgid "Searching for new installed or removed packages. Please wait..."
 msgstr "Meklē no jauna Instalētās vai dzēstās pakotnes. Lūdzu uzgaidiet..."
 
-msgid "Searching west ..."
-msgstr "Meklē rietumos ..."
+msgid "Searching west..."
+msgstr "Meklē rietumos..."
 
 msgid "Second cable of motorized LNB"
 msgstr "Otrais kabelis vai motorizēta LNB"
@@ -7456,6 +8122,7 @@ msgstr "Izvēlieties 'A' vai 'B', ja tas nepieciešams jūsu antenu sistēmai, p
 
 msgid "Select 'FBC SCR' if this tuner will connect to a SCR (Unicable/JESS) device. For all other setups select 'FBC automatic'."
 msgstr "Izvēlieties 'FBC SCR', ja šis uztvērējs izmantos SCR (Unicable/JESS) ierīci. Visiem citiem iestatījumiem izvēlieties 'FBC automātiski'."
+<<<<<<< HEAD
 
 msgid "Select 'Yes' when you want to configure this tuner for ATSC"
 msgstr "Ja vēlaties izmantot šo uztvērēju ATSC uztveršanai izvēlieties 'Jā'"
@@ -7466,6 +8133,18 @@ msgstr "Ja vēlaties izmantot šo uztvērēju DVB-C uztveršanai izvēlieties 'J
 msgid "Select 'Yes' when you want to configure this tuner for DVB-S"
 msgstr "Ja vēlaties izmantot šo uztvērēju DVB-S uztveršanai izvēlieties 'Jā'"
 
+=======
+
+msgid "Select 'Yes' when you want to configure this tuner for ATSC"
+msgstr "Ja vēlaties izmantot šo uztvērēju ATSC uztveršanai izvēlieties 'Jā'"
+
+msgid "Select 'Yes' when you want to configure this tuner for DVB-C"
+msgstr "Ja vēlaties izmantot šo uztvērēju DVB-C uztveršanai izvēlieties 'Jā'"
+
+msgid "Select 'Yes' when you want to configure this tuner for DVB-S"
+msgstr "Ja vēlaties izmantot šo uztvērēju DVB-S uztveršanai izvēlieties 'Jā'"
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "Select 'Yes' when you want to configure this tuner for DVB-T"
 msgstr "Ja vēlaties izmantot šo uztvērēju DVB-T uztveršanai izvēlieties 'Jā'"
 
@@ -7500,7 +8179,7 @@ msgid "Select 'yes' to include the %s band in your search."
 msgstr "Izvēlieties 'jā', lai meklēšanā iekļautu joslu %s."
 
 msgid "Select 'yes' to only send the DiSEqC command when changing from one satellite to another, or select 'no' for the DiSEqC command to be resent on every zap."
-msgstr "Izvēlieties 'Jā', lai  DiSEqC komandu nosūtītu tikai mainot satelītus, izvēlieties 'nē', lai DiSEqC komandu nosūtītu pie ktras kanālu pārslēgšanas."
+msgstr "Izvēlieties 'Jā', lai DiSEqC komandu nosūtītu tikai mainot satelītus, izvēlieties 'nē', lai DiSEqC komandu nosūtītu pie ktras kanālu pārslēgšanas."
 
 msgid "Select CAId"
 msgstr "CAId izvēle"
@@ -7560,6 +8239,9 @@ msgstr "Izvēlieties kanālu"
 msgid "Select channel to record from"
 msgstr "Izvēlieties ierakstāmo kanālu"
 
+msgid "Select char for replacing newlines in EPG."
+msgstr "Izvēlieties kā aizvietot tukšās rindas EPG informācijā."
+
 msgid "Select copy destination for:"
 msgstr "Izvēlieties kopijas mērķi no:"
 
@@ -7589,6 +8271,18 @@ msgstr "Izvēlieties, cik ātri satelītantenai pārvietot starp satelītiem."
 
 msgid "Select how the satellite dish is set up. i.e. fixed dish, single LNB, DiSEqC switch, positioner, etc."
 msgstr "Izvēlieties kā satelītantena ir iestatīta. Viena satelītantena, viens LNB, DiSEqC slēdzis, pozicionieris utt."
+<<<<<<< HEAD
+=======
+
+msgid "Select how you want your receiver to keep the correct time, either from the DVB transponder, or from the internet using NTP. Or use Auto, which will favour using NTP, but will fall back to transponder time when no internet connection is available."
+msgstr "Izvēlieties kā uztvērējā sinhronizēt pareizu laiku. No satelīta, izmantojot NTP no interneta, vai automātiski kad mēģinās izmantot NTP, bet ja tas neizdosies, tad lietos satelītu."
+
+msgid "Select image"
+msgstr "Izvēlieties imidžu"
+
+msgid "Select in which resolution pictures are displayed with picture viewer or movie player."
+msgstr "Konfigurē kādā izšķirtspējā attēli tiks attēloti attēlu un mediju atskaņotājos."
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Select input device"
 msgstr "Izvēlieties ievades ierīci"
@@ -7631,6 +8325,7 @@ msgstr "Izvēlieties mērķa mapi"
 
 msgid "Select the User Band channel to be assigned to this tuner. This is an index into the table of frequencies the SCR switch or SCR LNB uses to pass the requested transponder to the tuner."
 msgstr "Izvēlieties joslas kanālu (User Band channel) kuru piešķirt šim uztvērējam. Tas ir indekss SCR slēdža frekvenču tabulā vai SCR LNB, kuru tie izmanto lai piešķirtu pieprasīto transponderi uztvērējam."
+<<<<<<< HEAD
 
 msgid "Select the User Band frequency to be assigned to this tuner. This is the frequency the SCR switch or SCR LNB uses to pass the requested transponder to the tuner."
 msgstr "Izvēlieties joslas frekvenci (User Band frequency) kuru piešķirt šim uztvērējam. Tas ir indekss SCR slēdža frekvenču tabulā vai SCR LNB, kuru tie izmanto lai piešķirtu pieprasīto transponderi uztvērējam."
@@ -7645,6 +8340,20 @@ msgstr "Izvēlieties darbību virtuālās tastatūras kursoram"
 #, fuzzy
 msgid "Select the locale from a menu"
 msgstr "Izvēlieties virtuālās tastatūras lokalizāciju"
+=======
+
+msgid "Select the User Band frequency to be assigned to this tuner. This is the frequency the SCR switch or SCR LNB uses to pass the requested transponder to the tuner."
+msgstr "Izvēlieties joslas frekvenci (User Band frequency) kuru piešķirt šim uztvērējam. Tas ir indekss SCR slēdža frekvenču tabulā vai SCR LNB, kuru tie izmanto lai piešķirtu pieprasīto transponderi uztvērējam."
+
+msgid "Select the User Band to be assigned to this tuner. This is an index into the table of frequencies the SCR switch or SCR LNB uses to pass the requested transponder to the tuner."
+msgstr "Izvēlieties joslu (User Band) kuru piešķirt šim uztvērējam. Tas ir indekss SCR slēdža frekvenču tabulā vai SCR LNB, kuru tie izmanto lai piešķirtu pieprasīto transponderi uztvērējam."
+
+msgid "Select the character or action under the keyboard cursor"
+msgstr "Izvēlieties darbību virtuālās tastatūras kursoram"
+
+msgid "Select the locale from a menu"
+msgstr "Izvēlieties lokalizāciju"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Select the manufacturer of your SCR device. If the manufacturer is not listed, set 'SCR' to 'user defined' and enter the device parameters manually according to its spec sheet."
 msgstr "Izvēlieties savas SCR ierīces ražotāju. Ja ražotājs nav norādīts, iestatiet 'SCR' uz 'lietotāja definēts' un ievadiet ierīces parametrus manuāli, atbilstoši tā specifikācijai."
@@ -7676,6 +8385,7 @@ msgstr "Izvēlieties satelītu, kuru vēlaties konfigurēt. Tiklīdz šis satel�
 msgid "Select the satellite your dish receives from. If you are unsure select 'automatic' and the receiver will attempt to determine this for you."
 msgstr "Izvēlieties satelītu kuru uztverat ar satelītantenu. Ja neesat pārliecināts, izvēlieties 'automātiski', un uztvērējs mēģinās to noteikt pats."
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Select the shifted character set"
 msgstr "Izvēlieties virtuālās tastatūras speciālo izkārtojumu"
@@ -7687,6 +8397,16 @@ msgstr "Izvēlieties virtuālās tastatūras speciālo izkārtojumu"
 #, fuzzy
 msgid "Select the time zone within the area or region."
 msgstr "Izvēlieties izšķirtspēju:"
+=======
+msgid "Select the shifted character set"
+msgstr "Izvēlieties virtuālās tastatūras speciālo izkārtojumu"
+
+msgid "Select the shifted character set for the next character only"
+msgstr "Izvēlieties virtuālās tastatūras speciālo izkārtojumu nākošajam burtam"
+
+msgid "Select the time zone within the area or region."
+msgstr "Izvēlieties laika zonu apgabalā vai reģionā."
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Select the tuner that controls the motorised dish."
 msgstr "Izvēlieties uztvērēju, kas kontrolē motorizēto satelītantenu."
@@ -7716,7 +8436,20 @@ msgid "Select video mode"
 msgstr "Izvēlieties video režīmu"
 
 msgid "Select whether your SCR device is externally powered."
+<<<<<<< HEAD
 msgstr ""
+=======
+msgstr "Izvēlieties vai jūsu SCR ierīcei ir neatkarīga barošana."
+
+msgid "Select which satellite to scan."
+msgstr "Izvēlieties pavadoni kuru skenēt."
+
+msgid "Select which transponder to scan."
+msgstr "Izvēlieties transponderi kuru skenēt."
+
+msgid "Select which tuner to use for the scan."
+msgstr "Izvēlieties uztvērēju kuru lietot meklēšanai."
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Select wireless network"
 msgstr "Izvēlieties bezvadu tīklu"
@@ -7743,9 +8476,14 @@ msgstr "Izvēlieties jūsu operatoru un nospiediet OK lai sāktu meklēt"
 msgid "Select your region. If not available change 'Country' to 'all' and select one of the default alternatives."
 msgstr "Izvēlieties jūsu reģionu. Ja tas nav pieejams, izmainiet valsti uz 'visam', un izvēlieties citu kanālu meklēšanas veidu."
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Select your time zone area or region."
 msgstr "Izvēlieties izšķirtspēju:"
+=======
+msgid "Select your time zone area or region."
+msgstr "Izvēlieties jūsu laika zonu vai reģionu."
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Selecting satellites 1 (USALS)"
 msgstr "Izvēlieties pavadoni 1 (USALS)"
@@ -7881,13 +8619,21 @@ msgid "Set all hotkey to default?"
 msgstr "Iestatīt visu taustiņu noklusētās vērtības?"
 
 msgid "Set alternative fallback tuners for DVB-T/C or ATSC"
+<<<<<<< HEAD
 msgstr ""
+=======
+msgstr "Iestatīt attālinātā uztvērēju lai to izmantotu DVB-T/C vai ATSC avotam"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Set as startup service"
 msgstr "Iestatīt kā starta kanālu"
 
 msgid "Set blocktimes by weekday"
 msgstr "Iestatīt bloķēšanas laikus pa dienām"
+
+#, fuzzy
+msgid "Set cursor on service from channel history"
+msgstr "Pārslēgt uz iepriekšējo kanālu vēsturē"
 
 msgid "Set default"
 msgstr "Pēc noklusējuma"
@@ -7913,7 +8659,7 @@ msgstr "Iestatīt limitus"
 msgid "Set movielist type."
 msgstr "Iestatiet mediju sarakstu veidu."
 
-msgid "Set pin code persistent"
+msgid "Set persistent PIN code"
 msgstr "Iestatīt patstāvīgo PIN kodu"
 
 msgid "Set sequence repeats if your aerial system requires this. Normally if the aerial system has been configured correctly sequence repeats will not be necessary. If yours does, recheck you have command order set correctly."
@@ -7989,7 +8735,11 @@ msgid "Shellscript"
 msgstr "Skripti"
 
 msgid "Shift"
+<<<<<<< HEAD
 msgstr ""
+=======
+msgstr "Shift"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Short filenames"
 msgstr "Īsie failu nosaukumi"
@@ -8011,9 +8761,6 @@ msgstr "Rādīt EPG pašreizējam kanālam..."
 
 msgid "Show EPG..."
 msgstr "Rādīt EPG..."
-
-msgid "Show Games show"
-msgstr "Rādīt Games show"
 
 msgid "Show InfoBar"
 msgstr "Rādīt infojoslu"
@@ -8122,12 +8869,15 @@ msgstr "Rādīt pēdējās atjaunošanas žurnālu"
 
 msgid "Show media player on main menu"
 msgstr "Parādīt mediju atskaņotāju pamata izvēlnē"
+<<<<<<< HEAD
 
 msgid "Show menu or plugin numbers"
 msgstr "Rādīt numurus iestatījumiem vai spraudņiem"
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
-msgid "Show menu paths"
-msgstr "Rādīt iestatījumu ceļu"
+msgid "Show menu or plugin numbers"
+msgstr "Rādīt numurus iestatījumiem vai spraudņiem"
 
 msgid "Show message when recording starts"
 msgstr "Rādīt paziņojumu kad ieraksts sākas"
@@ -8153,10 +8903,13 @@ msgstr "Parādīt brīdinājumu kad imports nav izdevies"
 msgid "Show notification when import channels was successful"
 msgstr "Parādīt brīdinājumu kad imports ir izdevies"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Show on VFD"
 msgstr "Rādīt kolonas"
 
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "Show packages to be updated"
 msgstr "Parādīt paketes kuras tiks atjaunotas"
 
@@ -8178,12 +8931,20 @@ msgstr "Rādīt ieraksta pulksteņa ikonu"
 msgid "Show record indicator"
 msgstr "Rādīt ieraksta indikatoru"
 
+<<<<<<< HEAD
 msgid "Show red LED on VFD"
 msgstr ""
 
 #, fuzzy
 msgid "Show satellites list"
 msgstr "Atvērt kanālu sarakstu"
+=======
+msgid "Show satellites list"
+msgstr "Atvērt satelītu sarakstu"
+
+msgid "Show screen path"
+msgstr "Rādīt ekrāna ceļu"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Show screensaver"
 msgstr "Rādīt ekrānsaudzētāju"
@@ -8215,6 +8976,9 @@ msgstr "Statusa ikona filmu sarakstā"
 msgid "Show status icons in movielist"
 msgstr "Statusa ikona filmu sarakstā"
 
+msgid "Show sub-menu"
+msgstr "Rādīt apakšizvēlni"
+
 msgid "Show subservice selection"
 msgstr "Apakš servisu izvēlne"
 
@@ -8228,7 +8992,11 @@ msgid "Show the radio player..."
 msgstr "Klausīties radio..."
 
 msgid "Show the service information on two lines in the channel selection screen. You can choose between the current event description below the channel name, or the current event description next to the channel name, and the next event description on the second line."
+<<<<<<< HEAD
 msgstr ""
+=======
+msgstr "Rādīt kanāla informāciju divās rindās kanālu izvēlnē. Varat izvēlēties starp pašreizējo notikumu zem kanāla nosaukuma, vai aiz kanāla nosaukuma un nākošo notikumu otrajā rindā."
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Show the tv player..."
 msgstr "Skatīties TV..."
@@ -8237,11 +9005,18 @@ msgid "Show transponder info"
 msgstr "Rādīt transpondera informāciju"
 
 msgid "Show two lines per entry"
+<<<<<<< HEAD
 msgstr ""
 
 #, fuzzy
 msgid "Show underline characters in filenames"
 msgstr "Limitēt rakstzīmju lietošanu ierakstāmajiem failu vārdiem"
+=======
+msgstr "Rādīt divās rindās"
+
+msgid "Show underline characters in filenames"
+msgstr "Rādīt pasvītrojuma rakstzīmes failu nosaukumos"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Show vertical timelines"
 msgstr "Rādīt vertikālās līnijas laikam"
@@ -8251,6 +9026,9 @@ msgstr "Rādīt brīdinājumu pirms iestatīt 'Ignorēt konfliktus'"
 
 msgid "Show warning when timeshift is stopped"
 msgstr "Rādīt brīdinājumu kad laika aizture apturēta"
+
+msgid "Show/Game Show/Leisure hobbies"
+msgstr "Šovi, spēļu šovi, atpūta, vaļasprieki"
 
 msgid "Show/hide window"
 msgstr "Rādīt/slēpt logu"
@@ -8315,9 +9093,14 @@ msgstr "Viens"
 msgid "Single EPG"
 msgstr "Kanāla EPG"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Single line mode"
 msgstr "Izvēlieties video režīmu"
+=======
+msgid "Single line mode"
+msgstr "Viena rinda"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Single satellite"
 msgstr "Viens pavadonis"
@@ -8338,12 +9121,20 @@ msgstr "Vietas garums"
 msgid "Skin & Resolution: %s (%sx%s)\n"
 msgstr "Noformējums: %s (%sx%s)\n"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Skin Selection Actions"
 msgstr "Izvēlieties darbību"
 
 msgid "SkinSelector: Restart GUI"
 msgstr ""
+=======
+msgid "Skin Selection Actions"
+msgstr "Noformējuma izvēlnes darbības"
+
+msgid "SkinSelector: Restart GUI"
+msgstr "Pārstartē"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Skins"
 msgstr "Noformējumi"
@@ -8376,6 +9167,14 @@ msgstr "Slīdrādes intervāls (sek.)"
 msgid "Slot %d"
 msgstr "Karšu lasītājs %d"
 
+#, python-format
+msgid "Slot %s / FBC in %s"
+msgstr "Slots %s / FBC %s"
+
+#, python-format
+msgid "Slot %s / FBC virtual %s"
+msgstr "Slots %s / virtuālais FBC %s"
+
 msgid "Slovak"
 msgstr "Slovāku"
 
@@ -8406,8 +9205,8 @@ msgstr "Kartes PIN"
 msgid "Smooth"
 msgstr "Izlīdzināt"
 
-msgid "Social/Political/Economics"
-msgstr "Sociālie/Politika/Ekonomika"
+msgid "SocketMMI"
+msgstr "SocketMMI"
 
 msgid "SocketMMI"
 msgstr ""
@@ -8443,7 +9242,11 @@ msgid "Somalia"
 msgstr "Somālija"
 
 msgid "Some TVs do not wake from standby when they receive the 'Image View On' command. If this is the case try the 'Text View On' command instead."
+<<<<<<< HEAD
 msgstr ""
+=======
+msgstr "Daži TV nepamožas no gaidstāves ja tie saņem 'Ieslēgt attēlu' komandu. Tādā gadījumā mēģina nosūtīt komandu 'Ieslēgt tekstu'."
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Some plugins are not available:\n"
 msgstr "Daži spraudņi nav pieejami:\n"
@@ -8530,9 +9333,12 @@ msgstr "Spānija"
 msgid "Spanish"
 msgstr "Spāņu"
 
+<<<<<<< HEAD
 msgid "Spark7162 select tuner mode"
 msgstr ""
 
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "Special 1"
 msgstr "Īpašs 1"
 
@@ -8584,7 +9390,7 @@ msgstr "Šrilanka"
 msgid "Standard"
 msgstr "Standarta"
 
-msgid "Standart list"
+msgid "Standard list"
 msgstr "Standarta saraksts"
 
 msgid "Standby"
@@ -8602,6 +9408,7 @@ msgstr "Gaidstāve pēc pašreizējās pārraides"
 msgid "Standby in "
 msgstr "Gaidstāvē "
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Standby only"
 msgstr "Gaidstāvē "
@@ -8618,6 +9425,8 @@ msgstr "Frekvence"
 msgid "Start boot frequency"
 msgstr "Visas frekvences"
 
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "Start directory"
 msgstr "Sākuma mape"
 
@@ -8675,6 +9484,9 @@ msgstr "Soļo uz austrumiem"
 msgid "Stepped west"
 msgstr "Soļo uz rietumiem"
 
+msgid "Steps"
+msgstr "Soļi"
+
 msgid "Stop"
 msgstr "Apturēt"
 
@@ -8710,6 +9522,9 @@ msgstr "Apturēt"
 
 msgid "Stop entry"
 msgstr "Apturēt ievadi"
+
+msgid "Stop live TV service"
+msgstr "Apturēt TV kanālu"
 
 msgid "Stop play TV"
 msgstr "Izslēgt atskaņošanu fonā"
@@ -8825,9 +9640,14 @@ msgstr "Subtitru izvēle..."
 msgid "Subtitle settings"
 msgstr "Subtitru izvēle"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Subtitle show/hide..."
 msgstr "Subtitru izvēle..."
+=======
+msgid "Subtitle show/hide..."
+msgstr "Parādīt/slēpt subtitrus..."
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Subtitles"
 msgstr "Subtitri"
@@ -8835,6 +9655,7 @@ msgstr "Subtitri"
 msgid "Subtitles Settings"
 msgstr "Subtitru izvēle"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Subtitles disabled"
 msgstr "Subtitru izvēle"
@@ -8842,6 +9663,13 @@ msgstr "Subtitru izvēle"
 #, fuzzy
 msgid "Subtitles enabled"
 msgstr "Limiti ieslēgti"
+=======
+msgid "Subtitles disabled"
+msgstr "Subtitri izslēgti"
+
+msgid "Subtitles enabled"
+msgstr "Subtitri ieslēgti"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Succeeded:"
 msgstr "Izdevās:"
@@ -8859,6 +9687,11 @@ msgid ""
 "Sundtek - hardware blind scan in progress.\n"
 "Please wait(3-20 min) for the scan to finish."
 msgstr ""
+<<<<<<< HEAD
+=======
+"Notiek Sundtek aklā skanēšana.\n"
+"Lūdzu pagaidiet (3-20 min) lai pabeigtu."
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Suriname"
 msgstr "Surinama"
@@ -8902,6 +9735,7 @@ msgstr "Pārslēgt kanālu uz leju"
 msgid "Switch channel up"
 msgstr "Pārslēgt kanālu uz augšu"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Switch on the display during Standby Mode"
 msgstr "Skatīt sarakstu ar pieejamiem attēla un lietotāja interfeisa paplašinājumiem."
@@ -8913,6 +9747,19 @@ msgstr "Skatīt sarakstu ar pieejamiem attēla un lietotāja interfeisa paplaši
 #, fuzzy
 msgid "Switch on the display during operation."
 msgstr "Skatīt sarakstu ar pieejamiem attēla un lietotāja interfeisa paplašinājumiem."
+=======
+msgid "Switch on the display during Standby Mode"
+msgstr "Ieslēgt displeju gaidstāvē."
+
+msgid "Switch on the display during Suspend Mode"
+msgstr "Ieslēgt displeju izslēdzot."
+
+msgid "Switch on the display during operation."
+msgstr "Ieslēgt displeju darbojoties."
+
+msgid "Switch to Android"
+msgstr "Pārslēgt uz Android"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Switch to TV mode"
 msgstr "Pārslēgt uz TV režīmu"
@@ -8977,6 +9824,7 @@ msgstr "Sistēma"
 msgid "System & Modulation"
 msgstr "Sistēma un modulācija"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "T2MI PID"
 msgstr "PMT PID"
@@ -8987,12 +9835,26 @@ msgstr ""
 #, fuzzy
 msgid "T2MI PLP ID"
 msgstr "PLP ID"
+=======
+msgid "T2MI PID"
+msgstr "T2MI PID"
+
+msgid "T2MI PLP"
+msgstr "T2MI PLP"
+
+msgid "T2MI PLP ID"
+msgstr "T2MI PLP ID"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "T2MI RAW Mode"
 msgstr "T2MI RAW režīms"
 
 msgid "TEXT"
+<<<<<<< HEAD
 msgstr ""
+=======
+msgstr "TEKSTS"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 #. TRANSLATORS: Add here whatever should be shown in the "translator" about screen, up to 6 lines (use \n for newline)
 msgid "TRANSLATOR_INFO"
@@ -9023,7 +9885,11 @@ msgid "Tags"
 msgstr "Birkas"
 
 msgid "Taiwan"
+<<<<<<< HEAD
 msgstr ""
+=======
+msgstr "Taivāna"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Tajikistan"
 msgstr "Tadžikistāna"
@@ -9060,7 +9926,11 @@ msgid "Testscreens that are helpfull to fine-tune your display"
 msgstr "Testa attēls lai palīdzētu noregulēt attēlošanu"
 
 msgid "Text View On"
+<<<<<<< HEAD
 msgstr ""
+=======
+msgstr "Ieslēgt tekstu"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Text color"
 msgstr "Teksta krāsa"
@@ -9098,11 +9968,18 @@ msgstr "PIN kods nomainīts veiksmīgi."
 msgid "The PIN code has been saved successfully."
 msgstr "PIN kods nomainīts veiksmīgi."
 
+msgid "The PIN code you entered is wrong."
+msgstr "Jūsu ievadītais PIN kods ir nepareizs."
+
 msgid "The PIN codes you entered are different."
 msgstr "Ievadītie PIN kodi atšķiras."
 
 msgid "The command to wake from standby will be sent multiple times."
+<<<<<<< HEAD
 msgstr ""
+=======
+msgstr "Komanda lai pamodinātu no gaidstāves tiks sūtīta vairākas reizes."
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 #, python-format
 msgid ""
@@ -9123,6 +10000,9 @@ msgstr ""
 msgid "The following files were found..."
 msgstr "Tika atrasti sekojoši faili..."
 
+msgid "The hostname or the IP address of the NTP server to synchronise the time with."
+msgstr "NTP servera nosaukums vai IP adrese ar kuru sinhronizēt laiku."
+
 msgid ""
 "The network wizard extension is not installed!\n"
 "Please install it."
@@ -9133,7 +10013,7 @@ msgstr ""
 msgid ""
 "The overscan wizard has been completed.\n"
 "\n"
-"Note: you can always start the Overscan wizard later,  via\n"
+"Note: you can always start the Overscan wizard later, via\n"
 "\n"
 "Menu->Installation->System->Audio/Video->Overscan wizard"
 msgstr ""
@@ -9172,9 +10052,6 @@ msgstr ""
 msgid "The path %s already exists."
 msgstr "Ceļš %s jau eksistē."
 
-msgid "The pin code you entered is wrong."
-msgstr "Jūsu ievadītais PIN kods ir nepareizs."
-
 #, python-format
 msgid "The results have been written to %s"
 msgstr "Rezultāti tiks ierakstīti %s"
@@ -9208,12 +10085,8 @@ msgstr "Uztvērēja lietotāja interfeiss tiks pārstartēts lai lietotu izvēl�
 msgid "The user interface of your receiver is restarting"
 msgstr "Uztvērēja lietotāja interfeiss tiek pārstartēts"
 
-msgid ""
-"The user interface of your receiver is restarting\n"
-"due to an error in mytest.py"
-msgstr ""
-"Lietotāja interfeiss tiek pārstartēts\n"
-"dēļ kļūdas failā mytest.py"
+msgid "The user interface of your receiver is restarting in debug mode"
+msgstr "Uztvērēja lietotāja interfeiss tiek pārstartēts testa režīmā"
 
 msgid "The user interface of your receiver is restarting in debug mode"
 msgstr "Uztvērēja lietotāja interfeiss tiek pārstartēts testa režīmā"
@@ -9232,12 +10105,18 @@ msgstr ""
 "Bezvadu tīkla spraudnis nav instalēts!\n"
 "Lūdzu uzstādiet to."
 
+<<<<<<< HEAD
 msgid "There are at least "
 msgstr "Vismaz "
 
 #, python-format
 msgid "There are at least %s updates available."
 msgstr "Vismaz %s atjauninājumi pieejami."
+=======
+#, python-format
+msgid "There are at least %d updates available."
+msgstr "Vismaz %d atjauninājumi pieejami."
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "There are currently no outstanding actions."
 msgstr "Pašlaik nav aktuālu darbību."
@@ -9264,6 +10143,12 @@ msgstr ""
 msgid "This DVD RW medium is already formatted - reformatting will erase all content on the disc."
 msgstr "Šis DVD RW disks jau ir formatēts - atkārtota formatēšana dzēsīs visu diska saturu."
 
+msgid "This bouquet is protected by a parental control PIN"
+msgstr "Šī buķete ir aizsargāta ar vecāku aizsardzību"
+
+msgid "This can be useful when using the CI(+) module. After the end of the recording, the service will be automatically stopped."
+msgstr "Tas var būt noderīgi izmantojot CI(+) moduli. Pēc ieraksta beigām kanāls tiks automātiski apturēts."
+
 #, python-format
 msgid "This field allows you to search an additional symbol rate up to %s."
 msgstr "Atļauj meklēt papildu simbola vērtību līdz pat %s."
@@ -9282,6 +10167,12 @@ msgstr "Šis ir vairāku veidu uztvērējs. Pieejamās opcijas ir atkarīgas no 
 
 msgid "This is the order in which DiSEqC commands are sent to the aerial system. The order must correspond exactly with the order the physical devices are arranged along the signal cable (starting from the receiver end)."
 msgstr "Komandu rinda, kādā DiSEqC komandas tiek nosūtītas. Komandu rindai precīzi jāatbilst kārtībai, kādā sākot no uztvērēja fiziskās ierīces tiek pieslēgtas kabelim."
+<<<<<<< HEAD
+=======
+
+msgid "This not valid ONID/TSID"
+msgstr "Tas nav derīgs ONID/TSID"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "This option allows to reduce the block-noise in the picture. Obviously this is at the cost of the picture's sharpness."
 msgstr "Atļauj samazināt trokšņus attēlā. Diemžēl tas samazina arī attēla asumu."
@@ -9346,7 +10237,10 @@ msgstr "Atļauj lietot HDR10 režīmu priekš UHD"
 msgid "This option allows you to force the HLG modes for UHD"
 msgstr "Atļauj lietot HLG režīmu priekš UHD"
 
+<<<<<<< HEAD
 #, fuzzy
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "This option allows you to hide and sort menu entries. When selecting user you can change order and hide menu items via the blue button. With the user defined hidden the blue button is not shown in the menus"
 msgstr "Atļauj kārtot un noslēpt iestatījumus. Ja izvēlēts lietotāja, jūs varat kārtot un slēpt iestatījumus izmantojot zilo pogu"
 
@@ -9359,8 +10253,8 @@ msgstr "Atļauj parādīt simbolus displejā."
 msgid "This option allows you to show menu and/or plugin number quick links."
 msgstr "Attēlo ciparus pie iestatījumiem vai spraudņiem lai tos izmantotu ātrai piekļuvei."
 
-msgid "This option allows you to show menu paths."
-msgstr "Attēlo iestatījumu ceļu noformējumā."
+msgid "This option allows you to show the full screen path leading to the current screen."
+msgstr "Atļauj parādīt pilnu ceļu uz esošo ekrānu."
 
 msgid "This option allows you to view the old and new settings side by side."
 msgstr "Attēlo vecos un jaunos iestatījumus blakus."
@@ -9371,11 +10265,11 @@ msgstr "Šī opcija var būt noderīga gariem HDMI kabeļiem."
 msgid "This option set the level of surpression of mosquito noise (Mosquito Noise is random aliasing as a result of strong compression). Obviously this goes at the cost of picture details."
 msgstr "Iestata musquito trokšņa slāpēšanas līmeni (musquito troksnis ir traucējumi spēcīgas saspiešanas rezultātā). Diemžēl tas samazina attēla detalizāciju."
 
-msgid "This option sets  the picture contrast."
-msgstr "Iestata attēla kontrastu."
-
 msgid "This option sets the picture brightness."
 msgstr "Iestata attēla spilgtumu."
+
+msgid "This option sets the picture contrast."
+msgstr "Iestata attēla kontrastu."
 
 msgid "This option sets the picture flesh tones."
 msgstr "Iestata attēla toņus."
@@ -9410,6 +10304,9 @@ msgstr "Šis spraudnis tiks noņemts."
 #, python-format
 msgid "This receiver cannot decode %s streams!"
 msgstr "Uztvērējs nevar dekodēt %s plūsmas!"
+
+msgid "This service is protected by a parental control PIN"
+msgstr "Šis kanāls ir aizsargāts ar vecāku kontroles PIN kodu"
 
 msgid "This setting allows the tuner configuration to be a duplication of how another tuner is already configured."
 msgstr "Atļauj dublēt uztvērēja konfigurāciju no cita uztvērēja."
@@ -9456,10 +10353,10 @@ msgstr ""
 msgid ""
 "This test checks whether your LAN adapter is set up for automatic IP address configuration with DHCP.\n"
 "If you get a \"disabled\" message:\n"
-" - then your LAN adapter is configured for manual IP setup\n"
+"- then your LAN adapter is configured for manual IP setup\n"
 "- verify thay you have entered the correct IP information in the adapter setup dialog.\n"
 "If you get an \"enabeld\" message:\n"
-"-verify that you have a configured and working DHCP server in your network."
+"- verify that you have a configured and working DHCP server in your network."
 msgstr ""
 "Šis tests pārbauda vai tīkla adapters ir iestatīts automātiskai IP adrešu konfigurēšanai ar DHCP.\n"
 "Ja saņemat \"neaktīvs \" paziņojumu:\n"
@@ -9470,6 +10367,9 @@ msgstr ""
 
 msgid "This test detects your configured LAN adapter."
 msgstr "Šis tests atrod konfigurēto tīkla adapteri."
+
+msgid "This valid ONID/TSID"
+msgstr "Derīgs ONID/TSID"
 
 msgid ""
 "This will (re-)calculate all positions of your rotor and may remove previously memorised positions and fine-tuning!\n"
@@ -9503,6 +10403,7 @@ msgstr "Toņa režīms"
 msgid "Time scale"
 msgstr "Laika skala"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Time zone"
 msgstr "Laika josla"
@@ -9510,6 +10411,16 @@ msgstr "Laika josla"
 #, fuzzy
 msgid "Time zone area"
 msgstr "Laika josla"
+=======
+msgid "Time synchronization method"
+msgstr "Laika sinhronizēšanas metode"
+
+msgid "Time zone"
+msgstr "Laika josla"
+
+msgid "Time zone area"
+msgstr "Laika joslas apgabals"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Timer"
 msgstr "Taimeri"
@@ -9551,9 +10462,14 @@ msgstr "Taimeru izvēle..."
 msgid "Timer type"
 msgstr "Taimera veids"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Timer:"
 msgstr "Taimeri"
+=======
+msgid "Timer:"
+msgstr "Taimeris:"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Timeshift"
 msgstr "Laika aizture"
@@ -9587,14 +10503,22 @@ msgstr "Nosaukuma iestatīšanas režīms"
 
 #, python-format
 msgid "To apply the selected '%s' skin the GUI needs to restart. Would you like to restart the GUI now?"
+<<<<<<< HEAD
 msgstr ""
+=======
+msgstr "Lai izmantotu izvēlēto '%s' noformējumu jāpārstartē uztvērējs. Vai vēlaties tagat pārstartēt?"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "To audio selection"
 msgstr "Uz audio iestatīšanu"
 
 #, python-format
 msgid "To save and apply the selected '%s' skin the GUI needs to restart. Would you like to save the selection and restart the GUI now?"
+<<<<<<< HEAD
 msgstr ""
+=======
+msgstr "Lai saglabātu un izmantotu izvēlēto '%s' noformējumu jāpārstartē uztvērējs. Vai vēlaties saglabāt un pārstartēt?"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "To subtitle selection"
 msgstr "Uz subtitru iestatīšanu"
@@ -9629,16 +10553,26 @@ msgstr "Pārvieto uz jaunu tekstu"
 msgid "Toggle show/hide"
 msgstr "Pārslēdz parādīt/slēpt"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Toggle subtitles show/hide"
 msgstr "Pārslēdz parādīt/slēpt"
+=======
+msgid "Toggle subtitles show/hide"
+msgstr "Pārslēgt subtitrus parādīt/slēpt"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Toggle the tv and the radio player..."
 msgstr "Pārslēgt tv vai radio atskaņošanu..."
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Toggle videomode"
 msgstr "Izvēlieties video režīmu"
+=======
+msgid "Toggle videomode"
+msgstr "Pārslēgt video režīmu"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Togo"
 msgstr "Togo"
@@ -9664,9 +10598,8 @@ msgstr "Tonga"
 msgid "Top and bottom"
 msgstr "Vertikāli"
 
-#, python-format
-msgid "Total clients streaming: %d (%s)"
-msgstr "Straumē: %d (%s) klienti"
+msgid "Total clients streaming: "
+msgstr "Straumē klienti: "
 
 msgid "Track"
 msgstr "Celiņš"
@@ -9689,6 +10622,9 @@ msgstr "Pārraides režīms"
 msgid "Transponder"
 msgstr "Transponderis"
 
+msgid "Transponder Time"
+msgstr "No satelīta"
+
 msgid "Transport Stream Type"
 msgstr "Transporta plūsmas veids"
 
@@ -9705,6 +10641,7 @@ msgid "Troubleshoot"
 msgstr "Informācija"
 
 msgid "True"
+<<<<<<< HEAD
 msgstr ""
 
 msgid "Try to find used transponders in cable network.. please wait..."
@@ -9715,6 +10652,9 @@ msgstr "Mēģina atrast izmantojamus transponderus... lūdzu gaidiet..."
 
 msgid "Trying to download a new packetlist. Please wait..."
 msgstr "Mēģina lejuplādēt jaunu pakotņu sarakstu. Lūdzu gaidiet..."
+=======
+msgstr "Jā"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Tue"
 msgstr "Ot"
@@ -9761,9 +10701,14 @@ msgstr "Uztvērēja statuss:"
 msgid "Tuner type"
 msgstr "Uztvērēja veids"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Tuners & scanning"
 msgstr "kļūda skenējot"
+=======
+msgid "Tuners & scanning"
+msgstr "Uztveršana"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Tunisia"
 msgstr "Tunisija"
@@ -9798,6 +10743,7 @@ msgstr "Tuvalu"
 msgid "Two"
 msgstr "Divi"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Two lines"
 msgstr "Rādīt infojoslu"
@@ -9805,6 +10751,13 @@ msgstr "Rādīt infojoslu"
 #, fuzzy
 msgid "Two lines and next event"
 msgstr "Iet uz nākamo notikumu"
+=======
+msgid "Two lines"
+msgstr "Divas rindas"
+
+msgid "Two lines and next event"
+msgstr "Divas rindas un nākamais notikums"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Type"
 msgstr "Veids"
@@ -9823,9 +10776,6 @@ msgstr "Adrese"
 
 msgid "URL of fallback remote receiver"
 msgstr "Rezerves uztvērēja adrese (URL)"
-
-msgid "USALS"
-msgstr "USALS"
 
 msgid "USALS automatically moves a motorised dish to the correct satellite based on the coordinates entered by the user. Without USALS each satellite will need to be setup and saved individually."
 msgstr "USALS automātiski pārvieto motorizēto satelītantenu uz pareizo satelītu, pamatojoties uz lietotāja ievadītajām koordinātām. Bez USALS katru satelītu būs nepieciešams uzstādīt un saglabāt atsevišķi."
@@ -9971,11 +10921,14 @@ msgstr "Atjaunināšana pabeigta. Vai vēlaties pārstartēt uztvērēju?"
 msgid "Update failed. Your receiver does not have a working internet connection."
 msgstr "Atjaunināšana pārtraukta. Uztvērējam nestrādā interneta savienojums."
 
+msgid "Update feed not available."
+msgstr "Barotnes nav pieejamas."
+
 msgid "Update has completed."
 msgstr "Atjaunināšana pabeigta."
 
-msgid "Updatefeed not available."
-msgstr "Barotnes nav pieejamas."
+msgid "Updating"
+msgstr "Atjauno"
 
 msgid "Updating"
 msgstr "Atjauno"
@@ -9986,9 +10939,15 @@ msgstr "Atjauno programmatūras katalogu"
 msgid "Upper case"
 msgstr "Lieli burti"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Uptime"
 msgstr "Miega taimeris"
+=======
+#, python-format
+msgid "Uptime: %s\n"
+msgstr "Darbojas: %s\n"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Uruguay"
 msgstr "Urugvaja"
@@ -10006,19 +10965,22 @@ msgid "Use DHCP"
 msgstr "Lietot DHCP"
 
 msgid "Use EIT EPG information when it is available."
-msgstr "Lietot EIT EPG informāciju kad pieejama."
+msgstr "Lietot EIT EPG informāciju kad tā ir pieejama."
 
 msgid "Use FreeSat EPG information when it is available."
-msgstr "Lietot FreeSat EPG informāciju kad pieejama."
+msgstr "Lietot FreeSat EPG informāciju kad tā ir pieejama."
 
 msgid "Use HDMI pre-emphasis"
 msgstr "Lietot HDMI pre-emphasis"
 
 msgid "Use MHW EPG information when it is available."
-msgstr "Lietot MHW EPG informāciju kad pieejama."
+msgstr "Lietot MHW EPG informāciju kad tā ir pieejama."
 
 msgid "Use Netmed EPG information when it is available."
-msgstr "Lietot Netmed EPG informāciju kad pieejama."
+msgstr "Lietot Netmed EPG informāciju kad tā ir pieejama."
+
+msgid "Use OpenTV EPG information when it is available."
+msgstr "Lietot OpenTV EPG informāciju kad tā ir pieejama."
 
 #, fuzzy
 msgid "Use OpenTV EPG information when it is available."
@@ -10034,7 +10996,7 @@ msgid "Use ViaSat EPG information when it is available."
 msgstr "Lietot ViaSat EPG informāciju kad pieejama."
 
 msgid "Use Virgin EPG information when it is available."
-msgstr "Lietot Virgin EPG informāciju kad pieejama."
+msgstr "Lietot Virgin EPG informāciju kad tā ir pieejama."
 
 msgid "Use a gateway"
 msgstr "Lietot vārteju"
@@ -10099,14 +11061,25 @@ msgstr "Lietot miskasti mediju sarakstā"
 msgid "Used service scan type"
 msgstr "Lietotais kanālu meklēšanas veids"
 
-msgid "User - bouquets"
-msgstr "Lietotāja - buķetes"
+#, python-format
+msgid "User Band %d"
+msgstr "Lietotāja josla %d"
+
+#, python-format
+msgid "User Band %d (%s)"
+msgstr "Lietotāja josla %d (%s)"
+
+msgid "User ID"
+msgstr "Lietotāja ID"
 
 msgid "User ID"
 msgstr "Lietotāja ID"
 
 msgid "User Mode"
 msgstr "Lietotāja režīms"
+
+msgid "User bouquets"
+msgstr "Lietotāja buķetes"
 
 msgid "User defined"
 msgstr "Lietotāja definēts"
@@ -10148,6 +11121,9 @@ msgstr "VOB fails"
 
 msgid "VOB file"
 msgstr "VOB fails"
+
+msgid "Valid ONID/TSID look at www.lyngsat.com..."
+msgstr "Derīgu ONID/TSID meklējiet www.lyngsat.com..."
 
 msgid "Vanuatu"
 msgstr "Vanuatu"
@@ -10223,8 +11199,9 @@ msgstr "Skatīt Rass interaktīvi..."
 msgid "View details"
 msgstr "Papildus info"
 
-msgid "View list of available "
-msgstr "Skatīt sarakstu ar pieejamiem "
+#, python-format
+msgid "View list of available %s extensions."
+msgstr "Skatīt sarakstu ar pieejamiem %s paplašinājumiem."
 
 msgid "View list of available CommonInterface extensions"
 msgstr "Skatīt sarakstu ar pieejamiem CommonInterfeisa paplašinājumiem"
@@ -10289,6 +11266,9 @@ msgstr "Virtuālās tastatūras teksts:"
 msgid "Virtual keyboard"
 msgstr "Virtuālā tastatūra"
 
+msgid "Visually impaired commentary"
+msgstr "Komentāri vājredzīgiem"
+
 msgid "Voltage mode"
 msgstr "Sprieguma režīms"
 
@@ -10299,7 +11279,11 @@ msgid "Volume down"
 msgstr "Klusāk"
 
 msgid "Volume keys on the receiver remote will control the TV volume."
+<<<<<<< HEAD
 msgstr ""
+=======
+msgstr "TV skaļumu kontrolēs ar uztvērēja pulti."
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Volume up"
 msgstr "Skaļāk"
@@ -10307,12 +11291,10 @@ msgstr "Skaļāk"
 msgid "W"
 msgstr "W"
 
-msgid "WEP"
-msgstr "WEP"
-
 msgid "WLAN connection"
 msgstr "Bezvadu savienojums"
 
+<<<<<<< HEAD
 msgid "WPA"
 msgstr "WPA"
 
@@ -10322,6 +11304,8 @@ msgstr "WPA vai WPA2"
 msgid "WPA2"
 msgstr "WPA2"
 
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "WSS on 4:3"
 msgstr "WSS uz 4:3"
 
@@ -10338,21 +11322,35 @@ msgid "Wake On LAN"
 msgstr "Pamošanās no LAN"
 
 msgid "Wake the receiver from standby when selected wake command is sent from the TV."
+<<<<<<< HEAD
 msgstr ""
+=======
+msgstr "Pamodināt uztvērēju no gidstāves kad izvēlētā pamodināšanas komanda tiks sūtīta no TV."
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Wakeup"
 msgstr "Pamodināt"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Wakeup A/V receiver from standby too."
 msgstr "Pamodināt uztvērēju no gidstāves"
+=======
+msgid "Wakeup A/V receiver from standby too."
+msgstr "Pamodināt arī A/V resīveri no gidstāves."
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Wakeup TV from standby"
 msgstr "Pamodināt TV no gidstāves"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "Wakeup command for TV"
 msgstr "Pamodināšanas signāls no TV"
+=======
+msgid "Wakeup command for TV"
+msgstr "Pamodināšanas komanda no TV"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Wakeup receiver for start timer"
 msgstr "Pamodināt uztvērēju startēšanas taimerim"
@@ -10361,7 +11359,7 @@ msgid "Wakeup receiver from standby"
 msgstr "Pamodināt uztvērēju no gidstāves"
 
 msgid "Wakeup signal from TV"
-msgstr "Pamodināšanas signāls no TV"
+msgstr "Pamodināšanas komanda no TV"
 
 msgid "Wakeup time"
 msgstr "Pamodināšanas laiks"
@@ -10384,8 +11382,14 @@ msgstr ""
 "Šis iestatījums ir zinošiem lietotājiem.\n"
 "Vai tiešām atspējot taimeru konflikta noteikšanu?"
 
+msgid "Warning: FBC-C V1 tuner should be connected to the first slot to work correctly. Otherwise, only 2 out of 8 demodulators will be available when connected in the second slot. "
+msgstr "Brīdinājums! FBC-C V1 uztvērējam jābūt savienotam ar pirmo slotu, lai tas darbotos pareizi. Pretējā gadījumā būs pieejami tikai 2 no 8 demodulatoriem, kad tie tiks pievienoti otrajā slotā. "
+
 msgid "Warning: no LNB; using factory defaults."
 msgstr "Uzmanību: nav LNB; lieto noklusētos iestatījumus"
+
+msgid "Warning: the second input of this dual tuner may not support SCR LNBs. "
+msgstr "Uzmanību! Otra šī uztvērēja ieeja var neatbalstīt SCR LNB. "
 
 msgid "Watch movies..."
 msgstr "Skatīt ierakstus..."
@@ -10458,16 +11462,30 @@ msgid "What type of service scan do you want?"
 msgstr "Kāda veida kanālu meklēšanu vēlaties veikt?"
 
 msgid "When enabled enigma2 will load unlinked userbouquets. This means that userbouquets that are available, but not included in the bouquets.tv or bouquets.radio files, will still be loaded. This allows you for example to keep your own user bouquet while installed settings are updated"
+<<<<<<< HEAD
 msgstr "Ja ieslēgts, enigma ielādēs neiekļautās buķetes. Tas nozīmē ka buķetes tiek izmantotas, bet nav iekļautas bouquets.tv vai bouquets.radio failos. Tas atļauj saglabāt jūsu individuālās buķetes ja tiek atjaunoti uzstādījumi."
+=======
+msgstr "Ja ieslēgts izmantos neiekļautās buķetes. Tas nozīmē ka buķetes tiek izmantotas, bet nav iekļautas bouquets.tv vai bouquets.radio failos. Tas atļauj saglabāt jūsu individuālās buķetes ja tiek atjaunoti uzstādījumi."
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "When enabled the Picture in Picture window can be closed with 'exit' button."
 msgstr "Ja ieslēgts attēls attēlā, var aizvērt ar exit taustiņu."
 
 msgid "When enabled the arrow buttons around the OK button will follow the 'neutrino' style zap controls instead of the enigma2 style."
+<<<<<<< HEAD
 msgstr "Ja ieslēgts, virziena pogas ap OK kanālu pārslēgšanai izmantos 'neutrino' stilu, nevis enigma2."
+=======
+msgstr "Ja ieslēgts, virziena pogas ap OK kanālu pārslēgšanai izmantos 'neutrino' stilu."
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "When enabled the left, right, CH+/-, B+/-, P+/- buttons will follow the 'neutrino' style zap controls instead of the enigma2 style."
-msgstr "Ja ieslēgts, pogas pa kreisi, pa labi, CH+/-, B+/-, P+/- pārslēgšanai izmantos 'neutrino' stilu nevis enigma2."
+msgstr "Ja ieslēgts, pogas pa kreisi, pa labi, CH+/-, B+/-, P+/- pārslēgšanai izmantos 'neutrino' stilu."
+
+msgid "When enabled the receiver will automatically return to standby when the TV is turned off."
+msgstr "Ja ieslēgts, uztvērējs automātiski atgriezīsies gaidstāvē kad izslēgs TV."
+
+msgid "When enabled the receiver will automatically wake from standby when the TV is turned on."
+msgstr "Ja ieslēgts, uztvērējs automātiski pamodīsies no gaidstāves kad ieslēgs TV."
 
 #, fuzzy
 msgid "When enabled the receiver will automatically return to standby when the TV is turned off."
@@ -10496,12 +11514,19 @@ msgid "When enabled you can specify a timeframe to ignore the shutdown timer whe
 msgstr "Ja ieslēgts, jūs varat iestatīt laiku kādā ignorēt izslēgšanu, kamēr uztvērējs ir gaidstāves režīmā"
 
 msgid "When enabled you can specify a timeframe when the inactivity sleeptimer is ignored. Not the detection is disabled during this timeframe but the inactivity timeout is disabled"
+<<<<<<< HEAD
 msgstr "Ja ieslēgts, jūs varat iestatīt laiku kad neaktivitātes miega taimeris tiks ignorēts. Šinī laikā nav izslēgta neaktivitātes noteikšana, bet nestrādās izslēgšana ja nav aktivitātes"
 
 msgid "When enabled you can specify an extra timeframe when the inactivity sleeptimer is ignored. Not the detection is disabled during this timeframe but the inactivity timeout is disabled"
 msgstr "Ja ieslēgts jūs varat iestatīt papildus laiku kad neaktivitātes miega taimeris tiks ignorēts. Šinī laikā nav izslēgta neaktivitātes noteikšana, bet nestrādās izslēgšana ja nav aktivitātes"
+=======
+msgstr "Ja ieslēgts, jūs varat iestatīt laiku kad neaktivitātes miega taimeris tiks ignorēts. Šajā laikā nav izslēgta neaktivitātes noteikšana, bet nestrādās izslēgšana ja nav aktivitātes"
 
-msgid "When enabled you can zap channels with the  CH+/-, B+/-, P+/- buttons instead of opening the channel selection list."
+msgid "When enabled you can specify an extra timeframe when the inactivity sleeptimer is ignored. Not the detection is disabled during this timeframe but the inactivity timeout is disabled"
+msgstr "Ja ieslēgts jūs varat iestatīt papildus laiku kad neaktivitātes miega taimeris tiks ignorēts. Šajā laikā nav izslēgta neaktivitātes noteikšana, bet nestrādās izslēgšana ja nav aktivitātes"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
+
+msgid "When enabled you can zap channels with the CH+/-, B+/-, P+/- buttons instead of opening the channel selection list."
 msgstr "Ja ieslēgts, jūs pa tiešo varat pārslēgt kanālus ar CH+/-, B+/-, P+/- pogām, nevis tikai atverot kanālu sarakstu."
 
 msgid "When enabled you get the channel selection list via the OK button, the infobar toggle is then transfered to exit button"
@@ -10579,12 +11604,20 @@ msgstr "Ja ieslēgts, grafiskie DVB subtitri tiks rādīti dzeltenā krāsā, ne
 msgid "When enabled, http streams are descrambled on the server side. The (remote) client receiver does not have to do descrambling. Default on."
 msgstr "Ja ieslēgts, http straumes tiks dekodētas serverī. Klientiem nebūs jādekodē. Pēc noklusējuma ieslēgts."
 
+<<<<<<< HEAD
 msgid "When enabled, it is possible to leave the movieplayer with exit."
 msgstr "Ja ieslēgts, ir iespējams iziet no mediju atskaņotāja ar exit taustiņu."
 
 #, fuzzy
 msgid "When enabled, it will automatically play to the last saved radio service when switching to radio mode."
 msgstr "Ja ieslēgts, uztvērējs automātiski lietos audio celiņu, kuru iepriekš norādījāt."
+=======
+msgid "When enabled, it is possible to leave the movie player with exit."
+msgstr "Ja ieslēgts, ir iespējams iziet no mediju atskaņotāja ar exit taustiņu."
+
+msgid "When enabled, it will automatically play to the last saved radio service when switching to radio mode."
+msgstr "Ja ieslēgts, kad pārslēgs radio režīmā uztvērējs automātiski atskaņos pēdējo saglabāto radio kanālu."
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "When enabled, measure power consumption to detect when the rotor stops turning (when supported by the tuner)."
 msgstr "Ja ieslēgts, tiks mērīta patērētā jauda lai noskaidrotu kad pozicionieris apstājies (ja to uztur uztvērējs)."
@@ -10616,7 +11649,7 @@ msgstr "Ja ieslēgts, teleteksta subtitri tiks attēloti to oriģinālajā pozī
 msgid "When enabled, the VCR scart option will be shown on the main menu"
 msgstr "Ja ieslēgts, VCR scart tiks rādīts galvenajā izvēlnē"
 
-msgid "When enabled, the channel selection list will be hidden while listening to a radio channel"
+msgid "When enabled, the channel selection list will be hidden while listening to a radio channel. When disabled, the option 'Auto play last service in radio mode' is available."
 msgstr "Ja ieslēgts, klausoties radio kanālu pārslēgšanas saraksts netiks rādīts."
 
 msgid "When enabled, the infobar will be displayed when a new event starts."
@@ -10646,6 +11679,10 @@ msgstr "Ja ieslēgts, uztvērējs izvēlēsies AC3 celiņu (ja pieejams)."
 msgid "When enabled, the receiver will select an AC3+ track (when available)."
 msgstr "Ja ieslēgts, uztvērējs izvēlēsies AC3+ celiņu (ja pieejams)."
 
+#, fuzzy
+msgid "When enabled, then when changing bouquets, set the cursor on the service from the channel history in the channel selection list."
+msgstr "Ja ieslēgts, ar virziena pogām ap OK jūs varat regulēt skaļumu, nevis atvērt kanālu sarakstu"
+
 msgid "When enabled, this setting has more weight than 'Preferred tuner for recordings'."
 msgstr "Ja ieslēgts, šis iestatījums tiks lietots 'Ieteicamais uztvērējs ierakstam' vietā."
 
@@ -10668,7 +11705,11 @@ msgid "When nonzero, a recording will stop later than the ending time indicated 
 msgstr "Ja nav nulle, ieraksts sāksies vēlāk, nevis laikā kas parādīts EPG."
 
 msgid "When receiver wakes from standby, it will command the TV to switch to the HDMI input the receiver is connected to."
+<<<<<<< HEAD
 msgstr ""
+=======
+msgstr "Kad uztvērējs ieslēdzas no gaidstāves, tas nosūtīt TV komandu pārslēgties uz HDMI ieeju, pie kuras pieslēgts uztvērējs."
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "When selected this allows video modes to be selected even if they are not reported as supported."
 msgstr "Atļauj izmantot video režīmus, pat ja tie tiek norādīti kā neatbalstāmi."
@@ -10680,7 +11721,11 @@ msgid "When the content has an aspect ratio of 4:3, choose whether to scale/stre
 msgstr "Ja attēla malu attiecība ir 4:3 izvēlieties, kā palielināt/stiept attēlu."
 
 msgid "When the receiver wakes from standby or deep standby, it will send a command to the TV to bring it out of standby too."
+<<<<<<< HEAD
 msgstr ""
+=======
+msgstr "Kad uztvērējs ieslēdzas no gaidstāves vai pēc izslēgšanas, tas nosūtīt TV komandu ieslēgties no gaidstāves."
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Where to save temporary timeshift recordings?"
 msgstr "Kur saglabāt pagaidu laika aiztures ierakstus?"
@@ -10712,6 +11757,7 @@ msgstr "Ar kļūdām:"
 msgid "With popup"
 msgstr "Ar uznirstošo logu"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "With this option you can switch on the display during operation."
 msgstr "Atļauj izslēgt displeju."
@@ -10726,6 +11772,19 @@ msgstr "Atļauj izslēgt displeju."
 
 msgid "With this option you can switch the LED color or deactivate the LED."
 msgstr ""
+=======
+msgid "With this option you can switch on the display during operation."
+msgstr "Ieslēdz displeju darbības laikā."
+
+msgid "With this option you can switch on the display in Deep Standby Mode."
+msgstr "Ieslēdz displeju izslēgšanas laikā."
+
+msgid "With this option you can switch on the display in Standby Mode."
+msgstr "Ieslēdz displeju gaidstāves laikā."
+
+msgid "With this option you can switch the LED color or deactivate the LED."
+msgstr "Izmaina LED krāsu, vai izslēdz LED."
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Without popup"
 msgstr "Bez uznirstošā loga"
@@ -10749,20 +11808,8 @@ msgstr "Rakstīšana neizdevās!"
 msgid "Write to /tmp/positionersetup.log"
 msgstr "Saglabā /tmp/positionersetup.log"
 
-msgid "YCbCr420"
-msgstr "YCbCr420"
-
-msgid "YCbCr422"
-msgstr "YCbCr422"
-
-msgid "YCbCr444"
-msgstr "YCbCr444"
-
 msgid "YES"
 msgstr "JĀ"
-
-msgid "YPbPr"
-msgstr "YPbPr"
 
 msgid "Year"
 msgstr "Gads"
@@ -10821,9 +11868,6 @@ msgstr "Jā, bez dublējumkopijas"
 msgid "Yesterday"
 msgstr "Vakar"
 
-msgid "You PIN code is 0000. This is the default PIN code and it disables parental control!\n"
-msgstr "Jūsu PIN kods ir 0000. Tas ir kods pēc noklusējuma un izslēdz vecāku kontroli!\n"
-
 #, python-format
 msgid ""
 "You already have a channel list installed,\n"
@@ -10855,9 +11899,12 @@ msgstr "Jūs varat ierakstīt tikai uztvērēja ierakstus!"
 msgid "You can remove this plugin."
 msgstr "Jūs varat izdzēst šo spraudni."
 
+<<<<<<< HEAD
 msgid "You can set how will be finished movieplayer with 'Exit' button."
 msgstr "Iestatiet vai atļaut iziet no mediju atskaņotāja ar 'Iziet' pogu."
 
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "You can set selected directory as 'root' directory for movie player."
 msgstr "Iestatiet noklusēto (root) mapi mediju atskaņotājam."
 
@@ -10874,7 +11921,7 @@ msgid ""
 "\n"
 "When you select a different skin, the user interface of your receiver will restart.\n"
 "\n"
-"Note: you can always start the Overscan wizard later,  via\n"
+"Note: you can always start the Overscan wizard later, via\n"
 "\n"
 "menu->installation->system->Overscan wizard"
 msgstr ""
@@ -10907,15 +11954,22 @@ msgid "You didn't select a channel to record from."
 msgstr "Jūs nenorādījāt ierakstāmo kanālu."
 
 #, python-format
-msgid "You have to wait %s!"
-msgstr "Jums jāuzgaida %s!"
+msgid "You have to wait %(min)d minutes, %(sec)d seconds!"
+msgstr "Uzgaidiet %(min)d minūtes, %(sec)d sekundes!"
 
 #, python-format
 msgid "You must switch to the service %s (%s - '%s')!\n"
 msgstr "Pārslēgsies uz kanālu %s (%s - '%s')!\n"
 
 msgid "You seem to be in timeshift!"
+<<<<<<< HEAD
 msgstr ""
+=======
+msgstr "Jūs izmantojat laika aizturi!"
+
+msgid "Your PIN code is 0000. This is the default PIN code and it disables parental control!\n"
+msgstr "Jūsu PIN kods ir 0000. Tas ir kods pēc noklusējuma un izslēdz vecāku kontroli!\n"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "Your collection exceeds the size of a single layer medium, you will need a blank dual layer DVD!"
 msgstr "Jūsu kolekcija pārsniedz diska lielumu, jums ir nepieciešams tukšs dubultslāņa DVD!"
@@ -10928,8 +11982,8 @@ msgid ""
 "Please wait until your receiver reboots\n"
 "This may take a few minutes"
 msgstr ""
-"Jūsu fronprocesors tiks atjaunots\n"
-"Lūdzu uzgaidiet kamēr jūsu uztvērējs pārstartēsies\n"
+"Jūsu uztvērējs tiks atjaunots\n"
+"Lūdzu uzgaidiet kamēr tas pārstartēsies\n"
 "Tas var prasīt kādu laiku"
 
 msgid ""
@@ -10940,8 +11994,8 @@ msgstr ""
 "Lūdzu izvēlieties ko vēlaties darīt tālāk."
 
 #, python-format
-msgid "Your internet connection is working (ip: %s)"
-msgstr "Jūsu interneta savienojums strādā (ip: %s)"
+msgid "Your internet connection is working (IP address: %s)"
+msgstr "Jūsu interneta savienojums strādā (IP: %s)"
 
 msgid "Your network configuration has been activated."
 msgstr "Tīkla konfigurācija aktivizēta."
@@ -11058,9 +12112,27 @@ msgstr "Pārslēdz kā PiP uz taimera kanālu %s!"
 msgid "Zapped to timer service %s!"
 msgstr "Pārslēdz uz taimera kanālu %s!"
 
+<<<<<<< HEAD
 msgid "Zimbabwe"
 msgstr "Zimbabve"
 
+=======
+msgid "Zgemma H.S/H.2S/H.2H/H5/H7(old model)"
+msgstr "Zgemma H.S/H.2S/H.2H/H5/H7(vecais modelis)"
+
+msgid "Zgemma H9(old model)/I55Plus/H8"
+msgstr "Zgemma H9(vecais modelis)/I55Plus/H8"
+
+msgid "Zgemma Star S/2S/H1/H2"
+msgstr "Zgemma Star S/2S/H1/H2"
+
+msgid "Zimbabwe"
+msgstr "Zimbabve"
+
+msgid "[REC]"
+msgstr "[IER]"
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "[alternative edit]"
 msgstr "[alternatīvu rediģēšana]"
 
@@ -11077,7 +12149,11 @@ msgid "a gui to assign services/providers to common interface modules"
 msgstr "interfeiss lai piešķirtu kanālus/operatorus moduļiem"
 
 msgid "a gui to assign services/providers/caids to common interface modules"
+<<<<<<< HEAD
 msgstr "interfeiss lai piešķirtu kanālus/operatorus/caids moduļiem"
+=======
+msgstr "interfeiss lai piešķirtu kanālus, operatorus vai caids moduļiem"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "about to start"
 msgstr "gatavojas sākt"
@@ -11085,33 +12161,48 @@ msgstr "gatavojas sākt"
 msgid "activate network adapter configuration"
 msgstr "aktivizēt tīkla adaptera konfigurāciju"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "active"
 msgstr "Relatīvs"
+=======
+msgid "active"
+msgstr "aktīvs"
+
+msgid "active "
+msgstr "aktīvs "
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "actual time only"
 msgstr "tikai aktuālajam laikam"
 
 msgid "additional cable of rotor"
+<<<<<<< HEAD
 msgstr ""
+=======
+msgstr "rotora papildus kabelis"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
-msgid "adult movie/drama"
-msgstr "pieaugušo filma/drāma"
+msgid "adult movie"
+msgstr "pieaugušo"
 
 msgid "advanced"
 msgstr "paplašināts"
 
 msgid "adventure/western/war"
-msgstr "piedzīvojumi/vesterns/kara"
+msgstr "piedzīvojumi, vesterns, kara"
 
 msgid "advertisement/shopping"
-msgstr "reklāma/iepirkšanās"
+msgstr "reklāma, iepirkšanās"
 
 msgid "after "
 msgstr "pēc"
 
 msgid "all"
 msgstr "visam"
+
+msgid "all tuners"
+msgstr "visi uztvērēji"
 
 msgid "alphabetic"
 msgstr "pēc alfabēta"
@@ -11144,10 +12235,10 @@ msgid "are you sure to cancel all changes"
 msgstr "vai tiešām vēlaties atcelt visas izmaiņas"
 
 msgid "arts/culture (without music, general)"
-msgstr "māksla/kultūra (bez mūzikas, kopējā)"
+msgstr "māksla, kultūra"
 
 msgid "arts/culture magazine"
-msgstr "māksla/kultūra žurnāli"
+msgstr "māksla, kultūra, žurnāli"
 
 msgid "athletics"
 msgstr "atlētika"
@@ -11167,6 +12258,9 @@ msgstr "atpakaļ"
 msgid "background image"
 msgstr "fona attēls"
 
+msgid "backup EPG cache"
+msgstr "EPG kešatmiņas dublējumkopija"
+
 msgid "ballet"
 msgstr "balets"
 
@@ -11180,9 +12274,6 @@ msgstr "labāks"
 msgid "black"
 msgstr "melns"
 
-msgid "black & white"
-msgstr "melns un balts"
-
 msgid "blacklist"
 msgstr "melnais saraksts"
 
@@ -11193,7 +12284,7 @@ msgid "bottom"
 msgstr "apakšā"
 
 msgid "broadcasting/press"
-msgstr "apraide/prese"
+msgstr "apraide, prese"
 
 msgid "by date"
 msgstr "pēc datuma"
@@ -11207,7 +12298,7 @@ msgid "cancel"
 msgstr "Atcelt"
 
 msgid "cartoon/puppets"
-msgstr "multfilmas/leļļu"
+msgstr "multfilmas, leļļu"
 
 msgid "center"
 msgstr "centrs"
@@ -11229,8 +12320,8 @@ msgstr "Mainīt soļa lielumu"
 msgid "chapters"
 msgstr "nodaļas"
 
-msgid "childrens's/youth program (general)"
-msgstr "bērnu/jauniešu programmas (vispārīgi)"
+msgid "childrens's youth program (general)"
+msgstr "bērnu, jauniešu programmas"
 
 msgid "circular left"
 msgstr "cirkulārā kreisā"
@@ -11244,12 +12335,15 @@ msgstr "apgriež attēla malas"
 msgid "comedy"
 msgstr "komēdija"
 
+<<<<<<< HEAD
 msgid "config menu"
 msgstr "konfigurācijas izvēlne"
 
 msgid "configure in which resolution pictures are displayed with the picture viewer and movieplayer"
 msgstr "konfigurē kādā izšķirtspējā attēli tiks attēloti attēlu un mediju atskaņotājos"
 
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "confirmed"
 msgstr "apstiprināts"
 
@@ -11278,7 +12372,7 @@ msgid "descramble and record ecm"
 msgstr "dekodēt un ierakstīt ecm"
 
 msgid "detective/thriller"
-msgstr "detektīvs/trilleris"
+msgstr "detektīvs, trilleris"
 
 msgid "disable"
 msgstr "izslēgt"
@@ -11293,7 +12387,11 @@ msgid "disconnected"
 msgstr "atvienots"
 
 msgid "discussion/interview/debate"
+<<<<<<< HEAD
 msgstr "diskusijas/intervijas/debates"
+=======
+msgstr "diskusijas, intervijas, debates"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "do nothing"
 msgstr "neko nedarīt"
@@ -11311,10 +12409,17 @@ msgid "east"
 msgstr "austrumi"
 
 msgid "economics/social advisory"
+<<<<<<< HEAD
 msgstr "ekonomika/sociālā konsultatīvā"
 
 msgid "education/science/factual topics (general)"
 msgstr "izglītība/zinātne/faktiskās tēmas (vispārīgi)"
+=======
+msgstr "ekonomika, sociālā konsultatīvā"
+
+msgid "educational/science/factual topics (general)"
+msgstr "izglītība, zinātne, faktiska"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "embedded"
 msgstr "iekšējais"
@@ -11340,6 +12445,7 @@ msgstr "izklaide (10-16 gadu veciem)"
 msgid "entertainment (6-14 year old)"
 msgstr "izklaide (6-14 gadu veciem)"
 
+<<<<<<< HEAD
 msgid "epg cache backup"
 msgstr "epg kešatmiņas dublējumkopija"
 
@@ -11347,10 +12453,34 @@ msgid "equestrian"
 msgstr "jātnieka"
 
 msgid "error starting scanning"
+=======
+msgid "equestrian"
+msgstr "jātnieka"
+
+msgid "error starting scan"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgstr "kļūda uzsākot skenēšanu"
 
 msgid "error while scanning"
 msgstr "kļūda skenējot"
+<<<<<<< HEAD
+=======
+
+msgid "et4000"
+msgstr "et4000"
+
+msgid "et5000/et6000"
+msgstr "et5000/et6000"
+
+msgid "et8000/et10000"
+msgstr "et8000/et10000"
+
+msgid "et9000/et9100"
+msgstr "et9000/et9100"
+
+msgid "et9200/et9500/et6500"
+msgstr "et9200/et9500/et6500"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "execute cuts (requires MovieCut plugin)"
 msgstr "izpildīt griešanu (izmanto spraudni MovieCut)"
@@ -11391,7 +12521,7 @@ msgstr "filmas/kino"
 msgid "fine arts"
 msgstr "tēlotājmāksla"
 
-msgid "fitness & health"
+msgid "fitness and health"
 msgstr "fitness un veselība"
 
 msgid "flat alphabetic"
@@ -11433,9 +12563,6 @@ msgstr "tālākizglītība"
 msgid "game show/quiz/contest"
 msgstr "spēļu šovi/viktorīna/konkurss"
 
-msgid "gardening"
-msgstr "dārzkopība"
-
 msgid "go to deep standby"
 msgstr "iet uz dziļo gaidstāvi"
 
@@ -11460,12 +12587,15 @@ msgstr "palīdzība..."
 msgid "horizontal"
 msgstr "horizontālā"
 
+<<<<<<< HEAD
 msgid "hs7110"
 msgstr ""
 
 msgid "hs9510"
 msgstr ""
 
+=======
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "in menu and plugins"
 msgstr "iestatījumiem un spraudņiem"
 
@@ -11500,7 +12630,10 @@ msgid "jump forward to the next title"
 msgstr "pārlēkt uz nākamo nosaukumu"
 
 msgid "jump to chapter by number"
-msgstr "pārlekt uz nodaļu izmantojot ciparus"
+msgstr "pārlākt uz nodaļu izmantojot ciparus"
+
+msgid "kB"
+msgstr "kB"
 
 msgid "languages"
 msgstr "valodas"
@@ -11515,7 +12648,7 @@ msgid "left, wrapped"
 msgstr "pa kreisi, saspiesti"
 
 msgid "leisure hobbies (general)"
-msgstr "atpūtas hobiji (vispārīgi)"
+msgstr "atpūta, hobiji"
 
 msgid "length"
 msgstr "garums"
@@ -11535,15 +12668,20 @@ msgstr "noklusētais saraksta stils"
 msgid "list style single line"
 msgstr "vienlīnijas saraksta stils"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "listens to hotplug events"
 msgstr "Notikumu izvietojums"
+=======
+msgid "listens to hotplug events"
+msgstr "Pārvalda hotplug darbības"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "literature"
 msgstr "literatūra"
 
-msgid "live broadcast"
-msgstr "dzīvais raidījums"
+msgid "local sports"
+msgstr "sports"
 
 msgid "locked"
 msgstr "noenkurojies"
@@ -11552,7 +12690,7 @@ msgid "long"
 msgstr "ilgi"
 
 msgid "magazines/reports/documentary"
-msgstr "avīzes/atskaites/dokumentālais"
+msgstr "avīzes, atskaites, dokumentālais"
 
 msgid "manual"
 msgstr "manuāls"
@@ -11561,16 +12699,13 @@ msgid "martial sports"
 msgstr "cīņas sports"
 
 msgid "medicine/physiology/psychology"
-msgstr "medicīna/fizioloģija/psiholoģija"
+msgstr "medicīna, fizioloģija, psiholoģija"
 
 msgid "menu"
 msgstr "izvēlne"
 
 msgid "mins"
 msgstr "min."
-
-msgid "minutes"
-msgstr "minūtēm"
 
 msgid "month"
 msgstr "mēnesis"
@@ -11593,26 +12728,26 @@ msgstr "pārvietot augšup uz pirmo ierakstu"
 msgid "move up to previous entry"
 msgstr "pārvietot augšup uz iepriekšējo ierakstu"
 
-msgid "movie/drama (general)"
-msgstr "filmas/drāma (vispārīgi)"
+msgid "movie (general)"
+msgstr "filmas, drāma"
 
 msgid "multi"
 msgstr "multi"
 
-msgid "multinorm"
-msgstr "multinorma"
-
 msgid "music/ballet/dance (general)"
-msgstr "mūzika/balets/dejas (vispārīgi)"
+msgstr "mūzika, balets, dejas"
 
 msgid "musical/opera"
-msgstr "mūzika/opera"
+msgstr "mūzika, opera"
 
 msgid "nature/animals/environment"
-msgstr "daba/dzīvnieki/vide"
+msgstr "daba, dzīvnieki, vide"
 
 msgid "never"
 msgstr "nekad"
+
+msgid "new line"
+msgstr "jauna rinda"
 
 msgid "new media"
 msgstr "jauni mēdiji"
@@ -11621,10 +12756,10 @@ msgid "news magazine"
 msgstr "ziņas žurnāli"
 
 msgid "news/current affairs (general)"
-msgstr "jaunumi/aktualitātes (vispārīgi)"
+msgstr "jaunumi, aktualitātes"
 
 msgid "news/weather report"
-msgstr "jaunumi/laika ziņas"
+msgstr "jaunumi, laika ziņas"
 
 msgid "no"
 msgstr "nē"
@@ -11662,14 +12797,23 @@ msgstr "nav noenkurojies"
 msgid "not running"
 msgstr "nenotiek"
 
+msgid "not set"
+msgstr "nav iestatīta"
+
 msgid "not supported"
 msgstr "nav atbalstīts"
 
 msgid "not tested"
 msgstr "nav testēts"
 
+msgid "not valid frontend"
+msgstr "nav derīgs frontend"
+
 msgid "not_tested"
 msgstr "nav_testēts"
+
+msgid "nothing"
+msgstr "nav"
 
 msgid "nothing connected"
 msgstr "nekas nav pievienots"
@@ -11688,6 +12832,9 @@ msgstr "izslēgts vai ieslēgts wpa2"
 
 msgid "offset is"
 msgstr "kompensē"
+
+msgid "omit"
+msgstr "nē"
 
 msgid "on"
 msgstr "ieslēgts"
@@ -11713,14 +12860,11 @@ msgstr "atvērt DNS konfigurāciju"
 msgid "original"
 msgstr "oriģināls"
 
-msgid "original language"
-msgstr "oriģinālā valoda"
-
 msgid "pass"
 msgstr "šobrīd"
 
 msgid "pausing"
-msgstr "nopauzēts"
+msgstr "pauzēts"
 
 msgid "performing arts"
 msgstr "skatuves māksla"
@@ -11736,6 +12880,12 @@ msgstr "tautas kultūra/tradicionālā māksla"
 
 msgid "pre-school children's program"
 msgstr "pirmsskolas bērnu programma"
+<<<<<<< HEAD
+=======
+
+msgid "preserve bookmarks in cuts"
+msgstr "saglabāt grāmatzīmes izgriestajos"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "receiver software because updates are available."
 msgstr "uztvērēja programmatūru jo atjauninājumi pieejami."
@@ -11761,6 +12911,12 @@ msgstr "dzēst pēc šīs pozīcijas"
 msgid "remove before this position"
 msgstr "dzēst pirms šīs pozīcijas"
 
+<<<<<<< HEAD
+=======
+msgid "remove bookmarks in cuts"
+msgstr "dzēst grāmatzīmes izgriestajos"
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "remove this mark"
 msgstr "dzēst iezīmi"
 
@@ -11776,9 +12932,6 @@ msgstr "otrādi pēc datuma"
 msgid "rewind to the previous chapter"
 msgstr "atgriezties uz iepriekšējo nodaļu"
 
-msgid "rgb"
-msgstr "rgb"
-
 msgid "right"
 msgstr "labā"
 
@@ -11786,11 +12939,12 @@ msgid "right, wrapped"
 msgstr "pa labi, saspiesti"
 
 msgid "rock/pop"
-msgstr "roks/pops"
+msgstr "roks, pops"
 
 msgid "romance"
 msgstr "romance"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "rotor"
 msgstr "Rotors: "
@@ -11800,15 +12954,29 @@ msgstr "notiek"
 
 msgid "save"
 msgstr ""
+=======
+msgid "rotor"
+msgstr "rotors"
+
+msgid "rotor is not used"
+msgstr "rotors netiek izmantots"
+
+msgid "running"
+msgstr "notiek"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "scan state"
 msgstr "meklēšanas statuss"
 
 msgid "science fiction/fantasy/horror"
+<<<<<<< HEAD
 msgstr "zinātniskā fantastika/fantāzijas/šausmu"
 
 msgid "seconds"
 msgstr "sekundes"
+=======
+msgstr "zinātniskā fantastika, fantāzijas, šausmu"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "select CAId's"
 msgstr "izvēlēties"
@@ -11821,11 +12989,9 @@ msgid "select menu entry"
 msgstr "norādīt izvēlnes ierakstu"
 
 msgid "serious music/classic music"
-msgstr "nopietnā mūzika/klasiskā mūzika"
+msgstr "nopietnā mūzika, klasiskā mūzika"
 
-msgid "serious/classical/religious/historical movie/drama"
-msgstr "nopietnā/klasiskā/reliģiskā/vēsturiskā filma/drāma"
-
+<<<<<<< HEAD
 msgid "service off-air"
 msgstr "kanāls nedarbojas"
 
@@ -11833,6 +12999,14 @@ msgstr "kanāls nedarbojas"
 msgid "set default"
 msgstr "Pēc noklusējuma"
 
+=======
+msgid "serious/classical/religious/historical drama"
+msgstr "nopietnā, klasiskā, reliģiskā, vēsturiskā drāma"
+
+msgid "service off-air"
+msgstr "kanāls nedarbojas"
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "show DVD main menu"
 msgstr "rādīt DVD galveno izvēlni"
 
@@ -11849,7 +13023,7 @@ msgid "show softwaremanager on blue button"
 msgstr "parādīt programmatūras pārvaldnieku ar zilo pogu"
 
 msgid "show/game show (general)"
-msgstr "šovi/spēļu šovi (vispārīgi)"
+msgstr "šovi, spēļu šovi"
 
 msgid "shuffle"
 msgstr "jaukts"
@@ -11873,6 +13047,14 @@ msgstr "slots%s - %s režīms 1"
 #, fuzzy, python-format
 msgid "slot%s - %s (current image)"
 msgstr "slots%s - %s režīms 1 (pašreizējais imidžs)"
+
+#, python-format
+msgid "slot%s - %s"
+msgstr "slots%s - %s"
+
+#, python-format
+msgid "slot%s - %s (current image)"
+msgstr "slots%s - %s (pašreizējais imidžs)"
 
 #, python-format
 msgid "slot%s - %s (current image) with, backup"
@@ -11906,17 +13088,22 @@ msgstr "slots%s - %s, ar dublējumkopiju"
 msgid "slot%s - %s, without backup"
 msgstr "slots%s - %s, bez dublējumkopijas"
 
-msgid "soap/melodram/folkloric"
-msgstr "ziepju opera/melodrāma/folklora"
+msgid "soap/melodrama/folkloric"
+msgstr "ziepju opera, melodrāma, folklora"
 
 msgid "social/political issues/economics (general)"
-msgstr "sociālie/politiskie jautājumi/ekonomika (vispārīgi)"
+msgstr "sociālie, politiskie jautājumi, ekonomika"
 
-msgid "social/spiritual science"
-msgstr "sociālie/garīgā zinātne"
+msgid "social/spiritual sciences"
+msgstr "sociālie, garīgie"
 
+<<<<<<< HEAD
 msgid "spark"
 msgstr ""
+=======
+msgid "space"
+msgstr "tukšums"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "special events"
 msgstr "speciālie notikumi"
@@ -11925,13 +13112,20 @@ msgid "special format data DVD (HDTV compatible)"
 msgstr "īpaša formāta datu DVD (HDTV)"
 
 msgid "sports (general)"
+<<<<<<< HEAD
 msgstr "sports (vispārīgi)"
+=======
+msgstr "sports"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "sports magazine"
 msgstr "sporta žurnāls"
 
 msgid "standard"
 msgstr "standarta"
+
+msgid "standby "
+msgstr "gaidstāve "
 
 msgid "start cut here"
 msgstr "sākt griešanu šeit"
@@ -11960,11 +13154,16 @@ msgstr "pārslēgt uz nākamo subtitru valodu"
 msgid "talk show"
 msgstr "runu šovi"
 
-msgid "team sports"
-msgstr "komandu sports"
+msgid "team sports/excluding football"
+msgstr "komandu sporta veidi"
 
+<<<<<<< HEAD
 msgid "technology/natural science"
 msgstr "tehnoloģijas/dabaszinātnes"
+=======
+msgid "technology/natural sciences"
+msgstr "tehnoloģijas, dabaszinātnes"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "template file"
 msgstr "šablona fails"
@@ -11972,6 +13171,7 @@ msgstr "šablona fails"
 msgid "tennis/squash"
 msgstr "teniss/skvošs"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "terrestrial"
 msgstr "Virszemes"
@@ -11984,12 +13184,13 @@ msgstr ""
 
 msgid "this bouquet is protected by a parental control pin"
 msgstr "šī buķete ir aizsargāta ar vecāku aizsardzību"
+=======
+msgid "testing"
+msgstr "darbojas"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "this recording"
 msgstr "šim ierakstam"
-
-msgid "this service is protected by a parental control pin"
-msgstr "šis kanāls ir aizsargāts ar vecāku kontroles PIN kodu"
 
 msgid "toggle time, chapter, audio, subtitle info"
 msgstr "Ie/izslēgt laiku, nodaļu, skaņu, subtitru informāciju"
@@ -12027,9 +13228,6 @@ msgstr "nezināma kļūda"
 msgid "unknown service"
 msgstr "nezināms kanāls"
 
-msgid "unpublished"
-msgstr "nepublicēts"
-
 msgid "untestable"
 msgstr "netestēts"
 
@@ -12039,9 +13237,14 @@ msgstr "līdz gaidstāvei/pārstartēšanai"
 msgid "user defined"
 msgstr "lietotāja definēts"
 
+<<<<<<< HEAD
 #, fuzzy
 msgid "user defined hidden"
 msgstr "lietotāja definēts"
+=======
+msgid "user defined hidden"
+msgstr "lietotāja slēpti"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "variety show"
 msgstr "varietē šovi"
@@ -12050,7 +13253,11 @@ msgid "vertical"
 msgstr "vertikālā"
 
 msgid "violet"
+<<<<<<< HEAD
 msgstr ""
+=======
+msgstr "violets"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "wait for ci..."
 msgstr "gaidiet atbildi no CI..."
@@ -12110,6 +13317,12 @@ msgstr "ar uztvērēja nosaukumu"
 msgid "with_errors"
 msgstr "ar_kļūdām"
 
+<<<<<<< HEAD
+=======
+msgid "xp1000"
+msgstr "xp1000"
+
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "yellow"
 msgstr "dzeltenā"
 
@@ -12120,7 +13333,11 @@ msgid "yes (keep feeds)"
 msgstr "jā (paturēt barotnes)"
 
 msgid "yes, but not in multi selections"
+<<<<<<< HEAD
 msgstr ""
+=======
+msgstr "izmantot tikai jā/nē"
+>>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
 msgid "zap"
 msgstr "pārslēgt"

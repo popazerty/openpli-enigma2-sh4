@@ -9,7 +9,8 @@ import VideoEnhancement
 import os
 import skin
 
-class VideoEnhancementSetup(Screen, ConfigListScreen):
+
+class VideoEnhancementSetup(ConfigListScreen, Screen):
 
 	skin = """
 		<screen name="VideoEnhancementSetup" position="center,center" size="560,440" title="VideoEnhancementSetup">
@@ -28,16 +29,15 @@ class VideoEnhancementSetup(Screen, ConfigListScreen):
 
 	def __init__(self, session):
 		Screen.__init__(self, session)
-		self.session = session
-		self.onChangedEntry = [ ]
+		self.onChangedEntry = []
 		self.skinName = ["VideoEnhancementSetup"]
-		self.setup_title = _("Video enhancement setup")
+		self.setTitle(_("Video enhancement setup"))
 		self["introduction"] = StaticText()
 
-		self.list = [ ]
-		self.xtdlist = [ ]
+		self.list = []
+		self.xtdlist = []
 		self.seperation = skin.parameters.get("ConfigListSeperator", 300)
-		ConfigListScreen.__init__(self, self.list, session = self.session, on_change = self.changedEntry)
+		ConfigListScreen.__init__(self, self.list, session=self.session, on_change=self.changedEntry)
 		self.createSetup()
 
 		self["actions"] = ActionMap(["SetupActions", "ColorActions", "MenuActions"],
@@ -58,10 +58,6 @@ class VideoEnhancementSetup(Screen, ConfigListScreen):
 			self["config"].onSelectionChanged.append(self.SelectionChanged)
 		self.rememberOldSettings()
 		self.changedEntry()
-		self.onLayoutFinish.append(self.layoutFinished)
-
-	def layoutFinished(self):
-		self.setTitle(self.setup_title)
 
 	def rememberOldSettings(self):
 		self.oldContrast = config.pep.contrast.value
@@ -101,7 +97,7 @@ class VideoEnhancementSetup(Screen, ConfigListScreen):
 		self.brightnessEntry = addToConfigList(_("Brightness"), config.pep.brightness, _("This option sets the picture brightness."))
 		self.blue_boostEntry = addToConfigList(_("Boost blue"), config.pep.blue_boost, _("This option allows you to boost the blue tones in the picture."), add_to_xtdlist)
 		self.green_boostEntry = addToConfigList(_("Boost green"), config.pep.green_boost, _("This option allows you to boost the green tones in the picture."), add_to_xtdlist)
-		self.contrastEntry = addToConfigList(_("Contrast"), config.pep.contrast, _("This option sets  the picture contrast."))
+		self.contrastEntry = addToConfigList(_("Contrast"), config.pep.contrast, _("This option sets the picture contrast."))
 		self.digital_contour_removalEntry = addToConfigList(_("Digital contour removal"), config.pep.digital_contour_removal, _("This option sets the surpression of false digital contours, that are the result of a limited number of discrete values."), add_to_xtdlist)
 		self.dynamic_contrastEntry = addToConfigList(_("Dynamic contrast"), config.pep.dynamic_contrast, _("This option allows to set the level of dynamic contrast of the picture."), add_to_xtdlist)
 		self.hueEntry = addToConfigList(_("Hue"), config.pep.hue, _("This option sets the picture hue."))
@@ -208,7 +204,7 @@ class VideoEnhancementSetup(Screen, ConfigListScreen):
 			self.keySave()
 
 	def keyYellow(self):
-		self.session.openWithCallback(self.keyYellowConfirm, MessageBox, _("Reset video enhancement settings to your last configuration?"), MessageBox.TYPE_YESNO, timeout = 20, default = False)
+		self.session.openWithCallback(self.keyYellowConfirm, MessageBox, _("Reset video enhancement settings to your last configuration?"), MessageBox.TYPE_YESNO, timeout=20, default=False)
 
 	def keyBlueConfirm(self, confirmed):
 		if not confirmed:
@@ -249,23 +245,8 @@ class VideoEnhancementSetup(Screen, ConfigListScreen):
 	def keyBlue(self):
 		self.session.openWithCallback(self.keyBlueConfirm, MessageBox, _("Reset video enhancement settings to system defaults?"), MessageBox.TYPE_YESNO, timeout=20, default=False)
 
-	# for summary:
-	def changedEntry(self):
-		for x in self.onChangedEntry:
-			x()
 
-	def getCurrentEntry(self):
-		return self["config"].getCurrent()[0]
-
-	def getCurrentValue(self):
-		return str(self["config"].getCurrent()[1].getText())
-
-	def createSummary(self):
-		from Screens.Setup import SetupSummary
-		return SetupSummary
-
-
-class VideoEnhancementPreview(Screen, ConfigListScreen):
+class VideoEnhancementPreview(ConfigListScreen, Screen):
 	skin = """
 		<screen name="VideoEnhancementPreview" position="center,e-170" size="560,170" title="VideoEnhancementPreview">
 			<ePixmap pixmap="buttons/red.png" position="0,0" size="140,40" alphatest="on" />
@@ -280,17 +261,17 @@ class VideoEnhancementPreview(Screen, ConfigListScreen):
 	def __init__(self, session, configEntry=None, oldSplitMode=None, maxValue=None):
 		Screen.__init__(self, session)
 
-		self.onChangedEntry = [ ]
-		self.setup_title = _("Video enhancement preview")
+		self.onChangedEntry = []
+		self.setTitle(_("Video enhancement preview"))
 		self.oldSplitMode = oldSplitMode
 		self.maxValue = maxValue
 		self.configStepsEntry = None
 		self.isStepSlider = None
 		self.seperation = skin.parameters.get("ConfigListSeperator", 300)
 
-		self.list = [ ]
+		self.list = []
 		self.configEntry = configEntry
-		ConfigListScreen.__init__(self, self.list, session = session, on_change = self.changedEntry)
+		ConfigListScreen.__init__(self, self.list, session=session, on_change=self.changedEntry)
 
 		self["actions"] = ActionMap(["SetupActions"],
 			{
@@ -303,13 +284,9 @@ class VideoEnhancementPreview(Screen, ConfigListScreen):
 		self["introduction"] = StaticText()
 
 		self.createSetup()
-		self.onLayoutFinish.append(self.layoutFinished)
-
-	def layoutFinished(self):
-		self.setTitle(self.setup_title)
 
 	def createSetup(self):
-		self.list = [ ]
+		self.list = []
 		if self.maxValue == 255:
 			self.configStepsEntry = getConfigListEntry(_("Change step size"), config.pep.configsteps)
 
@@ -366,32 +343,19 @@ class VideoEnhancementPreview(Screen, ConfigListScreen):
 				pass
 		self.close()
 
-	# for summary:
-	def changedEntry(self):
-		for x in self.onChangedEntry:
-			x()
-		self.selectionChanged()
-
-	def getCurrentEntry(self):
-		return self["config"].getCurrent()[0]
-
-	def getCurrentValue(self):
-		return str(self["config"].getCurrent()[1].getText())
-
-	def createSummary(self):
-		from Screens.Setup import SetupSummary
-		return SetupSummary
 
 def videoEnhancementSetupMain(session, **kwargs):
 	session.open(VideoEnhancementSetup)
 
+
 def startSetup(menuid):
 	if menuid == "video" and config.usage.setup_level.index == 2:
-		return [(_("Video enhancement settings") , videoEnhancementSetupMain, "videoenhancement_setup", 41)]
-	return [ ]
+		return [(_("Video enhancement settings"), videoEnhancementSetupMain, "videoenhancement_setup", 41)]
+	return []
+
 
 def Plugins(**kwargs):
 	list = []
 	if config.usage.setup_level.index >= 2 and os.path.exists("/proc/stb/vmpeg/0/pep_apply"):
-		list.append(PluginDescriptor(name=_("Video enhancement setup"), description=_("Advanced video enhancement setup"), where = PluginDescriptor.WHERE_MENU, needsRestart = False, fnc=startSetup))
+		list.append(PluginDescriptor(name=_("Video enhancement setup"), description=_("Advanced video enhancement setup"), where=PluginDescriptor.WHERE_MENU, needsRestart=False, fnc=startSetup))
 	return list
