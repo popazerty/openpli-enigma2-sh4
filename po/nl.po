@@ -16,9 +16,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 <<<<<<< HEAD
+<<<<<<< HEAD
 "X-Generator: Poedit 2.2.4\n"
 =======
 "X-Generator: Poedit 3.0\n"
+=======
+"X-Generator: Poedit 3.0.1\n"
+>>>>>>> 2eb596967a1b038d1a9d0de2fb1059c7bd24d52a
 
 msgid ""
 "\n"
@@ -161,7 +165,7 @@ msgstr "%.2f GB"
 
 #, python-format
 msgid "%.3f MHz"
-msgstr ""
+msgstr "%.3f MHz"
 
 #, python-format
 msgid "%02d:%02d"
@@ -376,11 +380,11 @@ msgstr "%s %d.%d"
 
 #, python-format
 msgid "%s KSymb/s"
-msgstr ""
+msgstr "%s KSymb/s"
 
 #, python-format
 msgid "%s MHz"
-msgstr ""
+msgstr "%s MHz"
 
 #, python-format
 msgid "%s imported from fallback tuner"
@@ -1199,9 +1203,8 @@ msgstr "Armenië"
 msgid "Artist"
 msgstr "Artiest"
 
-#, fuzzy
 msgid "Arts/Culture (without music)"
-msgstr "Kunst/Cultuur (Algemeen)"
+msgstr "Kunst/Cultuur (zonder muziek)"
 
 msgid "Aruba"
 msgstr "Aruba"
@@ -1261,7 +1264,7 @@ msgid "Audio auto volume level"
 msgstr "Automatisch volume"
 
 msgid "Audio description for the visually impaired"
-msgstr ""
+msgstr "Audiobeschrijving voor visueel gehandicapten"
 
 msgid "Audio language selection 1"
 msgstr "Audio. Taalkeuze 1"
@@ -1397,7 +1400,7 @@ msgstr "Beschikbare talen:"
 <<<<<<< HEAD
 =======
 msgid "Axas E4HD Ultra"
-msgstr ""
+msgstr "Axas E4HD Ultra"
 
 >>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "Azerbaijan"
@@ -1671,7 +1674,7 @@ msgstr "Kabel scan"
 
 #, python-format
 msgid "Cable scan executable utility not found '%s'!"
-msgstr ""
+msgstr "Kabelscan programma niet gevonden '%s'!"
 
 msgid "Cabo Verde"
 msgstr "Kaapverdië"
@@ -1947,9 +1950,8 @@ msgstr ""
 "Controleer tuner %s\n"
 "DiSEqC poort %s naar %s"
 
-#, fuzzy
 msgid "Children/Youth/Education/Science"
-msgstr "Educatief/Wetenschappelijk /..."
+msgstr "Kinderen/Jeugd/Educatie/Wetenschap"
 
 msgid "Chile"
 msgstr "Chili"
@@ -1972,10 +1974,10 @@ msgstr "Kies bouquet"
 <<<<<<< HEAD
 =======
 msgid "Choose whether to scan a single transponder, one satellite or multiple satellites."
-msgstr ""
+msgstr "Kies of u een enkele transponder, een satelliet of meerdere satellieten wilt scannen."
 
 msgid "Choose whether to scan for free services only or whether to include paid/encrypted services too."
-msgstr ""
+msgstr "Indien geactiveerd, dan zoekt u enkel naar FTA zenders. In het andere geval zoekt u ook naar alle gecodeerde zenders waar u al dan niet beeld op kunt krijgen."
 
 >>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "Choose which tuner to configure."
@@ -3226,9 +3228,8 @@ msgstr "Gedéactiveerd"
 msgid "Disk space to reserve for recordings (in GB)"
 msgstr "Te reserveren schijfruimte voor opnames (in GB)"
 
-#, fuzzy
 msgid "Disk state: "
-msgstr "zoekstatus"
+msgstr "Status van de schijf: "
 
 msgid "Display 16:9 content as"
 msgstr "Toon 16:9 materiaal als"
@@ -3471,9 +3472,8 @@ msgstr "Beschikbare plugins"
 msgid "Downloadable plugins"
 msgstr "Beschikbare plugins"
 
-#, fuzzy
 msgid "Downloaded Images"
-msgstr "Het image wordt gedownload"
+msgstr "Gedownloade Images"
 
 msgid "Downloading"
 msgstr "Bezig met downloaden"
@@ -3493,7 +3493,7 @@ msgstr "Applicatie informatie ophalen. Een ogenblik aub..."
 <<<<<<< HEAD
 =======
 msgid "Drama and Films"
-msgstr ""
+msgstr "Drama en Films"
 
 >>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "Drop unconfigured satellites"
@@ -4398,9 +4398,8 @@ msgstr "Van:"
 msgid "Frontprocessor version: %s"
 msgstr "Frontprocessor versie: %s"
 
-#, fuzzy
 msgid "Full description separator"
-msgstr "Volledige omschrijving scheidingstype"
+msgstr "Volledige omschrijving scheidingsteken"
 
 #. TRANSLATORS: (aspect ratio policy: display as fullscreen, even if the content aspect ratio does not match the screen ratio)
 msgid "Full screen"
@@ -4412,9 +4411,8 @@ msgstr "Volledige transparantie"
 msgid "Full view resolution"
 msgstr "Resolutie van de volledige beeldgrootte"
 
-#, fuzzy
 msgid "Fullbackup Images"
-msgstr "Fallback timer"
+msgstr "Images van een volledige backup"
 
 msgid "Function of OK button"
 msgstr "De functie van de Ok toets"
@@ -4636,10 +4634,13 @@ msgstr "HDMI"
 msgid "HD2400"
 msgstr "HD2400"
 
-#, fuzzy
 msgid "HD60/HD66SE/Multibox/Multibox SE"
+<<<<<<< HEAD
 msgstr "HD60/Multibox/Multibox SE"
 >>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
+=======
+msgstr "HD60/HD66SE/Multibox/Multibox SE"
+>>>>>>> 2eb596967a1b038d1a9d0de2fb1059c7bd24d52a
 
 msgid "HDMI Colordepth"
 msgstr "HDMI kleurdiepte"
@@ -5509,7 +5510,7 @@ msgid "MB"
 msgstr "MB"
 
 msgid "MHz"
-msgstr ""
+msgstr "MHz"
 
 msgid "MMC card"
 msgstr "MMC kaart"
@@ -6037,9 +6038,8 @@ msgstr "Nieuw Caledonië"
 msgid "New Zealand"
 msgstr "Nieuw Zeeland"
 
-#, fuzzy
 msgid "News/Current Affairs/Social"
-msgstr "Nieuws/Actualiteiten"
+msgstr "Nieuws/Actualiteiten/Sociaal"
 
 msgctxt "button label, 'next screen'"
 msgid "Next"
@@ -6444,9 +6444,8 @@ msgstr "Gewone"
 msgid "Original"
 msgstr "Origineel"
 
-#, fuzzy
 msgid "Original audio"
-msgstr "Origineel"
+msgstr "Origineel geluid"
 
 msgid "Other"
 msgstr "Anders"
@@ -7556,7 +7555,7 @@ msgstr "Verwijder DVB-T kanalen"
 <<<<<<< HEAD
 =======
 msgid "Remove the services on scanned transponders before re-adding services?"
-msgstr ""
+msgstr "Indien geactiveerd, dan worden voor het scannen alle huidige zenders verwijderd."
 
 >>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "Remove this logfile"
@@ -8014,8 +8013,12 @@ msgstr "Zoekstatus"
 =======
 
 msgid "Scan using transponders on NIT table? 'No' will use transponders in xml file."
+<<<<<<< HEAD
 msgstr ""
 >>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
+=======
+msgstr "Indien geactiveerd, dan worden alle transponders conform de NIT tabel gescand. Anders worden de transponders vanuit het XML bestand gescand. "
+>>>>>>> 2eb596967a1b038d1a9d0de2fb1059c7bd24d52a
 
 msgid "Scan wireless networks"
 msgstr "Zoek naar WiFi netwerken"
@@ -8427,17 +8430,19 @@ msgstr "Is uw SCR apparaat voorzien van externe voeding"
 msgid "Select whether your SCR device is externally powered."
 msgstr "Kies of uw SCR apparaat is voorzien van een externe voeding."
 
-#, fuzzy
 msgid "Select which satellite to scan."
-msgstr "Kies de satellieten"
+msgstr "Kies de satellieten om te scannen"
 
-#, fuzzy
 msgid "Select which transponder to scan."
-msgstr "Selecteer provider om toe te voegen..."
+msgstr "Kies welke transponder u wilt scannen."
 
 msgid "Select which tuner to use for the scan."
+<<<<<<< HEAD
 msgstr ""
 >>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
+=======
+msgstr "Bepaal met welke tuner u een zenderscan wenst uit te voeren."
+>>>>>>> 2eb596967a1b038d1a9d0de2fb1059c7bd24d52a
 
 msgid "Select wireless network"
 msgstr "Selecteer draadloos netwerk"
@@ -8618,9 +8623,8 @@ msgstr "Kanaal kiezen bij opstarten"
 msgid "Set blocktimes by weekday"
 msgstr "Stel bloktijden in als wekelijks"
 
-#, fuzzy
 msgid "Set cursor on service from channel history"
-msgstr "Schakel naar de vorige zender in de geschiedenis"
+msgstr "Zet de cursor op de zender uit de zenderhistorie"
 
 msgid "Set default"
 msgstr "Zet als standaard"
@@ -9017,9 +9021,8 @@ msgstr "Toon een waarschuwing alvorens 'Negeer conflict' instellen"
 msgid "Show warning when timeshift is stopped"
 msgstr "Waarschuwen zodra de timeshift gestopt wordt"
 
-#, fuzzy
 msgid "Show/Game Show/Leisure hobbies"
-msgstr "Vrije tijd hobby's"
+msgstr "Show/Spelshow/Hobbies"
 
 msgid "Show/hide window"
 msgstr "Toon/verberg het scherm"
@@ -9151,11 +9154,11 @@ msgstr "Slot %d"
 
 #, python-format
 msgid "Slot %s / FBC in %s"
-msgstr ""
+msgstr "Slot %s / FBC in %s"
 
-#, fuzzy, python-format
+#, python-format
 msgid "Slot %s / FBC virtual %s"
-msgstr "FBC virtueel slot"
+msgstr "Slot %s / FBC virtueel %s"
 
 msgid "Slovak"
 msgstr "Slovaaks"
@@ -9372,7 +9375,6 @@ msgstr "Sri Lanka"
 msgid "Standard"
 msgstr "Standaard"
 
-#, fuzzy
 msgid "Standard list"
 msgstr "Standaard lijst"
 
@@ -11671,9 +11673,8 @@ msgstr "Indien geactiveerd, dan worden teletext ondertitels op hun oorspronkelij
 msgid "When enabled, the VCR scart option will be shown on the main menu"
 msgstr "Indien geactiveerd, dan zullen de VCR scartopties weergegeven worden in het hoofdmenu."
 
-#, fuzzy
 msgid "When enabled, the channel selection list will be hidden while listening to a radio channel. When disabled, the option 'Auto play last service in radio mode' is available."
-msgstr "Indien geactiveerd, dan wordt de zenderlijst niet weergegeven tijdens het luisteren naar de radio."
+msgstr "Indien geactiveerd, dan zal de zenderlijst verborgen worden tijdens het luisteren naar een radiozender. Wanneer deze optie uitgeschakeld is, dan is de optie 'Speel de laatste zender automatisch af' in de radiomodus' beschikbaar."
 
 msgid "When enabled, the infobar will be displayed when a new event starts."
 msgstr "Indien geactiveerd, dan wordt de informatiebalk weergegeven indien een nieuw programma start."
@@ -11702,9 +11703,8 @@ msgstr "Indien geactiveerd, dan selecteert de ontvanger een AC3 spoor indien dez
 msgid "When enabled, the receiver will select an AC3+ track (when available)."
 msgstr "Indien geactiveerd, dan selecteert de ontvanger een AC3+ spoor indien deze beschikbaar is."
 
-#, fuzzy
 msgid "When enabled, then when changing bouquets, set the cursor on the service from the channel history in the channel selection list."
-msgstr "Indien geactiveerd, dan kunt u het volume bedienen met de pijltjestoetsen, i.p.v. dat u hiermee de zenderlijst opent."
+msgstr "Indien geactiveerd, dan zal bij het wisselen van bouquet de cursor op de laatst afgespeelde zender in de zenderhistorie komen te staan. "
 
 msgid "When enabled, this setting has more weight than 'Preferred tuner for recordings'."
 msgstr "Indien geactiveerd, dan wordt de voorkeur gegeven aan deze optie boven de optie 'Voorkeurstuner voor opname's'."
@@ -12159,9 +12159,8 @@ msgstr "Zimbabwe"
 msgid "Zgemma H.S/H.2S/H.2H/H5/H7(old model)"
 msgstr "Zgemma H.S/H.2S/H.2H/H5/H7 (oud model)"
 
-#, fuzzy
 msgid "Zgemma H9(old model)/I55Plus/H8"
-msgstr "Zgemma H9(oud model)/I55Plus"
+msgstr "Zgemma H9(oud model)/I55Plus/H8"
 
 msgid "Zgemma Star S/2S/H1/H2"
 msgstr "Zgemma Star S/2S/H1/H2"
@@ -12201,8 +12200,11 @@ msgid "active"
 msgstr "actief"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 #, fuzzy
+=======
+>>>>>>> 2eb596967a1b038d1a9d0de2fb1059c7bd24d52a
 msgid "active "
 msgstr "actief"
 
@@ -12217,9 +12219,8 @@ msgstr ""
 msgstr "extra kabel vanaf de motor"
 >>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 
-#, fuzzy
 msgid "adult movie"
-msgstr "Erotiek/Drama"
+msgstr "Erotiek"
 
 msgid "advanced"
 msgstr "Geavanceerd"
@@ -12355,9 +12356,8 @@ msgstr "Wijzig stapgrootte"
 msgid "chapters"
 msgstr "hoofdstukken"
 
-#, fuzzy
 msgid "childrens's youth program (general)"
-msgstr "Kinderprogramma/Jeugd (Algemeen)"
+msgstr "Kinderprogramma (Algemeen)"
 
 msgid "circular left"
 msgstr "circular links"
@@ -12435,9 +12435,12 @@ msgid "economics/social advisory"
 msgstr "Economisch/Sociaal"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 msgid "education/science/factual topics (general)"
 =======
 #, fuzzy
+=======
+>>>>>>> 2eb596967a1b038d1a9d0de2fb1059c7bd24d52a
 msgid "educational/science/factual topics (general)"
 >>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgstr "Educatief/Wetenschappelijk/Feiten (Algemeen)"
@@ -12538,7 +12541,6 @@ msgstr "Film/Bioscoop"
 msgid "fine arts"
 msgstr "Fijne kunst"
 
-#, fuzzy
 msgid "fitness and health"
 msgstr "Fitness & Gezondheid"
 
@@ -12692,9 +12694,8 @@ msgstr "luistert naar hotplug evenementen"
 msgid "literature"
 msgstr "Literatuur"
 
-#, fuzzy
 msgid "local sports"
-msgstr "Teamsporten"
+msgstr "Lokale sporten"
 
 msgid "locked"
 msgstr "locked"
@@ -12741,9 +12742,8 @@ msgstr "verplaats omhoog naar eerste ingave"
 msgid "move up to previous entry"
 msgstr "verplaats omhoog naar vorige ingave"
 
-#, fuzzy
 msgid "movie (general)"
-msgstr "Film/Drama (Algemeen)"
+msgstr "Film (Algemeen)"
 
 msgid "multi"
 msgstr "multi"
@@ -12901,7 +12901,7 @@ msgstr "Peuter/Kleuterprogramma"
 <<<<<<< HEAD
 =======
 msgid "preserve bookmarks in cuts"
-msgstr ""
+msgstr "Bewaar de bladwijzers in de uitsnedes."
 
 >>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "receiver software because updates are available."
@@ -12929,10 +12929,13 @@ msgid "remove before this position"
 msgstr "Verwijder voor deze positie"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 #, fuzzy
+=======
+>>>>>>> 2eb596967a1b038d1a9d0de2fb1059c7bd24d52a
 msgid "remove bookmarks in cuts"
-msgstr "Wis markeerpunt"
+msgstr "verwijder de bladwijzers uit de uitsnedes"
 
 >>>>>>> 4cf2ad3c93680791dc065098aeaec5f28fef9daf
 msgid "remove this mark"
@@ -13008,9 +13011,8 @@ msgstr "selecteer menuitem"
 msgid "serious music/classic music"
 msgstr "Serieuze muziek/Klassieke muziek"
 
-#, fuzzy
 msgid "serious/classical/religious/historical drama"
-msgstr "Serieuze/Klassiek/Religieus/Historische film/Drama"
+msgstr "Serieuze/Klassiek/Religieus/Historisch drama"
 
 # Graag een acceptabele correctie.
 msgid "service off-air"
@@ -13096,16 +13098,14 @@ msgstr "slot%s - %s, met backup"
 msgid "slot%s - %s, without backup"
 msgstr "slot%s - %s, zonder backup"
 
-#, fuzzy
 msgid "soap/melodrama/folkloric"
 msgstr "Soap/Melodrama/Folklore"
 
 msgid "social/political issues/economics (general)"
 msgstr "Sociaal/Politiek/Economisch (Algemeen)"
 
-#, fuzzy
 msgid "social/spiritual sciences"
-msgstr "Sociale/Geestelijke wetenschap"
+msgstr "Sociaal/Spirituele wetenschappen"
 
 <<<<<<< HEAD
 msgid "spark"
@@ -13130,7 +13130,6 @@ msgstr "Sportmagazine"
 msgid "standard"
 msgstr "Standaard"
 
-#, fuzzy
 msgid "standby "
 msgstr "Stand-by"
 
@@ -13162,9 +13161,8 @@ msgid "talk show"
 msgstr "Talkshow"
 
 msgid "team sports/excluding football"
-msgstr ""
+msgstr "Team sport, uitgezonderd voetbal"
 
-#, fuzzy
 msgid "technology/natural sciences"
 msgstr "Technologisch/Natuurwetenschappen"
 
